@@ -1,37 +1,90 @@
-import Image from 'next/image'
-import React from 'react'
-import { Progress } from './ui/progress'
-import { Play } from 'lucide-react'
+"use client"
+import Image from 'next/image';
+import React, { useEffect, useRef, useState } from 'react';
+import { ChevronLeft, ChevronRight, FastForward, Forward, Instagram, Pause, Play, Rewind } from 'lucide-react';
+import { Progress } from './ui/progress';
 
 const Music = () => {
-  return (
-    <div className='absolute bottom-0 right-0 p-5 w-full flex justify-center  '>
-        <div className='relative w-full p-5' 
-        style={{
-            backdropFilter: "blur(5px)",
-            background: "rgba(255, 255, 255, 0.064)",
-            borderRadius: "5px 5px 30px 30px",
+    const [playing, setPlaying] = useState<boolean>(false);
+    const audioRef = useRef<HTMLAudioElement>(null);
 
-        }}>
-            <Progress className='absolute bottom-28 left-0 -top-0.5' value={33} />
-            <div style={{
-                zIndex: 9999
-            }}>
-                <div className='flex items-center'>
-                    <Image
-                        src="/pre.svg"
-                        alt="Nucleus Music loader"
-                        className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-                        width={40}
-                        height={24}
-                        priority
-                    />
-                    <Play />
+    const handlePlay = () => {
+        const audio = audioRef.current;
+        if (audio) {
+            audio.play();
+            setPlaying(true);
+        }
+    };
+
+    const handlePause = () => {
+        const audio = audioRef.current;
+        if (audio) {
+            audio.pause();
+            setPlaying(false);
+        }
+    };
+
+    useEffect(() => {
+        const audio = audioRef.current;
+
+        const handleLoadedMetadata = () => {
+            // Media is loaded, you can now play it
+            if (playing) {
+                handlePlay();
+            }
+        };
+
+        if (audio) {
+            audio.addEventListener('loadedmetadata', handleLoadedMetadata);
+        }
+
+        return () => {
+            if (audio) {
+                audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
+            }
+        };
+    }, [playing]);
+
+    return (
+        <div className='fixed bottom-0 lg:w-[500px] right-0 p-5 w-full flex justify-center '>
+            <div className='relative w-full p-5 border-solid border-1 dark:border-black' 
+                style={{
+                    backdropFilter: "blur(5px)",
+                    background: "rgba(255, 255, 255, 0.064)",
+                    borderRadius: "5px 5px 30px 30px",
+                }}>
+                <Progress className='absolute bottom-28 left-0 -top-0.5' value={33} />
+                <div style={{ zIndex: 9999 }}>
+                    <div className='flex items-center justify-between'>
+                        <div className='flex items-center gap-6'>
+                            <Image
+                                src="/pre.svg"
+                                alt="Nucleus Music loader"
+                                className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+                                width={40}
+                                height={24}
+                                priority
+                            />
+                            <div>
+                                kozan
+                                <Instagram className='text-xs'/>
+                            </div>
+                        </div>
+                        <audio ref={audioRef} src="/audio.mp4" type="audio/mp4" />
+                        <div  className='flex items-center gap-2'>
+                            <Rewind />
+                            { playing ?
+                                <Pause onClick={handlePause} />
+                                :
+                                <Play onClick={handlePlay} />
+                            }
+                            <FastForward />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-  )
+    );
 }
 
-export default Music
+export default Music;
