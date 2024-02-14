@@ -6,6 +6,7 @@ import { Progress } from './ui/progress';
 
 const Music = () => {
     const [playing, setPlaying] = useState<boolean>(false);
+    const [progress, setProgress] = useState<number>(0);
     const audioRef = useRef<HTMLAudioElement>(null);
 
     const handlePlay = () => {
@@ -24,6 +25,18 @@ const Music = () => {
         }
     };
 
+    const handleTimeUpdate = () => {
+        const audio = audioRef.current;
+        if (audio) {
+            const currentTime = audio.currentTime;
+            const duration = audio.duration;
+            if (duration > 0) {
+                const progressPercentage = (currentTime / duration) * 100;
+                setProgress(progressPercentage);
+            }
+        }
+    };
+
     useEffect(() => {
         const audio = audioRef.current;
 
@@ -36,11 +49,13 @@ const Music = () => {
 
         if (audio) {
             audio.addEventListener('loadedmetadata', handleLoadedMetadata);
+            audio.addEventListener('timeupdate', handleTimeUpdate);
         }
 
         return () => {
             if (audio) {
                 audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
+                audio.removeEventListener('timeupdate', handleTimeUpdate);
             }
         };
     }, [playing]);
@@ -53,7 +68,7 @@ const Music = () => {
                     background: "rgba(255, 255, 255, 0.064)",
                     borderRadius: "5px 5px 30px 30px",
                 }}>
-                <Progress className='absolute bottom-28 left-0 -top-0.5' value={33} />
+                <Progress className='absolute bottom-28 left-0 -top-0.5' value={progress} />
                 <div style={{ zIndex: 9999 }}>
                     <div className='flex items-center justify-between'>
                         <div className='flex items-center gap-6'>
@@ -67,7 +82,7 @@ const Music = () => {
                             />
                             <div>
                                 kozan
-                                <Instagram className='text-xs'/>
+                                {/* <Instagram className='text-xs'/> */}
                             </div>
                         </div>
                         <audio ref={audioRef} src="/audio.mp4" type="audio/mp4" />
