@@ -187,7 +187,7 @@ export function Navigation() {
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
                 <div className="bg-inherit">
-                  <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
+                  <div className="flex h-full w-full select-none flex-col justify-end  p-6 no-underline outline-none focus:shadow-md">
                     <div className= "mb-2 flex gap-3 mt-4 text-lg font-medium">
                         <p>Music</p>
                         <Switch />
@@ -202,6 +202,14 @@ export function Navigation() {
                   </div>
                 </div>
               </li>
+              <div className="flex ">
+              <Image
+                src="/lu.jpg"
+                alt="Nucleus Logo"
+                width={70}
+                height={24}
+                priority
+              />
               <ListItem 
                 onClick={() => {
                     toast({
@@ -212,12 +220,12 @@ export function Navigation() {
               >
                 Hip-Hop
               </ListItem>
-              <div> 
+              </div>
+              <div className="flex">   
                 <Image
-                    src="/lu.jpg"
+                    src="/ric.jpeg"
                     alt="Nucleus Logo"
-                    className="relative lg:dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
-                    width={120}
+                    width={70}
                     height={24}
                     priority
                 />
