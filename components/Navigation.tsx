@@ -59,11 +59,11 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function Navigation() {
   const { toast } = useToast()
-  const { setTheme } = useTheme()
-
+  const { theme,setTheme } = useTheme()
+  console.log("current theme is:",theme)
   return (
-    <div>
-    <div className="flex  gap-10 items-center">
+    <div className="flex gap-10">
+    <div className="flex  gap-10 items-center z-10">
         <Link href={"/"}>
             <Image
                 src="/one.png"
@@ -78,8 +78,8 @@ export function Navigation() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Works</NavigationMenuTrigger>
-          <NavigationMenuContent>
+          <NavigationMenuTrigger className="bg-inherit">Works</NavigationMenuTrigger>
+          <NavigationMenuContent className="bg-transparent">
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
@@ -111,7 +111,7 @@ export function Navigation() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Our Community</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-inherit">Our Community</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {components.map((component) => (
@@ -127,11 +127,11 @@ export function Navigation() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Site Preference</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-inherit">Site Preference</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
-                <ListItem>
+                <ListItem className="bg-inherit">
                   <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
                     <div className= "mb-2 flex gap-3 mt-4 text-lg font-medium">
                         <p>Music</p>

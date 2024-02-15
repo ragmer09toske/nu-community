@@ -37,6 +37,14 @@ const Music = () => {
         }
     };
 
+    const handleEnded = () => {
+        const audio = audioRef.current;
+        if (audio) {
+            audio.currentTime = 0; // Start over from the beginning
+            setPlaying(false); // Ensure playing state is set to false
+        }
+    };
+
     useEffect(() => {
         const audio = audioRef.current;
 
@@ -50,12 +58,14 @@ const Music = () => {
         if (audio) {
             audio.addEventListener('loadedmetadata', handleLoadedMetadata);
             audio.addEventListener('timeupdate', handleTimeUpdate);
+            audio.addEventListener('ended', handleEnded); // Listen for audio ended event
         }
 
         return () => {
             if (audio) {
                 audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
                 audio.removeEventListener('timeupdate', handleTimeUpdate);
+                audio.removeEventListener('ended', handleEnded);
             }
         };
     }, [playing]);
@@ -82,10 +92,9 @@ const Music = () => {
                             />
                             <div>
                                 kozan
-                                {/* <Instagram className='text-xs'/> */}
                             </div>
                         </div>
-                        <audio ref={audioRef} src="/audio.mp4" type="audio/mp4" />
+                        <audio ref={audioRef} src="/audio.mp3" type="audio/mp4" />
                         <div  className='flex items-center gap-2'>
                             <Rewind />
                             { playing ?
