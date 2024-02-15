@@ -94,7 +94,7 @@ const Music = () => {
                                 kozan
                             </div>
                         </div>
-                        <audio ref={audioRef} src="/audio.mp3" type="audio/mp4" />
+                        <audio ref={audioRef} src="/audio.mp3" />
                         <div  className='flex items-center gap-2'>
                             <Rewind />
                             { playing ?
