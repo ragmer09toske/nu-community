@@ -2,7 +2,9 @@ import React from 'react'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut } from './ui/command'
 import { Calculator, Calendar, CreditCard, Settings, Smile, User } from 'lucide-react'
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Card } from './ui/card'
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
+import { Button } from './ui/button'
+import { Input } from './ui/input'
 
 export const Network = () => {
   return (
@@ -25,43 +27,112 @@ export const Network = () => {
             width: "60%",
           }}>
               <Command className="rounded-lg border shadow-md p-2" style={{borderColor: "none", borderWidth: "0px"}}>
-                <CommandInput placeholder="Type a command or search..." />
-                <ScrollArea className="h-[100%] w-full rounded-md border p-4">
-                <CommandList className=''>
-                  <CommandEmpty>No results found.</CommandEmpty>
-                  <CommandGroup heading="Suggestions">
-                    <CommandItem>
-                      <Calendar className="mr-2 h-4 w-4" />
-                      <span>Calendar</span>
-                    </CommandItem>
-                    <CommandItem>
-                      <Smile className="mr-2 h-4 w-4" />
-                      <span>Search Emoji</span>
-                    </CommandItem>
-                    <CommandItem>
-                      <Calculator className="mr-2 h-4 w-4" />
-                      <span>Calculator</span>
-                    </CommandItem>
-                  </CommandGroup>
-                  <CommandSeparator />
-                  <CommandGroup heading="Settings">
-                    <CommandItem>
-                      <User className="mr-2 h-4 w-4" />
-                      <span>Profile</span>
-                      <CommandShortcut>⌘P</CommandShortcut>
-                    </CommandItem>
-                    <CommandItem>
-                      <CreditCard className="mr-2 h-4 w-4" />
-                      <span>Billing</span>
-                      <CommandShortcut>⌘B</CommandShortcut>
-                    </CommandItem>
-                    <CommandItem>
-                      <Settings className="mr-2 h-4 w-4" />
-                      <span>Settings</span>
-                      <CommandShortcut>⌘S</CommandShortcut>
-                    </CommandItem>
-                  </CommandGroup>
-                </CommandList>
+                <div className='p-4
+                 '>
+                  <Input placeholder="Type a command or search..." />
+                </div>
+                <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
+                  <div className='flex flex-col gap-5'>
+                  <Card className="w-[100%]">
+                    <CardHeader>
+                      <CardTitle>Create project</CardTitle>
+                      <CardDescription>Deploy your new project in one-click.</CardDescription>
+                    </CardHeader>
+                    <CardFooter className="flex justify-between">
+                      <Button variant="outline">Cancel</Button>
+                      <Button>Deploy</Button>
+                    </CardFooter>
+                  </Card>
+
+                  <Card className="w-[100%]">
+                    <CardHeader>
+                      <CardTitle>Create project</CardTitle>
+                      <CardDescription>Deploy your new project in one-click.</CardDescription>
+                    </CardHeader>
+                    <CardFooter className="flex justify-between">
+                      <Button variant="outline">Cancel</Button>
+                      <Button>Deploy</Button>
+                    </CardFooter>
+                  </Card>
+
+                  <Card className="w-[100%]">
+                    <CardHeader>
+                      <CardTitle>Create project</CardTitle>
+                      <CardDescription>Deploy your new project in one-click.</CardDescription>
+                    </CardHeader>
+                    <CardFooter className="flex justify-between">
+                      <Button variant="outline">Cancel</Button>
+                      <Button>Deploy</Button>
+                    </CardFooter>
+                  </Card>
+
+                  <Card className="w-[100%]">
+                    <CardHeader>
+                      <CardTitle>Create project</CardTitle>
+                      <CardDescription>Deploy your new project in one-click.</CardDescription>
+                    </CardHeader>
+                    <CardFooter className="flex justify-between">
+                      <Button variant="outline">Cancel</Button>
+                      <Button>Deploy</Button>
+                    </CardFooter>
+                  </Card>
+
+                  <Card className="w-[100%]">
+                    <CardHeader>
+                      <CardTitle>Create project</CardTitle>
+                      <CardDescription>Deploy your new project in one-click.</CardDescription>
+                    </CardHeader>
+                    <CardFooter className="flex justify-between">
+                      <Button variant="outline">Cancel</Button>
+                      <Button>Deploy</Button>
+                    </CardFooter>
+                  </Card>
+
+
+                  <Card className="w-[100%]">
+                    <CardHeader>
+                      <CardTitle>Create project</CardTitle>
+                      <CardDescription>Deploy your new project in one-click.</CardDescription>
+                    </CardHeader>
+                    <CardFooter className="flex justify-between">
+                      <Button variant="outline">Cancel</Button>
+                      <Button>Deploy</Button>
+                    </CardFooter>
+                  </Card>
+
+                  <Card className="w-[100%]">
+                    <CardHeader>
+                      <CardTitle>Create project</CardTitle>
+                      <CardDescription>Deploy your new project in one-click.</CardDescription>
+                    </CardHeader>
+                    <CardFooter className="flex justify-between">
+                      <Button variant="outline">Cancel</Button>
+                      <Button>Deploy</Button>
+                    </CardFooter>
+                  </Card>
+
+                  <Card className="w-[100%]">
+                    <CardHeader>
+                      <CardTitle>Create project</CardTitle>
+                      <CardDescription>Deploy your new project in one-click.</CardDescription>
+                    </CardHeader>
+                    <CardFooter className="flex justify-between">
+                      <Button variant="outline">Cancel</Button>
+                      <Button>Deploy</Button>
+                    </CardFooter>
+                  </Card>
+
+                  <Card className="w-[100%]">
+                    <CardHeader>
+                      <CardTitle>Create project</CardTitle>
+                      <CardDescription>Deploy your new project in one-click.</CardDescription>
+                    </CardHeader>
+                    <CardFooter className="flex justify-between">
+                      <Button variant="outline">Cancel</Button>
+                      <Button>Deploy</Button>
+                    </CardFooter>
+                  </Card>
+                  </div>
                 </ScrollArea>
               </Command>
    
