@@ -212,23 +212,26 @@ export function Navigation() {
               >
                 Hip-Hop
               </ListItem>
-              <ListItem 
-                onClick={() => {
-                    toast({
-                    title: "Currently Listening to: Kozen",
-                    })
-                }} 
-                title="Kozen"
-              >
-                Hip-Hop
-              </ListItem>
-              <ListItem onClick={() => {
-                    toast({
-                    title: "Currently Listening to: Nova",
-                    })
-                }} title="Nova">
-                Hip-Hop
-              </ListItem>
+              <div> 
+                <Image
+                    src="/lu.jpg"
+                    alt="Nucleus Logo"
+                    className="relative lg:dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+                    width={120}
+                    height={24}
+                    priority
+                />
+                <ListItem 
+                  onClick={() => {
+                      toast({
+                      title: "Currently Listening to: Kozen",
+                      })
+                  }} 
+                  title="Kozen"
+                >
+                  Hip-Hop
+                </ListItem>
+              </div>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
