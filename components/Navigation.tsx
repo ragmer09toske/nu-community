@@ -16,8 +16,9 @@ import {
 import { ModeToggle } from "./Mode"
 import Image from "next/image"
 import { useToast } from "./ui/use-toast"
-import { Music } from "lucide-react"
 import { useTheme } from "next-themes"
+import { VissionModel } from "./Mission"
+import { Switch } from "./ui/switch"
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -31,6 +32,44 @@ const components: { title: string; href: string; description: string }[] = [
     href: "/docs/primitives/hover-card",
     description:
       "For sighted users to preview content available behind a link.",
+  },
+  {
+    title: "Progress",
+    href: "/docs/primitives/progress",
+    description:
+      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+  },
+  {
+    title: "Scroll-area",
+    href: "/docs/primitives/scroll-area",
+    description: "Visually or semantically separates content.",
+  },
+  {
+    title: "Tabs",
+    href: "/docs/primitives/tabs",
+    description:
+      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+  },
+  {
+    title: "Tooltip",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  },
+]
+
+const about: { title: string; href: string; description: string }[] = [
+  {
+    title: "Our Physical Address",
+    href: "",
+    description:
+      "Constitution Road, Maseru West, Maseru Lesotho, Leap Office 1",
+  },
+  {
+    title: "Mission",
+    href: "/docs/primitives/hover-card",
+    description:
+      "Empower businesses with innovative tech solutions. Specializing in web & mobile app development, phone repair. We build lasting relationships through high-quality solutions & trusted partnerships.",
   },
   {
     title: "Progress",
@@ -111,6 +150,22 @@ export function Navigation() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
+          <NavigationMenuTrigger className="bg-inherit">About</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              {about.map((component) => (
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  href={component.href}
+                >
+                  {component.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-inherit">Our Community</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
@@ -131,11 +186,11 @@ export function Navigation() {
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
-                <ListItem className="bg-inherit">
+                <div className="bg-inherit">
                   <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
                     <div className= "mb-2 flex gap-3 mt-4 text-lg font-medium">
                         <p>Music</p>
-                        <Music />
+                        <Switch />
                     </div>
                     <div  className="mb-2 mt-4 text-lg font-medium">
                       Site Mode
@@ -145,7 +200,7 @@ export function Navigation() {
                         <Sun onClick={() => setTheme("light")} />
                     </div>
                   </div>
-                </ListItem>
+                </div>
               </li>
               <ListItem 
                 onClick={() => {
