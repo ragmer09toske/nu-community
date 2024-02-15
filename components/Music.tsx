@@ -76,7 +76,7 @@ const Music = () => {
                 style={{
                     backdropFilter: "blur(5px)",
                     background: "rgba(255, 255, 255, 0.064)",
-                    borderRadius: "5px 5px 30px 30px",
+                    borderRadius: "5px 5px 10px 10px",
                 }}>
                 <Progress className='absolute bottom-28 left-0 -top-0.5' value={progress} />
                 <div style={{ zIndex: 9999 }}>
