@@ -18,17 +18,19 @@ export const Feed = () => {
         borderBottomWidth: "0px",
         width: "60%",
     }}>
-          <h4 className="scroll-m-20 p-2 pl-5 text-2xl font-extrabold tracking-tight lg:text-3xl">
-            Socials
-          </h4>
+          
           <Command className="rounded-lg border shadow-md p-2" style={{ background: "rgba(255, 255, 255, 0)", borderWidth: "0px"}}>
+            <h4 className="scroll-m-20 p-2 pl-5 text-2xl font-extrabold tracking-tight lg:text-3xl">
+              Socials
+            </h4>
             <div className='p-4
              '>
               <Input placeholder="Type a command or search..." />
             </div>
+            
             <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
               <div className='flex flex-col  gap-5'>
-              <Card className="w-[100%] p-0.5 flex">
+              <Card className="w-[100%] p-0.5 pl-3 flex items-center">
                 <VideoPost />
                 <div>
                 <CardHeader>

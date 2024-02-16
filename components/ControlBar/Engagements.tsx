@@ -4,15 +4,14 @@ import { Input } from '../ui/input'
 import { ScrollArea } from '../ui/scroll-area'
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card'
 import { Button } from '../ui/button'
-export const Angagements = () => {
+export const Engagements = () => {
   return (
     <div className='relative w-full'>
-        <Command className="rounded-lg border shadow-md p-2" style={{ background: "rgba(255, 255, 255, 0)", borderWidth: "0px"}}>
-            <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
+        {/* <Command className="rounded-lg border shadow-md p-2" style={{ background: "rgba(255, 255, 255, 0)", borderWidth: "0px"}}> */}
+      
+            {/* <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4"> */}
             <div className='flex flex-col gap-5'>
-            <h5 className="scroll-m-20 p-2 pl-5 text-2xl font-extrabold tracking-tight lg:text-xl">
-                Our Pressence In Our Industry
-            </h5>
+            
             <Card className="w-[100%]">
                 <CardHeader>
                     <CardTitle>CAfI</CardTitle>
@@ -41,8 +40,8 @@ export const Angagements = () => {
                 </CardHeader>
             </Card>
             </div>
-            </ScrollArea>
-        </Command>
+            {/* </ScrollArea> */}
+        {/* </Command> */}
     </div>
   )
 }
