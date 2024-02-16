@@ -1,6 +1,6 @@
 import React from 'react'
 import { ToggleGroup, ToggleGroupItem } from './ui/toggle-group'
-import { Copy, Inbox, MessageCircle, Send, Share } from 'lucide-react'
+import { AppWindow, Copy, Inbox, MessageCircle, Send, Share } from 'lucide-react'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip'
 import { Separator } from './ui/separator'
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from './ui/sheet'
@@ -35,14 +35,14 @@ export const OutReachBar = () => {
                     <Tooltip>
                         <TooltipTrigger>
                             <Sheet>
-                                <SheetTrigger><Send /></SheetTrigger>
+                                <SheetTrigger><AppWindow /></SheetTrigger>
                                 <SheetContent>
                                     <Messages />
                                 </SheetContent>
                             </Sheet>
                         </TooltipTrigger>
                         <TooltipContent>
-                            <p>Request a live chat</p>
+                            <p>Request a live service</p>
                         </TooltipContent>
                     </Tooltip>
                 </TooltipProvider>

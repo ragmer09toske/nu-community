@@ -6,9 +6,11 @@ import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import VideoPost from './Feed/VideoPost'
-import Image from 'next/image'
+import useDeviceType from '@/app/Device'
 
 export const Feed = () => {
+ 
+
   return (
     <div className='w-1/2 h-full p-2 ' style={{
         borderWidth: "1px",
@@ -63,7 +65,7 @@ export const Feed = () => {
                     </div>
                 </div>
                   <CardDescription>
-                    The worst mistake you can make is to think Lesotho has no skills. If you think so, it&apos;s probably because you&apos;ve been spending too much time in your bedroom rather than networking. Go outside, and I swear you will be amazed.
+                    The worst mistake you can make is to think Lesotho has (Basotho have) no skills. If you think so, it&apos;s probably because you&apos;ve been spending too much time in your bedroom rather than networking. Go outside, and I swear you will be amazed.
                   </CardDescription>
                 </CardHeader>
                 </div>

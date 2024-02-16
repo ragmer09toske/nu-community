@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import { Command} from './ui/command'
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -7,8 +9,11 @@ import { Input } from './ui/input'
 import { Feed } from './Feed'
 import { ControlBar } from './ControlBar/ControlBar'
 import { Main } from './Main'
+import useDeviceType from '@/app/Device'
 
 export const Network = () => {
+  const isDesktop: boolean = useDeviceType();
+
   return (
     <div className='flex w-full gap-3 justify-center top-5 items-center h-full fixed bottom-7'>
       <Card style={{
@@ -20,11 +25,11 @@ export const Network = () => {
       }}
         className="flex justify-center dark:bg-[#09090bd9] bg-[#FFFFFFFF]"
       >
-        <ControlBar />
+        {isDesktop && <ControlBar />}
   
         <Feed />
   
-        <Main />
+        {isDesktop && <Main />}
       </Card>
     </div>
   )

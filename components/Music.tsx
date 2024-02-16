@@ -71,14 +71,14 @@ const Music = () => {
     }, [playing]);
 
     return (
-        <div className='fixed bottom-0 lg:w-[500px] md:w-[300px] right-5 p-5 w-full flex justify-center '>
-            <div className='relative w-full p-5 border-solid border-1 dark:border-black' 
+        <div className='fixed bottom-0 lg:w-[400px] md:w-[300px] right-5 p-5 flex justify-center '>
+            <div className='relative w-full p-2 border-solid border-1 dark:border-black' 
                 style={{
                     backdropFilter: "blur(5px)",
                     background: "rgba(255, 255, 255, 0.064)",
-                    borderRadius: "5px 5px 10px 10px",
+                    borderRadius: "2px 2px 10px 10px",
                 }}>
-                <Progress className='absolute bottom-28 left-0 -top-0.5' value={progress} />
+                <Progress className='absolute bottom-28 left-0 -top-0.5 h-1' value={progress} />
                 <div style={{ zIndex: 9999 }}>
                     <div className='flex items-center justify-between'>
                         <div className='flex items-center gap-6'>
@@ -86,7 +86,7 @@ const Music = () => {
                                 src="/pre.svg"
                                 alt="Nucleus Music loader"
                                 className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-                                width={40}
+                                width={30}
                                 height={24}
                                 priority
                             />
