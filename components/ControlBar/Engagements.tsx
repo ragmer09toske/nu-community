@@ -14,7 +14,7 @@ export const Engagements = () => {
             
             <Card className="w-[100%]">
                 <CardHeader>
-                    <CardTitle>CAfI</CardTitle>
+                    <CardTitle>CAFI</CardTitle>
                     <CardDescription>The Company is currently going through cafi training</CardDescription>
                 </CardHeader>
             </Card>

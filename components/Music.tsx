@@ -71,7 +71,7 @@ const Music = () => {
     }, [playing]);
 
     return (
-        <div className='fixed bottom-0 lg:w-[500px] right-5 p-5 w-full flex justify-center '>
+        <div className='fixed bottom-0 lg:w-[500px] md:w-[300px] right-5 p-5 w-full flex justify-center '>
             <div className='relative w-full p-5 border-solid border-1 dark:border-black' 
                 style={{
                     backdropFilter: "blur(5px)",
@@ -103,13 +103,13 @@ const Music = () => {
                         </div>
                         <audio ref={audioRef} src="/audio.mp3" />
                         <div  className='flex items-center gap-2'>
-                            <Rewind />
+                            <Rewind style={{color:"rgba(255, 255, 255, 0.387)"}}/>
                             { playing ?
-                                <Pause onClick={handlePause} />
+                                <Pause onClick={handlePause} style={{color:"rgba(255, 255, 255, 0.387)"}}/>
                                 :
-                                <Play onClick={handlePlay} />
+                                <Play onClick={handlePlay} style={{color:"rgba(255, 255, 255, 0.387)"}}/>
                             }
-                            <FastForward />
+                            <FastForward style={{color:"rgba(255, 255, 255, 0.387)"}}/>
                         </div>
                     </div>
                 </div>

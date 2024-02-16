@@ -63,7 +63,7 @@ export const Feed = () => {
                     </div>
                 </div>
                   <CardDescription>
-                    The worst mistake you can make is to think Lesotho has no skills. If you think so, it's probably because you've been spending too much time in your bedroom rather than networking. Go outside, and I swear you will be amazed.
+                    The worst mistake you can make is to think Lesotho has no skills. If you think so, it&apos;s probably because you&apos;ve been spending too much time in your bedroom rather than networking. Go outside, and I swear you will be amazed.
                   </CardDescription>
                 </CardHeader>
                 </div>

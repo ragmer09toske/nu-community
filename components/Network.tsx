@@ -15,7 +15,7 @@ export const Network = () => {
           backdropFilter: "blur(5px)",
           // background: "#09090bd9",
           borderWidth: "1px",
-          width: "60%",
+          width: "80%",
           height: "85%"
       }}
         className="flex justify-center dark:bg-[#09090bd9] bg-[#FFFFFFFF]"
