@@ -4,6 +4,9 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
+import VideoPost from './Feed/VideoPost'
+import Image from 'next/image'
 
 export const Feed = () => {
   return (
@@ -14,90 +17,54 @@ export const Feed = () => {
         borderTopWidth: "0px",
         borderBottomWidth: "0px",
         width: "60%",
-      }}>
+    }}>
+          <h4 className="scroll-m-20 p-2 pl-5 text-2xl font-extrabold tracking-tight lg:text-3xl">
+            Socials
+          </h4>
           <Command className="rounded-lg border shadow-md p-2" style={{ background: "rgba(255, 255, 255, 0)", borderWidth: "0px"}}>
             <div className='p-4
              '>
               <Input placeholder="Type a command or search..." />
             </div>
             <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
-              <div className='flex flex-col gap-5'>
-              <Card className="w-[100%]">
+              <div className='flex flex-col  gap-5'>
+              <Card className="w-[100%] p-0.5 flex">
+                <VideoPost />
+                <div>
                 <CardHeader>
-                  <CardTitle>Create project</CardTitle>
-                  <CardDescription>Deploy your new project in one-click.</CardDescription>
+                <div className='flex gap-2 items-center'>
+                    <Avatar>
+                        <AvatarImage src="nuAvater.png" />
+                        <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
+                    Nucleus
+                </div>
+                  <CardDescription>
+                    Just as Peter outsmarted the pirates with his cleverness and agility
+                    we too can navigate the corporate seas with ingenuity and adaptability.
+                  </CardDescription>
                 </CardHeader>
-                <CardFooter className="flex justify-between">
-                  <Button variant="outline">Cancel</Button>
-                  <Button>Deploy</Button>
-                </CardFooter>
+                </div>
               </Card>
 
-              <Card className="w-[100%]">
+              <Card className="w-[100%]  flex">
+                <div>
                 <CardHeader>
-                  <CardTitle>Create project</CardTitle>
-                  <CardDescription>Deploy your new project in one-click.</CardDescription>
+                <div className='flex gap-2 items-center'>
+                    <Avatar>
+                        <AvatarImage src="/me2.png" />
+                        <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
+                    <div className='flex flex-col'>
+                        <h5>Retsepile Shao</h5>
+                        <p style={{fontSize:11}}>CEO @Nucleus</p>
+                    </div>
+                </div>
+                  <CardDescription>
+                    The worst mistake you can make is to think Lesotho has no skills. If you think so, it's probably because you've been spending too much time in your bedroom rather than networking. Go outside, and I swear you will be amazed.
+                  </CardDescription>
                 </CardHeader>
-                <CardFooter className="flex justify-between">
-                  <Button variant="outline">Cancel</Button>
-                  <Button>Deploy</Button>
-                </CardFooter>
-              </Card>
-
-              <Card className="w-[100%]">
-                <CardHeader>
-                  <CardTitle>Create project</CardTitle>
-                  <CardDescription>Deploy your new project in one-click.</CardDescription>
-                </CardHeader>
-                <CardFooter className="flex justify-between">
-                  <Button variant="outline">Cancel</Button>
-                  <Button>Deploy</Button>
-                </CardFooter>
-              </Card>
-
-              <Card className="w-[100%]">
-                <CardHeader>
-                  <CardTitle>Create project</CardTitle>
-                  <CardDescription>Deploy your new project in one-click.</CardDescription>
-                </CardHeader>
-                <CardFooter className="flex justify-between">
-                  <Button variant="outline">Cancel</Button>
-                  <Button>Deploy</Button>
-                </CardFooter>
-              </Card>
-
-              <Card className="w-[100%]">
-                <CardHeader>
-                  <CardTitle>Create project</CardTitle>
-                  <CardDescription>Deploy your new project in one-click.</CardDescription>
-                </CardHeader>
-                <CardFooter className="flex justify-between">
-                  <Button variant="outline">Cancel</Button>
-                  <Button>Deploy</Button>
-                </CardFooter>
-              </Card>
-
-
-              <Card className="w-[100%]">
-                <CardHeader>
-                  <CardTitle>Create project</CardTitle>
-                  <CardDescription>Deploy your new project in one-click.</CardDescription>
-                </CardHeader>
-                <CardFooter className="flex justify-between">
-                  <Button variant="outline">Cancel</Button>
-                  <Button>Deploy</Button>
-                </CardFooter>
-              </Card>
-
-              <Card className="w-[100%]">
-                <CardHeader>
-                  <CardTitle>Create project</CardTitle>
-                  <CardDescription>Deploy your new project in one-click.</CardDescription>
-                </CardHeader>
-                <CardFooter className="flex justify-between">
-                  <Button variant="outline">Cancel</Button>
-                  <Button>Deploy</Button>
-                </CardFooter>
+                </div>
               </Card>
 
               <Card className="w-[100%]">

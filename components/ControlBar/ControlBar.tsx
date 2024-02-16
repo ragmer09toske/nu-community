@@ -5,12 +5,12 @@ import { Socials } from './Socials'
 
 export const ControlBar = () => {
   return (
-    <div className='w-1/2 h-full p-2  flex justify-center' style={{
+    <div className='w-1/2 h-full p-4  flex justify-center' style={{
         width: "35%",
       }}>
         <Tabs defaultValue="account" className="flex flex-col">
-            <TabsList>
-                <TabsTrigger value="account">Current Angagements</TabsTrigger>
+            <TabsList >
+                <TabsTrigger value="account">Angagements</TabsTrigger>
                 <TabsTrigger value="password">Socials</TabsTrigger>
             </TabsList>
             <TabsContent value="account">

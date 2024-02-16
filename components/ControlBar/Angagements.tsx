@@ -8,53 +8,37 @@ export const Angagements = () => {
   return (
     <div className='relative w-full'>
         <Command className="rounded-lg border shadow-md p-2" style={{ background: "rgba(255, 255, 255, 0)", borderWidth: "0px"}}>
-            <div className='p-4'>
-            <Input placeholder="Type a command or search..." />
-            </div>
             <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
             <div className='flex flex-col gap-5'>
+            <h5 className="scroll-m-20 p-2 pl-5 text-2xl font-extrabold tracking-tight lg:text-xl">
+                Our Pressence In Our Industry
+            </h5>
             <Card className="w-[100%]">
                 <CardHeader>
-                <CardTitle>Create project</CardTitle>
-                <CardDescription>Deploy your new project in one-click.</CardDescription>
+                    <CardTitle>CAfI</CardTitle>
+                    <CardDescription>The Company is currently going through cafi training</CardDescription>
                 </CardHeader>
-                <CardFooter className="flex justify-between">
-                <Button variant="outline">Cancel</Button>
-                <Button>Deploy</Button>
-                </CardFooter>
             </Card>
 
             <Card className="w-[100%]">
                 <CardHeader>
-                <CardTitle>Create project</CardTitle>
-                <CardDescription>Deploy your new project in one-click.</CardDescription>
+                    <CardTitle>Limkokwing University</CardTitle>
+                    <CardDescription>We have collaborated with Limkokwing University to ignite the sparks of inspiration within young, brilliant minds. Together, we aim to foster creativity, innovation, and a passion for exploration, guiding the next generation towards boundless possibilities. </CardDescription>
                 </CardHeader>
-                <CardFooter className="flex justify-between">
-                <Button variant="outline">Cancel</Button>
-                <Button>Deploy</Button>
-                </CardFooter>
             </Card>
 
             <Card className="w-[100%]">
                 <CardHeader>
-                <CardTitle>Create project</CardTitle>
-                <CardDescription>Deploy your new project in one-click.</CardDescription>
+                <CardTitle>STEAM</CardTitle>
+                <CardDescription>The Science, Technology, Engineering, Arts, and Math (STEAM) initiative, championed by the UNDP, serves as a formidable force driving innovation. By integrating diverse disciplines and fostering creativity, STEAM empowers individuals to pioneer groundbreaking ...</CardDescription>
                 </CardHeader>
-                <CardFooter className="flex justify-between">
-                <Button variant="outline">Cancel</Button>
-                <Button>Deploy</Button>
-                </CardFooter>
             </Card>
 
             <Card className="w-[100%]">
                 <CardHeader>
-                <CardTitle>Create project</CardTitle>
-                <CardDescription>Deploy your new project in one-click.</CardDescription>
+                <CardTitle>Virtual Mall of lesotho</CardTitle>
+                <CardDescription>a pioneering platform that revolutionizes the concept of traditional shopping experiences. Here, we transcend physical boundaries, offering a dynamic space where the rich heritage and entrepreneurial spirit of Lesotho ...</CardDescription>
                 </CardHeader>
-                <CardFooter className="flex justify-between">
-                <Button variant="outline">Cancel</Button>
-                <Button>Deploy</Button>
-                </CardFooter>
             </Card>
             </div>
             </ScrollArea>
