@@ -13,12 +13,12 @@ export const Network = () => {
     <div className='flex w-full gap-3 justify-center top-5 items-center h-full fixed bottom-7'>
       <Card style={{
           backdropFilter: "blur(5px)",
-          background: "#09090bd9",
+          // background: "#09090bd9",
           borderWidth: "1px",
           width: "60%",
           height: "85%"
       }}
-        className="flex justify-center"
+        className="flex justify-center dark:bg-[#09090bd9] bg-[#FFFFFFFF]"
       >
         <ControlBar />
   
