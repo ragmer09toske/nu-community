@@ -3,6 +3,7 @@ import { Command } from '../ui/command'
 import { Input } from '../ui/input'
 import { ScrollArea } from '../ui/scroll-area'
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card'
+import { Button } from '../ui/button'
 
 export const Socials = () => {
   return (
