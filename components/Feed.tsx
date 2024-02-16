@@ -12,13 +12,13 @@ export const Feed = () => {
  
 
   return (
-    <div className='w-1/2 h-full p-2 ' style={{
+    <div className='lg:w-[60%] h-full p-2 ' style={{
         borderWidth: "1px",
         borderLeftColor: "rgba(255, 255, 255, 0.164)",
         borderRightColor: "rgba(255, 255, 255, 0.164)",
         borderTopWidth: "0px",
         borderBottomWidth: "0px",
-        width: "60%",
+        
     }}>
           
           <Command className="rounded-lg border shadow-md p-2" style={{ background: "rgba(255, 255, 255, 0)", borderWidth: "0px"}}>

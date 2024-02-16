@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import { ToggleGroup, ToggleGroupItem } from './ui/toggle-group'
 import { AppWindow, Copy, Inbox, MessageCircle, Send, Share } from 'lucide-react'
@@ -12,7 +14,7 @@ import { Input } from './ui/input'
 
 export const OutReachBar = () => {
   return (
-    <div className='flex w-full gap-3 justify-center fixed bottom-7' >
+    <div className='flex w-full gap-3 justify-center fixed bottom-7' style={{zIndex:9999}}>
         <div className='p-1'style={{
             backdropFilter: "blur(5px)",
             background: "rgba(255, 255, 255, 0.064)",
