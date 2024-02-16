@@ -71,7 +71,7 @@ const Music = () => {
     }, [playing]);
 
     return (
-        <div className='fixed bottom-0 lg:w-[500px] right-0 p-5 w-full flex justify-center '>
+        <div className='fixed bottom-0 lg:w-[500px] right-5 p-5 w-full flex justify-center '>
             <div className='relative w-full p-5 border-solid border-1 dark:border-black' 
                 style={{
                     backdropFilter: "blur(5px)",
