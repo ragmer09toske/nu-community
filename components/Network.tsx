@@ -5,6 +5,7 @@ import { Card} from './ui/card'
 import { Feed } from './Feed'
 import { ControlBar } from './ControlBar/ControlBar'
 import { Main } from './Main'
+import useStore from '@/app/Store'
 
 export const Network = () => {
 

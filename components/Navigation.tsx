@@ -19,6 +19,7 @@ import { useToast } from "./ui/use-toast"
 import { useTheme } from "next-themes"
 import { VissionModel } from "./Mission"
 import { Switch } from "./ui/switch"
+import useStore from "@/app/Store"
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -100,6 +101,8 @@ export function Navigation() {
   const { toast } = useToast()
   const { theme,setTheme } = useTheme()
   console.log("current theme is:",theme)
+  const setContent = useStore((state) => state.setContent);
+
   return (
     <div className="flex lg:gap-10" style={{
       // backdropFilter: "blur(5px)",
@@ -121,24 +124,23 @@ export function Navigation() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent  font-medium">Works</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-transparent  font-medium">Service</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] ">
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
-                  <a
+                  <div onClick={()=>setContent("Qoatation")}
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none "
-                    href="/"
                   >
                     <div className="mb-2 mt-4 text-lg font-medium">
-                      shadcn/ui
+                      Get A Quotation
                     </div>
                     <p className="text-sm leading-tight text-muted-foreground">
                       Beautifully designed components that you can copy and
                       paste into your apps. Accessible. Customizable. Open
                       Source.
                     </p>
-                  </a>
+                  </div>
                 </NavigationMenuLink>
               </li>
               <ListItem href="/docs" title="Introduction">
