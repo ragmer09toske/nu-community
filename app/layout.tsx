@@ -6,7 +6,7 @@ import { Toaster } from '@/components/ui/toaster'
 import Music from '@/components/Music'
 import { OutReachBar } from '@/components/OutReachBar'
 import { Network } from '@/components/Network'
-import useDeviceType from './Device'
+import { Landing } from '@/components/Landing'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,7 +30,9 @@ export default function RootLayout({
         >
           <body className={inter.className}>{children}</body>
           <Toaster />
-          <Network />
+          {/* <Network /> */}
+          <Landing />
+          <OutReachBar />
           <Music />
         </ThemeProvider>
     </html>

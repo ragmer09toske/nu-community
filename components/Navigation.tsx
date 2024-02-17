@@ -101,7 +101,11 @@ export function Navigation() {
   const { theme,setTheme } = useTheme()
   console.log("current theme is:",theme)
   return (
-    <div className="flex gap-10">
+    <div className="flex lg:gap-10" style={{
+      // backdropFilter: "blur(5px)",
+      background: "rgba(255, 255, 255, 0.064)",
+      borderRadius: "30px",
+  }}>
     <div className="flex  gap-10 items-center z-10">
         <Link href={"/"}>
             <Image
