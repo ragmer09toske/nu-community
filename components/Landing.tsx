@@ -1,25 +1,11 @@
-"use client"
-
 import React from 'react'
-import { Command} from './ui/command'
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
-import { Button } from './ui/button'
-import { Input } from './ui/input'
-import { Feed } from './Feed'
-import { ControlBar } from './ControlBar/ControlBar'
-import { Main } from './Main'
-import useDeviceType from '@/app/Device'
-import { OutReachBar } from './OutReachBar'
-import Image from 'next/image'
+import { Card } from './ui/card'
+
 import { LandingFeed } from './LandingFeed'
 
 export const Landing = () => {
-  const isDesktop: boolean = useDeviceType();
-
   return (
     <div className='flex w-full gap-3 justify-center top-5 items-center h-full fixed bottom-7'>
-      {isDesktop && <OutReachBar />}
       <Card style={{
           backdropFilter: "blur(5px)",
           borderWidth: "1px",

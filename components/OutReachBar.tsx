@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ToggleGroup, ToggleGroupItem } from './ui/toggle-group'
 import { AppWindow, Copy, Inbox, MessageCircle, Send, Share } from 'lucide-react'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip'
@@ -11,9 +11,16 @@ import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, Di
 import { Button } from './ui/button'
 import { Label } from './ui/label'
 import { Input } from './ui/input'
+import useStore from '@/app/Store'
 
 export const OutReachBar = () => {
-    // className="relative lg:dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+    const setContent = useStore((state) => state.setContent);
+    const content = useStore((state) => state.selectedContent);
+
+    const changeContent = () => {
+        setContent("Network")
+    }
+
     return (
     <div className='flex w-full gap-3 justify-center fixed bottom-7' style={{zIndex:9999}}>
         <div className='p-1'style={{
@@ -26,7 +33,7 @@ export const OutReachBar = () => {
                 <ToggleGroupItem value="a">
                 <TooltipProvider>
                     <Tooltip>
-                        <TooltipTrigger><MessageCircle className='drop-shadow-[0_0_0.6rem_#ffffff91]'/></TooltipTrigger>
+                        <TooltipTrigger><MessageCircle onClick={changeContent} className='drop-shadow-[0_0_0.6rem_#ffffff91]'/></TooltipTrigger>
                         <TooltipContent>
                             <p>Your reviews</p>
                         </TooltipContent>

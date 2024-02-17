@@ -30,9 +30,8 @@ export default function RootLayout({
         >
           <body className={inter.className}>{children}</body>
           <Toaster />
-          {/* <Network /> */}
-          <Landing />
           <Music />
+          <OutReachBar />
         </ThemeProvider>
     </html>
   )
