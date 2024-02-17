@@ -9,22 +9,22 @@ import VideoPost from './Feed/VideoPost'
 import useDeviceType from '@/app/Device'
 import Image from 'next/image'
 
-export const Feed = () => {
+export const LandingFeed = () => {
  
 
   return (
     <div className='lg:w-[60%] h-full p-2 ' style={{
         borderWidth: "1px",
-        borderLeftColor: "rgba(255, 255, 255, 0.164)",
-        borderRightColor: "rgba(255, 255, 255, 0.164)",
+        // borderLeftColor: "rgba(255, 255, 255, 0.164)",
+        // borderRightColor: "rgba(255, 255, 255, 0.164)",
         borderTopWidth: "0px",
         borderBottomWidth: "0px",
         
     }}>
           
           <Command className="rounded-lg border shadow-md p-2" style={{ background: "rgba(255, 255, 255, 0)", borderWidth: "0px"}}>
-            <h4 className="scroll-m-20 p-2 pl-5 text-2xl font-extrabold tracking-tight lg:text-3xl">
-              Socials
+            <h4 className="scroll-m-20 p-2 pl-5 text-xl font-extrabold tracking-tight lg:text-xl">
+                {/* Community Of Creatives */}
             </h4>
             <div className='p-4
              '>
@@ -33,24 +33,6 @@ export const Feed = () => {
             
             <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
               <div className='flex flex-col  gap-5'>
-              <Card className="w-[100%] p-0.5 pl-3 flex items-center">
-                <VideoPost />
-                <div>
-                <CardHeader>
-                <div className='flex gap-2 items-center'>
-                    <Avatar>
-                        <AvatarImage src="nuAvater.png" />
-                        <AvatarFallback>CN</AvatarFallback>
-                    </Avatar>
-                    Nucleus
-                </div>
-                  <CardDescription>
-                    Just as Peter outsmarted the pirates with his cleverness and agility
-                    we too can navigate the corporate seas with ingenuity and adaptability.
-                  </CardDescription>
-                </CardHeader>
-                </div>
-              </Card>
 
               <Card className="w-[100%]  flex">
                 <div>
@@ -65,10 +47,29 @@ export const Feed = () => {
                         <p style={{fontSize:11}}>CEO @Nucleus</p>
                     </div>
                 </div>
-                  <CardDescription>
-                    The worst mistake you can make is to think Lesotho has (Basotho have) no skills. If you think so, it&apos;s probably because you&apos;ve been spending too much time in your bedroom rather than networking. Go outside, and I swear you will be amazed.
-                  </CardDescription>
+                <CardDescription>
+                    The worst mistake you can make is to think Lesotho has no skills. If you think so, it&apos;s probably because you&apos;ve been spending too much time in your bedroom rather than networking. Go outside, and I swear you will be amazed.
+                </CardDescription>
                 </CardHeader>
+                </div>
+              </Card>
+
+              <Card className="w-[100%] p-0.5 pl-3 ">
+                <div>
+                    <CardHeader>
+                        <CardTitle>Create project</CardTitle>
+                        <CardDescription>Deploy your new project in one-click.</CardDescription>
+                    </CardHeader>
+                    <div className="w-[100%] p-0.5 pl-3 flex justify-center">
+                    <Image
+                        src="/mainIcons.svg"
+                        alt="Nucleus Logo"
+                        className="relative lg:dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+                        width={520}
+                        height={24}
+                        priority
+                    />
+                    </div>
                 </div>
               </Card>
 
