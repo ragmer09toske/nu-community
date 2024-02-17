@@ -4,9 +4,7 @@ import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/toaster'
 import Music from '@/components/Music'
-import { OutReachBar } from '@/components/OutReachBar'
-import { Network } from '@/components/Network'
-import { Landing } from '@/components/Landing'
+import "@uploadthing/react/styles.css";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,8 +28,7 @@ export default function RootLayout({
         >
           <body className={inter.className}>{children}</body>
           <Toaster />
-          <Music />
-          <OutReachBar />
+            <Music />
         </ThemeProvider>
     </html>
   )

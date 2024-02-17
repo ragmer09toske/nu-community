@@ -136,9 +136,7 @@ export function Navigation() {
                       Get A Quotation
                     </div>
                     <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components that you can copy and
-                      paste into your apps. Accessible. Customizable. Open
-                      Source.
+                      Personalize your UI, receive tailored quotes for your specific needs, and consult with our AI expert for expert opinions.
                     </p>
                   </div>
                 </NavigationMenuLink>
