@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import { Command} from './ui/command'
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -10,8 +11,7 @@ import useDeviceType from '@/app/Device'
 import Image from 'next/image'
 
 export const LandingFeed = () => {
- 
-
+  const isDesktop: boolean = useDeviceType();
   return (
     <div className='lg:w-[60%] h-full p-2 ' style={{
         borderWidth: "1px",
@@ -57,8 +57,8 @@ export const LandingFeed = () => {
               <Card className="w-[100%] p-0.5 pl-3 ">
                 <div>
                     <CardHeader>
-                        <CardTitle>Create project</CardTitle>
-                        <CardDescription>Deploy your new project in one-click.</CardDescription>
+                        <CardTitle>We Embrace the Art of Deverse Engineering</CardTitle>
+                        <CardDescription>We unlocked the secrets of seamless transitions from Mobile to Desktop development.</CardDescription>
                     </CardHeader>
                     <div className="w-[100%] p-0.5 pl-3 flex justify-center">
                     <Image
@@ -75,11 +75,12 @@ export const LandingFeed = () => {
 
               <Card className="w-[100%]">
                 <CardHeader>
-                  <CardTitle>Create project</CardTitle>
-                  <CardDescription>Deploy your new project in one-click.</CardDescription>
+                    <CardTitle>Elevate Your Projects with our Innovative Designing Team</CardTitle>
+                    <CardDescription>Experience the fusion of creativity and technical expertise.</CardDescription>
                 </CardHeader>
                   <Image
                     src="/GraphicElements2.gif"
+                    // className="relative "
                     alt="Nucleus Logo"
                     width={855}
                     height={24}
@@ -90,8 +91,8 @@ export const LandingFeed = () => {
 
               <Card className="w-[100%]">
                 <CardHeader>
-                  <CardTitle>Create project</CardTitle>
-                  <CardDescription>Deploy your new project in one-click.</CardDescription>
+                    <CardTitle>Elevate Your Brand with Exquisite Typography</CardTitle>
+                    <CardDescription>Take pleasure in the intricate craftsmanship of each character, enhancing your brand&apos;s story.</CardDescription>
                 </CardHeader>
                 <Image
                     src="/Typography.png"

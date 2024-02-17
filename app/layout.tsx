@@ -32,7 +32,6 @@ export default function RootLayout({
           <Toaster />
           {/* <Network /> */}
           <Landing />
-          <OutReachBar />
           <Music />
         </ThemeProvider>
     </html>

@@ -13,7 +13,8 @@ import { Label } from './ui/label'
 import { Input } from './ui/input'
 
 export const OutReachBar = () => {
-  return (
+    // className="relative lg:dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+    return (
     <div className='flex w-full gap-3 justify-center fixed bottom-7' style={{zIndex:9999}}>
         <div className='p-1'style={{
             backdropFilter: "blur(5px)",
@@ -25,7 +26,7 @@ export const OutReachBar = () => {
                 <ToggleGroupItem value="a">
                 <TooltipProvider>
                     <Tooltip>
-                        <TooltipTrigger><MessageCircle /></TooltipTrigger>
+                        <TooltipTrigger><MessageCircle className='drop-shadow-[0_0_0.6rem_#ffffff91]'/></TooltipTrigger>
                         <TooltipContent>
                             <p>Your reviews</p>
                         </TooltipContent>
@@ -37,7 +38,7 @@ export const OutReachBar = () => {
                     <Tooltip>
                         <TooltipTrigger>
                             <Sheet>
-                                <SheetTrigger><AppWindow /></SheetTrigger>
+                                <SheetTrigger><AppWindow className='drop-shadow-[0_0_0.3rem_#ffffff91]'/></SheetTrigger>
                                 <SheetContent>
                                     <Messages />
                                 </SheetContent>
@@ -52,7 +53,7 @@ export const OutReachBar = () => {
                 <ToggleGroupItem value="c">
                     <TooltipProvider>
                         <Tooltip>
-                            <TooltipTrigger><Inbox /></TooltipTrigger>
+                            <TooltipTrigger><Inbox className='drop-shadow-[0_0_0.3rem_#ffffff91]'/></TooltipTrigger>
                             <TooltipContent>
                                 <p>Send us message</p>
                             </TooltipContent>
@@ -67,7 +68,7 @@ export const OutReachBar = () => {
                             <TooltipTrigger>
                             <Dialog>
                                 <DialogTrigger asChild>
-                                    <Share className='pl-3'/>
+                                    <Share className='drop-shadow-[0_0_0.3rem_#ffffff91] pl-3'/>
                                 </DialogTrigger>
                                 <DialogContent className="sm:max-w-md">
                                     <DialogHeader>
