@@ -108,7 +108,7 @@ export function Navigation() {
   return (
     <div className="flex justify-center items-center lg:w-full  lg:gap-10" style={{
       backdropFilter: "blur(5px)",
-      zIndex: 9999,
+      zIndex: 999,
   }}>
    {isDesktop && <div>
       <Image

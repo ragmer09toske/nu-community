@@ -22,7 +22,7 @@ export const LandingFeed = () => {
             <h4 className="scroll-m-20 p-2 pl-5 text-xl font-extrabold tracking-tight lg:text-xl">
                 {/* Community Of Creatives */}
             </h4>
-            {!isDesktop && <div className="p-5 mt-10 lg:mt-0">
+            {!isDesktop && <div className="p-5 mt-40 lg:mt-0">
               <Image
                   src="/one.png"
                   alt="Nucleus Logo"
@@ -42,7 +42,7 @@ export const LandingFeed = () => {
                 <div className='flex gap-2 items-center'>
                     <Avatar>
                         <AvatarImage src="/me2.png" />
-                        <AvatarFallback>CN</AvatarFallback>
+                        <AvatarFallback>RS</AvatarFallback>
                     </Avatar>
                     <div className='flex flex-col'>
                         <h5>Retsepile Shao</h5>
@@ -85,6 +85,9 @@ export const LandingFeed = () => {
                     // className="relative "
                     alt="Nucleus Logo"
                     width={855}
+                    style={{
+                      borderRadius:"0 0 8px 8px"
+                    }}
                     height={24}
                     priority
                 />
@@ -99,6 +102,9 @@ export const LandingFeed = () => {
                 <Image
                     src="/Typography.png"
                     alt="Nucleus Logo"
+                    style={{
+                      borderRadius:"0 0 8px 8px"
+                    }}
                     width={855}
                     height={24}
                     priority
