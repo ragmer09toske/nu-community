@@ -3,11 +3,13 @@ import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, FastForward, Forward, Instagram, Pause, Play, Rewind } from 'lucide-react';
 import { Progress } from './ui/progress';
+import useDeviceType from '@/app/Device';
 
 const Music = () => {
     const [playing, setPlaying] = useState<boolean>(false);
     const [progress, setProgress] = useState<number>(0);
     const audioRef = useRef<HTMLAudioElement>(null);
+    const isDesktop: boolean = useDeviceType();
 
     const handlePlay = () => {
         const audio = audioRef.current;
@@ -71,7 +73,8 @@ const Music = () => {
     }, [playing]);
 
     return (
-        <div className='fixed bottom-0 lg:w-[400px] md:w-[300px] right-5 p-5 flex justify-center '>
+        <>
+        {isDesktop && (<div className='fixed bottom-0 lg:w-[400px] md:w-[300px] right-5 p-5 flex justify-center '>
             <div className='relative w-full p-2 border-solid border-1 dark:border-black' 
                 style={{
                     backdropFilter: "blur(5px)",
@@ -114,7 +117,8 @@ const Music = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div>)}
+        </>
     );
 }
 

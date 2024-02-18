@@ -28,7 +28,7 @@ export default function RootLayout({
         >
           <body className={inter.className}>{children}</body>
           <Toaster />
-            <Music />
+          <Music />
         </ThemeProvider>
     </html>
   )

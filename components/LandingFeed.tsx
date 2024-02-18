@@ -13,23 +13,25 @@ import Image from 'next/image'
 export const LandingFeed = () => {
   const isDesktop: boolean = useDeviceType();
   return (
-    <div className='lg:w-[60%] h-full p-2 ' style={{
+    <div className='lg:w-[60%] sm:w-[100%] h-full p-2 ' style={{
         borderWidth: "1px",
-        // borderLeftColor: "rgba(255, 255, 255, 0.164)",
-        // borderRightColor: "rgba(255, 255, 255, 0.164)",
         borderTopWidth: "0px",
-        borderBottomWidth: "0px",
-        
-    }}>
-          
+        borderBottomWidth: "0px", 
+    }}>       
           <Command className="rounded-lg border shadow-md p-2" style={{ background: "rgba(255, 255, 255, 0)", borderWidth: "0px"}}>
             <h4 className="scroll-m-20 p-2 pl-5 text-xl font-extrabold tracking-tight lg:text-xl">
                 {/* Community Of Creatives */}
             </h4>
-            <div className='p-4
-             '>
-              <Input placeholder="Type a command or search..." />
-            </div>
+            {!isDesktop && <div className="p-5 mt-10 lg:mt-0">
+              <Image
+                  src="/one.png"
+                  alt="Nucleus Logo"
+                  className="relative lg:dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+                  width={120}
+                  height={24}
+                  priority
+              />
+            </div>}
             
             <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
               <div className='flex flex-col  gap-5'>

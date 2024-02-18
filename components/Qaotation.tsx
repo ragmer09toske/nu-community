@@ -6,8 +6,8 @@ import UploadUI from '@/app/button-uploader/page'
 
 export const Qaotation = () => {
   return (
-    <div className='lg:w-[60%] h-full p-2 ' style={{
-        borderWidth: "1px",
+    <div className='lg:w-[40%] h-full p-2 ' style={{
+        borderRightWidth: "1px",
         borderTopWidth: "0px",
         borderBottomWidth: "0px",
     }}>
@@ -16,11 +16,6 @@ export const Qaotation = () => {
             <h4 className="scroll-m-20 p-2 pl-5 text-xl font-extrabold tracking-tight lg:text-xl">
                 {/* Community Of Creatives */}
             </h4>
-            <div className='p-4
-             '>
-              <Input placeholder="Type a command or search..." />
-            </div>
-            
             <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
               <UploadUI />
             </ScrollArea>

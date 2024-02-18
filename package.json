@@ -37,6 +37,7 @@
     "react-dom": "^18",
     "react-dropzone": "^14.2.3",
     "react-player": "^2.14.1",
+    "styled-components": "^6.1.8",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "uploadthing": "^6.4.0",

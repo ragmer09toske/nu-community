@@ -20,6 +20,7 @@ import { useTheme } from "next-themes"
 import { VissionModel } from "./Mission"
 import { Switch } from "./ui/switch"
 import useStore from "@/app/Store"
+import useDeviceType from "@/app/Device"
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -102,25 +103,23 @@ export function Navigation() {
   const { theme,setTheme } = useTheme()
   console.log("current theme is:",theme)
   const setContent = useStore((state) => state.setContent);
+  const isDesktop: boolean = useDeviceType();
 
   return (
-    <div className="flex lg:gap-10" style={{
-      // backdropFilter: "blur(5px)",
-      background: "rgba(255, 255, 255, 0.064)",
-      borderRadius: "30px",
+    <div className="flex justify-center items-center lg:w-full  lg:gap-10" style={{
+      backdropFilter: "blur(5px)",
+      zIndex: 9999,
   }}>
-    <div className="flex  gap-10 items-center z-10">
-        <Link href={"/"}>
-            <Image
-                src="/one.png"
-                alt="Nucleus Logo"
-                className="relative lg:dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
-                width={120}
-                height={24}
-                priority
-            />
-        </Link>
-    </div>
+   {isDesktop && <div>
+      <Image
+          src="/one.png"
+          alt="Nucleus Logo"
+          className="relative lg:dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+          width={120}
+          height={24}
+          priority
+      />
+    </div>}
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
@@ -169,7 +168,7 @@ export function Navigation() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-inherit">Our Community</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
@@ -184,7 +183,7 @@ export function Navigation() {
               ))}
             </ul>
           </NavigationMenuContent>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-inherit">Site Preference</NavigationMenuTrigger>
           <NavigationMenuContent>
