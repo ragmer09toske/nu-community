@@ -6,6 +6,7 @@ import { Toaster } from '@/components/ui/toaster'
 import Music from '@/components/Music'
 import "@uploadthing/react/styles.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { OutReachBar } from '@/components/OutReachBar'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export default function RootLayout({
           <SpeedInsights/>
           <Toaster />
           <Music />
+          {/* <OutReachBar /> */}
         </ThemeProvider>
     </html>
   )

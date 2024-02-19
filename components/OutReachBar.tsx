@@ -15,7 +15,6 @@ import useStore from '@/app/Store'
 
 export const OutReachBar = () => {
     const setContent = useStore((state) => state.setContent);
-    const content = useStore((state) => state.selectedContent);
 
     const changeContent = () => {
         setContent("Network")
