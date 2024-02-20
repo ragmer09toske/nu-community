@@ -7,8 +7,8 @@ export const Files = () => {
   return (
     <div className='w-full flex justify-center gap-5 pl-5'>
         <Card className="flex w-[200px] h-[50vh] flex-col gap-5">
-            <div className='pt-5 flex justify-center pl-5 pr-5'>
-                Your Files
+            <div className='pt-5 flex justify-center pl-5 pr-5' style={{fontSize: 13}}>
+                <p><b>Your Files</b></p>
             </div>
             <div className="w-full" style={{ borderTopWidth: "1px"}}></div>
         <div className="w-full flex flex-col justify-center gap-5 pl-5 pr-5">

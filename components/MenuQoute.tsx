@@ -2,6 +2,7 @@ import { ArrowDownToDot, MinusCircle, PlusCircle, RemoveFormattingIcon } from 'l
 import React, { useEffect, useState } from 'react';
 import { Separator } from './ui/separator';
 import { Card } from './ui/card';
+import { ScrollArea } from './ui/scroll-area';
 
 interface Skill {
     name: string;
@@ -74,23 +75,26 @@ function MenuList() {
         <div style={{
         }}
         >
-          <div className='flex flex-col gap-5 p-5'>
+          <div className='flex flex-col gap-2 p-5'>
+          <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4"></ScrollArea>
             {availableSkills.map((skill, index) => (
               <div key={index} className='flex flex-col gap-5'>
                 <div style={{
                   display: "flex",
                   justifyContent: "space-between",
-                  gap: 2
+                  gap: 1,
+                  fontSize: 13
                 }}>
                   <p key={index}>
                     {skill.name} <br/> M{skill.price}.00
                   </p>
                   <div className="round-full-Icon">
-                    <PlusCircle  onClick={() => addChosenSkill(skill)} />
+                    <PlusCircle style={{fontSize: 10}}  onClick={() => addChosenSkill(skill)} />
                   </div>
                 </div>
               </div>
             ))}
+          <ScrollArea />
           </div>
         </div>
       </div>

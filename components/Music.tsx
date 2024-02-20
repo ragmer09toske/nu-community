@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, FastForward, Forward, Instagram, Pause, Play, Rewind } from 'lucide-react';
+import { FastForward, Pause, Play, Rewind } from 'lucide-react';
 import { Progress } from './ui/progress';
 import useDeviceType from '@/app/Device';
 

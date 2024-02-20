@@ -106,7 +106,7 @@ export function Navigation() {
   const isDesktop: boolean = useDeviceType();
 
   return (
-    <div className="flex justify-center items-center lg:w-full  lg:gap-10" style={{
+    <div className="flex p-2 pl-5 items-center lg:w-full  lg:gap-10" style={{
       backdropFilter: "blur(5px)",
       zIndex: 999,
   }}>
@@ -118,12 +118,13 @@ export function Navigation() {
           width={120}
           height={24}
           priority
+          onClick={()=>setContent("Landing")}
       />
     </div>}
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent  font-medium">Service</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-transparent  font-medium" style={{color: "gray"}}>Service</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] ">
               <li className="row-span-3">
@@ -153,7 +154,7 @@ export function Navigation() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-inherit">About</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-inherit" style={{color: "gray"}}>About</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {about.map((component) => (
@@ -168,24 +169,8 @@ export function Navigation() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        {/* <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-inherit">Our Community</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem> */}
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-inherit">Site Preference</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-inherit" style={{color: "gray"}}>Site Preference</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] grid-cols-[.75fr_1fr]">
               <li className="row-span-3">

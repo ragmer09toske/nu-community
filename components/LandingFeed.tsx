@@ -78,7 +78,7 @@ export const LandingFeed = () => {
                     <CardDescription>Experience the fusion of creativity and technical expertise.</CardDescription>
                 </CardHeader>
                   <Image
-                    src="/GraphicElements2.gif"
+                    src="/loading-overview.avif"
                     // className="relative "
                     alt="Nucleus Logo"
                     width={855}
@@ -97,7 +97,7 @@ export const LandingFeed = () => {
                     <CardDescription>Take pleasure in the intricate craftsmanship of each character, enhancing your brand&apos;s story.</CardDescription>
                 </CardHeader>
                 <Image
-                    src="/Typography.png"
+                    src="/fill-container.avif"
                     alt="Nucleus Logo"
                     style={{
                       borderRadius:"0 0 8px 8px"
