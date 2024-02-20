@@ -106,16 +106,20 @@ export function Navigation() {
   const isDesktop: boolean = useDeviceType();
 
   return (
-    <div className="flex p-2 pl-5 items-center w-full  lg:gap-10" style={{
+    <div  className="flex p-2 pr-5 items-center w-full  lg:gap-10" style={{
       backdropFilter: "blur(5px)",
       zIndex: 999,
+    }}>
+      
+    <div className="flex  items-center w-full  lg:gap-10" style={{
+     
   }}>
    {isDesktop && <div>
       <Image
-          src="/one.png"
+          src="/nu.png"
           alt="Nucleus Logo"
           className="relative lg:dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
-          width={120}
+          width={30}
           height={24}
           priority
           onClick={()=>setContent("Landing")}
@@ -233,6 +237,10 @@ export function Navigation() {
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
+    </div>
+    <div>
+      login
+    </div>
     </div>
   )
 }

@@ -2,10 +2,13 @@
 
 import React from "react";
 import { Card } from "./ui/card";
-import { ControlBar } from "./ControlBar/ControlBar";
 import UploadUI from "@/app/button-uploader/page";
 import { CLientCloud } from "./CLientCloud";
-
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable"
 
 export const Services = () => {
   return (
@@ -17,8 +20,19 @@ export const Services = () => {
       }}
         className="flex  dark:bg-[#09090bd9] lg:w-[80%] sm:w-[90%] bg-[#FFFFFFFF]"
       >
-        { <CLientCloud />}
-        {<UploadUI />}
+        <ResizablePanelGroup
+          direction="horizontal"
+          className="min-h-[200px] max-w-[100%] rounded-lg border"
+        >
+          <ResizablePanel defaultSize={25}>
+            <CLientCloud />
+          </ResizablePanel>
+          <ResizableHandle withHandle />
+          
+          <ResizablePanel defaultSize={75}>
+            {<UploadUI />}
+          </ResizablePanel>
+        </ResizablePanelGroup>
       </Card>
     </div>
   );

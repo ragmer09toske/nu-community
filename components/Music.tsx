@@ -9,7 +9,8 @@ const Music = () => {
     const [playing, setPlaying] = useState<boolean>(false);
     const [progress, setProgress] = useState<number>(0);
     const audioRef = useRef<HTMLAudioElement>(null);
-    const isDesktop: boolean = useDeviceType();
+    // const isDesktop: boolean = useDeviceType();
+    const [MusicON, setMusicON] = useState<boolean>(true)
     const constraintsRef = useRef(null)
     const handlePlay = () => {
         const audio = audioRef.current;
@@ -73,11 +74,12 @@ const Music = () => {
     }, [playing]);
 
     return (
-        <motion.div ref={constraintsRef}>
+        <>
+        {MusicON && <motion.div ref={constraintsRef}>
         <motion.div drag dragConstraints={{left: 0, right: 800, bottom: 800, top: 0}}>
         {(<div className='relative bottom-0 lg:w-[400px] md:w-[300px]  p-5 flex justify-center '>
             <div className='absolute -top-2 right-6'>
-                <XCircle size={15} color='gray' />
+                <XCircle onClick={()=>setMusicON(false)} size={15} color='gray' />
             </div>
             <div className='absolute -top-2 right-12'>
             <ChevronDownCircle size={15} color='gray' />
@@ -120,7 +122,8 @@ const Music = () => {
             </div>
         </div>)}
         </motion.div>
-        </motion.div>
+        </motion.div>}
+        </>
     );
 }
 

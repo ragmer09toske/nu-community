@@ -9,7 +9,8 @@ import MenuList from "./MenuQoute";
 
 export const CLientCloud = () => {
   return (
-    <div className="relative w-[35%] h-[100%]" style={{
+   
+    <div  className="relative  h-[100%]" style={{
         borderRightWidth: "1px"
     }}>
       <Command

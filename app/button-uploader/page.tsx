@@ -16,12 +16,12 @@ export default function UploadUI() {
 
   return (
     <main className="relative flex flex-col w-full items-center justify-between ">
-      <div className="flex gap-5 w-full p-5 pl-5" style={{
+      <div className="flex gap-5 w-full p-3 pt-4 pl-5" style={{
         borderBottomWidth: "1px"
       }}>
         <TooltipProvider>
           <Tooltip>
-            <TooltipTrigger><Archive /></TooltipTrigger>
+            <TooltipTrigger><Archive size={20} /></TooltipTrigger>
             <TooltipContent>
               <p>Archive</p>
             </TooltipContent>
@@ -30,7 +30,7 @@ export default function UploadUI() {
         
         <TooltipProvider>
           <Tooltip>
-            <TooltipTrigger><ArchiveX /></TooltipTrigger>
+            <TooltipTrigger><ArchiveX size={20}/></TooltipTrigger>
             <TooltipContent>
               <p>Move to trash</p>
             </TooltipContent>
@@ -38,7 +38,7 @@ export default function UploadUI() {
         </TooltipProvider>
         <TooltipProvider>
           <Tooltip>
-            <TooltipTrigger><Trash2 /></TooltipTrigger>
+            <TooltipTrigger><Trash2 size={20}/></TooltipTrigger>
             <TooltipContent>
               <p>Delete</p>
             </TooltipContent>
@@ -47,7 +47,7 @@ export default function UploadUI() {
         <div style={{borderWidth:"1px"}}></div>
         <TooltipProvider>
           <Tooltip>
-            <TooltipTrigger><NotebookPen onClick={()=>setFiles("Notes")} /></TooltipTrigger>
+            <TooltipTrigger><NotebookPen size={20} onClick={()=>setFiles("Notes")} /></TooltipTrigger>
             <TooltipContent>
               <p>Add some notes</p>
             </TooltipContent>

@@ -1,5 +1,7 @@
 import { ArrowDownToDot, MinusCircle, PlusCircle, RemoveFormattingIcon } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
+import { Separator } from './ui/separator';
+// import { ScrollArea } from './ui/scroll-area';
 import { ScrollArea } from "@/components/ui/scroll-area"
 
 
@@ -69,13 +71,13 @@ function MenuList() {
       }}
       >
         <div className="w-full" style={{ borderTopWidth: "1px"}}></div>
-        <h2>Services</h2>
-        <div className="w-full" style={{ borderTopWidth: "1px"}}></div>
+        <h2 style={{fontSize:13}}><b>Services</b></h2>
+        <div className="w-full" style={{ borderTopWidth: "1px"}}></div><br />
         <div style={{
         }}
         >
-          <div className='flex flex-col gap-2 p-5'>
-          <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4"></ScrollArea>
+          <div className='flex flex-col gap-2'>
+          <ScrollArea className="h-[200px] w-[200px] rounded-md border p-2">
             {availableSkills.map((skill, index) => (
               <div key={index} className='flex flex-col gap-5'>
                 <div style={{
@@ -88,22 +90,22 @@ function MenuList() {
                     {skill.name} <br/> M{skill.price}.00
                   </p>
                   <div className="round-full-Icon">
-                    <PlusCircle style={{fontSize: 10}}  onClick={() => addChosenSkill(skill)} />
+                    <PlusCircle size={15}  onClick={() => addChosenSkill(skill)} />
                   </div>
                 </div>
               </div>
             ))}
-          <ScrollArea />
+          </ScrollArea>
           </div>
         </div>
       </div>
-
+      <br />
       <div 
         className="w-full">
         <div className="w-full" style={{ borderTopWidth: "1px"}}></div>
-        <h2>Quotation</h2>
-        <div className="w-full" style={{ borderTopWidth: "1px"}}></div>
-
+        <h2 style={{fontSize:13}}><b>Quotation</b></h2>
+        <div className="w-full" style={{ borderTopWidth: "1px"}}></div><br />
+        <ScrollArea className="h-[200px] w-[200px] rounded-md border p-2">
         <div className='flex flex-col gap-5 p-5'>
           {chosenSkills.map((chosenSkill, index) => (
             <div key={index} style={{
@@ -111,20 +113,22 @@ function MenuList() {
               justifyContent: "space-between",
               gap: 2
             }}>
-            <p key={index}>
+            <p style={{fontSize:13}} key={index}>
               {chosenSkill.name}
               <br/>
               M{chosenSkill.price}.00
             </p>
             <div className="round-full-Icon">
-              <MinusCircle onClick={() => removeChosenSkill(chosenSkill)} />
+              <MinusCircle size={15} onClick={() => removeChosenSkill(chosenSkill)} />
             </div>
           </div>
           ))}
         </div>
+        </ScrollArea>
+        <br />
         <div className="w-full" style={{ borderTopWidth: "1px"}}></div>
-        <p>
-          total: M{totalPrice}.00
+        <p  style={{fontSize:13}}>
+          <b>total: M{totalPrice}.00</b>
         </p>
         <div className="w-full" style={{ borderTopWidth: "1px"}}></div>
       </div>
