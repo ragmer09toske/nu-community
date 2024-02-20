@@ -24,12 +24,12 @@ export const Services = () => {
           direction="horizontal"
           className="min-h-[200px] max-w-[100%] rounded-lg border"
         >
-          <ResizablePanel defaultSize={25}>
+          <ResizablePanel defaultSize={20}>
             <CLientCloud />
           </ResizablePanel>
           <ResizableHandle withHandle />
           
-          <ResizablePanel defaultSize={75}>
+          <ResizablePanel defaultSize={80}>
             {<UploadUI />}
           </ResizablePanel>
         </ResizablePanelGroup>

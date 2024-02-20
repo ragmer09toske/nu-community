@@ -19,6 +19,7 @@ import {
     MenubarSubTrigger,
     MenubarTrigger,
   } from "@/components/ui/menubar"
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 
 const Services = () => {
   return (
@@ -118,8 +119,19 @@ const Services = () => {
       }}
         className="flex  dark:bg-[#09090bd9] lg:w-[80%] sm:w-[90%] bg-[#FFFFFFFF]"
       >
-        { <CLientCloud />}
-        {<UploadUI />}
+        <ResizablePanelGroup
+          direction="horizontal"
+          className="min-h-[200px] max-w-[100%] rounded-lg border"
+        >
+          <ResizablePanel defaultSize={20}>
+            <CLientCloud />
+          </ResizablePanel>
+          <ResizableHandle withHandle />
+          
+          <ResizablePanel defaultSize={80}>
+            {<UploadUI />}
+          </ResizablePanel>
+        </ResizablePanelGroup>
       </Card>
     </div>
     </>

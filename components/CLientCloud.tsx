@@ -1,7 +1,6 @@
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "./ui/scroll-area";
-import { Engagements } from "./ControlBar/Engagements";
 import { Socials } from "./ControlBar/Socials";
 import { Command } from "./ui/command";
 import MenuList from "./MenuQoute";
@@ -10,7 +9,7 @@ import MenuList from "./MenuQoute";
 export const CLientCloud = () => {
   return (
    
-    <div  className="relative  h-[100%]" style={{
+    <div  className="relative h-[100%]" style={{
         borderRightWidth: "1px"
     }}>
       <Command
