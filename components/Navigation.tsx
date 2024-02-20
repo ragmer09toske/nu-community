@@ -124,7 +124,7 @@ export function Navigation() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent  font-medium" style={{color: "gray"}}>Service</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-transparent  font-medium" style={{color: "gray"}}><b>Service</b></NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] ">
               <li className="row-span-3">
@@ -154,7 +154,7 @@ export function Navigation() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-inherit" style={{color: "gray"}}>About</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-inherit" style={{color: "gray"}}><b>About</b></NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {about.map((component) => (
@@ -170,7 +170,7 @@ export function Navigation() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-inherit" style={{color: "gray"}}>Site Preference</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-inherit" style={{color: "gray"}}><b>Site Preference</b></NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] grid-cols-[.75fr_1fr]">
               <li className="row-span-3">

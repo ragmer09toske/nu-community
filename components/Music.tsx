@@ -1,16 +1,16 @@
 "use client"
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
-import { FastForward, Pause, Play, Rewind } from 'lucide-react';
+import { ChevronDownCircle, CircleDashed, FastForward, Pause, Play, Rewind, XCircle } from 'lucide-react';
 import { Progress } from './ui/progress';
 import useDeviceType from '@/app/Device';
-
+import { motion } from "framer-motion"
 const Music = () => {
     const [playing, setPlaying] = useState<boolean>(false);
     const [progress, setProgress] = useState<number>(0);
     const audioRef = useRef<HTMLAudioElement>(null);
     const isDesktop: boolean = useDeviceType();
-
+    const constraintsRef = useRef(null)
     const handlePlay = () => {
         const audio = audioRef.current;
         if (audio) {
@@ -73,8 +73,15 @@ const Music = () => {
     }, [playing]);
 
     return (
-        <>
-        {isDesktop && (<div className='fixed bottom-0 lg:w-[400px] md:w-[300px] right-5 p-5 flex justify-center '>
+        <motion.div ref={constraintsRef}>
+        <motion.div drag dragConstraints={{left: 0, right: 800, bottom: 800, top: 0}}>
+        {isDesktop && (<div className='relative bottom-0 lg:w-[400px] md:w-[300px]  p-5 flex justify-center '>
+            <div className='absolute -top-2 right-6'>
+                <XCircle size={15} color='gray' />
+            </div>
+            <div className='absolute -top-2 right-12'>
+            <ChevronDownCircle size={15} color='gray' />
+            </div>
             <div className='relative w-full p-2 border-solid border-1 dark:border-black' 
                 style={{
                     backdropFilter: "blur(5px)",
@@ -94,31 +101,26 @@ const Music = () => {
                                 priority
                             />
                             <div>
-                            <Image
-                                src="/one.png"
-                                alt="Nucleus Logo"
-                                className="relative lg:dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
-                                width={120}
-                                height={24}
-                                priority
-                            />
+                                <h6 style={{fontSize:13}}><b>Rhetoric</b></h6>
+                                <p style={{fontSize:11}}>No Sense</p>
                             </div>
                         </div>
                         <audio ref={audioRef} src="/audio.mp3" />
                         <div  className='flex items-center gap-2'>
-                            <Rewind style={{color:"rgba(255, 255, 255, 0.387)"}}/>
+                            <Rewind size={15} color='gray'/>
                             { playing ?
-                                <Pause onClick={handlePause} style={{color:"rgba(255, 255, 255, 0.387)"}}/>
+                                <Pause onClick={handlePause} size={15} color='gray'/>
                                 :
-                                <Play onClick={handlePlay} style={{color:"rgba(255, 255, 255, 0.387)"}}/>
+                                <Play onClick={handlePlay} size={15} color='gray'/>
                             }
-                            <FastForward style={{color:"rgba(255, 255, 255, 0.387)"}}/>
+                            <FastForward size={15} color='gray'/>
                         </div>
                     </div>
                 </div>
             </div>
         </div>)}
-        </>
+        </motion.div>
+        </motion.div>
     );
 }
 
