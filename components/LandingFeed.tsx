@@ -6,6 +6,7 @@ import { Card, CardDescription, CardHeader, CardTitle } from './ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import useDeviceType from '@/app/Device'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const LandingFeed = () => {
   const isDesktop: boolean = useDeviceType();
@@ -33,10 +34,11 @@ export const LandingFeed = () => {
             
             <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
               <div className='flex flex-col  gap-5'>
+              <Link href="/services">
               <Card className="w-[100%]">
                 <CardHeader>
-                    <CardTitle>Elevate Your Brand with Exquisite Typography</CardTitle>
-                    <CardDescription>Take pleasure in the intricate craftsmanship of each character, enhancing your brand&apos;s story.</CardDescription>
+                    <CardTitle>Co-own a workspace.</CardTitle>
+                    <CardDescription>Have your entire organization on the same working space, share files, and assign tasks seamlessly. Access your files anywhere in the world and make the whole world your office.</CardDescription>
                 </CardHeader>
                 <Image
                     src="/map.png"
@@ -49,7 +51,7 @@ export const LandingFeed = () => {
                     priority
                 />
               </Card>
-
+              </Link>
 
               <Card className="w-[100%] p-0.5 pl-3 ">
                 <div>
