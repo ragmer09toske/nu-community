@@ -75,7 +75,7 @@ const Music = () => {
     return (
         <motion.div ref={constraintsRef}>
         <motion.div drag dragConstraints={{left: 0, right: 800, bottom: 800, top: 0}}>
-        {isDesktop && (<div className='relative bottom-0 lg:w-[400px] md:w-[300px]  p-5 flex justify-center '>
+        {(<div className='relative bottom-0 lg:w-[400px] md:w-[300px]  p-5 flex justify-center '>
             <div className='absolute -top-2 right-6'>
                 <XCircle size={15} color='gray' />
             </div>
@@ -105,7 +105,7 @@ const Music = () => {
                                 <p style={{fontSize:11}}>No Sense</p>
                             </div>
                         </div>
-                        <audio ref={audioRef} src="/audio.mp3" />
+                        <audio ref={audioRef} src="/audio.mp4" />
                         <div  className='flex items-center gap-2'>
                             <Rewind size={15} color='gray'/>
                             { playing ?

@@ -33,25 +33,23 @@ export const LandingFeed = () => {
             
             <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
               <div className='flex flex-col  gap-5'>
-              <Card className="w-[100%]  flex">
-                <div>
+              <Card className="w-[100%]">
                 <CardHeader>
-                <div className='flex gap-2 items-center'>
-                    <Avatar>
-                        <AvatarImage src="/me2.png" />
-                        <AvatarFallback>RS</AvatarFallback>
-                    </Avatar>
-                    <div className='flex flex-col'>
-                        <h5>Retsepile Shao</h5>
-                        <p style={{fontSize:11}}>CEO @Nucleus</p>
-                    </div>
-                </div>
-                <CardDescription>
-                  The worst mistake you can make is to think Lesotho has no skills. If you think so, it&apos;s probably because you&apos;ve been spending too much time in your bedroom rather than networking. Go outside, and I swear you will be amazed.
-                </CardDescription>
+                    <CardTitle>Elevate Your Brand with Exquisite Typography</CardTitle>
+                    <CardDescription>Take pleasure in the intricate craftsmanship of each character, enhancing your brand&apos;s story.</CardDescription>
                 </CardHeader>
-                </div>
+                <Image
+                    src="/map.png"
+                    alt="Nucleus Logo"
+                    style={{
+                      borderRadius:"0 0 8px 8px"
+                    }}
+                    width={855}
+                    height={24}
+                    priority
+                />
               </Card>
+
 
               <Card className="w-[100%] p-0.5 pl-3 ">
                 <div>

@@ -106,7 +106,7 @@ export function Navigation() {
   const isDesktop: boolean = useDeviceType();
 
   return (
-    <div className="flex p-2 pl-5 items-center lg:w-full  lg:gap-10" style={{
+    <div className="flex p-2 pl-5 items-center w-full  lg:gap-10" style={{
       backdropFilter: "blur(5px)",
       zIndex: 999,
   }}>

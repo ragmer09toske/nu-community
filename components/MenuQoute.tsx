@@ -1,8 +1,7 @@
 import { ArrowDownToDot, MinusCircle, PlusCircle, RemoveFormattingIcon } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
-import { Separator } from './ui/separator';
-import { Card } from './ui/card';
-import { ScrollArea } from './ui/scroll-area';
+import { ScrollArea } from "@/components/ui/scroll-area"
+
 
 interface Skill {
     name: string;
