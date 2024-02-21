@@ -34,11 +34,11 @@ export const LandingFeed = () => {
             
             <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
               <div className='flex flex-col  gap-5'>
-              <Link href="/services">
+              <Link href="/workspace">
               <Card className="w-[100%]">
                 <CardHeader>
                     <CardTitle>Co-own a workspace.</CardTitle>
-                    <CardDescription>Have your entire organization on the same working space, share files, and assign tasks seamlessly. Access your files anywhere in the world and make the whole world your office.</CardDescription>
+                    <CardDescription>Have your entire organization on the same working space as your clients, share files, and assign tasks seamlessly. Access your files anywhere in the world and make the whole world your office.</CardDescription>
                 </CardHeader>
                 <Image
                     src="/map.png"

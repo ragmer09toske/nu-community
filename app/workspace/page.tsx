@@ -20,6 +20,7 @@ import {
     MenubarTrigger,
   } from "@/components/ui/menubar"
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
+import Link from "next/link";
 
 const Services = () => {
   return (
@@ -48,6 +49,11 @@ const Services = () => {
           <MenubarItem>
             Print... <MenubarShortcut>⌘P</MenubarShortcut>
           </MenubarItem>
+          <Link href="/">
+          <MenubarItem>
+            Exit <MenubarShortcut>⌘X</MenubarShortcut>
+          </MenubarItem>
+          </Link>
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>

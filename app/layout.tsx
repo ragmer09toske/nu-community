@@ -27,9 +27,9 @@ export default function RootLayout({
             disableTransitionOnChange
         >
           <body className={inter.className}>{children}</body>
-          <SpeedInsights/>
           <Toaster />
-          <Music />
+          {/* <Music /> */}
+          <SpeedInsights/>
         </ThemeProvider>
     </html>
   )

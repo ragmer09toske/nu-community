@@ -114,7 +114,7 @@ export function Navigation() {
     <div className="flex  items-center w-full  lg:gap-10" style={{
      
   }}>
-   {isDesktop && <div>
+   {isDesktop && <div className="pl-5">
       <Image
           src="/nu.png"
           alt="Nucleus Logo"
