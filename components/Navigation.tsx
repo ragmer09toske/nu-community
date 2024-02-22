@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Loader2, Moon, Sun } from "lucide-react"
+import { GripHorizontal, Loader2, Menu, Moon, Sun } from "lucide-react"
 import { cn } from "@/lib/utils"
 import axios from 'axios';
 import {
@@ -140,6 +140,13 @@ export function Navigation  (){
   const setLoginToken = useStore((state)=> state.setLoginToken )
   const loginToken = useStore((state)=> state.loginToken )
 
+
+  const [Register_name,setRegister_name]= React.useState<string>('')
+  const [Register_email,setRegister_email] = React.useState<string>('')
+  const [Register_number,setRegister_number]=React.useState<string>('')
+  const [Register_password,setRegister_password] = React.useState<string>('')
+
+
   const setUserDetails = useStore((state)=> state.setUser )
   const userDetails = useStore((state)=> state.user )
 
@@ -159,6 +166,28 @@ export function Navigation  (){
 
       setLoginToken(response.data.token)
       setUserID(response.data.userID)
+
+      setLoading(false)
+    } catch (error) {
+      console.log('Error:', error);
+      setLoading(false)
+    }
+  };
+
+  const register = async () => {
+    try {
+      setLoading(true)
+      const response = await axios.post(
+        'https://nucleus-community-55ff7e3e4dd0.herokuapp.com/workspace/auth/register',
+        {
+          name: Register_name,
+          number: Register_number,
+          email: Register_email,
+          password: Register_password
+        }
+      );
+
+      console.log(response.data)
 
       setLoading(false)
     } catch (error) {
@@ -212,7 +241,7 @@ export function Navigation  (){
       />
     </div>}
 
-    <NavigationMenu>
+    {isDesktop ? <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent  font-medium" style={{color: "gray"}}><b>Service</b></NavigationMenuTrigger>
@@ -323,13 +352,16 @@ export function Navigation  (){
           </NavigationMenuContent>
         </NavigationMenuItem>
       </NavigationMenuList>
-    </NavigationMenu>
+    </NavigationMenu> 
+    :
+    <GripHorizontal />
+    }
     </div>
     {!loginRegister ? <Dialog>
       <DialogTrigger asChild>
         <Button variant="outline">{!loginToken ? "Login" : "logout"}</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="max-w-[325px] rounded-sm lg:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Login</DialogTitle>
           <DialogDescription>
@@ -372,7 +404,7 @@ export function Navigation  (){
       <DialogTrigger asChild>
         <Button variant="outline">Register</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[525px]">
+      <DialogContent className="max-w-[325px] rounded-sm lg:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Register</DialogTitle>
           <DialogDescription>
@@ -380,10 +412,22 @@ export function Navigation  (){
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="name" className="text-right">
+                Name
+              </Label>
+              <Input
+              onChange={(e)=>setRegister_name(e.target.value)}
+              id="name"
+                // defaultValue="Pedro Duarte"
+                className="col-span-3"
+              />
+            </div>
+          <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="name" className="text-right">
               Work Email
             </Label>
             <Input
+              onChange={(e)=>setRegister_email(e.target.value)}
               id="name"
               // defaultValue="Pedro Duarte"
               className="col-span-3"
@@ -398,17 +442,7 @@ export function Navigation  (){
             type="number"
               id="name"
               // defaultValue="Pedro Duarte"
-              className="col-span-3"
-            />
-          </div>
-
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Organization
-            </Label>
-            <Input
-              id="name"
-              // defaultValue="Pedro Duarte"
+              onChange={(e)=>setRegister_number(e.target.value)}
               className="col-span-3"
             />
           </div>
@@ -418,6 +452,7 @@ export function Navigation  (){
               Password
             </Label>
             <Input
+              onChange={(e)=>setRegister_password(e.target.value)}
               id="username"
               // defaultValue="@peduarte"
               className="col-span-3"
@@ -425,7 +460,7 @@ export function Navigation  (){
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit" variant={"outline"}>submit</Button>
+        <Button type="submit" variant={"outline"} onClick={register}>{!loading ? "submit" : <Loader2 className="animate-spin"/>}</Button>
         </DialogFooter>
         <div className="w-full flex justify-center cursor-pointer" onClick={()=>setLoginRegister(!loginRegister)}>
          or login

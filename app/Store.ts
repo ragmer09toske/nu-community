@@ -1,3 +1,4 @@
+"use client"
 import { create } from "zustand";
 
 interface User {
@@ -16,7 +17,6 @@ interface StoreState {
   selectedContent: string;
   selectedFiles: string;
   loginToken: string;
-  uusToken: string;
   user: User | null; // Add user property to StoreState
   userID: string; // Add userID property to StoreState
   setContent: (newContent: string) => void;
@@ -27,15 +27,34 @@ interface StoreState {
 }
 
 const useCurentUserStore = create<StoreState>((set) => {
-  const initialLoginToken = localStorage.getItem("loginToken") || "";
-  const initialUserID = localStorage.getItem("userID") || "";
-  const initialUser = JSON.parse(localStorage.getItem("user") || "null"); // Parse stored user JSON
+  let initialLoginToken: any ;
+  if (typeof localStorage !== "undefined") {
+    // Code that references localStorage
+    initialLoginToken = localStorage.getItem("loginToken") || "";
+  } else {
+    // Handle the case where localStorage is not available
+  }
+
+  let initialUserID: any;
+  if (typeof localStorage !== "undefined") {
+    // Code that references localStorage
+    initialUserID = localStorage.getItem("userID") || "";
+  } else {
+    // Handle the case where localStorage is not available
+  }
+  let initialUser: any;
+  if (typeof localStorage !== "undefined") {
+    // Code that references localStorage
+    initialUser = JSON.parse(localStorage.getItem("user") || "null"); // Parse stored user JSON
+  } else {
+    // Handle the case where localStorage is not available
+  }
+  
 
   return {
     selectedContent: "Landing",
     selectedFiles: "Files",
     loginToken: initialLoginToken,
-    uusToken: "",
     user: initialUser, // Set initial value for user
     userID: initialUserID, // Set initial value for userID
 
@@ -44,7 +63,13 @@ const useCurentUserStore = create<StoreState>((set) => {
 
     setLoginToken: (token) => {
       set((state) => ({ loginToken: token }));
-      localStorage.setItem("loginToken", token);
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("loginToken", token);
+        // Code that references localStorage
+      } else {
+        // Handle the case where localStorage is not available
+      }
+      
     },
 
     setFiles: (newFiles) =>
@@ -52,12 +77,23 @@ const useCurentUserStore = create<StoreState>((set) => {
 
     setUser: (user) => {
       set((state) => ({ user }));
-      localStorage.setItem("user", JSON.stringify(user)); // Store user object as JSON
+      // Store user object as JSON
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("user", JSON.stringify(user)); 
+      } else {
+        // Handle the case where localStorage is not available
+      }
     },
 
     setUserID: (userID) => {
       set((state) => ({ userID }));
-      localStorage.setItem("userID", userID); // Store userID in localStorage
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("userID", userID); // Store userID in localStorage
+        // Code that references localStorage
+      } else {
+        // Handle the case where localStorage is not available
+      }
+      
     },
   };
 });

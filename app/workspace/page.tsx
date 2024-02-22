@@ -21,8 +21,10 @@ import {
   } from "@/components/ui/menubar"
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 import Link from "next/link";
+// import useStore from "@/app/Store"
 
 const Services = () => {
+  // const userDetails = useStore((state)=> state.user )
   return (
     <>
     <Menubar style={{borderRadius: 0, borderLeftWidth: 0, borderRightWidth: 0, borderTopWidth: 0}}>
@@ -107,7 +109,8 @@ const Services = () => {
         <MenubarContent>
           <MenubarRadioGroup value="benoit">
             <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
-            <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
+            {/* <MenubarRadioItem value="benoit">{userDetails?.name}</MenubarRadioItem> */}
+            <MenubarRadioItem value="benoit">Raymond</MenubarRadioItem>
             <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
           </MenubarRadioGroup>
           <MenubarSeparator />
