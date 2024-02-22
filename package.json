@@ -32,6 +32,7 @@
     "@uploadthing/react": "^6.2.3",
     "@vercel/speed-insights": "^1.0.10",
     "ai": "^2.2.35",
+    "axios": "^1.6.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cmdk": "^0.2.1",

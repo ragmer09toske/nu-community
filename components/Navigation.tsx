@@ -2,8 +2,9 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Moon, Sun } from "lucide-react"
+import { Loader2, Moon, Sun } from "lucide-react"
 import { cn } from "@/lib/utils"
+import axios from 'axios';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -21,6 +22,18 @@ import { VissionModel } from "./Mission"
 import { Switch } from "./ui/switch"
 import useStore from "@/app/Store"
 import useDeviceType from "@/app/Device"
+import { Button } from "./ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Input } from "./ui/input"
+import { Label } from "./ui/label"
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -97,13 +110,86 @@ const about: { title: string; href: string; description: string }[] = [
       "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
   },
 ]
+interface ApiResponse {
+  _id: string;
+  name: string;
+  number: number;
+  email: string;
+  password: string;
+  role: string;
+  organization: string;
+  avatar: string;
+  __v: number;
+}
+interface User {
+  token: string;
+  userID: string;
+}
 
-export function Navigation() {
+
+export function Navigation  (){
   const { toast } = useToast()
   const { theme,setTheme } = useTheme()
   console.log("current theme is:",theme)
   const setContent = useStore((state) => state.setContent);
   const isDesktop: boolean = useDeviceType();
+  const [loginRegister, setLoginRegister] = React.useState<boolean>(false)
+  const [email, setEmail] = React.useState<string>('')
+  const [password, setPassword] = React.useState<string>('')
+  const [loading, setLoading] = React.useState<boolean>(false)
+  const setLoginToken = useStore((state)=> state.setLoginToken )
+  const loginToken = useStore((state)=> state.loginToken )
+
+  const setUserDetails = useStore((state)=> state.setUser )
+  const userDetails = useStore((state)=> state.user )
+
+  const userID = useStore((state)=> state.userID )
+  const setUserID = useStore((state)=> state.setUserID )
+
+  const login = async () => {
+    try {
+      setLoading(true)
+      const response = await axios.post<User>(
+        'https://nucleus-community-55ff7e3e4dd0.herokuapp.com/workspace/auth/login',
+        {
+          email: email,
+          password: password,
+        }
+      );
+
+      setLoginToken(response.data.token)
+      setUserID(response.data.userID)
+
+      setLoading(false)
+    } catch (error) {
+      console.log('Error:', error);
+      setLoading(false)
+    }
+  };
+
+  React.useEffect(()=>{
+    const getUser = async () => {
+      try {
+        setLoading(true)
+        const config = { 
+          headers: {
+            Authorization: `Bearer ${loginToken}`
+          }
+        };
+        const response = await axios.get<ApiResponse>(
+          `https://nucleus-community-55ff7e3e4dd0.herokuapp.com/workspace/users/${userID}`,config
+        );
+  
+        setUserDetails(response.data)
+  
+        setLoading(false)
+      } catch (error) {
+        console.log('Error:', error);
+        setLoading(false)
+      }
+    };
+    getUser()
+  },[loginToken, setLoginToken, setUserDetails, userID])
 
   return (
     <div  className="flex p-2 pr-5 items-center w-full  lg:gap-10" style={{
@@ -114,17 +200,18 @@ export function Navigation() {
     <div className="flex  items-center w-full  lg:gap-10" style={{
      
   }}>
+
    {isDesktop && <div className="pl-5">
       <Image
-          src="/nu.png"
-          alt="Nucleus Logo"
-          className="relative lg:dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
-          width={30}
-          height={24}
-          priority
-          onClick={()=>setContent("Landing")}
+        src="/nu.png"
+        alt="Nucleus Logo"
+        width={30}
+        height={24}
+        priority
+        onClick={()=>setContent("Landing")}
       />
     </div>}
+
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
@@ -238,9 +325,115 @@ export function Navigation() {
       </NavigationMenuList>
     </NavigationMenu>
     </div>
-    <div>
-      login
-    </div>
+    {!loginRegister ? <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline">{!loginToken ? "Login" : "logout"}</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Login</DialogTitle>
+          <DialogDescription>
+          </DialogDescription>
+        </DialogHeader>
+        <div className="grid gap-4 py-4">
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="name" className="text-right">
+              Email
+            </Label>
+            <Input
+              id="name"
+              onChange={(e)=>setEmail(e.target.value)}
+              // defaultValue="Pedro Duarte"
+              className="col-span-3"
+            />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="username" className="text-right">
+              Password
+            </Label>
+            <Input
+              onChange={(e)=>setPassword(e.target.value)}
+              id="username"
+              // defaultValue="@peduarte"
+              className="col-span-3"
+            />
+          </div>
+        </div>
+        <DialogFooter>
+          <Button type="submit" variant={"outline"} onClick={login}>{!loading ? "submit" : <Loader2 className="animate-spin"/>}</Button>
+        </DialogFooter>
+        <div className="w-full flex justify-center cursor-pointer" onClick={()=>setLoginRegister(!loginRegister)}>
+          or register: {userDetails && userDetails.name}
+        </div>
+      </DialogContent>
+    </Dialog>
+    :
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline">Register</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[525px]">
+        <DialogHeader>
+          <DialogTitle>Register</DialogTitle>
+          <DialogDescription>
+          </DialogDescription>
+        </DialogHeader>
+        <div className="grid gap-4 py-4">
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="name" className="text-right">
+              Work Email
+            </Label>
+            <Input
+              id="name"
+              // defaultValue="Pedro Duarte"
+              className="col-span-3"
+            />
+          </div>
+
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="name" className="text-right">
+              Phone
+            </Label>
+            <Input
+            type="number"
+              id="name"
+              // defaultValue="Pedro Duarte"
+              className="col-span-3"
+            />
+          </div>
+
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="name" className="text-right">
+              Organization
+            </Label>
+            <Input
+              id="name"
+              // defaultValue="Pedro Duarte"
+              className="col-span-3"
+            />
+          </div>
+
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="username" className="text-right">
+              Password
+            </Label>
+            <Input
+              id="username"
+              // defaultValue="@peduarte"
+              className="col-span-3"
+            />
+          </div>
+        </div>
+        <DialogFooter>
+          <Button type="submit" variant={"outline"}>submit</Button>
+        </DialogFooter>
+        <div className="w-full flex justify-center cursor-pointer" onClick={()=>setLoginRegister(!loginRegister)}>
+         or login
+        </div>
+      </DialogContent>
+    </Dialog>
+  }
+                  
     </div>
   )
 }

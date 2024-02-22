@@ -16,28 +16,23 @@ interface StoreState {
   selectedContent: string;
   selectedFiles: string;
   loginToken: string;
-  uusToken: string;
   user: User | null; // Add user property to StoreState
-  userID: string; // Add userID property to StoreState
+
   setContent: (newContent: string) => void;
   setLoginToken: (loginToken: string) => void;
   setFiles: (newFiles: string) => void;
   setUser: (user: User | null) => void; // Add setUser function
-  setUserID: (userID: string) => void; // Add setUserID function
 }
 
 const useCurentUserStore = create<StoreState>((set) => {
   const initialLoginToken = localStorage.getItem("loginToken") || "";
-  const initialUserID = localStorage.getItem("userID") || "";
   const initialUser = JSON.parse(localStorage.getItem("user") || "null"); // Parse stored user JSON
 
   return {
     selectedContent: "Landing",
     selectedFiles: "Files",
     loginToken: initialLoginToken,
-    uusToken: "",
     user: initialUser, // Set initial value for user
-    userID: initialUserID, // Set initial value for userID
 
     setContent: (newContent) =>
       set((state) => ({ selectedContent: newContent })),
@@ -53,11 +48,6 @@ const useCurentUserStore = create<StoreState>((set) => {
     setUser: (user) => {
       set((state) => ({ user }));
       localStorage.setItem("user", JSON.stringify(user)); // Store user object as JSON
-    },
-
-    setUserID: (userID) => {
-      set((state) => ({ userID }));
-      localStorage.setItem("userID", userID); // Store userID in localStorage
     },
   };
 });
