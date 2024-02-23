@@ -418,7 +418,6 @@ export function Navigation  (){
               <Input
               onChange={(e)=>setRegister_name(e.target.value)}
               id="name"
-                // defaultValue="Pedro Duarte"
                 className="col-span-3"
               />
             </div>
@@ -429,7 +428,6 @@ export function Navigation  (){
             <Input
               onChange={(e)=>setRegister_email(e.target.value)}
               id="name"
-              // defaultValue="Pedro Duarte"
               className="col-span-3"
             />
           </div>
@@ -441,7 +439,6 @@ export function Navigation  (){
             <Input
             type="number"
               id="name"
-              // defaultValue="Pedro Duarte"
               onChange={(e)=>setRegister_number(e.target.value)}
               className="col-span-3"
             />
@@ -454,7 +451,6 @@ export function Navigation  (){
             <Input
               onChange={(e)=>setRegister_password(e.target.value)}
               id="username"
-              // defaultValue="@peduarte"
               className="col-span-3"
             />
           </div>

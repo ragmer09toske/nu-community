@@ -2,21 +2,24 @@ import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "./ui/scroll-area";
 import { Socials } from "./ControlBar/Socials";
-import MenuList from "./MenuQoute";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar"
 import {
   ArrowUpCircle,
   CheckCircle2,
   Circle,
-  Filter,
-  FilterIcon,
+  GripHorizontal,
   HelpCircle,
   LucideIcon,
+  Send,
   SlidersHorizontal,
   XCircle,
 } from "lucide-react"
- 
 import { cn } from "@/lib/utils"
-
+import useStore from "@/app/Store"
 import { Button } from "@/components/ui/button"
 import {
   Command,
@@ -27,10 +30,24 @@ import {
   CommandList,
 } from "@/components/ui/command"
 import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
+import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import LinearBuffer from "./MUI_LoadBuffer";
+import { Textarea } from "./ui/textarea";
  
 const statuses: Status[] = [
   {
@@ -71,6 +88,8 @@ type Status = {
 export const CLientCloud = () => {
   const [open, setOpen] = React.useState(false)
   const [selectedStatus, setSelectedStatus] = React.useState<Status | null>(null)
+  const [message, setMessage] = React.useState<string>()
+  const userDetails = useStore((state)=> state.user )
   return (
    
     <div  className="relative h-[100%]" style={{
@@ -81,15 +100,17 @@ export const CLientCloud = () => {
         style={{ background: "rgba(255, 255, 255, 0)", borderWidth: "0px" }}
       >
         <Tabs defaultValue="account" className="flex  h-[100%] flex-col">
+          <LinearBuffer />
           <TabsList>
-            <TabsTrigger value="account">Qoute</TabsTrigger>
-            <TabsTrigger value="password">Nucleus Bot</TabsTrigger>
+            <TabsTrigger value="ticket">Tickets</TabsTrigger>
+            <TabsTrigger value="rooms">Rooms</TabsTrigger>
+            <TabsTrigger value="temp_on">Temp-On</TabsTrigger>
           </TabsList>
           <ScrollArea
             style={{ borderWidth: "0px" }}
             className="flex flex-col gap-5 w-full rounded-md border p-4"
           >
-            <TabsContent value="account">
+            <TabsContent value="ticket">
               {/* <MenuList /> */}
             <div className="flex items-center space-x-4">
               <SlidersHorizontal  className="text-sm text-muted-foreground" />
@@ -145,10 +166,44 @@ export const CLientCloud = () => {
               </Popover>
             </div>
             </TabsContent>
-            <TabsContent value="password">
+            <TabsContent value="rooms">
               <Socials />
             </TabsContent>
           </ScrollArea>
+          <TabsContent value="temp_on" className="h-full">
+            <div className="flex gap-5 h-full">
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+              <div className="h-full">
+                {userDetails?.name}
+                <div>
+                  <p style={{fontSize:12, color:"rgba(255, 255, 255, 0.716)"}}>See the documentation below for a complete reference to all of the props and classes available to the components mentioned here</p>
+                </div>
+
+                <div className="absolute left-0 bottom-0 pb-2 flex w-[100%] items-center justify-center">
+                  <div className=" w-[306px] ">
+                    <div className="flex">
+                    <HoverCard >
+                      <HoverCardTrigger><GripHorizontal  className="pl-2"/></HoverCardTrigger>
+                      <HoverCardContent>
+                      <p style={{fontSize:12, color:"rgba(255, 255, 255, 0.716)"}}>This message will only be seen by a person or a group of people you send a temp-on token to </p>
+                      </HoverCardContent>
+                    </HoverCard>
+                    {message && <div>
+                      <Send className="pl-2"/>
+                    </div>}
+                    </div>
+                    <div className="pl-2">
+                    <p style={{fontSize:12, color:"rgba(255, 255, 255, 0.716)"}}>Temp-On: 3423erwwx3243</p>
+                    <Textarea onChange={(e)=>setMessage(e.target.value)} cols={1} rows={2} className="resize-none w-[96%] p-2" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </TabsContent>
         </Tabs>
       </Command>
     </div>
