@@ -1,7 +1,11 @@
-import React from "react";
+"use client"
+import React, { useCallback, useEffect, useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "./ui/scroll-area";
 import { Socials } from "./ControlBar/Socials";
+import io from "socket.io-client"
+const socket = io("https://your-socket-server-url.com");
+
 import {
   Avatar,
   AvatarFallback,
@@ -39,13 +43,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
 import LinearBuffer from "./MUI_LoadBuffer";
 import { Textarea } from "./ui/textarea";
  
@@ -86,10 +83,43 @@ type Status = {
 
 
 export const CLientCloud = () => {
-  const [open, setOpen] = React.useState(false)
-  const [selectedStatus, setSelectedStatus] = React.useState<Status | null>(null)
-  const [message, setMessage] = React.useState<string>()
-  const userDetails = useStore((state)=> state.user )
+  const [open, setOpen] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState<Status | null>(null);
+  const [message, setMessage] = useState<string>('');
+  const [receivedMessage, setReceivedMessage] = useState('');
+  const [room, setRoom] = useState<string>("1");
+  const userDetails = useStore((state) => state.user);
+
+  const sendMessage = useCallback(() => {
+      if (socket) {
+          socket.emit("send_message", { message: message, room: room });
+      }
+  }, [message, room]);
+
+  useEffect(() => {
+      const socket = io("https://socket-io-server-d1d904e77e8c.herokuapp.com");
+
+      const joinRoom = () => {
+          if (room !== "") {
+              socket.emit("join", room);
+          }
+      };
+
+      const handleReceivedMessage = (data: { message: string }) => {
+          setReceivedMessage(data.message);
+      };
+
+      socket.on("receive_message", handleReceivedMessage);
+
+      joinRoom();
+
+      return () => {
+          socket.off("receive_message", handleReceivedMessage);
+          socket.disconnect();
+      };
+  }, [room]);
+
+
   return (
    
     <div  className="relative h-[100%]" style={{
@@ -179,7 +209,9 @@ export const CLientCloud = () => {
               <div className="h-full">
                 {userDetails?.name}
                 <div>
-                  <p style={{fontSize:12, color:"rgba(255, 255, 255, 0.716)"}}>See the documentation below for a complete reference to all of the props and classes available to the components mentioned here</p>
+                  <p style={{fontSize:12, color:"rgba(255, 255, 255, 0.716)"}}>
+                    {receivedMessage}
+                  </p>
                 </div>
 
                 <div className="absolute left-0 bottom-0 pb-2 flex w-[100%] items-center justify-center">
@@ -192,7 +224,7 @@ export const CLientCloud = () => {
                       </HoverCardContent>
                     </HoverCard>
                     {message && <div>
-                      <Send className="pl-2"/>
+                      <Send onClick={sendMessage} className="pl-2"/>
                     </div>}
                     </div>
                     <div className="pl-2">
