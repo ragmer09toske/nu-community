@@ -4,7 +4,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "./ui/scroll-area";
 import { Socials } from "./ControlBar/Socials";
 import io from "socket.io-client"
-const socket = io("https://your-socket-server-url.com");
 
 import {
   Avatar,
@@ -89,34 +88,36 @@ export const CLientCloud = () => {
   const [receivedMessage, setReceivedMessage] = useState('');
   const [room, setRoom] = useState<string>("1");
   const userDetails = useStore((state) => state.user);
+  const [socket, setSocket] = useState<SocketIOClient.Socket | null>(null);
 
   const sendMessage = useCallback(() => {
-      if (socket) {
-          socket.emit("send_message", { message: message, room: room });
-      }
-  }, [message, room]);
+    if (socket) {
+      socket.emit("send_message", { message: message, room: room });
+    }
+  }, [socket, message, room]);
 
   useEffect(() => {
-      const socket = io("https://socket-io-server-d1d904e77e8c.herokuapp.com");
+    const newSocket = io("https://socket-io-server-d1d904e77e8c.herokuapp.com");
+    setSocket(newSocket);
 
-      const joinRoom = () => {
-          if (room !== "") {
-              socket.emit("join", room);
-          }
-      };
+    const joinRoom = () => {
+      if (room !== "") {
+        newSocket.emit("join", room);
+      }
+    };
 
-      const handleReceivedMessage = (data: { message: string }) => {
-          setReceivedMessage(data.message);
-      };
+    const handleReceivedMessage = (data: { message: string }) => {
+      setReceivedMessage(data.message);
+    };
 
-      socket.on("receive_message", handleReceivedMessage);
+    newSocket.on("receive_message", handleReceivedMessage);
 
-      joinRoom();
+    joinRoom();
 
-      return () => {
-          socket.off("receive_message", handleReceivedMessage);
-          socket.disconnect();
-      };
+    return () => {
+      newSocket.off("receive_message", handleReceivedMessage);
+      newSocket.disconnect();
+    };
   }, [room]);
 
 
