@@ -88,17 +88,17 @@ export const CLientCloud = () => {
   const [receivedMessage, setReceivedMessage] = useState('');
   const [room, setRoom] = useState<string>("1");
   const userDetails = useStore((state) => state.user);
-  const [socket, setSocket] = useState<SocketIOClient.Socket | null>(null);
+  // const [socket, setSocket] = useState<SocketIOClient.Socket | null>(null);
 
-  const sendMessage = useCallback(() => {
-    if (socket) {
-      socket.emit("send_message", { message: message, room: room });
-    }
-  }, [socket, message, room]);
+  // const sendMessage = useCallback(() => {
+  //   if (socket) {
+  //     socket.emit("send_message", { message: message, room: room });
+  //   }
+  // }, [socket, message, room]);
 
   useEffect(() => {
     const newSocket = io("https://socket-io-server-d1d904e77e8c.herokuapp.com");
-    setSocket(newSocket);
+    // setSocket(newSocket);
 
     const joinRoom = () => {
       if (room !== "") {
@@ -225,7 +225,7 @@ export const CLientCloud = () => {
                       </HoverCardContent>
                     </HoverCard>
                     {message && <div>
-                      <Send onClick={sendMessage} className="pl-2"/>
+                      {/* <Send onClick={sendMessage} className="pl-2"/> */}
                     </div>}
                     </div>
                     <div className="pl-2">

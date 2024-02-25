@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { GripHorizontal, Loader2, Moon, Sun } from "lucide-react"
+import { Check, ChevronsUpDown, GripHorizontal, Loader2, Moon, Sun } from "lucide-react"
 import { cn } from "@/lib/utils"
 import axios from 'axios';
 import {
@@ -30,6 +30,10 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "./ui/command";
+import Link from "next/link";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -122,7 +126,24 @@ interface User {
   userID: string;
 }
 
-
+const workspaces = [
+  {
+    value: "V-mol",
+    label: "V-mol",
+  },
+  {
+    value: "Media-Lab",
+    label: "Media-Lab",
+  },
+  {
+    value: "Nala",
+    label: "Nala",
+  },
+  {
+    value: "Credit-Broker",
+    label: "Credit-Broker",
+  }
+]
 export function Navigation  (){
   const { toast } = useToast()
   const { theme,setTheme } = useTheme()
@@ -149,6 +170,8 @@ export function Navigation  (){
   const [Register_password,setRegister_password] = React.useState<string>('')
 
 
+  const [open, setOpen] = React.useState(false)
+  const [value, setValue] = React.useState("")
 
   const login = async () => {
     try {
@@ -222,21 +245,18 @@ export function Navigation  (){
       backdropFilter: "blur(5px)",
       zIndex: 999,
     }}>
-      
-    <div className="flex  items-center w-full  lg:gap-10" style={{
-     
-  }}>
+    <div className="flex  items-center w-full  lg:gap-10" >
 
-   {isDesktop && <div className="pl-5">
-      <Image
-        src="/nu.png"
-        alt="Nucleus Logo"
-        width={30}
-        height={24}
-        priority
-        onClick={()=>setContent("Landing")}
-      />
-    </div>}
+    {isDesktop && <div className="pl-5">
+        <Image
+          src="/nu.png"
+          alt="Nucleus Logo"
+          width={30}
+          height={24}
+          priority
+          onClick={()=>setContent("Landing")}
+        />
+      </div>}
 
     {isDesktop ? <NavigationMenu>
       <NavigationMenuList>
@@ -356,9 +376,14 @@ export function Navigation  (){
     </div>
     {!loginRegister ? <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">{!loginToken ? "Login" : "logout"}</Button>
+        {!loginToken ? <Button variant="outline">Login</Button>
+        :
+        <Avatar>
+          <AvatarImage src="https://github.com/shadcn.png" />
+          <AvatarFallback>CN</AvatarFallback>
+        </Avatar>}
       </DialogTrigger>
-      <DialogContent className="max-w-[325px] rounded-sm lg:max-w-[425px]">
+      {!loginToken ? (<DialogContent className="max-w-[325px] rounded-sm lg:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Login</DialogTitle>
           <DialogDescription>
@@ -394,7 +419,83 @@ export function Navigation  (){
         <div className="w-full flex justify-center cursor-pointer" onClick={()=>setLoginRegister(!loginRegister)}>
           or register: {userDetails && userDetails.name}
         </div>
-      </DialogContent>
+      </DialogContent>)
+      :
+      (<DialogContent className="max-w-[325px] rounded-sm lg:max-w-[425px]">
+      <DialogHeader>
+        {/* <DialogTitle>Login</DialogTitle> */}
+        <DialogDescription>
+        </DialogDescription>
+      </DialogHeader>
+      {/* LOGGED IN USER OPTIONS */}
+      <div className="grid gap-4 py-4">
+        <div className="flex items-center gap-1">
+          <Avatar>
+            <AvatarImage src="https://github.com/shadcn.png" />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+          <div>
+            {userDetails && userDetails.name}
+            <div>
+              <p style={{color:"gray", fontSize: 14 }}>Nucleus</p>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-5">
+          <Popover open={open} onOpenChange={setOpen}>
+            <PopoverTrigger asChild>
+                <Button
+                  variant="outline"
+                  role="combobox"
+                  aria-expanded={open}
+                  className="w-[200px] justify-between"
+                >
+                  <Link href={"/workspace"}>
+                    {value
+                      ? workspaces.find((workspaces) => workspaces.value === value)?.label
+                      : "Select workspaces..."}
+                  </Link>
+                  <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-[200px] p-0">
+              <Command>
+                <CommandInput placeholder="Search workspace..." />
+                <CommandEmpty>No workspaces found.</CommandEmpty>
+                <CommandGroup>
+                  {workspaces.map((workspaces) => (
+                    <CommandItem
+                      key={workspaces.value}
+                      value={workspaces.value}
+                      onSelect={(currentValue) => {
+                        setValue(currentValue === value ? "" : currentValue)
+                        setOpen(false)
+                      }}
+                    >
+                      <Check
+                        className={cn(
+                          "mr-2 h-4 w-4",
+                          value === workspaces.value ? "opacity-100" : "opacity-0"
+                        )}
+                      />
+                      {workspaces.label}
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              </Command>
+            </PopoverContent>
+          </Popover>
+          <Button
+            variant="outline"
+            size={"sm"}
+            className="w-[200px]"
+          >
+              <>+ Workspace</>
+          </Button>
+        </div>
+      </div>
+    </DialogContent>)
+      }
     </Dialog>
     :
     <Dialog>
