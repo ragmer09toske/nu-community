@@ -77,7 +77,7 @@ function MenuList() {
         }}
         >
           <div className='flex flex-col gap-2'>
-          <ScrollArea className="h-[200px] w-[200px] rounded-md border p-2">
+          <ScrollArea className="h-[200px] w-[100%] rounded-md border p-2">
             {availableSkills.map((skill, index) => (
               <div key={index} className='flex flex-col gap-5'>
                 <div style={{
@@ -100,12 +100,12 @@ function MenuList() {
         </div>
       </div>
       <br />
-      <div 
+      {totalPrice && <div 
         className="w-full">
         <div className="w-full" style={{ borderTopWidth: "1px"}}></div>
         <h2 style={{fontSize:13}}><b>Quotation</b></h2>
         <div className="w-full" style={{ borderTopWidth: "1px"}}></div><br />
-        <ScrollArea className="h-[200px] w-[200px] rounded-md border p-2">
+        <ScrollArea className="h-[200px] w-[100%] rounded-md border p-2">
         <div className='flex flex-col gap-5 p-5'>
           {chosenSkills.map((chosenSkill, index) => (
             <div key={index} style={{
@@ -131,7 +131,7 @@ function MenuList() {
           <b>total: M{totalPrice}.00</b>
         </p>
         <div className="w-full" style={{ borderTopWidth: "1px"}}></div>
-      </div>
+      </div>}
     </div>
   );
 }

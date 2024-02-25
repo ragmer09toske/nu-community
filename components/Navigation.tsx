@@ -35,6 +35,23 @@ import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "./ui/command";
 import Link from "next/link";
 
+
+import { Minus, Plus } from "lucide-react"
+import { Bar, BarChart, ResponsiveContainer } from "recharts"
+ 
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+import MenuList from "./MenuQoute";
+
+
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "Alert Dialog",
@@ -144,6 +161,49 @@ const workspaces = [
     label: "Credit-Broker",
   }
 ]
+
+const data = [
+  {
+    goal: 400,
+  },
+  {
+    goal: 300,
+  },
+  {
+    goal: 200,
+  },
+  {
+    goal: 300,
+  },
+  {
+    goal: 200,
+  },
+  {
+    goal: 278,
+  },
+  {
+    goal: 189,
+  },
+  {
+    goal: 239,
+  },
+  {
+    goal: 300,
+  },
+  {
+    goal: 200,
+  },
+  {
+    goal: 278,
+  },
+  {
+    goal: 189,
+  },
+  {
+    goal: 349,
+  },
+]
+
 export function Navigation  (){
   const { toast } = useToast()
   const { theme,setTheme } = useTheme()
@@ -154,6 +214,7 @@ export function Navigation  (){
   const [email, setEmail] = React.useState<string>('')
   const [password, setPassword] = React.useState<string>('')
   const [loading, setLoading] = React.useState<boolean>(false)
+  const [qoutaionON,setQoutaionON] = React.useState<boolean>(false)
 
   // Auth variables, From Zustand Store
   const setLoginToken = useStore((state)=> state.setLoginToken )
@@ -169,9 +230,17 @@ export function Navigation  (){
   const [Register_number,setRegister_number]=React.useState<string>('')
   const [Register_password,setRegister_password] = React.useState<string>('')
 
-
+  // Create a workspaces
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
+  
+  // Drawer bar
+  const [goal, setGoal] = React.useState(350)
+  function onClick(adjustment: number) {
+    setGoal(Math.max(200, Math.min(400, goal + adjustment)))
+  }
+
+
 
   const login = async () => {
     try {
@@ -371,7 +440,37 @@ export function Navigation  (){
       </NavigationMenuList>
     </NavigationMenu> 
     :
-    <GripHorizontal />
+    (<Drawer>
+      <DrawerTrigger asChild>
+        <GripHorizontal />
+      </DrawerTrigger>
+      <DrawerContent>
+          <DrawerHeader>
+            <DrawerTitle>Get a qoute</DrawerTitle>
+            <DrawerDescription>Choose what features you want on your site</DrawerDescription>
+          </DrawerHeader>
+          <div className="p-4 pb-0">
+         
+          </div>
+          <div className="w-full flex justify-center ">
+            <DrawerFooter className="w-full justify-center">
+              <div className="w-full flex justify-center ">
+                <Button
+                  variant="outline"
+                  size={"sm"}
+                  className="w-[200px]"
+                  onClick={()=>setQoutaionON(!qoutaionON)}
+                >
+                    <>+ Qoutation</>
+                </Button>
+              </div>
+              {qoutaionON && <div className="w-full">
+                <MenuList />
+              </div>}
+            </DrawerFooter>
+          </div>
+      </DrawerContent>
+    </Drawer>)
     }
     </div>
     {!loginRegister ? <Dialog>

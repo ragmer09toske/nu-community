@@ -9,7 +9,6 @@ const Music = () => {
     const [playing, setPlaying] = useState<boolean>(false);
     const [progress, setProgress] = useState<number>(0);
     const audioRef = useRef<HTMLAudioElement>(null);
-    // const isDesktop: boolean = useDeviceType();
     const [MusicON, setMusicON] = useState<boolean>(true)
     const constraintsRef = useRef(null)
     const handlePlay = () => {
@@ -74,7 +73,7 @@ const Music = () => {
     }, [playing]);
 
     return (
-        <>
+        <div className='relative bottom-0'>
         {MusicON && <motion.div ref={constraintsRef}>
         <motion.div drag dragConstraints={{left: 0, right: 800, bottom: 800, top: 0}}>
         {(<div className='relative bottom-0 lg:w-[400px] md:w-[300px]  p-5 flex justify-center '>
@@ -123,7 +122,7 @@ const Music = () => {
         </div>)}
         </motion.div>
         </motion.div>}
-        </>
+        </div>
     );
 }
 
