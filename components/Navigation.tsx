@@ -1,8 +1,7 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
-import { GripHorizontal, Loader2, Menu, Moon, Sun } from "lucide-react"
+import { GripHorizontal, Loader2, Moon, Sun } from "lucide-react"
 import { cn } from "@/lib/utils"
 import axios from 'axios';
 import {
@@ -12,13 +11,10 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-import { ModeToggle } from "./Mode"
 import Image from "next/image"
 import { useToast } from "./ui/use-toast"
 import { useTheme } from "next-themes"
-import { VissionModel } from "./Mission"
 import { Switch } from "./ui/switch"
 import useStore from "@/app/Store"
 import useDeviceType from "@/app/Device"
@@ -137,21 +133,22 @@ export function Navigation  (){
   const [email, setEmail] = React.useState<string>('')
   const [password, setPassword] = React.useState<string>('')
   const [loading, setLoading] = React.useState<boolean>(false)
+
+  // Auth variables, From Zustand Store
   const setLoginToken = useStore((state)=> state.setLoginToken )
   const loginToken = useStore((state)=> state.loginToken )
+  const setUserDetails = useStore((state)=> state.setUser )
+  const userDetails = useStore((state)=> state.user )
+  const userID = useStore((state)=> state.userID )
+  const setUserID = useStore((state)=> state.setUserID )
 
-
+  // Registration Variables
   const [Register_name,setRegister_name]= React.useState<string>('')
   const [Register_email,setRegister_email] = React.useState<string>('')
   const [Register_number,setRegister_number]=React.useState<string>('')
   const [Register_password,setRegister_password] = React.useState<string>('')
 
 
-  const setUserDetails = useStore((state)=> state.setUser )
-  const userDetails = useStore((state)=> state.user )
-
-  const userID = useStore((state)=> state.userID )
-  const setUserID = useStore((state)=> state.setUserID )
 
   const login = async () => {
     try {

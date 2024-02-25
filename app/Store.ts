@@ -15,15 +15,20 @@ interface User {
 
 interface StoreState {
   selectedContent: string;
-  selectedFiles: string;
-  loginToken: string;
-  user: User | null; // Add user property to StoreState
-  userID: string; // Add userID property to StoreState
   setContent: (newContent: string) => void;
-  setLoginToken: (loginToken: string) => void;
+
+  selectedFiles: string;
   setFiles: (newFiles: string) => void;
+  
+  loginToken: string;
+  setLoginToken: (loginToken: string) => void;
+
+  user: User | null; // Add user property to StoreState
   setUser: (user: User | null) => void; // Add setUser function
+
+  userID: string; // Add userID property to StoreState
   setUserID: (userID: string) => void; // Add setUserID function
+
 }
 
 const useCurentUserStore = create<StoreState>((set) => {
