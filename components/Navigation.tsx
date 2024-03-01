@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Check, ChevronsUpDown, GripHorizontal, Loader2, Moon, Sun } from "lucide-react"
+import { Calculator, Calendar, Check, ChevronsUpDown, CreditCard, GripHorizontal, Home, Loader2, Moon, Settings, Smile, Sun, User } from "lucide-react"
 import { cn } from "@/lib/utils"
 import axios from 'axios';
 import {
@@ -32,7 +32,7 @@ import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "./ui/command";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut } from "./ui/command";
 import Link from "next/link";
 
 
@@ -459,11 +459,49 @@ export function Navigation  (){
           <SheetDescription>
           </SheetDescription>
         </SheetHeader>
-        <SheetFooter>
-          <SheetClose asChild>
-          <Drawer>
+              <Command className="rounded-lg  shadow-md">
+                <CommandInput placeholder="Type a command or search..." />
+                <CommandList>
+                  <CommandEmpty>No results found.</CommandEmpty>
+                  <CommandGroup heading="Suggestions">
+                    <CommandItem>
+                      <Home className="mr-2 h-4 w-4" />
+                      <span>Home</span>
+                    </CommandItem>
+                    <CommandItem>
+                      <SheetClose asChild>
+                        <Button
+                            variant="outline"
+                          size={"sm"}
+                          className="w-[200px]"
+                          onClick={()=>setQoutaionON(!qoutaionON)}
+                          >
+                              <>+ Qoutation</>
+                        </Button>
+                      </SheetClose>
+                    </CommandItem>
+                    <CommandItem>
+                      <Calculator className="mr-2 h-4 w-4" />
+                      <span>Calculator</span>
+                    </CommandItem>
+                  </CommandGroup>
+                  <CommandSeparator />
+                  <CommandGroup heading="Settings">
+                    <CommandItem>
+                      <User className="mr-2 h-4 w-4" />
+                      <span>Profile</span>
+                    </CommandItem>
+                    <CommandItem>
+                      <Settings className="mr-2 h-4 w-4" />
+                      <span>Settings</span>
+                    </CommandItem>
+                  </CommandGroup>
+                </CommandList>
+              </Command>
+        
+        <Drawer>
             <DrawerTrigger asChild>
-                <GripHorizontal />
+              
               </DrawerTrigger>
               <DrawerContent>
                   <DrawerHeader>
@@ -492,7 +530,7 @@ export function Navigation  (){
                   </div>
               </DrawerContent>
             </Drawer>
-          </SheetClose>
+          <SheetFooter>
         </SheetFooter>
       </SheetContent>
     </Sheet>)
