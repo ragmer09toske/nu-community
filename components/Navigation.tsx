@@ -564,7 +564,6 @@ export function Navigation  (){
             <Input
               id="name"
               onChange={(e)=>setEmail(e.target.value)}
-              // defaultValue="Pedro Duarte"
               className="col-span-3"
             />
           </div>
@@ -575,7 +574,6 @@ export function Navigation  (){
             <Input
               onChange={(e)=>setPassword(e.target.value)}
               id="username"
-              // defaultValue="@peduarte"
               className="col-span-3"
             />
           </div>
@@ -587,11 +585,9 @@ export function Navigation  (){
       :
       (<DialogContent className="max-w-[325px] rounded-sm lg:max-w-[425px]">
       <DialogHeader>
-        {/* <DialogTitle>Login</DialogTitle> */}
         <DialogDescription>
         </DialogDescription>
       </DialogHeader>
-      {/* LOGGED IN USER OPTIONS */}
       <div className="grid gap-4 py-4">
         <div className="flex items-center gap-1">
           <Avatar>
