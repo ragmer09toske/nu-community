@@ -28,7 +28,6 @@ export default function RootLayout({
         >
           <body className={inter.className}>{children}</body>
           <Toaster />
-          <Music />
           <SpeedInsights/>
         </ThemeProvider>
     </html>

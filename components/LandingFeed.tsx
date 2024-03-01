@@ -3,7 +3,6 @@ import React from 'react'
 import { Command} from './ui/command'
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Card, CardDescription, CardHeader, CardTitle } from './ui/card'
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import useDeviceType from '@/app/Device'
 import Image from 'next/image'
 import Link from 'next/link'

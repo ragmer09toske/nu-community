@@ -106,7 +106,7 @@ function MenuList() {
         <h2 style={{fontSize:13}}><b>Quotation</b></h2>
         <div className="w-full" style={{ borderTopWidth: "1px"}}></div><br />
         <ScrollArea className="h-[200px] w-[100%] rounded-md border p-2">
-        <div className='flex flex-col gap-5 p-5'>
+        <div className='flex flex-col gap-1 p-5'>
           {chosenSkills.map((chosenSkill, index) => (
             <div key={index} style={{
               display: "flex",

@@ -3,7 +3,6 @@ import React from 'react'
 import { Landing } from './Landing'
 import useStore from '@/app/Store';
 import { Network } from './Network';
-import { Qaotation } from './Qaotation';
 import { Services } from './Services';
 
 export const Content = () => {

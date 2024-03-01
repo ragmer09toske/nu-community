@@ -36,8 +36,16 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "
 import Link from "next/link";
 
 
-import { Minus, Plus } from "lucide-react"
-import { Bar, BarChart, ResponsiveContainer } from "recharts"
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
  
 import {
   Drawer,
@@ -440,37 +448,54 @@ export function Navigation  (){
       </NavigationMenuList>
     </NavigationMenu> 
     :
-    (<Drawer>
-      <DrawerTrigger asChild>
+ 
+    (<Sheet>
+      <SheetTrigger asChild>
         <GripHorizontal />
-      </DrawerTrigger>
-      <DrawerContent>
-          <DrawerHeader>
-            <DrawerTitle>Get a qoute</DrawerTitle>
-            <DrawerDescription>Choose what features you want on your site</DrawerDescription>
-          </DrawerHeader>
-          <div className="p-4 pb-0">
-         
-          </div>
-          <div className="w-full flex justify-center ">
-            <DrawerFooter className="w-full justify-center">
-              <div className="w-full flex justify-center ">
-                <Button
-                  variant="outline"
-                  size={"sm"}
-                  className="w-[200px]"
-                  onClick={()=>setQoutaionON(!qoutaionON)}
-                >
-                    <>+ Qoutation</>
-                </Button>
-              </div>
-              {qoutaionON && <div className="w-full">
-                <MenuList />
-              </div>}
-            </DrawerFooter>
-          </div>
-      </DrawerContent>
-    </Drawer>)
+      </SheetTrigger>
+      <SheetContent className="" style={{zIndex:9999}}>
+        <SheetHeader>
+          <SheetTitle></SheetTitle>
+          <SheetDescription>
+          </SheetDescription>
+        </SheetHeader>
+        <SheetFooter>
+          <SheetClose asChild>
+          <Drawer>
+            <DrawerTrigger asChild>
+                <GripHorizontal />
+              </DrawerTrigger>
+              <DrawerContent>
+                  <DrawerHeader>
+                    <DrawerTitle>Get a qoute</DrawerTitle>
+                    <DrawerDescription>Choose what features you want on your site</DrawerDescription>
+                  </DrawerHeader>
+                <div className="p-4 pb-0">
+              
+                  </div>
+                <div className="w-full flex justify-center ">
+                    <DrawerFooter className="w-full justify-center">
+                    <div className="w-full flex justify-center ">
+                        <Button
+                          variant="outline"
+                        size={"sm"}
+                        className="w-[200px]"
+                        onClick={()=>setQoutaionON(!qoutaionON)}
+                        >
+                            <>+ Qoutation</>
+                        </Button>
+                      </div>
+                      {qoutaionON && <div className="w-full">
+                        <MenuList />
+                      </div>}
+                    </DrawerFooter>
+                  </div>
+              </DrawerContent>
+            </Drawer>
+          </SheetClose>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>)
     }
     </div>
     {!loginRegister ? <Dialog>
@@ -515,9 +540,6 @@ export function Navigation  (){
         <DialogFooter>
           <Button type="submit" variant={"outline"} onClick={login}>{!loading ? "submit" : <Loader2 className="animate-spin"/>}</Button>
         </DialogFooter>
-        <div className="w-full flex justify-center cursor-pointer" onClick={()=>setLoginRegister(!loginRegister)}>
-          or register: {userDetails && userDetails.name}
-        </div>
       </DialogContent>)
       :
       (<DialogContent className="max-w-[325px] rounded-sm lg:max-w-[425px]">
@@ -591,6 +613,18 @@ export function Navigation  (){
           >
               <>+ Workspace</>
           </Button>
+          {userDetails && userDetails.name ==="Retsepile Shao" &&
+          <Link href="/retsepile">
+          <Button
+            variant="outline"
+            size={"sm"}
+            className="w-[200px]"
+          >
+              <>Create A Blog</>
+          </Button>
+          </Link>
+          } 
+          
         </div>
       </div>
     </DialogContent>)
