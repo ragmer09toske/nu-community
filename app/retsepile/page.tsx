@@ -6,9 +6,16 @@ import { Command } from '@/components/ui/command'
 import Image from 'next/image'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import useDeviceType from '@/app/Device'
-import Link from 'next/link'
+import { Button } from "@/components/ui/button"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import useCurentUserStore from '../Store'
+import { Box, Heart, MessageCircle, Share2 } from 'lucide-react'
 
 const Retsepile = () => {
   const isDesktop: boolean = useDeviceType();
@@ -74,6 +81,48 @@ const Retsepile = () => {
                     I refuse to be a starving artist, creating what I think is valuable, only to become attached to my version of value and wonder why I&apos;m not selling. &apos;But I created a beautiful painting,&apos; you might say. That&apos;s all well and good if you&apos;re content being a hobbyist. But if you want a career out of it, you&apos;re going to have to play a back-and-forth game with the market.
                     </CardDescription>
                 </CardHeader>
+                <div className='p-5 flex justify-around'>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Heart />
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Like</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Box />
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Suggestion box</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <MessageCircle />
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Comment</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Share2 />
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Share</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </div>
                 <Image
                     src="/boys.jpeg"
                     alt="Nucleus Logo"
