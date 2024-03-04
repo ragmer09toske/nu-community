@@ -13,6 +13,17 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+ 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import useCurentUserStore from '../Store'
 import { Box, Heart, MessageCircle, Share2 } from 'lucide-react'
@@ -20,6 +31,11 @@ import { Box, Heart, MessageCircle, Share2 } from 'lucide-react'
 const Retsepile = () => {
   const isDesktop: boolean = useDeviceType();
   const userDetails = useCurentUserStore((state)=> state.user )
+  const [goal, setGoal] = React.useState(350)
+ 
+  function onClick(adjustment: number) {
+    setGoal(Math.max(200, Math.min(400, goal + adjustment)))
+  }
 
   return (
     <main>
@@ -61,7 +77,7 @@ const Retsepile = () => {
             }
             <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
               <div className='flex flex-col  gap-5'>
-              <Card className="w-[100%]">
+              <Card className="w-[100%]" id='blogging'>
                 <CardHeader>
                     <CardTitle>This is why I had to start blogging.</CardTitle>
                     <p style={{color:"gray", fontSize: 12 }}>Mar 1</p>
@@ -81,48 +97,7 @@ const Retsepile = () => {
                     I refuse to be a starving artist, creating what I think is valuable, only to become attached to my version of value and wonder why I&apos;m not selling. &apos;But I created a beautiful painting,&apos; you might say. That&apos;s all well and good if you&apos;re content being a hobbyist. But if you want a career out of it, you&apos;re going to have to play a back-and-forth game with the market.
                     </CardDescription>
                 </CardHeader>
-                <div className='p-5 flex justify-around'>
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Heart />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Like</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Box />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Suggestion box</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <MessageCircle />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Comment</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Share2 />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Share</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </div>
+                
                 <Image
                     src="/boys.jpeg"
                     alt="Nucleus Logo"
@@ -134,7 +109,71 @@ const Retsepile = () => {
                     priority
                 />
               </Card>
-
+              <div className='pb-5 flex justify-around'>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Heart color='gray'/>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Like</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Box color='gray'/>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Suggestion box</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                          <Drawer>
+                          <DrawerTrigger asChild>
+                            <MessageCircle color='gray'/>
+                          </DrawerTrigger>
+                          <DrawerContent>
+                            <div className="mx-auto w-full max-w-sm">
+                              <DrawerHeader>
+                                <DrawerTitle>Move Goal</DrawerTitle>
+                                <DrawerDescription>Set your daily activity goal.</DrawerDescription>
+                                </DrawerHeader>
+                                <div className="p-4 pb-0">
+                                  <div className="flex items-center justify-center space-x-2">
+                                   
+                                  </div>
+                                  <div className="mt-3 h-[120px]">
+                                      
+                                  </div>
+                                </div>
+                                <DrawerFooter>
+                                  
+                                </DrawerFooter>
+                              </div>
+                            </DrawerContent>
+                          </Drawer>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Comment</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Share2 color='gray'/>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Share</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </div>
               <Card className="w-[100%] p-0.5 pl-3 ">
                 <div>
                     <CardHeader>
@@ -175,7 +214,7 @@ const Retsepile = () => {
 
               </Card>
 
-              <Card className="w-[100%]">
+              <Card className="w-[100%]" id='storms'>
                 <CardHeader>
                     <CardTitle>Solar Storms</CardTitle>
                     <CardDescription>Today, I&apos;ll be featured at Bokamoso FM radio, one of the topics ama touch on is how the next Solar storm is going affect our internet activities, what&apos;s crazy is, Nasa had predicted that this will happen in 2025, but it could actually happen this year. Imagine the whole wide world without the internet for weeks 😳. This not a science phenomenon or myth, it&apos;s highly possible</CardDescription>
@@ -191,6 +230,48 @@ const Retsepile = () => {
                     priority
                 />
               </Card>
+              <div className='pb-5 flex justify-around'>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Heart color='gray'/>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Like</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Box color='gray'/>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Suggestion box</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <MessageCircle color='gray'/>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Comment</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Share2 color='gray' />
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Share</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </div>
               </div>
             </ScrollArea>
           </Command>
