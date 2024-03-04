@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Calculator, Calendar, Check, ChevronsUpDown, CreditCard, GripHorizontal, Home, Loader2, Moon, Settings, Smile, Sun, User } from "lucide-react"
+import { Book, Calculator, Calendar, Check, ChevronsUpDown, CreditCard, GripHorizontal, Home, Loader2, Moon, Settings, Smile, Sun, User } from "lucide-react"
 import { cn } from "@/lib/utils"
 import axios from 'axios';
 import {
@@ -464,10 +464,18 @@ export function Navigation  (){
                 <CommandList>
                   <CommandEmpty>No results found.</CommandEmpty>
                   <CommandGroup heading="Suggestions">
+                    <Link href="/">
                     <CommandItem>
                       <Home className="mr-2 h-4 w-4" />
                       <span>Home</span>
                     </CommandItem>
+                    </Link>
+                    <Link href="/retsepile">
+                      <CommandItem>
+                        <Book className="mr-2 h-4 w-4" />
+                        <span>Blog</span>
+                      </CommandItem>
+                    </Link>
                     <CommandItem>
                       <SheetClose asChild>
                         <Button
@@ -480,10 +488,7 @@ export function Navigation  (){
                         </Button>
                       </SheetClose>
                     </CommandItem>
-                    <CommandItem>
-                      <Calculator className="mr-2 h-4 w-4" />
-                      <span>Calculator</span>
-                    </CommandItem>
+                    
                   </CommandGroup>
                   <CommandSeparator />
                   <CommandGroup heading="Settings">
@@ -559,7 +564,6 @@ export function Navigation  (){
             <Input
               id="name"
               onChange={(e)=>setEmail(e.target.value)}
-              // defaultValue="Pedro Duarte"
               className="col-span-3"
             />
           </div>
@@ -570,7 +574,6 @@ export function Navigation  (){
             <Input
               onChange={(e)=>setPassword(e.target.value)}
               id="username"
-              // defaultValue="@peduarte"
               className="col-span-3"
             />
           </div>
@@ -582,11 +585,9 @@ export function Navigation  (){
       :
       (<DialogContent className="max-w-[325px] rounded-sm lg:max-w-[425px]">
       <DialogHeader>
-        {/* <DialogTitle>Login</DialogTitle> */}
         <DialogDescription>
         </DialogDescription>
       </DialogHeader>
-      {/* LOGGED IN USER OPTIONS */}
       <div className="grid gap-4 py-4">
         <div className="flex items-center gap-1">
           <Avatar>

@@ -6,13 +6,38 @@ import { Command } from '@/components/ui/command'
 import Image from 'next/image'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import useDeviceType from '@/app/Device'
-import Link from 'next/link'
+import { Button } from "@/components/ui/button"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+ 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import useCurentUserStore from '../Store'
+import { Box, GripHorizontal, Heart, MessageCircle, Send, Share2 } from 'lucide-react'
+import { Textarea } from '@/components/ui/textarea'
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
 
 const Retsepile = () => {
   const isDesktop: boolean = useDeviceType();
   const userDetails = useCurentUserStore((state)=> state.user )
+  const [goal, setGoal] = React.useState(350)
+ 
+  function onClick(adjustment: number) {
+    setGoal(Math.max(200, Math.min(400, goal + adjustment)))
+  }
 
   return (
     <main>
@@ -54,12 +79,27 @@ const Retsepile = () => {
             }
             <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
               <div className='flex flex-col  gap-5'>
-              <Link href="/workspace">
-              <Card className="w-[100%]">
+              <Card className="w-[100%]" id='blogging'>
                 <CardHeader>
-                    <CardTitle>Co-own a workspace.</CardTitle>
-                    <CardDescription>Have your entire organization on the same working space as your clients, share files, and assign tasks seamlessly. Access your files anywhere in the world and make the whole world your office.</CardDescription>
+                    <CardTitle>This is why I had to start blogging.</CardTitle>
+                    <p style={{color:"gray", fontSize: 12 }}>Mar 1</p>
+                    <CardDescription>
+                    I used to think I was too smart for anything outside of IT (Information Technology). I figured all I needed to do was dive into programming and become the best at it. So, I spent my younger years buried in programming books, hitting the library with friends like Relebohile and Kabelo – Kabelo, being a year ahead, dragged me into the world of Java even when I was still in primary school. Meanwhile, my brother Tello was already studying computer science at university, showing off his latest projects whenever he came home. Inspired by them, I decided to focus solely on becoming the best software engineer.
+                    <br/><br/>
+                    This approach worked well for me in high school, although my grades suffered a bit because I was splitting my attention between coding and academics. I learned how to balance both, which came in handy later in life. I became pretty skilled at coding over the years, sacrificing some grades but still managing to keep both areas afloat, albeit with a few hiccups. Meanwhile, my friends Khotso, Mabula, and Joe were excelling academically, with some even getting opportunities to study abroad – something we all dreamed of.
+                    <br/><br/>
+                    Fast forward to university (Limkokwing), and I found an environment that suited me perfectly – no more juggling between coding and other subjects, it was all about tech, all the time. I even dabbled in subjects like Business Management, which I initially overlooked but later realized was essential for my entrepreneurial aspirations. Business? Easy. Find something, sell it, make money. Why complicate it?
+                    <br/><br/>
+                    To cut a long story short, I graduated as an improved version of myself, with a few lessons learned from my brothers along the way. My grades were decent, and I sailed through university without even glancing at the cheating playbook – unlike many others who treated it like their bible. I opted out of that game, still aced exams, and even received some shiny awards at graduation. But trust me, that&apos;s just scratching the surface, especially if you&apos;re aiming to build a business empire instead of just working for someone else.
+                    <br/><br/>
+                    I could create amazing software solutions but struggled to sell them. Why? Well, for starters, I lacked the right audience. Plus, I&apos;m a hardcore introvert who&apos;d rather endure a root canal than engage in small talk. Texting? Let&apos; s not even go there – my replies are as short and chilly as an Antarctic breeze, even though I mean well. And committing to a text conversation? About as likely as finding a unicorn in my backyard. Social media? Not my thing. And to top it all off, my network is as thin as a single LEGO block. It&apos;s just me and my code, navigating the digital world solo.
+                    <br/><br/>
+                    This is why I had to start blogging. Because when you&apos;re building, it has to be done in public. You need to be posting, building, publishing, launching. Why? Because you need data.
+                    <br/><br/>
+                    I refuse to be a starving artist, creating what I think is valuable, only to become attached to my version of value and wonder why I&apos;m not selling. &apos;But I created a beautiful painting,&apos; you might say. That&apos;s all well and good if you&apos;re content being a hobbyist. But if you want a career out of it, you&apos;re going to have to play a back-and-forth game with the market.
+                    </CardDescription>
                 </CardHeader>
+                
                 <Image
                     src="/boys.jpeg"
                     alt="Nucleus Logo"
@@ -71,8 +111,87 @@ const Retsepile = () => {
                     priority
                 />
               </Card>
-              </Link>
-
+              <div className='pb-5 flex justify-around'>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Heart color='gray'/>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Like</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Box color='gray'/>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Suggestion box</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                          <Drawer>
+                          <DrawerTrigger asChild>
+                            <MessageCircle color='gray'/>
+                          </DrawerTrigger>
+                          <DrawerContent>
+                            <div className="mx-auto w-full max-w-sm">
+                              <DrawerHeader>
+                                <DrawerTitle>Move Goal</DrawerTitle>
+                                <DrawerDescription>Set your daily activity goal.</DrawerDescription>
+                                </DrawerHeader>
+                                <div className="p-4 pb-0">
+                                  <div className="flex items-center justify-center space-x-2">
+                                   
+                                  </div>
+                                  <div className="mt-3 h-[120px]">
+                                      
+                                  </div>
+                                </div>
+                                <DrawerFooter>
+                                <div className=" w-full ">
+                                  <div className="flex pb-2">
+                                    <HoverCard >
+                                      <HoverCardTrigger><GripHorizontal  className="pl-2"/></HoverCardTrigger>
+                                      <HoverCardContent>
+                                      <p style={{fontSize:12, color:"rgba(255, 255, 255, 0.716)"}}>This message will only be seen by a person or a group of people you send a temp-on token to </p>
+                                      </HoverCardContent>
+                                    </HoverCard>
+                                    <div>
+                                      <Send className="pl-2"/>
+                                    </div>
+                                  </div>
+                                  <div className="pl-2">
+                                  {/* <p style={{fontSize:12, color:"rgba(255, 255, 255, 0.716)"}}>Temp-On: 3423erwwx3243</p> */}
+                                  <Textarea cols={1} rows={2} className="resize-none w-full p-2" />
+                                  </div>
+                                </div>
+                                </DrawerFooter>
+                              </div>
+                            </DrawerContent>
+                          </Drawer>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Comment</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Share2 color='gray'/>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Share</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </div>
               <Card className="w-[100%] p-0.5 pl-3 ">
                 <div>
                     <CardHeader>
@@ -113,7 +232,7 @@ const Retsepile = () => {
 
               </Card>
 
-              <Card className="w-[100%]">
+              <Card className="w-[100%]" id='storms'>
                 <CardHeader>
                     <CardTitle>Solar Storms</CardTitle>
                     <CardDescription>Today, I&apos;ll be featured at Bokamoso FM radio, one of the topics ama touch on is how the next Solar storm is going affect our internet activities, what&apos;s crazy is, Nasa had predicted that this will happen in 2025, but it could actually happen this year. Imagine the whole wide world without the internet for weeks 😳. This not a science phenomenon or myth, it&apos;s highly possible</CardDescription>
@@ -129,6 +248,48 @@ const Retsepile = () => {
                     priority
                 />
               </Card>
+              <div className='pb-5 flex justify-around'>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Heart color='gray'/>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Like</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Box color='gray'/>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Suggestion box</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <MessageCircle color='gray'/>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Comment</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Share2 color='gray' />
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Share</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </div>
               </div>
             </ScrollArea>
           </Command>
