@@ -26,7 +26,9 @@ import {
  
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import useCurentUserStore from '../Store'
-import { Box, Heart, MessageCircle, Share2 } from 'lucide-react'
+import { Box, GripHorizontal, Heart, MessageCircle, Send, Share2 } from 'lucide-react'
+import { Textarea } from '@/components/ui/textarea'
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
 
 const Retsepile = () => {
   const isDesktop: boolean = useDeviceType();
@@ -152,7 +154,23 @@ const Retsepile = () => {
                                   </div>
                                 </div>
                                 <DrawerFooter>
-                                  
+                                <div className=" w-full ">
+                                  <div className="flex pb-2">
+                                    <HoverCard >
+                                      <HoverCardTrigger><GripHorizontal  className="pl-2"/></HoverCardTrigger>
+                                      <HoverCardContent>
+                                      <p style={{fontSize:12, color:"rgba(255, 255, 255, 0.716)"}}>This message will only be seen by a person or a group of people you send a temp-on token to </p>
+                                      </HoverCardContent>
+                                    </HoverCard>
+                                    <div>
+                                      <Send className="pl-2"/>
+                                    </div>
+                                  </div>
+                                  <div className="pl-2">
+                                  {/* <p style={{fontSize:12, color:"rgba(255, 255, 255, 0.716)"}}>Temp-On: 3423erwwx3243</p> */}
+                                  <Textarea cols={1} rows={2} className="resize-none w-full p-2" />
+                                  </div>
+                                </div>
                                 </DrawerFooter>
                               </div>
                             </DrawerContent>
