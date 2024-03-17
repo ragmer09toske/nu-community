@@ -11,6 +11,8 @@ import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import { TracingBeam } from './ui/tracing-beam'
 import { TracingBeamDemo } from './TraceBeamDemo'
+import { ContainerScroll } from './container-scroll-animation'
+import { LampContainer } from './lamp'
 
 const World = dynamic(() => import("../components/ui/globe").then((m) => m.World), {
   ssr: false,
@@ -458,42 +460,39 @@ export const LandingFeed = () => {
               {/* </Link> */}
 
               <Card className="w-[100%] p-0.5 pl-3 ">
-                <div>
-                    <CardHeader>
-                        <CardTitle>We Embrace the Art of Deverse Engineering</CardTitle>
-                        <CardDescription>We unlocked the secrets of seamless transitions from Mobile to Desktop development.</CardDescription>
-                    </CardHeader>
-                    <div className="w-[100%] p-0.5 pl-3 flex justify-center">
-                    <Image
-                        src="/mainIcons.svg"
-                        alt="Nucleus Logo"
-                        className="relative lg:dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-                        width={520}
-                        height={24}
-                        priority
-                    />
-                    </div>
-                </div>
-              </Card>
-
-              <Card className="w-[100%]">
-                <CardHeader>
-                    <CardTitle>Elevate Your Projects with our Innovative Designing Team</CardTitle>
-                    <CardDescription>Experience the fusion of creativity and technical expertise.</CardDescription>
-                </CardHeader>
-                  <Image
-                    src="/loading-overview.avif"
-                    // className="relative "
-                    alt="Nucleus Logo"
-                    width={855}
-                    style={{
-                      borderRadius:"0 0 8px 8px"
-                    }}
-                    height={24}
-                    priority
+              <div className="flex flex-col overflow-hidden">
+                <ContainerScroll
+                  users={user}
+                  titleComponent={
+                    <>
+                      <h1 className="text-4xl font-semibold text-black dark:text-white">
+                        Unleash the power of <br />
+                        <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
+                          Scroll Animations
+                        </span>
+                      </h1>
+                    </>
+                  }
                 />
-
+              </div>
               </Card>
+              <Card className="w-[100%] p-0.5 pl-3 ">
+
+              <LampContainer>
+              <motion.h1
+                initial={{ opacity: 0.5, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: 0.3,
+                  duration: 0.8,
+                  ease: "easeInOut",
+                }}
+                className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+              >
+                Build lamps <br /> the right way
+              </motion.h1>
+            </LampContainer>
+            </Card>
 
               <Card className="w-[100%]">
                 <CardHeader>
@@ -517,3 +516,235 @@ export const LandingFeed = () => {
       </div>
   )
 }
+
+export const user = [
+  {
+    name: "Manu Arora",
+    designation: "Founder, Algochurn",
+    image: "https://picsum.photos/id/10/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "Sarah Singh",
+    designation: "Founder, Sarah's Kitchen",
+    image: "https://picsum.photos/id/11/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "John Doe",
+    designation: "Software Engineer, Tech Corp",
+    image: "https://picsum.photos/id/12/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "Jane Smith",
+    designation: "Product Manager, Innovate Inc",
+    image: "https://picsum.photos/id/13/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "Robert Johnson",
+    designation: "Data Scientist, DataWorks",
+    image: "https://picsum.photos/id/14/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "Emily Davis",
+    designation: "UX Designer, DesignHub",
+    image: "https://picsum.photos/id/15/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "Michael Miller",
+    designation: "CTO, FutureTech",
+    image: "https://picsum.photos/id/16/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "Sarah Brown",
+    designation: "CEO, StartUp",
+    image: "https://picsum.photos/id/17/300/300",
+  },
+  {
+    name: "James Wilson",
+    designation: "DevOps Engineer, CloudNet",
+    image: "https://picsum.photos/id/18/300/300",
+    badge: "Something",
+  },
+  {
+    name: "Patricia Moore",
+    designation: "Marketing Manager, MarketGrowth",
+    image: "https://picsum.photos/id/19/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "Richard Taylor",
+    designation: "Frontend Developer, WebSolutions",
+    image: "https://picsum.photos/id/20/300/300",
+  },
+  {
+    name: "Linda Anderson",
+    designation: "Backend Developer, ServerSecure",
+    image: "https://picsum.photos/id/21/300/300",
+  },
+  {
+    name: "William Thomas",
+    designation: "Full Stack Developer, FullStack",
+    image: "https://picsum.photos/id/22/300/300",
+    badge: "Badger",
+  },
+  {
+    name: "Elizabeth Jackson",
+    designation: "Project Manager, ProManage",
+    image: "https://picsum.photos/id/23/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "David White",
+    designation: "Database Administrator, DataSafe",
+    image: "https://picsum.photos/id/24/300/300",
+    badge: "Advocate",
+  },
+  {
+    name: "Jennifer Harris",
+    designation: "Network Engineer, NetConnect",
+    image: "https://picsum.photos/id/25/300/300",
+  },
+  {
+    name: "Charles Clark",
+    designation: "Security Analyst, SecureIT",
+    image: "https://picsum.photos/id/26/300/300",
+  },
+  {
+    name: "Susan Lewis",
+    designation: "Systems Analyst, SysAnalyse",
+    image: "https://picsum.photos/id/27/300/300",
+  },
+  {
+    name: "Joseph Young",
+    designation: "Mobile Developer, AppDev",
+    image: "https://picsum.photos/id/28/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "Margaret Hall",
+    designation: "Quality Assurance, BugFree",
+    image: "https://picsum.photos/id/29/300/300",
+    badge: "Developer",
+  },
+];export const users = [
+  {
+    name: "Manu Arora",
+    designation: "Founder, Algochurn",
+    image: "https://picsum.photos/id/10/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "Sarah Singh",
+    designation: "Founder, Sarah's Kitchen",
+    image: "https://picsum.photos/id/11/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "John Doe",
+    designation: "Software Engineer, Tech Corp",
+    image: "https://picsum.photos/id/12/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "Jane Smith",
+    designation: "Product Manager, Innovate Inc",
+    image: "https://picsum.photos/id/13/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "Robert Johnson",
+    designation: "Data Scientist, DataWorks",
+    image: "https://picsum.photos/id/14/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "Emily Davis",
+    designation: "UX Designer, DesignHub",
+    image: "https://picsum.photos/id/15/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "Michael Miller",
+    designation: "CTO, FutureTech",
+    image: "https://picsum.photos/id/16/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "Sarah Brown",
+    designation: "CEO, StartUp",
+    image: "https://picsum.photos/id/17/300/300",
+  },
+  {
+    name: "James Wilson",
+    designation: "DevOps Engineer, CloudNet",
+    image: "https://picsum.photos/id/18/300/300",
+    badge: "Something",
+  },
+  {
+    name: "Patricia Moore",
+    designation: "Marketing Manager, MarketGrowth",
+    image: "https://picsum.photos/id/19/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "Richard Taylor",
+    designation: "Frontend Developer, WebSolutions",
+    image: "https://picsum.photos/id/20/300/300",
+  },
+  {
+    name: "Linda Anderson",
+    designation: "Backend Developer, ServerSecure",
+    image: "https://picsum.photos/id/21/300/300",
+  },
+  {
+    name: "William Thomas",
+    designation: "Full Stack Developer, FullStack",
+    image: "https://picsum.photos/id/22/300/300",
+    badge: "Badger",
+  },
+  {
+    name: "Elizabeth Jackson",
+    designation: "Project Manager, ProManage",
+    image: "https://picsum.photos/id/23/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "David White",
+    designation: "Database Administrator, DataSafe",
+    image: "https://picsum.photos/id/24/300/300",
+    badge: "Advocate",
+  },
+  {
+    name: "Jennifer Harris",
+    designation: "Network Engineer, NetConnect",
+    image: "https://picsum.photos/id/25/300/300",
+  },
+  {
+    name: "Charles Clark",
+    designation: "Security Analyst, SecureIT",
+    image: "https://picsum.photos/id/26/300/300",
+  },
+  {
+    name: "Susan Lewis",
+    designation: "Systems Analyst, SysAnalyse",
+    image: "https://picsum.photos/id/27/300/300",
+  },
+  {
+    name: "Joseph Young",
+    designation: "Mobile Developer, AppDev",
+    image: "https://picsum.photos/id/28/300/300",
+    badge: "Mentor",
+  },
+  {
+    name: "Margaret Hall",
+    designation: "Quality Assurance, BugFree",
+    image: "https://picsum.photos/id/29/300/300",
+    badge: "Developer",
+  },
+];
