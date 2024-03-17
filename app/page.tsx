@@ -5,8 +5,7 @@ import VideoPlayer from '@/components/VideoPlayer'
 export default function Home() {
   return (
     <main>
-      <div className='flex justify-center' style={{
-      }}>
+      <div className='flex justify-center' style={{}}>
         <Navigation />
       </div>
         <VideoPlayer />

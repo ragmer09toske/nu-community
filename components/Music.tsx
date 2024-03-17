@@ -5,6 +5,7 @@ import { ChevronDownCircle, CircleDashed, FastForward, Pause, Play, Rewind, XCir
 import { Progress } from './ui/progress';
 import useDeviceType from '@/app/Device';
 import { motion } from "framer-motion"
+
 const Music = () => {
     const [playing, setPlaying] = useState<boolean>(false);
     const [progress, setProgress] = useState<number>(0);

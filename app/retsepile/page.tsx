@@ -136,42 +136,33 @@ const Retsepile = () => {
                     <Tooltip>
                       <TooltipTrigger asChild>
                           <Drawer>
-                          <DrawerTrigger asChild>
-                            <MessageCircle color='gray'/>
-                          </DrawerTrigger>
-                          <DrawerContent>
-                            <div className="mx-auto w-full max-w-sm">
-                              <DrawerHeader>
-                                <DrawerTitle>Move Goal</DrawerTitle>
-                                <DrawerDescription>Set your daily activity goal.</DrawerDescription>
-                                </DrawerHeader>
-                                <div className="p-4 pb-0">
-                                  <div className="flex items-center justify-center space-x-2">
-                                   
-                                  </div>
-                                  <div className="mt-3 h-[120px]">
-                                      
-                                  </div>
-                                </div>
-                                <DrawerFooter>
-                                <div className=" w-full ">
-                                  <div className="flex pb-2">
-                                    <HoverCard >
-                                      <HoverCardTrigger><GripHorizontal  className="pl-2"/></HoverCardTrigger>
-                                      <HoverCardContent>
-                                      <p style={{fontSize:12, color:"rgba(255, 255, 255, 0.716)"}}>This message will only be seen by a person or a group of people you send a temp-on token to </p>
-                                      </HoverCardContent>
-                                    </HoverCard>
-                                    <div>
-                                      <Send className="pl-2"/>
+                            <DrawerTrigger asChild>
+                              <MessageCircle color='gray'/>
+                            </DrawerTrigger>
+                            <DrawerContent>
+                              <div className="mx-auto w-full max-w-sm">
+                                <DrawerHeader>
+                                  <DrawerTitle>This is why I had to start blogging.</DrawerTitle>
+                                  <DrawerDescription>
+                                    I used to think I was too smart for anything outside of IT (Information Technology). I figured all I needed to do was dive into programming and become the best at it. So, ...
+                                  </DrawerDescription>
+                                  <div className=" w-full ">
+                                    <div className="flex pb-2">
+                                      <HoverCard >
+                                        <HoverCardTrigger><GripHorizontal  className="pl-2"/></HoverCardTrigger>
+                                        <HoverCardContent>
+                                        <p style={{fontSize:12, color:"rgba(255, 255, 255, 0.716)"}}>This message will only be seen by a person or a group of people you send a temp-on token to </p>
+                                        </HoverCardContent>
+                                      </HoverCard>
+                                      <div>
+                                        <Send className="pl-2"/>
+                                      </div>
+                                    </div>
+                                    <div className="pl-2">
+                                    <Textarea cols={1} rows={2} className="resize-none w-full p-2" />
                                     </div>
                                   </div>
-                                  <div className="pl-2">
-                                  {/* <p style={{fontSize:12, color:"rgba(255, 255, 255, 0.716)"}}>Temp-On: 3423erwwx3243</p> */}
-                                  <Textarea cols={1} rows={2} className="resize-none w-full p-2" />
-                                  </div>
-                                </div>
-                                </DrawerFooter>
+                                </DrawerHeader>
                               </div>
                             </DrawerContent>
                           </Drawer>
