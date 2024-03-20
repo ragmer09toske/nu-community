@@ -28,6 +28,7 @@ export const LandingFeed = () => {
                   width={120}
                   height={24}
                   priority
+                  // hello world
               />
             </div>}
             
