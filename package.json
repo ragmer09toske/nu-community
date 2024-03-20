@@ -45,7 +45,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cmdk": "^0.2.1",
-    "framer-motion": "^11.0.16",
+    "framer-motion": "^11.0.18",
     "i": "^0.3.7",
     "jspdf": "^2.5.1",
     "lucide-react": "^0.330.0",
