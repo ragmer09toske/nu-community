@@ -15,7 +15,7 @@ function TracingBeamDemo() {
     <TracingBeam className="">
       <div className="max-w-2xl pl-5 lg:pl-0 mx-auto antialiased pt-4 relative">
           <div className="mb-10">
-            <div className="text-sm  prose prose-sm dark:prose-invert">
+            <div className="text-sm px-6 prose prose-sm dark:prose-invert">
               <RegisterCodingInitiative />
             </div>
           </div>
