@@ -22,7 +22,7 @@ export const LandingFeed = () => {
             </h4>
             {!isDesktop && <div className="p-5 mt-40 lg:mt-0">
               <Image
-                  src="/one.png"
+                  src="/nerd.jpg"
                   alt="Nucleus Logo"
                   className="relative lg:dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
                   width={120}
