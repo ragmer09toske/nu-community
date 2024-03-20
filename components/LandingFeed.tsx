@@ -6,11 +6,12 @@ import { Card, CardDescription, CardHeader, CardTitle } from './ui/card'
 import useDeviceType from '@/app/Device'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ShimmerButton} from './Shimmer'
 
 export const LandingFeed = () => {
   const isDesktop: boolean = useDeviceType();
   return (
-    <div className='lg:w-[60%] sm:w-[100%] h-full p-2 ' style={{
+    <div className='lg:w-[60%]  sm:w-[100%] h-full p-2 ' style={{
         borderWidth: "1px",
         borderTopWidth: "0px",
         borderBottomWidth: "0px", 
@@ -22,7 +23,7 @@ export const LandingFeed = () => {
             </h4>
             {!isDesktop && <div className="p-5 mt-40 lg:mt-0">
               <Image
-                  src="/nerd.jpg"
+                  src="/one.png"
                   alt="Nucleus Logo"
                   className="relative lg:dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
                   width={120}
@@ -35,13 +36,13 @@ export const LandingFeed = () => {
             <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
               <div className='flex flex-col  gap-5'>
               <Link href="/workspace">
-              <Card className="w-[100%]">
+              <Card className="relative w-[100%]">
                 <CardHeader>
-                    <CardTitle>Co-own a workspace.</CardTitle>
-                    <CardDescription>Have your entire organization on the same working space as your clients, share files, and assign tasks seamlessly. Access your files anywhere in the world and make the whole world your office.</CardDescription>
+                    <CardTitle>Welcome to our Coding Initiative</CardTitle>
+                    <CardDescription>We believe that everyone should have the opportunity to learn how to code and to create innovative solutions. That's why we're thrilled to introduce our Coding Initiative, an empowering program designed to help individuals and startups on digital transformation through coding.</CardDescription>
                 </CardHeader>
                 <Image
-                    src="/map.png"
+                    src="/nerdish.jpg"
                     alt="Nucleus Logo"
                     style={{
                       borderRadius:"0 0 8px 8px"
@@ -50,6 +51,9 @@ export const LandingFeed = () => {
                     height={24}
                     priority
                 />
+                <div className='absolute bottom-14 lg:bottom-44 lg:left-10 left-5'>
+                  <ShimmerButton />  
+                </div>
               </Card>
               </Link>
 
