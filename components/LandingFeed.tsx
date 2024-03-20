@@ -39,7 +39,7 @@ export const LandingFeed = () => {
               <Card className="relative w-[100%]">
                 <CardHeader>
                     <CardTitle>Welcome to our Coding Initiative</CardTitle>
-                    <CardDescription>We believe that everyone should have the opportunity to learn how to code and to create innovative solutions. That's why we're thrilled to introduce our Coding Initiative, an empowering program designed to help individuals and startups on digital transformation through coding.</CardDescription>
+                    <CardDescription>We believe that everyone should have the opportunity to learn how to code and to create innovative solutions. That&apos;s why we&apos;re thrilled to introduce our Coding Initiative, an empowering program designed to help individuals and startups on digital transformation through coding.</CardDescription>
                 </CardHeader>
                 <Image
                     src="/nerdish.jpg"
