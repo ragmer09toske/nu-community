@@ -13,6 +13,7 @@ import { TracingBeam } from './ui/tracing-beam'
 import { TracingBeamDemo } from './TraceBeamDemo'
 import { ContainerScroll } from './container-scroll-animation'
 import { LampContainer } from './lamp'
+import { SparklesPreview } from './Sparkles'
 
 const World = dynamic(() => import("../components/ui/globe").then((m) => m.World), {
   ssr: false,
@@ -427,13 +428,16 @@ export const LandingFeed = () => {
             </div>}
             <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
               <div className='flex flex-col  gap-5'>
+              <Card className="w-[100%]">
+                <SparklesPreview />
+              </Card>
               {/* <Link href="/workspace"> */}
               <Card className="w-[100%]">
                 <CardHeader>
-                    <CardTitle>Allow us to make your website look 10x better.</CardTitle>
-                    <CardDescription>Have your entire organization on the same working space as your clients, share files, and assign tasks seamlessly. Access your files anywhere in the world and make the whole world your office.</CardDescription>
+                  <CardTitle>Allow us to make your website look 10x better.</CardTitle>
+                  <CardDescription>Have your entire organization on the same working space as your clients, share files, and assign tasks seamlessly. Access your files anywhere in the world and make the whole world your office.</CardDescription>
                 </CardHeader>
-                <div className="flex flex-row items-center justify-center py-20 h-screen md:h-auto dark:bg-black bg-white relative w-full">
+                {/* <div className="flex flex-row items-center justify-center py-20 h-screen md:h-auto dark:bg-black bg-white relative w-full">
                   <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
                     <motion.div
                       initial={{
@@ -455,29 +459,10 @@ export const LandingFeed = () => {
                       <World data={sampleArcs} globeConfig={globeConfig} />;
                     </div>
                   </div>
-                </div>
+                </div> */}
               </Card>
               {/* </Link> */}
-
               <Card className="w-[100%] p-0.5 pl-3 ">
-              <div className="flex flex-col overflow-hidden">
-                <ContainerScroll
-                  users={user}
-                  titleComponent={
-                    <>
-                      <h1 className="text-4xl font-semibold text-black dark:text-white">
-                        Unleash the power of <br />
-                        <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
-                          Scroll Animations
-                        </span>
-                      </h1>
-                    </>
-                  }
-                />
-              </div>
-              </Card>
-              <Card className="w-[100%] p-0.5 pl-3 ">
-
               <LampContainer>
               <motion.h1
                 initial={{ opacity: 0.5, y: 100 }}
@@ -496,18 +481,18 @@ export const LandingFeed = () => {
 
               <Card className="w-[100%]">
                 <CardHeader>
-                    <CardTitle>Elevate Your Brand with Exquisite Typography</CardTitle>
-                    <CardDescription>Take pleasure in the intricate craftsmanship of each character, enhancing your brand&apos;s story.</CardDescription>
+                  <CardTitle>Elevate Your Brand with Exquisite Typography</CardTitle>
+                  <CardDescription>Take pleasure in the intricate craftsmanship of each character, enhancing your brand&apos;s story.</CardDescription>
                 </CardHeader>
                 <Image
-                    src="/fill-container.avif"
-                    alt="Nucleus Logo"
-                    style={{
-                      borderRadius:"0 0 8px 8px"
-                    }}
-                    width={855}
-                    height={24}
-                    priority
+                  src="/fill-container.avif"
+                  alt="Nucleus Logo"
+                  style={{
+                    borderRadius:"0 0 8px 8px"
+                  }}
+                  width={855}
+                  height={24}
+                  priority
                 />
               </Card>
               </div>
