@@ -325,6 +325,7 @@ export function Navigation  (){
     <div className="flex  items-center w-full  lg:gap-10" >
 
     {isDesktop && <div className="pl-5">
+      <Link href={"/"}>
         <Image
           src="/nu.png"
           alt="Nucleus Logo"
@@ -333,7 +334,8 @@ export function Navigation  (){
           priority
           onClick={()=>setContent("Landing")}
         />
-      </div>}
+      </Link>
+    </div>}
 
     {isDesktop ? <NavigationMenu>
         
