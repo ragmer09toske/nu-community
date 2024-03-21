@@ -9,19 +9,36 @@ import { Navigation } from "@/components/Navigation";
 import { TheBox } from "@/components/theBox";
 import { WavyBackgroundComp } from "@/components/ui/WavyBackground";
 import { EvervaultCard, Icon } from "@/components/ui/evervault-card";
+import { BentoGrid } from "@/components/ui/bento-grid";
+import { BentoGridThirdDemo } from "@/components/Bento";
+import { Card } from "@/components/ui/card";
+import { TextRevealCard, TextRevealCardDescription, TextRevealCardTitle } from "@/components/ui/text-reveal-card";
 
 function TracingBeamDemo() {
   return (
     <div className="w-full">
     <Navigation />
     <TracingBeam className="w-full">
-      <div className="m-full pl-5 lg:pl-0 mx-auto antialiased pt-4 relative">
-          <div className="mb-10">
+      <div className=" pl-1 lg:pl-0 mx-auto antialiased pt-4 relative">
+        <Card className="mt-6 p-5">
+          <div>
             <div className="text-sm px-6 prose prose-sm dark:prose-invert">
               <RegisterCodingInitiative />
             </div>
           </div>
-
+          </Card>
+          <br />
+          <div className="flex w-full">
+              <TextRevealCard
+              className="w-full"
+                text="Build the coolest UI in no minutes"
+                revealText="We gon teach you the science"
+              >
+              </TextRevealCard>
+          </div>
+          <br/>
+          <BentoGridThirdDemo />
+          <br/>
           <div className="mb-10">
           <div className="w-[100%]">
             <div className="border flex flex-col items-start w-[100%] mx-auto p-4  relative h-[10rem]">

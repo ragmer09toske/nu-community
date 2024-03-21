@@ -34,7 +34,7 @@ export const LandingFeed = () => {
         
         <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
           <div className='flex flex-col  gap-5'>
-          <Link href="/codinginitiative">
+          <Link href="/codiac">
           <Card className="relative w-[100%]">
             <CardHeader>
                 <CardTitle>Welcome to our Codiac Initiative</CardTitle>
