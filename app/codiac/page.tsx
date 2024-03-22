@@ -14,8 +14,10 @@ import { BentoGridThirdDemo } from "@/components/Bento";
 import { Card } from "@/components/ui/card";
 import { TextRevealCard, TextRevealCardDescription, TextRevealCardTitle } from "@/components/ui/text-reveal-card";
 import { GlowingStarsBackgroundCard, GlowingStarsDescription, GlowingStarsTitle } from "@/components/ui/glowing-stars";
+import useDeviceType from "../Device";
 
 function TracingBeamDemo() {
+  const isDesktop = useDeviceType();
   return (
     <div className="w-full">
     <Navigation />
@@ -25,22 +27,20 @@ function TracingBeamDemo() {
           <div>
             <div className="flex text-sm px-6 prose prose-sm dark:prose-invert">
               <RegisterCodingInitiative />
-              <div className="flex py-20 items-center justify-center antialiased">
+              {isDesktop && 
+              <div className="lg:flex flex-col l py-20 items-center justify-center antialiased">
                 <GlowingStarsBackgroundCard>
                   <GlowingStarsTitle>Register</GlowingStarsTitle>
                   <div className="flex justify-between items-end">
                     <GlowingStarsDescription>
                       You will get you RSVP in no time
                     </GlowingStarsDescription>
-                    <div className="h-8 w-8 rounded-full bg-[hsla(0,0%,100%,.1)] flex items-center justify-center">
-                      <IconArrow />
-                    </div>
                   </div>
                 </GlowingStarsBackgroundCard>
-              </div>
+              </div>} 
             </div>
           </div>
-          </Card>
+        </Card>
           <br />
           <div className="flex w-full">
               <TextRevealCard
@@ -74,21 +74,3 @@ function TracingBeamDemo() {
 }
 
 export default TracingBeamDemo
-const IconArrow = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="1.5"
-      stroke="currentColor"
-      className="h-4 w-4 text-white stroke-2"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-      />
-    </svg>
-  );
-};

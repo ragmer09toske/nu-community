@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Book, Calculator, Calendar, Check, ChevronsUpDown, CreditCard, GripHorizontal, Home, Loader2, Moon, Settings, Smile, Sun, User } from "lucide-react"
+import { Book, Calculator, Calendar, Check, ChevronsUpDown, CreditCard, GripHorizontal, Home, Loader2, Moon, MoonIcon, Settings, Smile, Sun, SunIcon, User } from "lucide-react"
 import { cn } from "@/lib/utils"
 import axios from 'axios';
 import {
@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/navigation-menu"
 import Image from "next/image"
 import { useToast } from "./ui/use-toast"
-import { useTheme } from "next-themes"
 import { Switch } from "./ui/switch"
 import useStore from "@/app/Store"
 import useDeviceType from "@/app/Device"
@@ -34,7 +33,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut } from "./ui/command";
 import Link from "next/link";
-
+import { useTheme } from "next-themes"
 
 import {
   Sheet,
@@ -46,7 +45,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
- 
+
 import {
   Drawer,
   DrawerClose,
@@ -58,6 +57,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer"
 import MenuList from "./MenuQoute";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 
 
 const components: { title: string; href: string; description: string }[] = [
@@ -212,36 +212,35 @@ const data = [
   },
 ]
 
-export function Navigation  (){
+export function Navigation() {
   const { toast } = useToast()
-  const { theme,setTheme } = useTheme()
-  console.log("current theme is:",theme)
+  const { theme, setTheme } = useTheme()
+  console.log("current theme is:", theme)
   const setContent = useStore((state) => state.setContent);
   const isDesktop: boolean = useDeviceType();
   const [loginRegister, setLoginRegister] = React.useState<boolean>(false)
   const [email, setEmail] = React.useState<string>('')
   const [password, setPassword] = React.useState<string>('')
   const [loading, setLoading] = React.useState<boolean>(false)
-  const [qoutaionON,setQoutaionON] = React.useState<boolean>(false)
-
+  const [qoutaionON, setQoutaionON] = React.useState<boolean>(false)
   // Auth variables, From Zustand Store
-  const setLoginToken = useStore((state)=> state.setLoginToken )
-  const loginToken = useStore((state)=> state.loginToken )
-  const setUserDetails = useStore((state)=> state.setUser )
-  const userDetails = useStore((state)=> state.user )
-  const userID = useStore((state)=> state.userID )
-  const setUserID = useStore((state)=> state.setUserID )
+  const setLoginToken = useStore((state) => state.setLoginToken)
+  const loginToken = useStore((state) => state.loginToken)
+  const setUserDetails = useStore((state) => state.setUser)
+  const userDetails = useStore((state) => state.user)
+  const userID = useStore((state) => state.userID)
+  const setUserID = useStore((state) => state.setUserID)
 
   // Registration Variables
-  const [Register_name,setRegister_name]= React.useState<string>('')
-  const [Register_email,setRegister_email] = React.useState<string>('')
-  const [Register_number,setRegister_number]=React.useState<string>('')
-  const [Register_password,setRegister_password] = React.useState<string>('')
+  const [Register_name, setRegister_name] = React.useState<string>('')
+  const [Register_email, setRegister_email] = React.useState<string>('')
+  const [Register_number, setRegister_number] = React.useState<string>('')
+  const [Register_password, setRegister_password] = React.useState<string>('')
 
   // Create a workspaces
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
-  
+
   // Drawer bar
   const [goal, setGoal] = React.useState(350)
   function onClick(adjustment: number) {
@@ -293,21 +292,21 @@ export function Navigation  (){
     }
   };
 
-  React.useEffect(()=>{
+  React.useEffect(() => {
     const getUser = async () => {
       try {
         setLoading(true)
-        const config = { 
+        const config = {
           headers: {
             Authorization: `Bearer ${loginToken}`
           }
         };
         const response = await axios.get<ApiResponse>(
-          `https://nucleus-community-55ff7e3e4dd0.herokuapp.com/workspace/users/${userID}`,config
+          `https://nucleus-community-55ff7e3e4dd0.herokuapp.com/workspace/users/${userID}`, config
         );
-  
+
         setUserDetails(response.data)
-  
+
         setLoading(false)
       } catch (error) {
         console.log('Error:', error);
@@ -315,53 +314,53 @@ export function Navigation  (){
       }
     };
     getUser()
-  },[loginToken, setLoginToken, setUserDetails, userID])
+  }, [loginToken, setLoginToken, setUserDetails, userID])
 
   return (
-    <div  className="flex p-2 pr-5 items-center w-full  lg:gap-10" style={{
+    <div className="flex p-2 pr-5 items-center w-full  lg:gap-10" style={{
       backdropFilter: "blur(5px)",
       zIndex: 999,
     }}>
-    <div className="flex  items-center w-full  lg:gap-10" >
+      <div className="flex  items-center w-full  lg:gap-10" >
 
-    {isDesktop && <div className="pl-5">
-      <Link href={"/"}>
-        <Image
-          src="/nu.png"
-          alt="Nucleus Logo"
-          width={30}
-          height={24}
-          priority
-          onClick={()=>setContent("Landing")}
-        />
-      </Link>
-    </div>}
+        {isDesktop && <div className="pl-5">
+          <Link href={"/"}>
+            <Image
+              src="/nu.png"
+              alt="Nucleus Logo"
+              width={30}
+              height={24}
+              priority
+              onClick={() => setContent("Landing")}
+            />
+          </Link>
+        </div>}
 
-    {isDesktop ? <NavigationMenu>
-        
-    </NavigationMenu> 
-    :
- 
-    (<Sheet>
-      <SheetTrigger asChild>
-        <GripHorizontal />
-      </SheetTrigger>
-      <SheetContent className="" style={{zIndex:9999}}>
-        <SheetHeader>
-          <SheetTitle></SheetTitle>
-          <SheetDescription>
-          </SheetDescription>
-        </SheetHeader>
+        {isDesktop ? <NavigationMenu>
+
+        </NavigationMenu>
+          :
+
+          (<Sheet>
+            <SheetTrigger asChild>
+              <GripHorizontal />
+            </SheetTrigger>
+            <SheetContent className="" style={{ zIndex: 9999 }}>
+              <SheetHeader>
+                <SheetTitle></SheetTitle>
+                <SheetDescription>
+                </SheetDescription>
+              </SheetHeader>
               <Command className="rounded-lg  shadow-md">
                 <CommandInput placeholder="Type a command or search..." />
                 <CommandList>
                   <CommandEmpty>No results found.</CommandEmpty>
                   <CommandGroup heading="Suggestions">
                     <Link href="/">
-                    <CommandItem>
-                      <Home className="mr-2 h-4 w-4" />
-                      <span>Home</span>
-                    </CommandItem>
+                      <CommandItem>
+                        <Home className="mr-2 h-4 w-4" />
+                        <span>Home</span>
+                      </CommandItem>
                     </Link>
                     <Link href="/retsepile">
                       <CommandItem>
@@ -372,16 +371,16 @@ export function Navigation  (){
                     <CommandItem>
                       <SheetClose asChild>
                         <Button
-                            variant="outline"
+                          variant="outline"
                           size={"sm"}
                           className="w-[200px]"
-                          onClick={()=>setQoutaionON(!qoutaionON)}
-                          >
-                              <>+ Qoutation</>
+                          onClick={() => setQoutaionON(!qoutaionON)}
+                        >
+                          <>+ Qoutation</>
                         </Button>
                       </SheetClose>
                     </CommandItem>
-                    
+
                   </CommandGroup>
                   <CommandSeparator />
                   <CommandGroup heading="Settings">
@@ -395,30 +394,54 @@ export function Navigation  (){
                     </CommandItem>
                   </CommandGroup>
                 </CommandList>
+                <div className="absolute bottom-10" >
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                  <div className="flex items-center gap-2"> 
+                    <Button variant="outline" size="icon">
+                      <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                      <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                      <span className="sr-only">Toggle theme</span>
+                    </Button>
+                    <p>{theme}</p>
+                    </div>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent style={{zIndex:9999}} align="end">
+                    <DropdownMenuItem onClick={() => setTheme("light")}>
+                      Light
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => setTheme("dark")}>
+                      Dark
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => setTheme("system")}>
+                      System
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+                </div>
               </Command>
-        
-        <Drawer>
-            <DrawerTrigger asChild>
-              
-              </DrawerTrigger>
-              <DrawerContent>
+
+              <Drawer>
+                <DrawerTrigger asChild>
+                </DrawerTrigger>
+                <DrawerContent>
                   <DrawerHeader>
                     <DrawerTitle>Get a qoute</DrawerTitle>
                     <DrawerDescription>Choose what features you want on your site</DrawerDescription>
                   </DrawerHeader>
-                <div className="p-4 pb-0">
-              
+                  <div className="p-4 pb-0">
+
                   </div>
-                <div className="w-full flex justify-center ">
+                  <div className="w-full flex justify-center ">
                     <DrawerFooter className="w-full justify-center">
-                    <div className="w-full flex justify-center ">
+                      <div className="w-full flex justify-center ">
                         <Button
                           variant="outline"
-                        size={"sm"}
-                        className="w-[200px]"
-                        onClick={()=>setQoutaionON(!qoutaionON)}
+                          size={"sm"}
+                          className="w-[200px]"
+                          onClick={() => setQoutaionON(!qoutaionON)}
                         >
-                            <>+ Qoutation</>
+                          <>+ Qoutation</>
                         </Button>
                       </div>
                       {qoutaionON && <div className="w-full">
@@ -426,208 +449,207 @@ export function Navigation  (){
                       </div>}
                     </DrawerFooter>
                   </div>
-              </DrawerContent>
-            </Drawer>
-          <SheetFooter>
-        </SheetFooter>
-      </SheetContent>
-    </Sheet>)
-    }
-    </div>
-    {!loginRegister ? <Dialog>
-      <DialogTrigger asChild>
-        {!loginToken ? <Button variant="outline">Login</Button>
-        :
-        <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>}
-      </DialogTrigger>
-      {!loginToken ? (<DialogContent className="max-w-[325px] rounded-sm lg:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>Login</DialogTitle>
-          <DialogDescription>
-          </DialogDescription>
-        </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Email
-            </Label>
-            <Input
-              id="name"
-              onChange={(e)=>setEmail(e.target.value)}
-              className="col-span-3"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Password
-            </Label>
-            <Input
-              onChange={(e)=>setPassword(e.target.value)}
-              id="username"
-              className="col-span-3"
-            />
-          </div>
-        </div>
-        <DialogFooter>
-          <Button type="submit" variant={"outline"} onClick={login}>{!loading ? "submit" : <Loader2 className="animate-spin"/>}</Button>
-        </DialogFooter>
-      </DialogContent>)
-      :
-      (<DialogContent className="max-w-[325px] rounded-sm lg:max-w-[425px]">
-      <DialogHeader>
-        <DialogDescription>
-        </DialogDescription>
-      </DialogHeader>
-      <div className="grid gap-4 py-4">
-        <div className="flex items-center gap-1">
-          <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-          <div>
-            {userDetails && userDetails.name}
-            <div>
-              <p style={{color:"gray", fontSize: 14 }}>Nucleus</p>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col gap-5">
-          <Popover open={open} onOpenChange={setOpen}>
-            <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  role="combobox"
-                  aria-expanded={open}
-                  className="w-[200px] justify-between"
-                >
-                  <Link href={"/workspace"}>
-                    {value
-                      ? workspaces.find((workspaces) => workspaces.value === value)?.label
-                      : "Select workspaces..."}
-                  </Link>
-                  <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                </Button>
-            </PopoverTrigger>
-            <PopoverContent className="w-[200px] p-0">
-              <Command>
-                <CommandInput placeholder="Search workspace..." />
-                <CommandEmpty>No workspaces found.</CommandEmpty>
-                <CommandGroup>
-                  {workspaces.map((workspaces) => (
-                    <CommandItem
-                      key={workspaces.value}
-                      value={workspaces.value}
-                      onSelect={(currentValue) => {
-                        setValue(currentValue === value ? "" : currentValue)
-                        setOpen(false)
-                      }}
-                    >
-                      <Check
-                        className={cn(
-                          "mr-2 h-4 w-4",
-                          value === workspaces.value ? "opacity-100" : "opacity-0"
-                        )}
-                      />
-                      {workspaces.label}
-                    </CommandItem>
-                  ))}
-                </CommandGroup>
-              </Command>
-            </PopoverContent>
-          </Popover>
-          <Button
-            variant="outline"
-            size={"sm"}
-            className="w-[200px]"
-          >
-              <>+ Workspace</>
-          </Button>
-          {userDetails && userDetails.name ==="Retsepile Shao" &&
-          <Link href="/retsepile">
-          <Button
-            variant="outline"
-            size={"sm"}
-            className="w-[200px]"
-          >
-              <>Create A Blog</>
-          </Button>
-          </Link>
-          } 
-          
-        </div>
+                </DrawerContent>
+              </Drawer>
+              <SheetFooter>
+              </SheetFooter>
+            </SheetContent>
+          </Sheet>)
+        }
       </div>
-    </DialogContent>)
-      }
-    </Dialog>
-    :
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Register</Button>
-      </DialogTrigger>
-      <DialogContent className="max-w-[325px] rounded-sm lg:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>Register</DialogTitle>
-          <DialogDescription>
-          </DialogDescription>
-        </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
+      {!loginRegister ? <Dialog>
+        <DialogTrigger asChild>
+          {!loginToken ? <Button variant="outline">Login</Button>
+            :
+            <Avatar>
+              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>}
+        </DialogTrigger>
+        {!loginToken ? (<DialogContent className="max-w-[325px] rounded-sm lg:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Login</DialogTitle>
+            <DialogDescription>
+            </DialogDescription>
+          </DialogHeader>
+          <div className="grid gap-4 py-4">
+            <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="name" className="text-right">
-                Name
+                Email
               </Label>
               <Input
-              onChange={(e)=>setRegister_name(e.target.value)}
-              id="name"
+                id="name"
+                onChange={(e) => setEmail(e.target.value)}
                 className="col-span-3"
               />
             </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Work Email
-            </Label>
-            <Input
-              onChange={(e)=>setRegister_email(e.target.value)}
-              id="name"
-              className="col-span-3"
-            />
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="username" className="text-right">
+                Password
+              </Label>
+              <Input
+                onChange={(e) => setPassword(e.target.value)}
+                id="username"
+                className="col-span-3"
+              />
+            </div>
           </div>
+          <DialogFooter>
+            <Button type="submit" variant={"outline"} onClick={login}>{!loading ? "submit" : <Loader2 className="animate-spin" />}</Button>
+          </DialogFooter>
+        </DialogContent>)
+          :
+          (<DialogContent className="max-w-[325px] rounded-sm lg:max-w-[425px]">
+            <DialogHeader>
+              <DialogDescription>
+              </DialogDescription>
+            </DialogHeader>
+            <div className="grid gap-4 py-4">
+              <div className="flex items-center gap-1">
+                <Avatar>
+                  <AvatarImage src="https://github.com/shadcn.png" />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+                <div>
+                  {userDetails && userDetails.name}
+                  <div>
+                    <p style={{ color: "gray", fontSize: 14 }}>Nucleus</p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col gap-5">
+                <Popover open={open} onOpenChange={setOpen}>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      role="combobox"
+                      aria-expanded={open}
+                      className="w-[200px] justify-between"
+                    >
+                      <Link href={"/workspace"}>
+                        {value
+                          ? workspaces.find((workspaces) => workspaces.value === value)?.label
+                          : "Select workspaces..."}
+                      </Link>
+                      <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-[200px] p-0">
+                    <Command>
+                      <CommandInput placeholder="Search workspace..." />
+                      <CommandEmpty>No workspaces found.</CommandEmpty>
+                      <CommandGroup>
+                        {workspaces.map((workspaces) => (
+                          <CommandItem
+                            key={workspaces.value}
+                            value={workspaces.value}
+                            onSelect={(currentValue) => {
+                              setValue(currentValue === value ? "" : currentValue)
+                              setOpen(false)
+                            }}
+                          >
+                            <Check
+                              className={cn(
+                                "mr-2 h-4 w-4",
+                                value === workspaces.value ? "opacity-100" : "opacity-0"
+                              )}
+                            />
+                            {workspaces.label}
+                          </CommandItem>
+                        ))}
+                      </CommandGroup>
+                    </Command>
+                  </PopoverContent>
+                </Popover>
+                <Button
+                  variant="outline"
+                  size={"sm"}
+                  className="w-[200px]"
+                >
+                  <>+ Workspace</>
+                </Button>
+                {userDetails && userDetails.name === "Retsepile Shao" &&
+                  <Link href="/retsepile">
+                    <Button
+                      variant="outline"
+                      size={"sm"}
+                      className="w-[200px]"
+                    >
+                      <>Create A Blog</>
+                    </Button>
+                  </Link>
+                }
+              </div>
+            </div>
+          </DialogContent>)
+        }
+      </Dialog>
+        :
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button variant="outline">Register</Button>
+          </DialogTrigger>
+          <DialogContent className="max-w-[325px] rounded-sm lg:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle>Register</DialogTitle>
+              <DialogDescription>
+              </DialogDescription>
+            </DialogHeader>
+            <div className="grid gap-4 py-4">
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="name" className="text-right">
+                  Name
+                </Label>
+                <Input
+                  onChange={(e) => setRegister_name(e.target.value)}
+                  id="name"
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="name" className="text-right">
+                  Work Email
+                </Label>
+                <Input
+                  onChange={(e) => setRegister_email(e.target.value)}
+                  id="name"
+                  className="col-span-3"
+                />
+              </div>
 
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Phone
-            </Label>
-            <Input
-            type="number"
-              id="name"
-              onChange={(e)=>setRegister_number(e.target.value)}
-              className="col-span-3"
-            />
-          </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="name" className="text-right">
+                  Phone
+                </Label>
+                <Input
+                  type="number"
+                  id="name"
+                  onChange={(e) => setRegister_number(e.target.value)}
+                  className="col-span-3"
+                />
+              </div>
 
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Password
-            </Label>
-            <Input
-              onChange={(e)=>setRegister_password(e.target.value)}
-              id="username"
-              className="col-span-3"
-            />
-          </div>
-        </div>
-        <DialogFooter>
-        <Button type="submit" variant={"outline"} onClick={register}>{!loading ? "submit" : <Loader2 className="animate-spin"/>}</Button>
-        </DialogFooter>
-        <div className="w-full flex justify-center cursor-pointer" onClick={()=>setLoginRegister(!loginRegister)}>
-         or login
-        </div>
-      </DialogContent>
-    </Dialog>
-  }
-                  
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="username" className="text-right">
+                  Password
+                </Label>
+                <Input
+                  onChange={(e) => setRegister_password(e.target.value)}
+                  id="username"
+                  className="col-span-3"
+                />
+              </div>
+            </div>
+            <DialogFooter>
+              <Button type="submit" variant={"outline"} onClick={register}>{!loading ? "submit" : <Loader2 className="animate-spin" />}</Button>
+            </DialogFooter>
+            <div className="w-full flex justify-center cursor-pointer" onClick={() => setLoginRegister(!loginRegister)}>
+              or login
+            </div>
+          </DialogContent>
+        </Dialog>
+      }
+
     </div>
   )
 }
