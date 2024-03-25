@@ -6,11 +6,7 @@ import { cn } from "@/lib/utils"
 import axios from 'axios';
 import {
   NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
   NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 import Image from "next/image"
 import { useToast } from "./ui/use-toast"

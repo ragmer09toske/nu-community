@@ -1,21 +1,19 @@
 "use client";
 import React from "react";
-// import { calsans } from "@/fonts/calsans";
-import Image from "next/image";
-import { twMerge } from "tailwind-merge";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { RegisterCodingInitiative } from "@/components/RegisterCodingInitiative";
 import { Navigation } from "@/components/Navigation";
 import { TheBox } from "@/components/theBox";
-import { WavyBackgroundComp } from "@/components/ui/WavyBackground";
 import { EvervaultCard, Icon } from "@/components/ui/evervault-card";
-import { BentoGrid } from "@/components/ui/bento-grid";
 import { BentoGridThirdDemo } from "@/components/Bento";
 import { Card } from "@/components/ui/card";
 import { TextRevealCard, TextRevealCardDescription, TextRevealCardTitle } from "@/components/ui/text-reveal-card";
 import { GlowingStarsBackgroundCard, GlowingStarsDescription, GlowingStarsTitle } from "@/components/ui/glowing-stars";
 import useDeviceType from "../Device";
-
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+ 
+const words = `Oxygen gets you high. In a catastrophic emergency, we're taking giant, panicked breaths. Suddenly you become euphoric, docile. You accept your fate. It's all right here. Emergency water landing, six hundred miles an hour. Blank faces, calm as Hindu cows`;
+ 
 function TracingBeamDemo() {
   const isDesktop = useDeviceType();
   return (
@@ -25,9 +23,9 @@ function TracingBeamDemo() {
       <div className=" pl-1 lg:pl-0 mx-auto antialiased pt-4 relative">
         <Card className="mt-6 p-5">
           <div>
-            <div className="flex text-sm px-6 prose prose-sm dark:prose-invert">
+            <div className="flex flex-col lg:flex-row text-sm px-6 prose prose-sm dark:prose-invert">
               <RegisterCodingInitiative />
-              {isDesktop && 
+              {isDesktop ? 
               <div className="lg:flex flex-col l py-20 items-center justify-center antialiased">
                 <GlowingStarsBackgroundCard>
                   <GlowingStarsTitle>Register</GlowingStarsTitle>
@@ -37,7 +35,9 @@ function TracingBeamDemo() {
                     </GlowingStarsDescription>
                   </div>
                 </GlowingStarsBackgroundCard>
-              </div>} 
+              </div> 
+              :
+              <TextGenerateEffect words={words} />}
             </div>
           </div>
         </Card>

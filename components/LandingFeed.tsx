@@ -3,13 +3,13 @@ import React from 'react'
 import { Command} from './ui/command'
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Card, CardDescription, CardHeader, CardTitle } from './ui/card'
-import useDeviceType from '@/app/Device'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ShimmerButton} from './Shimmer'
+import useDeviceType from '@/app/Device'
 
 export const LandingFeed = () => {
-  const isDesktop: boolean = useDeviceType();
+  const isDesktop = useDeviceType()
   return (
     <div className='lg:w-[60%]  sm:w-[100%] h-full p-2 ' style={{
         borderWidth: "1px",
@@ -37,11 +37,11 @@ export const LandingFeed = () => {
           <Link href="/codiac">
           <Card className="relative w-[100%]">
             <CardHeader>
-                <CardTitle>Welcome to our Codiac Initiative</CardTitle>
-                <CardDescription>
-                  We believe that everyone should have the opportunity to learn how to code and to create innovative solutions.
+                <CardTitle>Join our Codiac program</CardTitle>
+                <CardDescription>                  
+                  Every second Sunday of every month, we teach professionals and businesses how to build and set up a strong online presence. This may include teaching them how to strategically build websites and maximize their ranking through SEO.
                   <br/><br/>
-                  Get the opportunity to have your portfolio online or your business online
+                  Upon registration, you will receive your RSVP and get the chance to learn while networking with other aspiring professionals like yourself.
                 </CardDescription>
             </CardHeader>
             <Image
