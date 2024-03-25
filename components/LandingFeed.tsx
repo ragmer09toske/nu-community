@@ -37,7 +37,7 @@ export const LandingFeed = () => {
           <Link href="/codiac">
           <Card className="relative w-[100%]">
             <CardHeader>
-                <CardTitle>Join our Codiac program</CardTitle>
+                <CardTitle>Join Our Codiac Program</CardTitle>
                 <CardDescription>                  
                   Every second Sunday of every month, we teach professionals and businesses how to build and set up a strong online presence. This may include teaching them how to strategically build websites and maximize their ranking through SEO.
                   <br/><br/>
@@ -55,16 +55,19 @@ export const LandingFeed = () => {
                 priority
             />
             <div className='absolute bottom-14 lg:bottom-44 lg:left-10 left-5'>
-              <ShimmerButton />  
+              <ShimmerButton text='Register' />  
             </div>
           </Card>
           </Link>
 
-          <Card className="w-[100%] p-0.5 pl-3 ">
+          <Card className="relative w-[100%] p-0.5 pl-3 ">
             <div>
                 <CardHeader>
-                    <CardTitle>We Embrace the Art of Deverse Engineering</CardTitle>
-                    <CardDescription>We unlocked the secrets of seamless transitions from Mobile to Desktop development.</CardDescription>
+                    <CardTitle>Join Our Freelance Developers Community</CardTitle>
+                    <CardDescription>
+                      We have developers around the globe seeking to simplify their challenges by distributing them among themselves. In a large project, more often than not, someone excels at a specific task where you may need assistance. 
+                      <br/><br/>
+                      Have a professional solve your daily issues; pay them for their expertise. Alternatively, become that professional and solve other programmers' problems, earning compensation for your efforts.</CardDescription>
                 </CardHeader>
                 <div className="w-[100%] p-0.5 pl-3 flex justify-center">
                 <Image
@@ -75,6 +78,9 @@ export const LandingFeed = () => {
                     height={24}
                     priority
                 />
+                <div className='absolute bottom-14 lg:bottom-44 lg:left-10 left-5'>
+                  <ShimmerButton text='Join' />  
+                </div>
                 </div>
             </div>
           </Card>
