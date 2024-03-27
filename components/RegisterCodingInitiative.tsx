@@ -28,7 +28,6 @@ export function RegisterCodingInitiative() {
       try {
         setLoading(true)
         const response = await axios.post(
-          // 'http://localhost:8000/codiac/register',
           'https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/register',
           {
             firstname: firstname,
@@ -41,15 +40,14 @@ export function RegisterCodingInitiative() {
 
         toast({
           title: "Registration succeeded",
-          // description: "You will get an email for your RSV",
           description: "You will get an email for your RSV",
         })
 
         console.log(response.data)
   
         setLoading(false)
-      } catch (error) {
-        console.log('Error:', error);
+      } catch (error: any) {
+        console.log('Error:', error.message);
         toast({
           title: "Registration failed",
           description: "try to register again",
