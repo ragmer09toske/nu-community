@@ -28,7 +28,8 @@ export function RegisterCodingInitiative() {
       try {
         setLoading(true)
         const response = await axios.post(
-          'https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/register',
+          'http://localhost:8000/codiac/register',
+          // 'https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/register',
           {
             firstname: firstname,
             lastname: lastname,
@@ -128,3 +129,5 @@ const LabelInputContainer = ({
     </div>
   );
 };
+// MONGODB_KEY = retsepileraymondshao:Thakasolerato18@next
+// SECRET_KEY = Q5te5TDpufmDXbIu46mgZSn6a1Lra4QCC3FUup34Yms
