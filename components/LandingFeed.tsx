@@ -67,7 +67,7 @@ export const LandingFeed = () => {
                     <CardDescription>
                       We have developers around the globe seeking to simplify their challenges by distributing them among themselves. In a large project, more often than not, someone excels at a specific task where you may need assistance. 
                       <br/><br/>
-                      Have a professional solve your daily issues; pay them for their expertise. Alternatively, become that professional and solve other programmers' problems, earning compensation for your efforts.</CardDescription>
+                      Have a professional solve your daily issues; pay them for their expertise. Alternatively, become that professional and solve other programmers problems, earning compensation for your efforts.</CardDescription>
                 </CardHeader>
                 <div className="w-[100%] p-0.5 pl-3 flex justify-center">
                 <Image
