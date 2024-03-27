@@ -28,7 +28,7 @@ export function RegisterCodingInitiative() {
       try {
         setLoading(true)
         const response = await axios.post(
-          'https://nucleus-community-55ff7e3e4dd0.herokuapp.com/codiac/register',
+          'https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/register',
           {
             firstname: firstname,
             lastname: lastname,
