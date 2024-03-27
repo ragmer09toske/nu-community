@@ -128,5 +128,3 @@ const LabelInputContainer = ({
     </div>
   );
 };
-// MONGODB_KEY = retsepileraymondshao:Thakasolerato18@next
-// SECRET_KEY = Q5te5TDpufmDXbIu46mgZSn6a1Lra4QCC3FUup34Yms
