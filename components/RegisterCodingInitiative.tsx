@@ -41,6 +41,7 @@ export function RegisterCodingInitiative() {
 
         toast({
           title: "Registration succeeded",
+          // description: "You will get an email for your RSV",
           description: "You will get an email for your RSV",
         })
 
