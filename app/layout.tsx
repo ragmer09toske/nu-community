@@ -4,8 +4,10 @@ import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/toaster'
 import Music from '@/components/Music'
+import { dark } from '@clerk/themes'
 import "@uploadthing/react/styles.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { ClerkProvider } from '@clerk/nextjs'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -21,6 +23,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+    <ClerkProvider
+      appearance={{baseTheme: dark}}
+    >
     <html lang="en">
        <ThemeProvider
             attribute="class"
@@ -33,5 +38,6 @@ export default function RootLayout({
           <SpeedInsights/>
         </ThemeProvider>
     </html>
+    </ClerkProvider>
   )
 }

@@ -55,7 +55,6 @@ export default function UploadUI() {
         </TooltipProvider>
         
       </div>
-
       <div className="absolute top-20 left-0 w-full h-full">
         {File == "Files" ? (<Files />) : (<Notes setFiles={setFiles}/>)}
       </div>

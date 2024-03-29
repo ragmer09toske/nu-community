@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.29.9",
+    "@clerk/themes": "^1.7.10",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.10",
@@ -47,6 +49,7 @@
     "cmdk": "^0.2.1",
     "framer-motion": "^11.0.18",
     "i": "^0.3.7",
+    "install": "^0.13.0",
     "jspdf": "^2.5.1",
     "lucide-react": "^0.330.0",
     "mongoose": "^8.2.3",
