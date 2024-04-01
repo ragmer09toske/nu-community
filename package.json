@@ -13,6 +13,8 @@
     "@clerk/themes": "^1.7.10",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@headlessui/react": "^1.7.18",
+    "@headlessui/tailwindcss": "^0.2.0",
     "@mui/material": "^5.15.10",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-checkbox": "^1.0.4",
@@ -38,7 +40,10 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "@react-three/drei": "^9.99.4",
     "@react-three/fiber": "^8.15.16",
+    "@remixicon/react": "^4.2.0",
     "@tabler/icons-react": "^3.1.0",
+    "@tanstack/react-table": "^8.15.3",
+    "@tremor/react": "^3.15.0",
     "@types/socket.io-client": "^3.0.0",
     "@uploadthing/react": "^6.2.3",
     "@vercel/speed-insights": "^1.0.10",
@@ -80,6 +85,7 @@
     "zustand": "^4.5.1"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
