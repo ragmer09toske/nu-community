@@ -313,7 +313,7 @@ export function Navigation() {
   }, [loginToken, setLoginToken, setUserDetails, userID])
 
   return (
-    <div className="flex p-2 pr-5 items-center w-full  lg:gap-10" style={{
+    <div className="flex p-2 pr-5 items-center w-full pt-5 lg:gap-10" style={{
       backdropFilter: "blur(5px)",
       zIndex: 999,
     }}>

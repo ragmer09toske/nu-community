@@ -26,7 +26,7 @@ function TracingBeamDemo() {
             <div className="flex flex-col lg:flex-row text-sm px-6 prose prose-sm dark:prose-invert">
               <RegisterCodingInitiative />
               {isDesktop ? 
-              <div className="lg:flex flex-col l py-20 items-center justify-center antialiased">
+              <div className="lg:flex flex-c  ol l py-20 items-center justify-center antialiased">
                 <GlowingStarsBackgroundCard>
                   <GlowingStarsTitle>Register</GlowingStarsTitle>
                   <div className="flex justify-between items-end">
