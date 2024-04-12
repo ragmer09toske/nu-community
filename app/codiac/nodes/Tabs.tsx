@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Check, ChevronsUpDown } from "lucide-react"
+import { Check, ChevronsUpDown, MoreVertical } from "lucide-react"
 import {
   Command,
   CommandEmpty,
@@ -52,6 +52,9 @@ import {
 } from '@tremor/react';
 
 import axios from "axios"
+import { sendContactForm } from "@/app/api/sendEmail"
+import { IconReload } from "@tabler/icons-react"
+import RsvpPagination from "./pagination"
 const frameworks = [
   {
     value: "codiacs",
@@ -67,6 +70,10 @@ const Venue = [
   {
     value: "holberton",
     label: "Holberton",
+  },
+  {
+    value: "limkokwing university",
+    label: "Limkokwing university",
   },
 ]
 export function RSVP() {
@@ -155,12 +162,71 @@ export function RSVP() {
     getAllCodiacs()
   },[])
 
+  const EmailSender = () => {
+    const sendEmail = async () => {
+        // The data you want to send
+        const data = {
+            name: 'Codiac test',
+            message: 'Hello, this is a test email from Nucleus Creative Studio.',
+            emailList: [
+                'retsepile.raymondshao@gmail.com',
+                'nucleusdevs@gmail.com'
+            ]
+        };
+
+        try {
+            // Send a POST request to your server
+            const response = await fetch('https://nu-com-0e51cf02b2c8.herokuapp.com/mailing', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json', // Specify the content type as JSON
+                },
+                body: JSON.stringify(data), // Convert the data to a JSON string
+            });
+
+            // Check the response status
+            if (response.ok) {
+                // The request was successful
+                const result = await response.text();
+                console.log('Emails sent successfully:', result);
+            } else {
+                // The request failed
+                console.error('Failed to send emails:', response.statusText);
+            }
+        } catch (error) {
+            // Handle any other errors
+            console.error('Error:', error);
+        }
+    };
+    sendEmail();
+  }
+
   return (
     <Tabs defaultValue="account" className="w-[400px]">
-      <TabsList className="grid w-full grid-cols-2">
-        <TabsTrigger value="account">Campaigning</TabsTrigger>
-        <TabsTrigger value="password">Subscribers</TabsTrigger>
-      </TabsList>
+      <div className="relative flex justify-between items-center">
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="account">Campaigning</TabsTrigger>
+          <TabsTrigger value="password">Subscribers</TabsTrigger>
+        </TabsList>
+        <div className="absolute -right-80">
+          <Popover>
+            <PopoverTrigger asChild>
+              <MoreVertical />
+            </PopoverTrigger>
+            <PopoverContent className="">
+              {!loading ? (<div className="flex justify-center gap-5" onClick={getAllCodiacs}>
+                <IconReload /><p>Reload</p>
+              </div>) :
+              (
+                <div className="flex justify-center gap-5">
+                  <IconReload className="animate-spin"/><p className="animate-bounce">...</p>
+                </div>
+              )
+              }
+            </PopoverContent>
+          </Popover>
+        </div>
+      </div>
       <TabsContent value="account">
         {!create ? (<Card className="p-5 flex flex-row gap-5" >
           <Button
@@ -169,7 +235,7 @@ export function RSVP() {
             className="w-[200px]"
             onClick={()=>{setCreate(true)}}
           >
-            <>+ Qoutation</>
+            <>+ Campaign</>
           </Button>
           <Button
             variant="outline"
@@ -180,11 +246,11 @@ export function RSVP() {
           </Button>
         </Card>)
         :
-        <Card className="flex gap-2 w-[650px]">
-          <div className="w-[300px]">
+        <Card className="flex gap-2 w-[750px]">
+          <div className="w-full">
               <CardHeader>
-                <CardTitle>Create a compaign</CardTitle>
-                <CardDescription>Deploy your new project in one-click.</CardDescription>
+                <CardTitle>Create a Campaign</CardTitle>
+                <CardDescription>Deploy your new campaign in one-click.</CardDescription>
               </CardHeader>
               <CardContent>
                 <form>
@@ -202,10 +268,10 @@ export function RSVP() {
               </CardContent>
               <CardFooter className="flex justify-between">
                 <Button variant="outline">Cancel</Button>
-                <Button>Create</Button>
+                <Button onClick={EmailSender}>Deploy</Button>
               </CardFooter>
             </div>  
-            <div className="p-2 pl-6 justify-center relative" style={{borderLeft:"solid", borderWidth:0}}>
+            <div className="w-full p-2 pl-6 justify-center relative" style={{borderLeft:"solid", borderWidth:0}}>
               <div className="absolute z-10 w-full flex flex-col gap-2 pl-10 pr-10 pt-5">
                 Create a Demographic
                 <Popover open={open} onOpenChange={setOpen}>
@@ -248,7 +314,6 @@ export function RSVP() {
                 </Popover>
               </div>
 
-              <CanvasRevealEffectDemo />
 
               <div className="absolute bottom-5 flex flex-col gap-2 pl-10 pt-5">
               Select Venue
@@ -360,10 +425,12 @@ export function RSVP() {
                 })}
               </TableBody>
             </Table>
-            {/* <button onClick={handleShowMore}>Show More</button>
-            <button onClick={handleShowLess}>Show More</button> */}
+            {/* <button onClick={handleShowMore}>Show More</button> 
+            <button onClick={handleShowLess}>Show less</button> */}
+            <RsvpPagination handleShowLess={handleShowLess} handleShowMore={handleShowMore} />
           </Card>
       </TabsContent>
     </Tabs>
   )
 }
+// i want to make a my own digital country, like there is something like crypto currency.
