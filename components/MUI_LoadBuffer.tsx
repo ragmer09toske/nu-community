@@ -32,8 +32,8 @@ export default function LinearBuffer() {
   }, []);
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <div className='w-full'>
       <LinearProgress variant="buffer" value={progress} color="inherit" valueBuffer={buffer} />
-    </Box>
+    </div>
   );
 }
