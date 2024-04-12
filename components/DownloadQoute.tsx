@@ -55,9 +55,9 @@ const PdfGenerator: React.FC<PdfGeneratorProps> = ({ chosenSkills, totalPrice })
   };
 
   return (
-    <Box>
+    <div>
       <Download onClick={handleDownloadPdf} />
-    </Box>
+    </div>
   );
 };
 
