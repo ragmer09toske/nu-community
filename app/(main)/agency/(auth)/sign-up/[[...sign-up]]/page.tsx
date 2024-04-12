@@ -1,10 +1,10 @@
-import { SignIn } from '@clerk/nextjs'
 
+import { SignUp } from '@clerk/nextjs'
 import React from 'react'
 
 const page = () => {
   return (
-    <SignIn />
+    <SignUp />
   )
 }
 export default page
