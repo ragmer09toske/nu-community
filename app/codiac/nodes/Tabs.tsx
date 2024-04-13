@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Check, ChevronsUpDown, MoreVertical, RefreshCwIcon } from "lucide-react"
+import { Check, ChevronsUpDown, Filter, MoreVertical, RefreshCwIcon } from "lucide-react"
 import {
   Calculator,
   Calendar,
@@ -123,6 +123,9 @@ const Venue = [
 interface Person {
   firstname: string;
   lastname: string;
+  email: string;
+  number: number;
+  reason: string;
 }
 interface MyComponentProps {
   codiacs: Person[];
@@ -393,78 +396,103 @@ export function RSVP() {
                     </Command>
                   </PopoverContent>
                 </Popover>
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button variant="outline">Show people</Button>
-                  </DialogTrigger>
-                  <DialogContent className="sm:max-w-[425px]">
-                    <DialogHeader>
-                      {/* <DialogTitle>Select people</DialogTitle> */}
-                      <DialogDescription>
-                        <Breadcrumb>
-                          <BreadcrumbList>
-                            <BreadcrumbItem>
-                              <BreadcrumbLink>Demographics</BreadcrumbLink>
-                            </BreadcrumbItem>
-                            <BreadcrumbSeparator />
-                            <BreadcrumbItem>
-                              <BreadcrumbLink >nucleus</BreadcrumbLink>
-                            </BreadcrumbItem>
-                            <BreadcrumbSeparator />
-                            <BreadcrumbItem>
-                              <BreadcrumbPage>Codiacs</BreadcrumbPage>
-                            </BreadcrumbItem>
-                          </BreadcrumbList>
-                        </Breadcrumb>
-                      </DialogDescription>
-                    </DialogHeader>
-                    <Collapsible
-                      open={isOpen}
-                      onOpenChange={setIsOpen}
-                      className="w-[350px] space-y-2"
-                    >
-                      <div className="flex items-center justify-between space-x-4 px-4">
-                        <h4 className="text-sm font-semibold">
-                          @codiacs: ({arrayLength}) nodes
-                        </h4>
-                        <CollapsibleTrigger asChild>
-                          <Button variant="ghost" size="sm" className="w-9 p-0">
-                            <ChevronsUpDown className="h-4 w-4" />
-                            <span className="sr-only">Toggle</span>
-                          </Button>
-                        </CollapsibleTrigger>
-                      </div>
-                      
-                      <CollapsibleContent className="space-y-2">
-                        <ScrollArea className="h-72 w-full rounded-md border">
-                        <div className="p-4 flex flex-col gap-2">
-                        {codiacs.map((item, index) => (
-                          <div key={index} className="rounded-md border px-4 py-3 font-mono text-sm">
-                              <div className="flex items-center space-x-2">
-                                  <input
-                                      type="checkbox"
-                                      id={item.firstname}
-                                      onChange={(e) => handleCheckboxChange(item, e.target.checked)}
-                                  />
-                                  <label
-                                      htmlFor={item.firstname}
-                                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                  >
-                                      @codiacs/{item.firstname} {item.lastname}
-                                  </label>
-                              </div>
-                          </div>
-                        ))}
-                        </div>
-                      </ScrollArea>
-                        
-                      </CollapsibleContent>
-                    </Collapsible>
-                    <DialogFooter>
-                      <Badge className="p-2 pl-5 pr-5">Save</Badge>
-                    </DialogFooter>
-                  </DialogContent>
-                </Dialog>
+                
+
+                <div>
+                  <Command className="rounded-lg border shadow-md">
+                    <CommandList>
+                      <CommandGroup heading="Suggestions">
+                        <CommandItem>
+                          <Dialog>
+                            <DialogTrigger asChild>
+                              <Button variant="outline">Select people</Button>
+                            </DialogTrigger>
+                            <DialogContent className="sm:max-w-[425px]">
+                              <DialogHeader>
+                                {/* <DialogTitle>Select people</DialogTitle> */}
+                                <DialogDescription>
+                                  <Breadcrumb>
+                                    <BreadcrumbList>
+                                      <BreadcrumbItem>
+                                        <BreadcrumbLink>Demographics</BreadcrumbLink>
+                                      </BreadcrumbItem>
+                                      <BreadcrumbSeparator />
+                                      <BreadcrumbItem>
+                                        <BreadcrumbLink >nucleus</BreadcrumbLink>
+                                      </BreadcrumbItem>
+                                      <BreadcrumbSeparator />
+                                      <BreadcrumbItem>
+                                        <BreadcrumbPage>Codiacs</BreadcrumbPage>
+                                      </BreadcrumbItem>
+                                    </BreadcrumbList>
+                                  </Breadcrumb>
+                                </DialogDescription>
+                              </DialogHeader>
+                              <Collapsible
+                                open={isOpen}
+                                onOpenChange={setIsOpen}
+                                className="w-[350px] space-y-2"
+                              >
+                                <div className="flex items-center justify-between space-x-4 px-4">
+                                  <h4 className="text-sm font-semibold">
+                                    @codiacs: ({arrayLength}) nodes
+                                  </h4>
+                                  <CollapsibleTrigger asChild>
+                                    <Button variant="ghost" size="sm" className="w-9 p-0">
+                                      <ChevronsUpDown className="h-4 w-4" />
+                                      <span className="sr-only">Toggle</span>
+                                    </Button>
+                                  </CollapsibleTrigger>
+                                </div>
+                                
+                                <CollapsibleContent className="space-y-2">
+                                  <ScrollArea className="h-72 w-full rounded-md border">
+                                  <div className="p-4 flex flex-col gap-2">
+                                  {codiacs.map((item, index) => (
+                                    <div key={index} className="rounded-md border px-4 py-3 font-mono text-sm">
+                                        <div className="flex items-center space-x-2">
+                                            <input
+                                                type="checkbox"
+                                                id={item.firstname}
+                                                onChange={(e) => handleCheckboxChange(item, e.target.checked)}
+                                            />
+                                            <label
+                                                htmlFor={item.firstname}
+                                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                            >
+                                                @codiacs/{item.firstname} {item.lastname}
+                                            </label>
+                                        </div>
+                                    </div>
+                                  ))}
+                                  </div>
+                                </ScrollArea>
+                                  
+                                </CollapsibleContent>
+                              </Collapsible>
+                              <DialogFooter>
+                                <Badge className="p-2 pl-5 pr-5"><Filter /></Badge>
+                              </DialogFooter>
+                            </DialogContent>
+                          </Dialog>
+                        </CommandItem>
+                        <CommandItem>
+                          {
+                            selectedPersons.map((item, index)=>{
+                              return(
+                                <>
+                                <p>{item.email}</p>
+                                </>
+                              )
+                            })
+                          }
+                        </CommandItem>
+                      </CommandGroup>
+                      <CommandSeparator />
+                    </CommandList>
+                  </Command>
+                  
+                </div>
               </div>
               
               <div className="absolute bottom-5 flex flex-col gap-2 pl-10 pt-5">
