@@ -10,14 +10,37 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Check, ChevronsUpDown, MoreVertical } from "lucide-react"
+import { Check, ChevronsUpDown, MoreVertical, RefreshCwIcon } from "lucide-react"
+import {
+  Calculator,
+  Calendar,
+  CreditCard,
+  Settings,
+  Smile,
+  User,
+} from "lucide-react"
+
+import {
+  Breadcrumb,
+  BreadcrumbEllipsis,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+import { Checkbox } from "@/components/ui/checkbox"
 import {
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
-} from "@/components/ui/command";
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from "@/components/ui/command"
+ 
 import { ToastAction } from "@/components/ui/toast";
 import { useToast } from "@/components/ui/use-toast";
 import {
@@ -34,7 +57,22 @@ import {
 import React, { useEffect, useState } from "react"
 import { Textarea } from "@/components/ui/textarea"
 import { DatePickerWithRange } from "@/components/Datetime"
-import { CanvasRevealEffectDemo } from "@/components/CanvasRevealEffect"
+import {  Plus, X } from "lucide-react"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
 import {
   HoverCard,
   HoverCardContent,
@@ -55,6 +93,12 @@ import axios from "axios"
 import { sendContactForm } from "@/app/api/sendEmail"
 import { IconReload } from "@tabler/icons-react"
 import RsvpPagination from "./pagination"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Separator } from "@/components/ui/separator"
+ 
+const tags = Array.from({ length: 50 }).map(
+  (_, i, a) => `v1.2.0-beta.${a.length - i}`
+)
 const frameworks = [
   {
     value: "codiacs",
@@ -76,6 +120,13 @@ const Venue = [
     label: "Limkokwing university",
   },
 ]
+interface Person {
+  firstname: string;
+  lastname: string;
+}
+interface MyComponentProps {
+  codiacs: Person[];
+}
 export function RSVP() {
   const [create, setCreate] = useState<boolean>(false)
   const [open, setOpen] = useState(false)
@@ -87,16 +138,25 @@ export function RSVP() {
   const { toast } = useToast();
   const [loading,setLoading] = useState<boolean>(false);
   const [value, setValue] = useState("");
-
+  const [isOpen, setIsOpen] = React.useState(false)
   const [openCalender, setOpenCalender] = useState(false);
   const [valueCalender, setValueCalender] = useState("");
+  const arrayLength = codiacs.length;
+  // State to track selected persons
+  const [selectedPersons, setSelectedPersons] = useState<Person[]>([]);
 
-  const handleChangeRowsPerPage = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
+  // Handle checkbox change
+  const handleCheckboxChange = (person: Person, isChecked: boolean) => {
+    if (isChecked) {
+        // Add person to selectedPersons if checkbox is checked
+        setSelectedPersons((prev) => [...prev, person]);
+    } else {
+        // Remove person from selectedPersons if checkbox is unchecked
+        setSelectedPersons((prev) => prev.filter((item) => item !== person));
+    }
+    console.log(selectedPersons)
   };
+
   const handleShowMore = () => {
     setStartIndex(prevIndex => prevIndex + 10);
   };
@@ -214,15 +274,35 @@ export function RSVP() {
               <MoreVertical />
             </PopoverTrigger>
             <PopoverContent className="">
-              {!loading ? (<div className="flex justify-center gap-5" onClick={getAllCodiacs}>
-                <IconReload /><p>Reload</p>
-              </div>) :
-              (
-                <div className="flex justify-center gap-5">
-                  <IconReload className="animate-spin"/><p className="animate-bounce">...</p>
-                </div>
-              )
-              }
+              <Command className="rounded-lg shadow-md">
+                <CommandInput placeholder="Type a command or search..." />
+                <CommandList>
+                  <CommandEmpty>No results found.</CommandEmpty>
+                  <CommandGroup heading="Suggestions">
+                    <CommandItem onClick={getAllCodiacs}>
+                      {!loading ? ( <RefreshCwIcon className="mr-2 h-4 w-4" onClick={getAllCodiacs}/>) : ( <RefreshCwIcon className="mr-2 h-4 w-4 animate-spin"/>)}
+                      <span onClick={getAllCodiacs}>Refresh</span>
+                    </CommandItem>
+                  </CommandGroup>
+                  <CommandSeparator />
+                  <CommandGroup heading="Shortcuts">
+                    <CommandItem>
+                      <User className="mr-2 h-4 w-4" />
+                      <span>Emails send</span>
+                    </CommandItem>
+                    <CommandItem>
+                      <CreditCard className="mr-2 h-4 w-4" />
+                      <span>Billing</span>
+                      <CommandShortcut>⌘B</CommandShortcut>
+                    </CommandItem>
+                    <CommandItem>
+                      <Settings className="mr-2 h-4 w-4" />
+                      <span>Settings</span>
+                      <CommandShortcut>⌘S</CommandShortcut>
+                    </CommandItem>
+                  </CommandGroup>
+                </CommandList>
+              </Command>
             </PopoverContent>
           </Popover>
         </div>
@@ -270,9 +350,10 @@ export function RSVP() {
                 <Button variant="outline">Cancel</Button>
                 <Button onClick={EmailSender}>Deploy</Button>
               </CardFooter>
-            </div>  
+            </div> 
+
             <div className="w-full p-2 pl-6 justify-center relative" style={{borderLeft:"solid", borderWidth:0}}>
-              <div className="absolute z-10 w-full flex flex-col gap-2 pl-10 pr-10 pt-5">
+              <div className="z-10 w-full flex flex-col gap-2 pl-10 pr-10 pt-5">
                 Create a Demographic
                 <Popover open={open} onOpenChange={setOpen}>
                   <PopoverTrigger asChild>
@@ -312,9 +393,80 @@ export function RSVP() {
                     </Command>
                   </PopoverContent>
                 </Popover>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="outline">Show people</Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                      {/* <DialogTitle>Select people</DialogTitle> */}
+                      <DialogDescription>
+                        <Breadcrumb>
+                          <BreadcrumbList>
+                            <BreadcrumbItem>
+                              <BreadcrumbLink>Demographics</BreadcrumbLink>
+                            </BreadcrumbItem>
+                            <BreadcrumbSeparator />
+                            <BreadcrumbItem>
+                              <BreadcrumbLink >nucleus</BreadcrumbLink>
+                            </BreadcrumbItem>
+                            <BreadcrumbSeparator />
+                            <BreadcrumbItem>
+                              <BreadcrumbPage>Codiacs</BreadcrumbPage>
+                            </BreadcrumbItem>
+                          </BreadcrumbList>
+                        </Breadcrumb>
+                      </DialogDescription>
+                    </DialogHeader>
+                    <Collapsible
+                      open={isOpen}
+                      onOpenChange={setIsOpen}
+                      className="w-[350px] space-y-2"
+                    >
+                      <div className="flex items-center justify-between space-x-4 px-4">
+                        <h4 className="text-sm font-semibold">
+                          @codiacs: ({arrayLength}) nodes
+                        </h4>
+                        <CollapsibleTrigger asChild>
+                          <Button variant="ghost" size="sm" className="w-9 p-0">
+                            <ChevronsUpDown className="h-4 w-4" />
+                            <span className="sr-only">Toggle</span>
+                          </Button>
+                        </CollapsibleTrigger>
+                      </div>
+                      
+                      <CollapsibleContent className="space-y-2">
+                        <ScrollArea className="h-72 w-full rounded-md border">
+                        <div className="p-4 flex flex-col gap-2">
+                        {codiacs.map((item, index) => (
+                          <div key={index} className="rounded-md border px-4 py-3 font-mono text-sm">
+                              <div className="flex items-center space-x-2">
+                                  <input
+                                      type="checkbox"
+                                      id={item.firstname}
+                                      onChange={(e) => handleCheckboxChange(item, e.target.checked)}
+                                  />
+                                  <label
+                                      htmlFor={item.firstname}
+                                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                  >
+                                      @codiacs/{item.firstname} {item.lastname}
+                                  </label>
+                              </div>
+                          </div>
+                        ))}
+                        </div>
+                      </ScrollArea>
+                        
+                      </CollapsibleContent>
+                    </Collapsible>
+                    <DialogFooter>
+                      <Badge className="p-2 pl-5 pr-5">Save</Badge>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
               </div>
-
-
+              
               <div className="absolute bottom-5 flex flex-col gap-2 pl-10 pt-5">
               Select Venue
               <Popover open={openCalender} onOpenChange={setOpenCalender}>
