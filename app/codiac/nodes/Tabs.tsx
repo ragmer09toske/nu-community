@@ -12,24 +12,19 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Check, ChevronsUpDown, Filter, MoreVertical, RefreshCwIcon } from "lucide-react"
 import {
-  Calculator,
-  Calendar,
   CreditCard,
   Settings,
-  Smile,
   User,
 } from "lucide-react"
 
 import {
   Breadcrumb,
-  BreadcrumbEllipsis,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
-import { Checkbox } from "@/components/ui/checkbox"
 import {
   Command,
   CommandEmpty,
@@ -41,9 +36,6 @@ import {
   CommandShortcut,
 } from "@/components/ui/command"
  
-import Prism from 'prismjs';
-import 'prismjs/themes/prism.css'; // Import the Prism CSS theme
-
 import { useToast } from "@/components/ui/use-toast";
 import {
   Tabs,
@@ -57,9 +49,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 import React, { useEffect, useRef, useState } from "react"
-import { Textarea } from "@/components/ui/textarea"
 import { DatePickerWithRange } from "@/components/Datetime"
-import {UnControlled as CodeMirror} from 'react-codemirror2'
 
 import {
   Collapsible,
@@ -100,9 +90,6 @@ import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/material.css';
 import CodeEditor from "./codeEditor"
 
-const tags = Array.from({ length: 50 }).map(
-  (_, i, a) => `v1.2.0-beta.${a.length - i}`
-)
 const frameworks = [
   {
     value: "codiacs",
@@ -131,9 +118,6 @@ interface Person {
   number: number;
   reason: string;
 }
-interface MyComponentProps {
-  codiacs: Person[];
-}
 export function RSVP() {
   const [create, setCreate] = useState<boolean>(false)
   const [open, setOpen] = useState(false)
@@ -152,21 +136,23 @@ export function RSVP() {
   const [name, setName] = useState<string>("");
   const [message,setMessage ] = useState<string>("");
   
+  const [isAllSelected, setIsAllSelected] = useState(false);
+
+// Define a function to handle the change of the "Select All" button
+const handleSelectAll = () => {
+    // Toggle the state of isAllSelected
+    setIsAllSelected((prevState) => !prevState);
+    // Update the selected state of all items based on isAllSelected
+    codiacs.forEach((item) => {
+        handleCheckboxChange(item, !isAllSelected);
+    });
+};
+
   // State to track selected persons
   const [selectedPersons, setSelectedPersons] = useState<Person[]>([]);
   const emailList = selectedPersons.map(person => person.email);
 
   const [code, setCode] = useState('');
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
-
-  // This hook runs every time the code state changes
-  useEffect(() => {
-      if (textareaRef.current) {
-          // Set the value of the textarea with syntax-highlighted HTML
-          const highlightedCode = Prism.highlight(code, Prism.languages.html, 'html');
-          textareaRef.current.innerHTML = highlightedCode;
-      }
-  }, [code]);
 
   // Handle checkbox change
   const handleCheckboxChange = (person: Person, isChecked: boolean) => {
@@ -177,7 +163,6 @@ export function RSVP() {
         // Remove person from selectedPersons if checkbox is unchecked
         setSelectedPersons((prev) => prev.filter((item) => item !== person));
     }
-    console.log(selectedPersons)
   };
 
   const handleShowMore = () => {
@@ -186,13 +171,13 @@ export function RSVP() {
   const handleShowLess = () => {
     setStartIndex(prevIndex => prevIndex - 10);
   };
+  
   const handleSearch = ()=>{
     const getAllCodiacs = async()  => {
       setLoading(true)
       try{
-        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/search/?searchParam=${search}`)
+        const response = await axios.get(`${process.env.API_URL}/codiac/search/?searchParam=${search}`)
         if (response.data.length !== 0) {
-          // console.log(response.data)
           setCodiacs(response.data);
           toast({
             title: `Search results (${response.data.length})`,
@@ -206,10 +191,14 @@ export function RSVP() {
             description: "Dololo",
           })
         }
-      }
-      catch(error){
-        setLoading(false)
-        // console.log(error)
+      }catch (error) {
+        setLoading(false);
+        toast({
+          title: "Error",
+          description: "Failed to fetch search results",
+        });
+      } finally {
+        setLoading(false);
       }
     }
     getAllCodiacs()
@@ -218,28 +207,42 @@ export function RSVP() {
   const getAllCodiacs = async()  => {
     setLoading(true)
     try{
-      const response = await axios.get("https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/registerers")
-      setCodiacs(response.data)
+      const response = await axios.get(`${process.env.API_URL}/codiac/registerers`)
+      if (Array.isArray(response.data)) {
+        setCodiacs(response.data)
+      } else {
+        // handle error or unexpected response
+        toast({
+          title: "Error",
+          description: "Unexpected error",
+        });
+      }
       setLoading(false)
     }
     catch(error){
       console.log(error)
       setLoading(false)
+      toast({
+        title: "Error",
+        description: "Unexpected error",
+      });
     }
   }
   
   useEffect(()=>{
     const getAllCodiacs = async()  => {
       try{
-        const response = await axios.get("https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/registerers")
+        const response = await axios.get(`${process.env.API_URL}/codiac/registerers`)
         if(response.data){
-        // console.log(response.data)
           setCodiacs(response.data)
           setLoading(false)
         }
       }
       catch(error){
-        console.log(error)
+        toast({
+          title: "Error",
+          description: "Unexpected error",
+        });
       }
     }
     getAllCodiacs()
@@ -257,7 +260,7 @@ export function RSVP() {
         try {
             // Send a POST request to your server
             setEmailLoading(true)
-            const response = await fetch('https://nu-com-0e51cf02b2c8.herokuapp.com/mailing', {
+            const response = await fetch(`${process.env.API_URL}/mailing`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json', // Specify the content type as JSON
@@ -269,20 +272,24 @@ export function RSVP() {
             if (response.ok) {
                 // The request was successful
                 const result = await response.text();
-                console.log('Emails sent successfully:', result);
                 toast({
                   title: name,
                   description: "Email send !!",
                 })
                 setEmailLoading(false)
             } else {
-                // The request failed
                 setEmailLoading(false)
-                console.error('Failed to send emails:', response.statusText);
+                toast({
+                  title: 'Error',
+                  description: 'Failed to send emails',
+                })
             }
         } catch (error) {
-            // Handle any other errors
-            console.error('Error:', error);
+            setEmailLoading(false)
+            toast({
+              title: 'Error',
+              description: 'An error occurred',
+            })
         }
     };
     sendEmail();
@@ -370,18 +377,9 @@ export function RSVP() {
                     </div>
                     <div className="flex flex-col space-y-1.5 w-full">
                       <Label htmlFor="framework">Message</Label>
-                      {/* <Textarea 
-                        onChange={(e)=>setCode(e.target.value)}
-                        ref={textareaRef}
-                        value={code}
-                        className="language-html"
-                        style={{ whiteSpace: 'pre-wrap' }}
-                      >
-                      </Textarea> */}
-                      
                       <Dialog>
                         <DialogTrigger asChild>
-                          <Button variant="outline">Edit Profile</Button>
+                          <Button variant="outline">Add an HTML body</Button>
                         </DialogTrigger>
                         <DialogContent className="w-[380%] h-[37%]">
                           <div style={{overflow:"hidden"}} className="w-[101.8%] h-[190%]">
@@ -502,12 +500,20 @@ export function RSVP() {
                                 <CollapsibleContent className="space-y-2">
                                   <ScrollArea className="h-72 w-full rounded-md border">
                                   <div className="p-4 flex flex-col gap-2">
+                                    {/* Button to toggle the selection of all checkboxes */}
+                                    <button
+                                        className="rounded-md border px-4 py-3 font-mono text-sm"
+                                        onClick={handleSelectAll}
+                                    >
+                                        {isAllSelected ? 'Deselect All' : 'Select All'}
+                                    </button>
                                   {codiacs.map((item, index) => (
                                     <div key={index} className="rounded-md border px-4 py-3 font-mono text-sm">
                                         <div className="flex items-center space-x-2">
                                             <input
                                                 type="checkbox"
                                                 id={item.firstname}
+                                                checked={isAllSelected}
                                                 onChange={(e) => handleCheckboxChange(item, e.target.checked)}
                                             />
                                             <label
@@ -609,16 +615,18 @@ export function RSVP() {
       </TabsContent>
       <TabsContent value="password">
       <Card className="absolute mx-auto max-w-5xl w-[1200px] p-5 left-[370px]">
-            <div className='flex gap-5 '>
-              <Input placeholder='search' onChange={(e)=>{setSearch(e.target.value)}} />
-              <Badge>
-                {
-                  !loading ? 
-                  (<Send onClick={handleSearch}/>)
-                  : 
-                  (<Loader2 className='animate-spin'/>)
-                }
-              </Badge>
+            <div className='flex gap-5'>
+              <form className="w-full gap-5">
+                <Input placeholder='search' onChange={(e)=>{setSearch(e.target.value)}} />
+                <Badge>
+                  {
+                    !loading ? 
+                    (<Send type="submit" onSubmit={handleSearch}/>)
+                    : 
+                    (<Loader2 className='animate-spin'/>)
+                  }
+                </Badge>
+              </form>
             </div>
             <Table>
               <TableHead>
