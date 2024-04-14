@@ -23,9 +23,6 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider
-      appearance={{baseTheme: dark}}
-    >
     <html lang="en">
        <ThemeProvider
             attribute="class"
@@ -38,6 +35,5 @@ export default function RootLayout({
           <SpeedInsights/>
         </ThemeProvider>
     </html>
-    </ClerkProvider>
   )
 }

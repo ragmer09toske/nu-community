@@ -41,7 +41,9 @@ import {
   CommandShortcut,
 } from "@/components/ui/command"
  
-import { ToastAction } from "@/components/ui/toast";
+import Prism from 'prismjs';
+import 'prismjs/themes/prism.css'; // Import the Prism CSS theme
+
 import { useToast } from "@/components/ui/use-toast";
 import {
   Tabs,
@@ -54,10 +56,11 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { Textarea } from "@/components/ui/textarea"
 import { DatePickerWithRange } from "@/components/Datetime"
-import {  Plus, X } from "lucide-react"
+import {UnControlled as CodeMirror} from 'react-codemirror2'
+
 import {
   Collapsible,
   CollapsibleContent,
@@ -79,6 +82,7 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card"
 import { Loader2, Send } from 'lucide-react';
+
 import {
   Badge,
   Table,
@@ -90,12 +94,12 @@ import {
 } from '@tremor/react';
 
 import axios from "axios"
-import { sendContactForm } from "@/app/api/sendEmail"
-import { IconReload } from "@tabler/icons-react"
 import RsvpPagination from "./pagination"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Separator } from "@/components/ui/separator"
- 
+import 'codemirror/lib/codemirror.css';
+import 'codemirror/theme/material.css';
+import CodeEditor from "./codeEditor"
+
 const tags = Array.from({ length: 50 }).map(
   (_, i, a) => `v1.2.0-beta.${a.length - i}`
 )
@@ -135,7 +139,7 @@ export function RSVP() {
   const [open, setOpen] = useState(false)
   const [startIndex, setStartIndex] = useState<number>(0);
   const [search,setSearch] = useState<string>("")
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [emailLoading, setEmailLoading] = useState<boolean>(false);
   const [page, setPage] = useState(2);
   const [codiacs, setCodiacs] = useState<any[]>([]);
   const { toast } = useToast();
@@ -145,8 +149,24 @@ export function RSVP() {
   const [openCalender, setOpenCalender] = useState(false);
   const [valueCalender, setValueCalender] = useState("");
   const arrayLength = codiacs.length;
+  const [name, setName] = useState<string>("");
+  const [message,setMessage ] = useState<string>("");
+  
   // State to track selected persons
   const [selectedPersons, setSelectedPersons] = useState<Person[]>([]);
+  const emailList = selectedPersons.map(person => person.email);
+
+  const [code, setCode] = useState('');
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  // This hook runs every time the code state changes
+  useEffect(() => {
+      if (textareaRef.current) {
+          // Set the value of the textarea with syntax-highlighted HTML
+          const highlightedCode = Prism.highlight(code, Prism.languages.html, 'html');
+          textareaRef.current.innerHTML = highlightedCode;
+      }
+  }, [code]);
 
   // Handle checkbox change
   const handleCheckboxChange = (person: Person, isChecked: boolean) => {
@@ -229,16 +249,14 @@ export function RSVP() {
     const sendEmail = async () => {
         // The data you want to send
         const data = {
-            name: 'Codiac test',
-            message: 'Hello, this is a test email from Nucleus Creative Studio.',
-            emailList: [
-                'retsepile.raymondshao@gmail.com',
-                'nucleusdevs@gmail.com'
-            ]
+            name: name,
+            message: message,
+            emailList: emailList
         };
 
         try {
             // Send a POST request to your server
+            setEmailLoading(true)
             const response = await fetch('https://nu-com-0e51cf02b2c8.herokuapp.com/mailing', {
                 method: 'POST',
                 headers: {
@@ -252,8 +270,14 @@ export function RSVP() {
                 // The request was successful
                 const result = await response.text();
                 console.log('Emails sent successfully:', result);
+                toast({
+                  title: name,
+                  description: "Email send !!",
+                })
+                setEmailLoading(false)
             } else {
                 // The request failed
+                setEmailLoading(false)
                 console.error('Failed to send emails:', response.statusText);
             }
         } catch (error) {
@@ -263,6 +287,8 @@ export function RSVP() {
     };
     sendEmail();
   }
+
+  
 
   return (
     <Tabs defaultValue="account" className="w-[400px]">
@@ -336,22 +362,52 @@ export function RSVP() {
                 <CardDescription>Deploy your new campaign in one-click.</CardDescription>
               </CardHeader>
               <CardContent>
-                <form>
+                <form className="w-full">
                   <div className="grid w-full items-center gap-4">
                     <div className="flex flex-col space-y-1.5">
                       <Label htmlFor="name">Name</Label>
-                      <Input id="name" placeholder="Name of your campaign" />
+                      <Input id="name" placeholder="Name of your campaign" onChange={(e)=>{setName(e.target.value)}}/>
                     </div>
-                    <div className="flex flex-col space-y-1.5">
+                    <div className="flex flex-col space-y-1.5 w-full">
                       <Label htmlFor="framework">Message</Label>
-                      <Textarea />
+                      {/* <Textarea 
+                        onChange={(e)=>setCode(e.target.value)}
+                        ref={textareaRef}
+                        value={code}
+                        className="language-html"
+                        style={{ whiteSpace: 'pre-wrap' }}
+                      >
+                      </Textarea> */}
+                      
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button variant="outline">Edit Profile</Button>
+                        </DialogTrigger>
+                        <DialogContent className="w-[380%] h-[37%]">
+                          <div style={{overflow:"hidden"}} className="w-[101.8%] h-[190%]">
+                            hello world
+                            <div className="relative w-full">
+                              <div className="absolute -top-[325px] w-full h-[160%]">
+                                <CodeEditor onChange={setMessage} value={message} />
+                              </div>
+                            </div>
+                          </div>
+                        </DialogContent>
+                      </Dialog>
                     </div>
                   </div>
                 </form>
               </CardContent>
               <CardFooter className="flex justify-between">
                 <Button variant="outline">Cancel</Button>
-                <Button onClick={EmailSender}>Deploy</Button>
+                <Button onClick={EmailSender}>
+                  {
+                  !emailLoading ?
+                  ("Deploy")
+                  :
+                  (<Loader2 className="animate-spin" />)
+                  }
+                </Button>
               </CardFooter>
             </div> 
 
@@ -396,8 +452,6 @@ export function RSVP() {
                     </Command>
                   </PopoverContent>
                 </Popover>
-                
-
                 <div>
                   <Command className="rounded-lg border shadow-md">
                     <CommandList>
@@ -467,8 +521,7 @@ export function RSVP() {
                                   ))}
                                   </div>
                                 </ScrollArea>
-                                  
-                                </CollapsibleContent>
+                              </CollapsibleContent>
                               </Collapsible>
                               <DialogFooter>
                                 <Badge className="p-2 pl-5 pr-5"><Filter /></Badge>
@@ -476,22 +529,35 @@ export function RSVP() {
                             </DialogContent>
                           </Dialog>
                         </CommandItem>
-                        <CommandItem>
-                          {
-                            selectedPersons.map((item, index)=>{
-                              return(
-                                <>
-                                <p>{item.email}</p>
-                                </>
-                              )
-                            })
-                          }
+                        <CommandItem className="flex flex-col">
+                          <Dialog>
+                            <DialogTrigger asChild>
+                              <Badge >Edit Profile</Badge>
+                            </DialogTrigger>
+                            <DialogContent className="sm:max-w-[425px]">
+                              <DialogHeader>
+                                <DialogTitle>Pending Emails to send</DialogTitle>
+                              </DialogHeader>
+                                <ScrollArea className="h-72 w-full rounded-md border">
+                                  <div className="p-4">
+                                    {
+                                      selectedPersons.map((item, index)=>{
+                                        return(
+                                          <div>
+                                          <p>{item.email}</p>
+                                          </div>
+                                        )
+                                      })
+                                    }
+                                  </div>
+                                </ScrollArea>
+                            </DialogContent>
+                          </Dialog>
                         </CommandItem>
                       </CommandGroup>
                       <CommandSeparator />
                     </CommandList>
                   </Command>
-                  
                 </div>
               </div>
               
@@ -605,8 +671,6 @@ export function RSVP() {
                 })}
               </TableBody>
             </Table>
-            {/* <button onClick={handleShowMore}>Show More</button> 
-            <button onClick={handleShowLess}>Show less</button> */}
             <RsvpPagination handleShowLess={handleShowLess} handleShowMore={handleShowMore} />
           </Card>
       </TabsContent>
