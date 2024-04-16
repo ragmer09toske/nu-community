@@ -21,11 +21,7 @@ interface Codiac {
 
 const Page = () => {
   const [codiacs, setCodiacs] = useState<Codiac[]>([]);
-  const [startIndex, setStartIndex] = useState<number>(0);
-  const [search, setSearch] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const [page, setPage] = React.useState(2);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   useEffect(() => {
     let source: CancelTokenSource;
@@ -34,7 +30,7 @@ const Page = () => {
       setLoading(true);
       try {
         source = axios.CancelToken.source();
-        const response = await axios.get(`${process.env.API_URL}/codiac/registerers`, {
+        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/registerers`, {
           cancelToken: source.token
         });
         setCodiacs(response.data);

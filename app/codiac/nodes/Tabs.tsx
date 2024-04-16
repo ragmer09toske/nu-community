@@ -125,7 +125,6 @@ export function RSVP() {
   const [startIndex, setStartIndex] = useState<number>(0);
   const [search,setSearch] = useState<string>("")
   const [emailLoading, setEmailLoading] = useState<boolean>(false);
-  const [page, setPage] = useState(2);
   const [codiacs, setCodiacs] = useState<any[]>([]);
   const { toast } = useToast();
   const [loading,setLoading] = useState<boolean>(false);
@@ -177,7 +176,7 @@ const handleSelectAll = () => {
     const getAllCodiacs = async()  => {
       setLoading(true)
       try{
-        const response = await axios.get(`https://${apiUrl}/codiac/search/?searchParam=${search}`)
+        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/search/?searchParam=${search}`)
         if (response.data.length !== 0) {
           setCodiacs(response.data);
           toast({
@@ -208,7 +207,7 @@ const handleSelectAll = () => {
   const getAllCodiacs = async()  => {
     setLoading(true)
     try{
-      const response = await axios.get(`https://${process.env.API_URL}/codiac/registerers`)
+      const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/registerers`)
       if (Array.isArray(response.data)) {
         setCodiacs(response.data)
       } else {
@@ -580,7 +579,8 @@ const handleSelectAll = () => {
                   >
                     {valueCalender
                       ? Venue.find((Venue) => Venue.value === valueCalender)?.label
-                      : "Select Venue..."}
+                      : "Select Venue..."
+                    }
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </PopoverTrigger>
