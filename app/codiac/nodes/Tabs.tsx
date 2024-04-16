@@ -240,10 +240,10 @@ const handleSelectAll = () => {
         }
       }
       catch(error){
-        toast({
-          title: "Error",
-          description: "Unexpected error",
-        });
+        // toast({
+        //   title: "Error",
+        //   description: "Unexpected error",
+        // });
       }
     }
     getAllCodiacs()
