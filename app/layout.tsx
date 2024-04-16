@@ -4,10 +4,8 @@ import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/toaster'
 import Music from '@/components/Music'
-// import { dark } from '@clerk/themes'
 import "@uploadthing/react/styles.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
-// import { ClerkProvider } from '@clerk/nextjs'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {

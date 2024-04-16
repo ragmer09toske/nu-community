@@ -1,5 +1,6 @@
 "use client"
 import { Button } from "@/components/ui/button"
+const apiUrl = process.env.API_URL;
 import {
   Card,
   CardContent,
@@ -176,7 +177,7 @@ const handleSelectAll = () => {
     const getAllCodiacs = async()  => {
       setLoading(true)
       try{
-        const response = await axios.get(`${process.env.API_URL}/codiac/search/?searchParam=${search}`)
+        const response = await axios.get(`https://${apiUrl}/codiac/search/?searchParam=${search}`)
         if (response.data.length !== 0) {
           setCodiacs(response.data);
           toast({
@@ -207,7 +208,7 @@ const handleSelectAll = () => {
   const getAllCodiacs = async()  => {
     setLoading(true)
     try{
-      const response = await axios.get(`${process.env.API_URL}/codiac/registerers`)
+      const response = await axios.get(`https://${process.env.API_URL}/codiac/registerers`)
       if (Array.isArray(response.data)) {
         setCodiacs(response.data)
       } else {
@@ -232,7 +233,7 @@ const handleSelectAll = () => {
   useEffect(()=>{
     const getAllCodiacs = async()  => {
       try{
-        const response = await axios.get(`${process.env.API_URL}/codiac/registerers`)
+        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/mailing`)
         if(response.data){
           setCodiacs(response.data)
           setLoading(false)
@@ -260,7 +261,7 @@ const handleSelectAll = () => {
         try {
             // Send a POST request to your server
             setEmailLoading(true)
-            const response = await fetch(`${process.env.API_URL}/mailing`, {
+            const response = await fetch(`https://nu-com-0e51cf02b2c8.herokuapp.com/mailing`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json', // Specify the content type as JSON

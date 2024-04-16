@@ -98,7 +98,6 @@ const useCurentUserStore = create<StoreState>((set) => {
       } else {
         // Handle the case where localStorage is not available
       }
-      
     },
   };
 });
