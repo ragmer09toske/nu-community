@@ -152,8 +152,6 @@ const handleSelectAll = () => {
   const [selectedPersons, setSelectedPersons] = useState<Person[]>([]);
   const emailList = selectedPersons.map(person => person.email);
 
-  const [code, setCode] = useState('');
-
   // Handle checkbox change
   const handleCheckboxChange = (person: Person, isChecked: boolean) => {
     if (isChecked) {
