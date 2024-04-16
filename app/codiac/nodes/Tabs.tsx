@@ -550,7 +550,7 @@ const handleSelectAll = () => {
                                     {
                                       selectedPersons.map((item, index)=>{
                                         return(
-                                          <div>
+                                          <div key={index}>
                                           <p>{item.email}</p>
                                           </div>
                                         )
