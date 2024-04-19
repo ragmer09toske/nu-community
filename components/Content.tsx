@@ -10,7 +10,7 @@ export const Content = () => {
 
   return (
     <div>
-      {content ==="Landing"    && <Landing />}
+      {content ==="Landing" && <Landing />}
       {content ==="Network" && <Network />}
       {content ==="Qoatation" && <Services />}
     </div>

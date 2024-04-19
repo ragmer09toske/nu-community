@@ -230,7 +230,7 @@ const handleSelectAll = () => {
   useEffect(()=>{
     const getAllCodiacs = async()  => {
       try{
-        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/mailing`)
+        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/registerers`)
         if(response.data){
           setCodiacs(response.data)
           setLoading(false)
@@ -251,7 +251,89 @@ const handleSelectAll = () => {
         // The data you want to send
         const data = {
             name: name,
-            message: message,
+            message: `
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>You're Invited: Nucleus Codiac Programming Event!</title>
+                <style>
+                    /* Add your custom styles here */
+                    body {
+                        font-family: Arial, sans-serif;
+                        background-color: #f7f7f7;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    .container {
+                        max-width: 600px;
+                        margin: 20px auto;
+                        background-color: white;
+                        padding: 20px;
+                        border-radius: 8px;
+                        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+                    }
+                    h1 {
+                        color: #333;
+                    }
+                    p {
+                        color: #555;
+                        line-height: 1.6;
+                    }
+                    .event-details {
+                        margin-bottom: 20px;
+                    }
+                    .cta-button {
+                        display: inline-block;
+                        padding: 10px 20px;
+                        background-color: #4CAF50;
+                        color: white;
+                        text-decoration: none;
+                        border-radius: 5px;
+                    }
+                    .cta-button:hover {
+                        background-color: #45a049;
+                    }
+                    footer {
+                        margin-top: 20px;
+                        text-align: center;
+                        color: #888;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <h1>You're Invited: Nucleus Codiac Programming Event!</h1>
+                    <p>Dear Codian,<p>
+                    <p>Thank you for your interest in the Nucleus Codiac programming event! We are excited to announce that you have been selected to attend the upcoming event on <strong>Saturday, April 27th</strong>.</p>
+                    
+                    <div class="event-details">
+                        <p><strong>Date:</strong> Saturday, April 27th</p>
+                        <p><strong>Time:</strong> 9:30 AM - 16:00</p>
+                        <p><strong>Location:</strong> Limkokwing University of Creative Technology</p>
+                    </div>
+                    
+                    <p>During this event, you will have the opportunity to learn about programming, engage in interactive sessions, and network with other like-minded individuals. If you have a laptop, please bring it along. However, if you don't, we'll provide you with a computer.</p>
+                    
+                    <p>Please arrive on time to ensure you don't miss any of the activities we have planned.</p>
+                    
+                    <p>To confirm your attendance, please reply to this email by <strong>April 24th</strong>. If you have any questions, feel free to reach out.</p>
+                    
+                    <a href="mailto:raymondshao@nucleus.com" class="cta-button">RSVP Now</a>
+                    
+                    <p>We look forward to seeing you at the event!</p>
+                    
+                    <p>Best regards,</p>
+                    <p>Retsepile Raymond Shao</p>
+                    <p>Nucleus</p>
+                    <p>+266 59749725</p>
+                    
+                    <footer>
+                        <p>&copy; 2024 Nucleus. All Rights Reserved.</p>
+                    </footer>
+                </div>
+            </body>
+            </html>
+            `,
             emailList: emailList
         };
 
@@ -510,12 +592,12 @@ const handleSelectAll = () => {
                                         <div className="flex items-center space-x-2">
                                             <input
                                                 type="checkbox"
-                                                id={item.firstname}
-                                                checked={isAllSelected}
+                                                id={item.email}
+                                                // checked={isAllSelected}
                                                 onChange={(e) => handleCheckboxChange(item, e.target.checked)}
                                             />
                                             <label
-                                                htmlFor={item.firstname}
+                                                htmlFor={item.email}
                                                 className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                                             >
                                                 @codiacs/{item.firstname} {item.lastname}
@@ -563,50 +645,6 @@ const handleSelectAll = () => {
                     </CommandList>
                   </Command>
                 </div>
-              </div>
-              
-              <div className="absolute bottom-5 flex flex-col gap-2 pl-10 pt-5">
-              Select Venue
-              <Popover open={openCalender} onOpenChange={setOpenCalender}>
-                <PopoverTrigger asChild>
-                  <Button
-                    variant="outline"
-                    role="combobox"
-                    aria-expanded={openCalender}
-                    className="w-[200px] justify-between"
-                  >
-                    {valueCalender
-                      ? Venue.find((Venue) => Venue.value === valueCalender)?.label
-                      : "Select Venue..."
-                    }
-                    <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-[200px] p-0">
-                  <Command>
-                    <CommandInput placeholder="Search Venue..." />
-                    <CommandEmpty>No Venue found.</CommandEmpty>
-                    <CommandGroup>
-                      {Venue.map((Venue) => (
-                        <CommandItem
-                          key={Venue.value}
-                          value={Venue.value}
-                          onSelect={(currentValue) => {
-                            setValueCalender(currentValue === valueCalender ? "" : currentValue)
-                            setOpenCalender(false)
-                          }}
-                        >
-                          <Check
-                            className=""
-                          />
-                          {Venue.label}
-                        </CommandItem>
-                      ))}
-                    </CommandGroup>
-                  </Command>
-                </PopoverContent>
-              </Popover>
-                <DatePickerWithRange />
               </div>
             </div>
         </Card>

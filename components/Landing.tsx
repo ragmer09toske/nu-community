@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Card } from './ui/card'
 import { LandingFeed } from './LandingFeed'
+import useDeviceType from '@/app/Device'
 
 export const Landing: React.FC = () => {
+  const isDesktop = useDeviceType();
+  const [tenent, setTenent] = useState<boolean>(true)
+
   return (
     <div className='flex w-full  gap-3 justify-center lg:top-5   items-center lg:h-full h-[120%] fixed bottom-7'>
       <Card style={{
@@ -11,6 +15,11 @@ export const Landing: React.FC = () => {
       }}
         className="flex justify-center dark:bg-[#09090bd9] lg:w-[80%] mt-16 lg:mt-0 h-[100%] lg:h-[85%] bg-[#FFFFFFFF]"
       >
+        {isDesktop && 
+          <div className='absolute flex justify-center left-0 p-5'>
+            Tenent
+          </div>
+        }
         <LandingFeed />
       </Card>
     </div>

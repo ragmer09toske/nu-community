@@ -45,14 +45,14 @@ export const LandingFeed = () => {
                 </CardDescription>
             </CardHeader>
             <Image
-                src="/nerdish.jpg"
-                alt="Nucleus Logo"
-                style={{
-                  borderRadius:"0 0 8px 8px"
-                }}
-                width={855}
-                height={24}
-                priority
+              src="/nerdish.jpg"
+              alt="Nucleus Logo"
+              style={{
+                borderRadius:"0 0 8px 8px"
+              }}
+              width={855}
+              height={24}
+              priority
             />
             <div className='absolute bottom-14 lg:bottom-44 lg:left-10 left-5'>
               <ShimmerButton text='Register' />  
