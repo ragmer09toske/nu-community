@@ -87,9 +87,6 @@ import {
 import axios from "axios"
 import RsvpPagination from "./pagination"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/material.css';
-import CodeEditor from "./codeEditor"
 
 const frameworks = [
   {
