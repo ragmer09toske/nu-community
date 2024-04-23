@@ -87,6 +87,7 @@ import {
 import axios from "axios"
 import RsvpPagination from "./pagination"
 import { ScrollArea } from "@/components/ui/scroll-area"
+// import CodeEditor from "./codeEditor";
 
 const frameworks = [
   {
@@ -227,7 +228,7 @@ const handleSelectAll = () => {
   useEffect(()=>{
     const getAllCodiacs = async()  => {
       try{
-        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/mailing`)
+        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/registerers`)
         if(response.data){
           setCodiacs(response.data)
           setLoading(false)
@@ -299,7 +300,7 @@ const handleSelectAll = () => {
           <TabsTrigger value="account">Campaigning</TabsTrigger>
           <TabsTrigger value="password">Subscribers</TabsTrigger>
         </TabsList>
-        <div className="absolute -right-80">
+        <div className="">
           <Popover>
             <PopoverTrigger asChild>
               <MoreVertical />
@@ -381,7 +382,7 @@ const handleSelectAll = () => {
                             hello world
                             <div className="relative w-full">
                               <div className="absolute -top-[325px] w-full h-[160%]">
-                                <CodeEditor onChange={setMessage} value={message} />
+                                {/* <CodeEditor onChange={setMessage} value={message} /> */}
                               </div>
                             </div>
                           </div>
@@ -456,7 +457,6 @@ const handleSelectAll = () => {
                             </DialogTrigger>
                             <DialogContent className="sm:max-w-[425px]">
                               <DialogHeader>
-                                {/* <DialogTitle>Select people</DialogTitle> */}
                                 <DialogDescription>
                                   <Breadcrumb>
                                     <BreadcrumbList>
@@ -612,17 +612,17 @@ const handleSelectAll = () => {
       <TabsContent value="password">
       <Card className="absolute mx-auto max-w-5xl w-[1200px] p-5 left-[370px]">
             <div className='flex gap-5'>
-              <form className="w-full gap-5">
+              {/* <form className="w-full gap-5"> */}
                 <Input placeholder='search' onChange={(e)=>{setSearch(e.target.value)}} />
                 <Badge>
                   {
                     !loading ? 
-                    (<Send type="submit" onSubmit={handleSearch}/>)
+                    (<Send onClick={handleSearch}/>)
                     : 
                     (<Loader2 className='animate-spin'/>)
                   }
                 </Badge>
-              </form>
+              {/* </form> */}
             </div>
             <Table>
               <TableHead>
