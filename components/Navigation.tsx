@@ -30,6 +30,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut } from "./ui/command";
 import Link from "next/link";
 import { useTheme } from "next-themes"
+import { signOut, useSession } from 'next-auth/react';
 
 import {
   Sheet,
@@ -91,6 +92,7 @@ const workspaces = [
 ]
 
 export function Navigation() {
+  const session = useSession();
   const { toast } = useToast()
   const { theme, setTheme } = useTheme()
   console.log("current theme is:", theme)
@@ -212,13 +214,14 @@ export function Navigation() {
               onClick={() => setContent("Landing")}
             />
           </Link>
+            <div >{session?.data?.user?.name }</div>
+            <button onClick={() => signOut()}>Logout</button>
         </div>}
 
         {isDesktop ? <NavigationMenu>
 
         </NavigationMenu>
           :
-
           (<Sheet>
             <SheetTrigger asChild>
               <GripHorizontal />

@@ -6,6 +6,10 @@ import { Toaster } from '@/components/ui/toaster'
 import Music from '@/components/Music'
 import "@uploadthing/react/styles.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { getServerSession } from 'next-auth'
+import SessionProvider from './SessionProvider'
+import Login from './Login/page'
+import { authOptions } from './api/auth/[...nextauth]/route'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -15,11 +19,12 @@ export const metadata: Metadata = {
 }
 
  
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const session = await getServerSession(authOptions);
   return (
     <html lang="en">
        <ThemeProvider
@@ -28,7 +33,17 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
         >
-          <body className={inter.className}>{children}</body>
+          <SessionProvider session={session}>
+            <body className={inter.className}>
+            {!session ? (
+              <Login/>
+              // children
+
+            ): (
+              children
+            )}
+            </body>
+          </SessionProvider>
           <Toaster />
           <SpeedInsights/>
         </ThemeProvider>
