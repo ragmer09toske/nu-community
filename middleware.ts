@@ -1,9 +1,14 @@
-import { authMiddleware } from "@clerk/nextjs";
- 
-export default authMiddleware({
-   publicRoutes: ['/','/api/uploadthing']
-});
- 
-export const config = {
-  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
+import { NextApiRequest, NextApiResponse } from "next";
+
+// Define custom middleware type
+type CustomMiddleware = (
+  req: NextApiRequest,
+  res: NextApiResponse,
+) => Promise<void> | void;
+
+// Define your custom middleware function
+const customMiddleware: CustomMiddleware = async (req, res) => {
+  // Execute any logic here if needed
 };
+
+export default customMiddleware;
