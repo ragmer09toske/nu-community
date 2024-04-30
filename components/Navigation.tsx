@@ -1,32 +1,29 @@
 "use client"
 
 import * as React from "react"
-import { Book, Calculator, Calendar, Check, ChevronsUpDown, CreditCard, GripHorizontal, Home, Loader2, Moon, MoonIcon, Settings, Smile, Sun, SunIcon, User } from "lucide-react"
+import { Book, Calculator, Calendar, CalendarDays, Check, ChevronsUpDown, CreditCard, GripHorizontal, Home, Loader2, LogOut, Moon, MoonIcon, Settings, Smile, Sun, SunIcon, User } from "lucide-react"
 import { cn } from "@/lib/utils"
 import axios from 'axios';
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar"
 import {
   NavigationMenu,
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu"
 import Image from "next/image"
-import { useToast } from "./ui/use-toast"
-import { Switch } from "./ui/switch"
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
+ 
+
 import useStore from "@/app/Store"
 import useDeviceType from "@/app/Device"
 import { Button } from "./ui/button"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "./ui/input"
-import { Label } from "./ui/label"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut } from "./ui/command";
 import Link from "next/link";
 import { useTheme } from "next-themes"
@@ -45,7 +42,6 @@ import {
 
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerDescription,
   DrawerFooter,
@@ -93,7 +89,6 @@ const workspaces = [
 
 export function Navigation() {
   const session = useSession();
-  const { toast } = useToast()
   const { theme, setTheme } = useTheme()
   console.log("current theme is:", theme)
   const setContent = useStore((state) => state.setContent);
@@ -202,20 +197,56 @@ export function Navigation() {
       zIndex: 999,
     }}>
       <div className="flex  items-center w-full  lg:gap-10" >
-
-        {isDesktop && <div className="pl-5">
-          <Link href={"/"}>
-            <Image
-              src="/nu.png"
-              alt="Nucleus Logo"
-              width={30}
-              height={24}
-              priority
-              onClick={() => setContent("Landing")}
-            />
-          </Link>
-            <div >{session?.data?.user?.name }</div>
-            <button onClick={() => signOut()}>Logout</button>
+        {isDesktop && 
+        <div className="pl-5 flex flex-row justify-between w-full">
+          <div>
+            <Link href={"/"}>
+              <Image
+                src="/nu.png"
+                alt="Nucleus Logo"
+                width={30}
+                height={24}
+                priority
+                onClick={() => setContent("Landing")}
+              />
+            </Link>
+          </div>
+          <div>
+            <div >
+              <HoverCard>
+                <HoverCardTrigger asChild>
+                  <Avatar>
+                    <AvatarImage 
+                      src={session?.data?.user?.image || "/fallback-image.jpg"}
+                      alt="@shadcn"
+                    />
+                    <AvatarFallback>
+                      {session?.data?.user?.name ? session.data.user.name.substring(0, 2) : "CD"}
+                    </AvatarFallback>
+                  </Avatar>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-80">
+                  <div className="flex justify-between space-x-4">
+                    <Avatar>
+                      <AvatarImage src={session?.data?.user?.image || "/fallback-image.jpg"} />
+                      <AvatarFallback>{session?.data?.user?.name ? session.data.user.name.substring(0, 2) : "ND"}</AvatarFallback>
+                    </Avatar>
+                    <div className="space-y-1">
+                      <h4 className="text-sm font-semibold">{session?.data?.user?.name}</h4>
+                      <p className="text-sm">
+                        Thank you for being part of the Nucleus community
+                      </p>
+                      <div className="flex items-center pt-2">
+                        <span className="text-xs text-muted-foreground flex gap-2 items-center">
+                          <LogOut onClick={() => signOut()} />Logout
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </HoverCardContent>
+              </HoverCard>
+            </div>
+          </div>
         </div>}
 
         {isDesktop ? <NavigationMenu>

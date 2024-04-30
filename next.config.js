@@ -8,6 +8,7 @@ const nextConfig = {
         'img.clerk.com',
         'subdomain',
         'files.stripe.com',
+        'lh3.googleusercontent.com',
       ], 
     },
   }
