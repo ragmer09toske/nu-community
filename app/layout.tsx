@@ -9,7 +9,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { getServerSession } from 'next-auth'
 import SessionProvider from './SessionProvider'
 import Login from './Login/page'
-import { authOptions } from './api/auth/[...nextauth]/route'
+import { authOptions } from './api/auth/[...nextauth]/options'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
