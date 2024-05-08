@@ -84,7 +84,7 @@ export const DataGrid = () => {
             </div>
           </div>
         </Card>
-        {/* <RSVP /> */}
+        <RSVP />
       </div>
     </div>
   </div>
