@@ -17,7 +17,7 @@ export const Landing: React.FC = () => {
       >
         {isDesktop && 
           <div className='absolute flex justify-center left-0 p-5'>
-            Tenent
+            {/* Tenent, hello world */}
           </div>
         }
         <LandingFeed />
