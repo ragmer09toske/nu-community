@@ -18,9 +18,11 @@ export const Landing: React.FC = () => {
         className="flex justify-center dark:bg-[#09090bd9] lg:w-[80%] mt-16 lg:mt-0 h-[100%] lg:h-[85%] bg-[#FFFFFFFF]"
       >
         {isDesktop && 
-          <div className='absolute flex justify-center flex-col gap-5 left-0 p-5'>
-            <SparkAreaUsage />
-            <Entreguide />
+          <div className='left-0 p-5 w-[300px]'>
+            <div className='-ml-24 flex justify-center flex-col gap-5'>
+              <SparkAreaUsage />
+              <Entreguide />
+            </div>
           </div>
         }
         <LandingFeed />

@@ -79,26 +79,50 @@ export function SparkAreaUsage() {
   }, []);
   const arrayLength = codiacs.length;
   return (
-    <Card className="mx-auto flex max-w-lg items-center gap-5 px-4 py-3.5">
+    // <Card className="mx-auto flex max-w-lg items-center gap-5 px-4 py-3.5">
+    //   <SparkAreaChart
+    //     data={chartdata}
+    //     categories={['Performance']}
+    //     index={'month'}
+    //     colors={['emerald']}
+    //     className="h-8 w-10 sm:h-10 sm:w-36"
+    //   />
+    //   <div className="flex items-center space-x-2.5">
+    //     <div className="rounded bg-emerald-500 px-2 py-1 text-tremor-default font-medium text-white">
+    //       <div>
+    //         Codiacs
+    //       </div>
+    //       <div>
+    //         <>{loading ?
+    //           <Loader2  className='animate-spin' />
+    //           : arrayLength 
+    //         }</>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </Card>
+    <Card className="mx-auto flex max-w-lg items-center justify-between px-4 py-3.5">
+      <div className="flex items-center space-x-2.5">
+        <p className="text-tremor-content-strong dark:text-dark-tremor-content-strong font-medium">Codiacs</p>
+        {/* <span className="text-tremor-default text-tremor-content dark:text-dark-tremor-content">Subcriptions</span> */}
+      </div>
       <SparkAreaChart
         data={chartdata}
         categories={['Performance']}
         index={'month'}
         colors={['emerald']}
-        className="h-8 w-10 sm:h-10 sm:w-36"
+        className="h-8 w-20 sm:h-10 sm:w-36"
       />
       <div className="flex items-center space-x-2.5">
-        <div className="rounded bg-emerald-500 px-2 py-1 text-tremor-default font-medium text-white">
-          <div>
-            Codiacs
-          </div>
-          <div>
-            <>{loading ?
+        <span className="font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
+          <>{loading ?
               <Loader2  className='animate-spin' />
               : arrayLength 
-            }</>
-          </div>
-        </div>
+          }</>
+        </span>
+        <span className="rounded bg-emerald-500 px-2 py-1 text-tremor-default font-medium text-white">
+          +1.72%
+        </span>
       </div>
     </Card>
   );
