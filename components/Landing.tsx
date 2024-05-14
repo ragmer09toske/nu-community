@@ -4,6 +4,7 @@ import { LandingFeed } from './LandingFeed'
 import useDeviceType from '@/app/Device'
 import { SparkAreaUsage } from './SparkAreaUsage'
 import Entreguide from './Entreguide'
+import Scheduler from './Scheduler'
 
 export const Landing: React.FC = () => {
   const isDesktop = useDeviceType();
