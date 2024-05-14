@@ -211,7 +211,8 @@ export function Navigation() {
               />
             </Link>
           </div>
-          <div>
+          { session.data &&
+            <div>
             <div >
               <HoverCard>
                 <HoverCardTrigger asChild>
@@ -221,7 +222,7 @@ export function Navigation() {
                       alt="@shadcn"
                     />
                     <AvatarFallback>
-                      {session?.data?.user?.name ? session.data.user.name.substring(0, 2) : "CD"}
+                      {session?.data?.user?.name ? session.data.user.name.substring(0, 2) : "nu"}
                     </AvatarFallback>
                   </Avatar>
                 </HoverCardTrigger>
@@ -246,7 +247,7 @@ export function Navigation() {
                 </HoverCardContent>
               </HoverCard>
             </div>
-          </div>
+          </div>}
         </div>}
 
         {isDesktop ? <NavigationMenu>
