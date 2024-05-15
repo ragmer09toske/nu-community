@@ -78,33 +78,33 @@ const Retsepile = () => {
             </div>
             </div>
             }
-            <div className='borde'>
+            <div className=''>
               <InfiniteMovingCourses />
             </div>
             <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] mt-52 flex flex-col gap-5 w-full rounded-md border p-4">
               <div className='flex flex-col gap-5'>
               <Card className="w-[100%]" id='blogging'>
                 <CardHeader>
-                    <CardTitle>Introduction to programming</CardTitle>
-                    <p style={{color:"gray", fontSize: 12 }}>May 15, 2024</p>
-                    <CardDescription>
-                    <br/>
-                    <h1><b>What is  programming</b></h1>
-                    <br/>
-                    The process of creating instructions  for computers to perform tasks. 
-                    <br/>
-                    It involves code using <b>programming languages</b>
-                    <br/><br/>
-                    <b>Programming language</b> is a set of syntax and rules that computers can understand and execute 
-                    <br/><br/>
-                    <b>In layman&apos;s terms</b>
-                    <br/>
-                    It is a language through which humans communicate with computers to make them do what they want.
-                    <br/><br/>
-                    <Badge className='pb-1'>
-                      read more ...
-                    </Badge>
-                    </CardDescription>
+                  <CardTitle>Introduction to programming</CardTitle>
+                  <p style={{color:"gray", fontSize: 12 }}>May 15, 2024</p>
+                  <CardDescription>
+                  <br/>
+                  <h1><b>What is  programming</b></h1>
+                  <br/>
+                  The process of creating instructions  for computers to perform tasks. 
+                  <br/>
+                  It involves code using <b>programming languages</b>
+                  <br/><br/>
+                  <b>Programming language</b> is a set of syntax and rules that computers can understand and execute 
+                  <br/><br/>
+                  <b>In layman&apos;s terms</b>
+                  <br/>
+                  It is a language through which humans communicate with computers to make them do what they want.
+                  <br/><br/>
+                  <Badge className='pb-1'>
+                    read more ...
+                  </Badge>
+                  </CardDescription>
                 </CardHeader>
               </Card>
               <div className='pb-5 flex justify-around'>

@@ -12,7 +12,8 @@ export const InfiniteMovingCards = ({
   className,
 }: {
   items: {
-    image: string;
+    image: string,
+    title: string;
   }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
@@ -102,7 +103,10 @@ export const InfiniteMovingCards = ({
                 width={655}
                 height={24}
                 priority
-              />    
+              />
+              <div className="absolute p-10 -bottom-5" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>
+                {item.title}
+              </div>
             </div>
           </li>
         ))}

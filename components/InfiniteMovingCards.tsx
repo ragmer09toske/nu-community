@@ -5,7 +5,7 @@ import { InfiniteMovingCards } from "./infinite-moving-cards";
 
 export function InfiniteMovingCourses() {
   return (
-    <div className="-ml-5">
+    <div className="-ml-5 lg:-ml-64">
       <InfiniteMovingCards
         items={testimonials}
         direction="right"
@@ -17,18 +17,11 @@ export function InfiniteMovingCourses() {
 
 const testimonials = [
   {
-    image: "/Thumbnail.png"
+    image: "/Thumbnail.png",
+    title: "Beginner Tutorial Based on Next.js"
   },
   {
-    image: "/me.png"
-  },
-  {
-    image: "/Thumbnail.png"
-  },
-  {
-    image: "/me.png"
-  },
-  {
-    image: "/Thumbnail.png"
+    image: "/ray.png",
+    title: "Indroduction to programming with Raymond"
   },
 ];
