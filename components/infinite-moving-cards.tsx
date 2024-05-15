@@ -96,7 +96,7 @@ export const InfiniteMovingCards = ({
             <div className="relative z-20 flex flex-row items-center">
               <Image
                 src={item.image}
-                alt="Next"
+                alt={item.title}
                 style={{
                   borderRadius:"6px 6px 8px 8px"
                 }}
