@@ -6,7 +6,6 @@ import { Command } from '@/components/ui/command'
 import Image from 'next/image'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import useDeviceType from '@/app/Device'
-import { Button } from "@/components/ui/button"
 import {
   Tooltip,
   TooltipContent,
@@ -29,6 +28,8 @@ import useCurentUserStore from '../Store'
 import { Box, GripHorizontal, Heart, MessageCircle, Send, Share2 } from 'lucide-react'
 import { Textarea } from '@/components/ui/textarea'
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
+import { InfiniteMovingCards } from '@/components/infinite-moving-cards'
+import { InfiniteMovingCourses } from '@/components/InfiniteMovingCards'
 
 const Retsepile = () => {
   const isDesktop: boolean = useDeviceType();
@@ -38,7 +39,6 @@ const Retsepile = () => {
   function onClick(adjustment: number) {
     setGoal(Math.max(200, Math.min(400, goal + adjustment)))
   }
-
   return (
     <main>
       <div className='flex justify-center' style={{
@@ -65,20 +65,23 @@ const Retsepile = () => {
             {!isDesktop && <div className="p-5 mt-48 lg:mt-0">
             <div className="flex items-center gap-1">
               <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarImage src="/me2.png" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
               <div>
                 Retsepile Raymond Shao
                 <div>
-                  <p style={{color:"gray", fontSize: 14 }}>Personal Blog</p>
+                  <p style={{color:"gray", fontSize: 14 }}>Programming with Raymond</p>
                 </div>
               </div>
             </div>
             </div>
             }
-            <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
-              <div className='flex flex-col  gap-5'>
+            <div className='borde'>
+              <InfiniteMovingCourses />
+            </div>
+            <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] mt-52 flex flex-col gap-5 w-full rounded-md border p-4">
+              <div className='flex flex-col gap-5'>
               <Card className="w-[100%]" id='blogging'>
                 <CardHeader>
                     <CardTitle>This is why I had to start blogging.</CardTitle>
