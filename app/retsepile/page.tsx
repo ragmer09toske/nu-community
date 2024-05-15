@@ -97,7 +97,7 @@ const Retsepile = () => {
                     <br/><br/>
                     <b>Programming language</b> is a set of syntax and rules that computers can understand and execute 
                     <br/><br/>
-                    <b>In layman's terms</b>
+                    <b>In layman&apos;s terms</b>
                     <br/>
                     It is a language through which humans communicate with computers to make them do what they want.
                     <br/><br/>
