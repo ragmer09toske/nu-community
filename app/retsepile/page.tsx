@@ -268,11 +268,28 @@ const Retsepile = () => {
                                 <DrawerDescription></DrawerDescription>
                                 </DrawerHeader>
                                 <div className="p-4 pb-0">
-                                  <div className="flex items-center justify-center space-x-2">
-                                   
+                                  <div className="flex items-center gap-1">
+                                    <Avatar>
+                                      <AvatarImage src="/me2.png" />
+                                      <AvatarFallback>CN</AvatarFallback>
+                                    </Avatar>
+                                    <div>
+                                      Retsepile Raymond Shao
+                                      <div>
+                                        <p style={{color:"gray", fontSize: 14 }}>Video comming out soon</p>
+                                      </div>
+                                    </div>
                                   </div>
                                   <div className="mt-3 h-[120px]">
-                                  {Post?.comment}
+                                    <div className='absolute left-0 top-32 mt-2'>
+                                      <svg width="70" height="150">
+                                        <path d="M50,10 Q35,90 100,90" fill="none" stroke="white" strokeWidth="2" />
+                                      </svg>
+                                    </div>
+                                    <div className='absolute top-52 left-20'>
+                                      {Post?.comment}
+                                      <p style={{color:"gray", fontSize: 12 }}>Comment</p>
+                                    </div>
                                   </div>
                                 </div>
                                 <DrawerFooter>
