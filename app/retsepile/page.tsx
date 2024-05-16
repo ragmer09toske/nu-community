@@ -1,6 +1,6 @@
 "use client"
 import { Navigation } from '@/components/Navigation'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Command } from '@/components/ui/command'
 import Image from 'next/image'
@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/tooltip"
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerDescription,
   DrawerFooter,
@@ -25,18 +24,76 @@ import {
  
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import useCurentUserStore from '../Store'
-import { Box, GripHorizontal, Heart, MessageCircle, Send, Share2 } from 'lucide-react'
+import { Box, GripHorizontal, Heart, HeartOff, MessageCircle, Send, Share2, YoutubeIcon } from 'lucide-react'
 import { Textarea } from '@/components/ui/textarea'
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
-import { InfiniteMovingCards } from '@/components/infinite-moving-cards'
 import { InfiniteMovingCourses } from '@/components/InfiniteMovingCards'
 import { Badge } from '@tremor/react'
-
+import axios, { CancelTokenSource } from 'axios'
+import useCurrentUserStore from '../Store'
+import { RiHeartFill } from '@remixicon/react'
+import YouTubePlayer from 'react-player/youtube'
+import Link from 'next/link'
+interface Post {
+ like: number
+}
 const Retsepile = () => {
   const isDesktop: boolean = useDeviceType();
   const userDetails = useCurentUserStore((state)=> state.user )
   const [goal, setGoal] = React.useState(350)
- 
+  const [Post, setPost] = useState<Post>()
+  const likeClicked = useCurrentUserStore((state) => state.likeClicked);
+  const setLikeClicked = useCurrentUserStore((state) => state.setLikeClicked);
+
+  useEffect(() => {
+    let source: CancelTokenSource;
+
+    const getAllPosts = async () => {
+      try {
+        source = axios.CancelToken.source();
+        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/retsepile/66454198384658227e748c6e`, {
+          cancelToken: source.token
+        });
+        setPost(response.data);
+      } catch (error) {
+        if (axios.isCancel(error)) {
+          console.log('Request canceled', error.message);
+        } else {
+          console.log(error);
+        }
+      }
+    };
+
+    getAllPosts();
+
+    return () => {
+      if (source) {
+        source.cancel('Component unmounted');
+      }
+    };
+  }, []);
+
+  async function updateRetsepilePost(postId: string): Promise<void> {
+    try {
+      const url = `https://nu-com-0e51cf02b2c8.herokuapp.com/retsepile/${postId}`;
+      const response = await axios.get<Post>(url);
+      const currentLike = response.data.like;
+      const newLike = currentLike + 1;
+      const body: Post = { like: newLike };
+      await axios.put(url, body);
+      console.log(`Post ${postId} updated successfully.`);
+      setPost(response.data)
+    } catch (error) {
+      console.error('Error updating post:', error);
+      throw error;
+    }
+  }
+  // localStorage.removeItem("likeClicked")
+  const handleLike = () => {
+    updateRetsepilePost("66454198384658227e748c6e")
+    setLikeClicked(!likeClicked);
+  }
+
   function onClick(adjustment: number) {
     setGoal(Math.max(200, Math.min(400, goal + adjustment)))
   }
@@ -79,39 +136,58 @@ const Retsepile = () => {
             </div>
             }
             <div className=''>
-              <InfiniteMovingCourses />
+              {/* <InfiniteMovingCourses /> */}
+              <Image
+                  src="/banner.png"
+                  alt="Nucleus Logo"
+                  className="relative"
+                  width={920}
+                  height={24}
+                  priority
+                  style={{
+                    borderRadius:"8px 8px 8px 8px"
+                  }}
+              />
             </div>
-            <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] mt-52 flex flex-col gap-5 w-full rounded-md border p-4">
+            <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
               <div className='flex flex-col gap-5'>
-              <Card className="w-[100%]" id='blogging'>
-                <CardHeader>
-                  <CardTitle>Introduction to programming</CardTitle>
-                  <p style={{color:"gray", fontSize: 12 }}>May 15, 2024</p>
-                  <CardDescription>
-                  <br/>
-                  <h1><b>What is  programming</b></h1>
-                  <br/>
-                  The process of creating instructions  for computers to perform tasks. 
-                  <br/>
-                  It involves code using <b>programming languages</b>
-                  <br/><br/>
-                  <b>Programming language</b> is a set of syntax and rules that computers can understand and execute 
-                  <br/><br/>
-                  <b>In layman&apos;s terms</b>
-                  <br/>
-                  It is a language through which humans communicate with computers to make them do what they want.
-                  <br/><br/>
-                  <Badge className='pb-1'>
-                    read more ...
-                  </Badge>
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+                <Card className="w-[100%]" id='blogging'>
+                  <CardHeader>
+                    <CardTitle>Introduction to programming</CardTitle>
+                    <p style={{color:"gray", fontSize: 12 }}>May 15, 2024</p>
+                    <CardDescription>
+                    <br/>
+                    <h1><b>What is  programming</b></h1>
+                    <br/>
+                    The process of creating instructions  for computers to perform tasks. 
+                    <br/>
+                    It involves code using <b>programming languages</b>
+                    <br/><br/>
+                    <b>Programming language</b> is a set of syntax and rules that computers can understand and execute 
+                    <br/><br/>
+                    <b>In layman&apos;s terms</b>
+                    <br/>
+                    It is a language through which humans communicate with computers to make them do what they want.
+                    <br/><br/>
+                    <div className='flex gap-3'>
+                      <Badge className='pb-1'>
+                        read more ...
+                      </Badge>
+                      <Link href={"https://youtu.be/MfajJFQ0bj4?si=arotPAnkR_-sh5JD"}>
+                        <YoutubeIcon />
+                      </Link>
+                    </div>
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
               <div className='pb-5 flex justify-around'>
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <Heart color='gray'/>
+                        <div className='flex gap-2 items-center text-gray-400'>
+                          {!localStorage.getItem("likeClicked") ? <Heart color='gray' onClick={handleLike}/> : <RiHeartFill />}
+                          <p className='text-xs'>{Post?.like}</p>
+                        </div>
                       </TooltipTrigger>
                       <TooltipContent>
                         <p>Like</p>
@@ -225,7 +301,6 @@ const Retsepile = () => {
                     height={24}
                     priority
                 />
-
               </Card>
 
               <Card className="w-[100%]" id='storms'>
