@@ -34,16 +34,24 @@ import useCurrentUserStore from '../Store'
 import { RiHeartFill } from '@remixicon/react'
 import YouTubePlayer from 'react-player/youtube'
 import Link from 'next/link'
+import { comment } from 'postcss'
+import { useToast } from '@/components/ui/use-toast'
 interface Post {
- like: number
+ like: number,
+ comment?: string
 }
+interface PostComment {
+  comment: string
+ }
 const Retsepile = () => {
   const isDesktop: boolean = useDeviceType();
   const userDetails = useCurentUserStore((state)=> state.user )
   const [goal, setGoal] = React.useState(350)
   const [Post, setPost] = useState<Post>()
+  const [commentVar, setComment] = useState<string>()
   const likeClicked = useCurrentUserStore((state) => state.likeClicked);
   const setLikeClicked = useCurrentUserStore((state) => state.setLikeClicked);
+  const { toast } = useToast()
 
   useEffect(() => {
     let source: CancelTokenSource;
@@ -88,6 +96,26 @@ const Retsepile = () => {
       throw error;
     }
   }
+
+  async function updateRetsepilePostComment(postId: string): Promise<void> {
+    try {
+      const body = { comment: commentVar };
+      const response = await axios.put(`https://nu-com-0e51cf02b2c8.herokuapp.com/retsepile/${postId}`, body);
+      console.log(`Post ${postId} updated successfully.`);
+      // Assuming response.data.comment contains the updated comment value
+      // Update the state or perform any necessary actions with the updated comment value
+      // For example:
+      setComment(response.data.comment);
+    } catch (error) {
+      console.error('Error updating post:', error);
+      throw error;
+    }
+  }
+
+  const handleComment = () => {
+    updateRetsepilePostComment("66454198384658227e748c6e")
+  }
+  
   // localStorage.removeItem("likeClicked")
   const handleLike = () => {
     updateRetsepilePost("66454198384658227e748c6e")
@@ -97,6 +125,28 @@ const Retsepile = () => {
   function onClick(adjustment: number) {
     setGoal(Math.max(200, Math.min(400, goal + adjustment)))
   }
+
+  function copyToClipboard(text: any) {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        toast({
+          title: "Link copied to clipboard",
+          description: text,
+        })
+      })
+      .catch((error) => {
+        toast({
+          title: "Failed to copy link to clipboard",
+          description: error,
+        })
+      });
+  }
+  
+  const handleCopy = ()=> {
+    const linkToCopy = 'https://www.nucleusdevs.com/retsepile';
+    copyToClipboard(linkToCopy);
+  }
+
   return (
     <main>
       <div className='flex justify-center' style={{
@@ -214,15 +264,15 @@ const Retsepile = () => {
                           <DrawerContent>
                             <div className="mx-auto w-full max-w-sm">
                               <DrawerHeader>
-                                <DrawerTitle>Move Goal</DrawerTitle>
-                                <DrawerDescription>Set your daily activity goal.</DrawerDescription>
+                                <DrawerTitle>Comments</DrawerTitle>
+                                <DrawerDescription></DrawerDescription>
                                 </DrawerHeader>
                                 <div className="p-4 pb-0">
                                   <div className="flex items-center justify-center space-x-2">
                                    
                                   </div>
                                   <div className="mt-3 h-[120px]">
-                                      
+                                  {Post?.comment}
                                   </div>
                                 </div>
                                 <DrawerFooter>
@@ -235,12 +285,12 @@ const Retsepile = () => {
                                       </HoverCardContent>
                                     </HoverCard>
                                     <div>
-                                      <Send className="pl-2"/>
+                                      <Send onClick={handleComment} className="pl-2"/>
                                     </div>
                                   </div>
                                   <div className="pl-2">
                                   {/* <p style={{fontSize:12, color:"rgba(255, 255, 255, 0.716)"}}>Temp-On: 3423erwwx3243</p> */}
-                                  <Textarea cols={1} rows={2} className="resize-none w-full p-2" />
+                                  <Textarea onChange={(e)=>{setComment(e.target.value)}} cols={1} rows={2} className="resize-none w-full p-2" />
                                   </div>
                                 </div>
                                 </DrawerFooter>
@@ -256,7 +306,7 @@ const Retsepile = () => {
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <Share2 color='gray'/>
+                        <Share2 color='gray' onClick={handleCopy}/>
                       </TooltipTrigger>
                       <TooltipContent>
                         <p>Share</p>
