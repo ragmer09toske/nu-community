@@ -23,19 +23,18 @@ import {
 } from "@/components/ui/drawer"
  
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import useCurentUserStore from '../Store'
 import { Box, GripHorizontal, Heart, HeartOff, MessageCircle, Send, Share2, YoutubeIcon } from 'lucide-react'
 import { Textarea } from '@/components/ui/textarea'
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
 import { InfiniteMovingCourses } from '@/components/InfiniteMovingCards'
 import { Badge } from '@tremor/react'
 import axios, { CancelTokenSource } from 'axios'
-import useCurrentUserStore from '../Store'
 import { RiHeartFill } from '@remixicon/react'
 import YouTubePlayer from 'react-player/youtube'
 import Link from 'next/link'
 import { comment } from 'postcss'
 import { useToast } from '@/components/ui/use-toast'
+import useCurrentUserStore from '@/app/Store'
 interface Post {
  like: number,
  comment?: string
@@ -45,7 +44,7 @@ interface PostComment {
  }
 const Retsepile = () => {
   const isDesktop: boolean = useDeviceType();
-  const userDetails = useCurentUserStore((state)=> state.user )
+  const userDetails = useCurrentUserStore((state)=> state.user )
   const [goal, setGoal] = React.useState(350)
   const [Post, setPost] = useState<Post>()
   const [commentVar, setComment] = useState<string>()
@@ -221,9 +220,7 @@ const Retsepile = () => {
                     <br/><br/>
                     <div className='flex gap-3'>
                       <Badge className='pb-1'>
-                        <a href='/retsepile/programming'>
-                            read more
-                        </a>
+                        read more ...
                       </Badge>
                       <Link href={"https://youtu.be/MfajJFQ0bj4?si=arotPAnkR_-sh5JD"}>
                         <YoutubeIcon />

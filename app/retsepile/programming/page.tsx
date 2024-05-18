@@ -23,19 +23,18 @@ import {
 } from "@/components/ui/drawer"
  
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import useCurentUserStore from '../Store'
 import { Box, GripHorizontal, Heart, HeartOff, MessageCircle, Send, Share2, YoutubeIcon } from 'lucide-react'
 import { Textarea } from '@/components/ui/textarea'
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
 import { InfiniteMovingCourses } from '@/components/InfiniteMovingCards'
 import { Badge } from '@tremor/react'
 import axios, { CancelTokenSource } from 'axios'
-import useCurrentUserStore from '../Store'
 import { RiHeartFill } from '@remixicon/react'
 import YouTubePlayer from 'react-player/youtube'
 import Link from 'next/link'
 import { comment } from 'postcss'
 import { useToast } from '@/components/ui/use-toast'
+import useCurrentUserStore from '@/app/Store'
 interface Post {
  like: number,
  comment?: string
@@ -45,7 +44,7 @@ interface PostComment {
  }
 const Retsepile = () => {
   const isDesktop: boolean = useDeviceType();
-  const userDetails = useCurentUserStore((state)=> state.user )
+  const userDetails = useCurrentUserStore((state)=> state.user )
   const [goal, setGoal] = React.useState(350)
   const [Post, setPost] = useState<Post>()
   const [commentVar, setComment] = useState<string>()
@@ -143,7 +142,7 @@ const Retsepile = () => {
   }
   
   const handleCopy = ()=> {
-    const linkToCopy = 'https://www.nucleusdevs.com/retsepile';
+    const linkToCopy = 'https://www.nucleusdevs.com/retsepile/programming';
     copyToClipboard(linkToCopy);
   }
 
@@ -219,12 +218,119 @@ const Retsepile = () => {
                     <br/>
                     It is a language through which humans communicate with computers to make them do what they want.
                     <br/><br/>
-                    <div className='flex gap-3'>
-                      <Badge className='pb-1'>
-                        <a href='/retsepile/programming'>
-                            read more
-                        </a>
-                      </Badge>
+                    As Albert Einstein famously said, "Example is not one of the ways of learning, it's the only way of learning". Let me make you an example.
+                    <br/><br/>
+                    <b>Example</b>
+                    <p>Imagine you have a robot named Kali. You want Kali to make you a sandwich.</p>
+                    <br/>
+                    As a programmer you would approuch this by giving a set of instructions to Kali the robot, like this:
+                    <p><b>Instructions</b></p>
+                    <br/>
+                    <p>1. <b>Pick up two slices of bread.</b></p>
+                    <br/>
+                    <p>2. <b>Spread peanut butter on one slice.</b></p>
+                    <br/>
+                    <p>3. <b>Spread jelly on the other slice.</b></p>
+                    <br/>
+                    <p>4. <b>Put the two slices together.</b></p>
+                    <br/>
+                    <p>5. <b>Serve the sandwich</b></p>
+                    <br/>
+                    <p>In a nutshell, this is what programming entails, but this is a high-level view. To achieve this in practice, as a programmer, you will choose the appropriate programming language for the task. Different problems may need different approaches, which means you won't always use the same programming language to solve all sorts of problems.</p>
+                    <br/><br/><br/>
+                    <b>Why learn programming?</b>  
+                    <br/>
+                    <p>Learning to program opens up a world of possibilities. Here are a few reasons why programming is a valuable skill:</p>  
+                    <br/>
+                    <p>1. <b>Problem Solving:</b> Programming teaches you how to break down complex problems into manageable pieces, enhancing your analytical and logical thinking skills.</p>
+                    <br/>
+                    <p>2. <b>Career Opportunities:</b> There is a high demand for skilled programmers in various industries, from tech to healthcare, finance, and beyond.</p>
+                    <br/>
+                    <p>3. <b>Creativity:</b> Programming allows you to build something from scratch, whether it&apos;s a simple website, a mobile app, or a complex software system.</p>
+                    <br/>
+                    <p>4. <b>Automation:</b> With programming, you can automate repetitive tasks, making processes more efficient and saving time.</p>
+                    <br/>
+                    <p>5. <b>Understanding Technology:</b> In an increasingly digital world, understanding how software and hardware interact can give you a better grasp of the technology you use every day.</p>
+                    <br/><br/>
+                    <p><b>Popular programming languages and their usage</b></p>
+                    <br/>
+                    <ul className="list-disc pl-5 space-y-4">
+                        <li>
+                            <b>Python:</b> Known for its simplicity and readability, Python is great for beginners and is widely used in web development, data science, artificial intelligence, and more.
+                        </li>
+                        <br/>
+                        <li>
+                            <b>JavaScript:</b> Essential for web development, JavaScript allows you to create interactive websites and is used both on the client-side and server-side (with Node.js).
+                        </li>
+                        <br/>
+                        <li>
+                            <b>Java:</b> A versatile language used in many applications, from web to mobile to enterprise software. It&apos;s known for its portability across different platforms.
+                        </li>
+                        <br/>
+                        <li>
+                            <b>C++:</b> An extension of the C language, C++ is used in system/software development, game development, and performance-critical applications.
+                        </li>
+                        <br/>
+                        <li>
+                            <b>Ruby:</b>  Known for its elegant syntax, Ruby is popular in web development, particularly with the Ruby on Rails framework.
+                        </li>
+                        <br/>
+                        <li>
+                            <b>Swift:</b> Developed by Apple, Swift is used for iOS and macOS application development.
+                        </li>
+                    </ul>
+                    <br/>
+                    <h1><b>The Programming Process</b></h1>
+                    <p>The process of programming typically involves several key steps:</p>
+                    <br/>
+                    <ol className="list-decimal list-inside space-y-4">
+                        <li>
+                            <b>Planning:</b> Before writing any code, it’s important to plan out what the program will do. This involves understanding the problem, defining the requirements, and designing the solution.
+                        </li>
+                        <li>
+                            <b>Writing Code:</b> Using a programming language, you write the instructions that the computer will follow.
+                        </li>
+                        <li>
+                            <b>Testing:</b> After writing the code, you need to test it to ensure it works as expected. This involves debugging and fixing any errors that arise.
+                        </li>
+                        <li>
+                            <b>Documentation:</b> Good programmers document their code so that others (and their future selves) can understand what the code does and how it works.
+                        </li>
+                        <li>
+                            <b>Maintenance:</b> Once the program is in use, it may need updates and improvements over time. This involves maintaining the codebase and making necessary changes.
+                        </li>
+                    </ol>
+
+                    <br/><br/>
+                    <h1><b>Getting Started with Programming</b></h1>
+                    <p>If you&apos;re new to programming, here are some steps to help you get started:</p>
+                    <br/>
+                    <ol className="list-decimal list-inside space-y-4">
+                        <li>
+                            <b>Choose a Language:</b> Start with a beginner-friendly language like Python or JavaScript.
+                        </li>
+                        <li>
+                            <b>Find Resources:</b> There are many online resources, including tutorials, courses, and forums, where you can learn and get help.
+                        </li>
+                        <li>
+                            <b>Practice:</b> The best way to learn programming is by doing. Work on small projects and gradually take on more complex challenges.
+                        </li>
+                        <li>
+                            <b>Join a Community:</b> Engage with other learners and experienced programmers. Communities can provide support, answer questions, and offer valuable feedback.
+                        </li>
+                        <li>
+                            <b>Stay Curious:</b> Technology is always evolving, and there’s always something new to learn. Keep exploring and expanding your knowledge.
+                        </li>
+                    </ol>
+
+                    <div className='flex gap-3 pt-5'>
+                      <Link href={"/retsepile"}>
+                        <Badge className='pb-1' >
+                            <a href='/retsepile'>
+                                Back
+                            </a>
+                        </Badge>
+                      </Link> 
                       <Link href={"https://youtu.be/MfajJFQ0bj4?si=arotPAnkR_-sh5JD"}>
                         <YoutubeIcon />
                       </Link>
@@ -326,103 +432,6 @@ const Retsepile = () => {
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <Share2 color='gray' onClick={handleCopy}/>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Share</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </div>
-              <Card className="w-[100%] p-0.5 pl-3 ">
-                <div>
-                    <CardHeader>
-                        <CardTitle>Psychedelic collection of consciousness</CardTitle>
-                        <CardDescription>
-                          Whats crazy is the extension of our personal and collective minds, us putting out ideas (Ridic Originals, Nucleus Creative Studio) beliefs and opinions that form a digital society, culture(Daeman.) and the world. 
-                          This is a psychedelic collection of consciousness.
-                        </CardDescription>
-                    </CardHeader>
-                    <div className="w-[100%] p-0.5 pl-3 flex justify-center">
-                    <Image
-                        src="/psychodelic.jpg"
-                        alt="Nucleus Logo"
-                        className="relative"
-                        width={520}
-                        height={24}
-                        priority
-                    />
-                    </div>
-                </div>
-              </Card>
-
-              <Card className="w-[100%]">
-                <CardHeader>
-                    <CardTitle>A word from a young professional</CardTitle>
-                    <CardDescription>The worst mistake you can make is to think Lesotho has no skills. If you think so, it&apos;s probably because you&apos;ve been spending too much time in your bedroom rather than networking. Go outside, and I swear you will be amazed.</CardDescription>
-                </CardHeader>
-                  <Image
-                    src="/me2.jpg"
-                    alt="Nucleus Logo"
-                    width={855}
-                    style={{
-                      borderRadius:"0 0 8px 8px"
-                    }}
-                    height={24}
-                    priority
-                />
-              </Card>
-
-              <Card className="w-[100%]" id='storms'>
-                <CardHeader>
-                    <CardTitle>Solar Storms</CardTitle>
-                    <CardDescription>Today, I&apos;ll be featured at Bokamoso FM radio, one of the topics ama touch on is how the next Solar storm is going affect our internet activities, what&apos;s crazy is, Nasa had predicted that this will happen in 2025, but it could actually happen this year. Imagine the whole wide world without the internet for weeks 😳. This not a science phenomenon or myth, it&apos;s highly possible</CardDescription>
-                </CardHeader>
-                <Image
-                    src="/solarFlares.jpg"
-                    alt="Nucleus Logo"
-                    style={{
-                      borderRadius:"0 0 8px 8px"
-                    }}
-                    width={855}
-                    height={24}
-                    priority
-                />
-              </Card>
-              <div className='pb-5 flex justify-around'>
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Heart color='gray'/>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Like</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Box color='gray'/>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Suggestion box</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <MessageCircle color='gray'/>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Comment</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Share2 color='gray' />
                       </TooltipTrigger>
                       <TooltipContent>
                         <p>Share</p>
