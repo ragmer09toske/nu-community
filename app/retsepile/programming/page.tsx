@@ -218,7 +218,7 @@ const Retsepile = () => {
                     <br/>
                     It is a language through which humans communicate with computers to make them do what they want.
                     <br/><br/>
-                    As Albert Einstein famously said, "Example is not one of the ways of learning, it's the only way of learning". Let me make you an example.
+                    As Albert Einstein famously said, &quot;Example is not one of the ways of learning, it&apos;s the only way of learning&quot;. Let me make you an example.
                     <br/><br/>
                     <b>Example</b>
                     <p>Imagine you have a robot named Kali. You want Kali to make you a sandwich.</p>
@@ -236,7 +236,7 @@ const Retsepile = () => {
                     <br/>
                     <p>5. <b>Serve the sandwich</b></p>
                     <br/>
-                    <p>In a nutshell, this is what programming entails, but this is a high-level view. To achieve this in practice, as a programmer, you will choose the appropriate programming language for the task. Different problems may need different approaches, which means you won't always use the same programming language to solve all sorts of problems.</p>
+                    <p>In a nutshell, this is what programming entails, but this is a high-level view. To achieve this in practice, as a programmer, you will choose the appropriate programming language for the task. Different problems may need different approaches, which means you won&apos;t always use the same programming language to solve all sorts of problems.</p>
                     <br/><br/><br/>
                     <b>Why learn programming?</b>  
                     <br/>
@@ -285,7 +285,7 @@ const Retsepile = () => {
                     <br/>
                     <ol className="list-decimal list-inside space-y-4">
                         <li>
-                            <b>Planning:</b> Before writing any code, it’s important to plan out what the program will do. This involves understanding the problem, defining the requirements, and designing the solution.
+                            <b>Planning:</b> Before writing any code, it&apos;s important to plan out what the program will do. This involves understanding the problem, defining the requirements, and designing the solution.
                         </li>
                         <li>
                             <b>Writing Code:</b> Using a programming language, you write the instructions that the computer will follow.
