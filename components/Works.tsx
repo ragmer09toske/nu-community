@@ -17,15 +17,17 @@ const Works = () => {
   return (
     <div className='flex w-full gap-3 justify-center top-5 items-center h-full fixed bottom-7'>
         <ScrollArea className="h-[80%] w-[90%] rounded-md ">
-            <h1 className='text-lg md:text-7xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600  text-center font-sans font-bold'><b>UX/UI design</b></h1>
-            <div className='flex justify-center p-10'>
-                <Image
-                    src="/music.png"
-                    alt="Nucleus Logo"
-                    width={900}
-                    height={24}
-                    priority
-                />
+            <div className='p-5'>
+                <h1 className='text-lg md:text-7xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600  text-center font-sans font-bold'><b>UX/UI design</b></h1>
+                <div className='flex justify-center'>
+                    <Image
+                        src="/music.png"
+                        alt="Nucleus Logo"
+                        width={900}
+                        height={24}
+                        priority
+                    />
+                </div>
             </div>
             <div>
                 <h1 className='text-lg md:text-7xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600  text-center font-sans font-bold'><b>Systems design</b></h1>
@@ -44,7 +46,7 @@ const Works = () => {
             </div>
             <div className='p-5'>
                 <h1 className='text-lg md:text-7xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600  text-center font-sans font-bold'><b>Data Visualiztions</b></h1>
-                <div className='flex justify-center p-10'>
+                <div className='flex justify-center'>
                     <Image
                         src="/dashUI.png"
                         alt="Nucleus Logo"
