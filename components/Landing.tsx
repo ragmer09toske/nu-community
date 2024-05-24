@@ -20,10 +20,10 @@ export const Landing: React.FC = () => {
       >
         {isDesktop && 
           <div className='left-0 p-5 w-[300px]'>
-            <div className='-ml-24 flex justify-center flex-col gap-5'>
-              <SparkAreaUsage />
-              <Entreguide />
-            </div>
+            {/* <div className='flex justify-center flex-col gap-5'> */}
+              {/* <SparkAreaUsage /> */}
+              {/* <Entreguide /> */}
+            {/* </div> */}
           </div>
         }
         <LandingFeed />

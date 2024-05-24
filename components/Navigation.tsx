@@ -51,8 +51,8 @@ import {
 } from "@/components/ui/drawer"
 import MenuList from "./MenuQoute";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
-
-interface ApiResponse {
+import { PlaceholdersAndVanishInput } from "./ui/placeholders-and-vanish-input";
+ interface ApiResponse {
   _id: string;
   name: string;
   number: number;
@@ -115,6 +115,18 @@ export function Navigation() {
   // Create a workspaces
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
+
+  const placeholders = [
+    "Jump to ...",
+    ];
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+  };
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("submitted");
+  };
 
   // Drawer bar
   const [goal, setGoal] = React.useState(350)
@@ -198,8 +210,8 @@ export function Navigation() {
     }}>
       <div className="flex  items-center w-full  lg:gap-10" >
         {isDesktop && 
-        <div className="pl-5 flex flex-row justify-between w-full">
-          <div>
+        <div className="relative pl-5 flex flex-row justify-around w-full">
+          <div className="absolute left-10">
             <Link href={"/"}>
               <Image
                 src="/nu.png"
@@ -211,44 +223,15 @@ export function Navigation() {
               />
             </Link>
           </div>
-          { session.data &&
-            <div>
-            <div >
-              <HoverCard>
-                <HoverCardTrigger asChild>
-                  <Avatar>
-                    <AvatarImage 
-                      src={session?.data?.user?.image || "/fallback-image.jpg"}
-                      alt="@shadcn"
-                    />
-                    <AvatarFallback>
-                      {session?.data?.user?.name ? session.data.user.name.substring(0, 2) : "nu"}
-                    </AvatarFallback>
-                  </Avatar>
-                </HoverCardTrigger>
-                <HoverCardContent className="w-80">
-                  <div className="flex justify-between space-x-4">
-                    <Avatar>
-                      <AvatarImage src={session?.data?.user?.image || "/fallback-image.jpg"} />
-                      <AvatarFallback>{session?.data?.user?.name ? session.data.user.name.substring(0, 2) : "ND"}</AvatarFallback>
-                    </Avatar>
-                    <div className="space-y-1">
-                      <h4 className="text-sm font-semibold">{session?.data?.user?.name}</h4>
-                      <p className="text-sm">
-                        Thank you for being part of the Nucleus community
-                      </p>
-                      <div className="flex items-center pt-2">
-                        <span className="text-xs text-muted-foreground flex gap-2 items-center">
-                          <LogOut onClick={() => signOut()} />Logout
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </HoverCardContent>
-              </HoverCard>
-            </div>
-          </div>}
-        </div>}
+          <div className="absolute right-0"> 
+              <PlaceholdersAndVanishInput
+                placeholders={placeholders}
+                onChange={handleChange}
+                onSubmit={onSubmit}
+              />
+          </div>
+        </div>
+      }
 
         {isDesktop ? <NavigationMenu>
 
