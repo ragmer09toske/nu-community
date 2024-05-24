@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: 'Empower your software development journey with Nucleus - your comprehensive hub for learning, tools, and solutions. Based in Lesotho, we are dedicated to helping individuals and businesses build a strong online presence. Explore our curated courses, discover essential development tools, leverage expert consulting services, and unleash the potential of custom software solutions tailored to your needs.',
   keywords: 'Nucleus,Nucleus devs, Nucleusdevs, Nucleus devs, software development, courses, tutorials,learn how to code, learn to programme, tools, consulting services, custom solutions, Lesotho, online presence, codiac'
 }
-
+import { Analytics } from "@vercel/analytics/react"
  
 export default async function RootLayout({
   children,
@@ -34,6 +34,7 @@ export default async function RootLayout({
             disableTransitionOnChange
         >
           <SessionProvider session={session}>
+            <Analytics/>
             <body className={inter.className}>
               {children}
             </body>
