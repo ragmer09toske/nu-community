@@ -199,7 +199,6 @@ const Retsepile = () => {
                   }}
               />
             </div>
-            <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
               <div className='flex flex-col gap-5'>
                 <Card className="w-[100%]" id='blogging'>
                   <CardHeader>
@@ -336,15 +335,23 @@ const Retsepile = () => {
               <Card className="w-[100%] p-0.5 pl-3 ">
                 <div>
                     <CardHeader>
-                        <CardTitle>Psychedelic collection of consciousness</CardTitle>
+                        <CardTitle>Pandas</CardTitle>
                         <CardDescription>
-                          Whats crazy is the extension of our personal and collective minds, us putting out ideas (Ridic Originals, Nucleus Creative Studio) beliefs and opinions that form a digital society, culture(Daeman.) and the world. 
-                          This is a psychedelic collection of consciousness.
+                          <br/>
+                          <h1><b>What is Pandas</b></h1>
+                          <br/>
+                          Pandas is an open-source Python library used for analyzing and manipulating data. It provides high-level data structures and various tools for working with structured data.
+                          <br/>
+                          What do I mean by <b>high-level data structures?</b>
+                          <br/><br/>
+                          By <b>high-level data structures</b>, I mean it offers powerful data containers that simplify complex data manipulation and representation.
+                          <br/><br/>
+                          These <b>data containers</b> include ...
                         </CardDescription>
                     </CardHeader>
                     <div className="w-[100%] p-0.5 pl-3 flex justify-center">
                     <Image
-                        src="/psychodelic.jpg"
+                        src="/pandas.png"
                         alt="Nucleus Logo"
                         className="relative"
                         width={520}
@@ -353,6 +360,16 @@ const Retsepile = () => {
                     />
                     </div>
                 </div>
+                <div className='flex gap-3 p-5'>
+                    <Badge className='pb-1'>
+                      <a href='/retsepile/pandas'>
+                          read more
+                      </a>
+                    </Badge>
+                    <Link href={"https://youtu.be/MfajJFQ0bj4?si=arotPAnkR_-sh5JD"}>
+                      <YoutubeIcon />
+                    </Link>
+                  </div>
               </Card>
 
               <Card className="w-[100%]">
@@ -431,7 +448,6 @@ const Retsepile = () => {
                   </TooltipProvider>
                 </div>
               </div>
-            </ScrollArea>
           </Command>
       </div>
       </Card>

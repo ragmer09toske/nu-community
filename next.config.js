@@ -9,6 +9,7 @@ const nextConfig = {
         'subdomain',
         'files.stripe.com',
         'lh3.googleusercontent.com',
+        'assets.aceternity.com'
       ], 
     },
   }

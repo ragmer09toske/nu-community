@@ -28,7 +28,7 @@ interface StoreState {
   userID: string;
   setUserID: (userID: string) => void;
 
-  likeClicked: boolean; // New property to track if the like button is clicked
+  likeClicked: boolean; 
   setLikeClicked: (value: boolean) => void; // Function to set the value of likeClicked
 }
 

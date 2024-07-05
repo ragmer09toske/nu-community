@@ -2,13 +2,9 @@ import React, { useState } from 'react'
 import { Card } from './ui/card'
 import { LandingFeed } from './LandingFeed'
 import useDeviceType from '@/app/Device'
-import { SparkAreaUsage } from './SparkAreaUsage'
-import Entreguide from './Entreguide'
-import Scheduler from './Scheduler'
 
 export const Landing: React.FC = () => {
   const isDesktop = useDeviceType();
-  const [tenent, setTenent] = useState<boolean>(true)
 
   return (
     <div className='flex w-full  gap-3 justify-center lg:top-5   items-center lg:h-full h-[120%] fixed bottom-7'>
@@ -20,10 +16,7 @@ export const Landing: React.FC = () => {
       >
         {isDesktop && 
           <div className='left-0 p-5 w-[300px]'>
-            {/* <div className='flex justify-center flex-col gap-5'> */}
-              {/* <SparkAreaUsage /> */}
-              {/* <Entreguide /> */}
-            {/* </div> */}
+            
           </div>
         }
         <LandingFeed />

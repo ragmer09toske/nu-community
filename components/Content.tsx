@@ -7,6 +7,7 @@ import { Services } from './Services';
 import Image from 'next/image';
 import useDeviceType from '@/app/Device';
 import Works from './Works';
+import Home from '@/crotia/app/page';
 
 export const Content = () => {
   const content = useStore((state) => state.selectedContent);
@@ -18,7 +19,7 @@ export const Content = () => {
       </>}
       {isDesktop && <>
         {content ==="Landing" && 
-          <Works />
+          <Home />
         }
       </>}
       {content ==="Network" && <Network />}

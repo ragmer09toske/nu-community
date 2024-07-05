@@ -41,7 +41,6 @@ const Page = () => {
         setLoading(false);
       }
     };
-
     getAllCodiacs();
 
     return () => {

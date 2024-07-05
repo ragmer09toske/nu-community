@@ -1,5 +1,6 @@
+"use client"
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   IconArrowWaveRightUp,
   IconBoxAlignRightFilled,
@@ -12,50 +13,25 @@ import {
 import { BentoGrid, BentoGridItem } from './ui/bento-grid';
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
+import { useToast } from "./ui/use-toast"
+import Hero from './Hero';
 
 const Works = () => {
+  const { toast } = useToast()
+    useEffect(()=>{
+        toast({
+            title: "Usage guide",
+            description: "Click anywhere to activate page functionality",
+        })
+    },[])
   return (
     <div className='flex w-full gap-3 justify-center top-5 items-center h-full fixed bottom-7'>
-        <ScrollArea className="h-[80%] w-[90%] rounded-md ">
-            <div className='p-5'>
-                <h1 className='text-lg md:text-7xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600  text-center font-sans font-bold'><b>UX/UI design</b></h1>
-                <div className='flex justify-center'>
-                    <Image
-                        src="/music.png"
-                        alt="Nucleus Logo"
-                        width={900}
-                        height={24}
-                        priority
-                    />
-                </div>
+        <ScrollArea className="h-[80%] bg-black-100 w-[90%] rounded-md ">
+          <div className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
+            <div className="max-w-7xl w-full">
+              <Hero />
             </div>
-            <div>
-                <h1 className='text-lg md:text-7xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600  text-center font-sans font-bold'><b>Systems design</b></h1>
-                <BentoGrid className="max-w-4xl mx-auto">
-                    {items.map((item, i) => (
-                        <BentoGridItem
-                        key={i}
-                        title={item.title}
-                        description={item.description}
-                        header={item.header}
-                        icon={item.icon}
-                        className={i === 3 || i === 6 ? "md:col-span-2" : ""}
-                        />
-                    ))}
-                </BentoGrid>
-            </div>
-            <div className='p-5'>
-                <h1 className='text-lg md:text-7xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600  text-center font-sans font-bold'><b>Data Visualiztions</b></h1>
-                <div className='flex justify-center'>
-                    <Image
-                        src="/dashUI.png"
-                        alt="Nucleus Logo"
-                        width={900}
-                        height={24}
-                        priority
-                    />
-                </div>
-            </div>
+          </div>
         </ScrollArea>
     </div>
   )
