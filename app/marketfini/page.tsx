@@ -163,7 +163,7 @@ const Dashboard = () => {
             href="#"
             className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
           >
-            <img
+            <Image 
               src="/nu.png"
               width={40}
               height={10}
@@ -354,7 +354,7 @@ const Dashboard = () => {
                 size="icon"
                 className="overflow-hidden rounded-full"
               >
-                <img
+                <Image 
                   src="/me2.png"
                   width={40}
                   height={10}
