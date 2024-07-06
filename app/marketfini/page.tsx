@@ -134,7 +134,7 @@ const Dashboard = () => {
         source.cancel('Component unmounted');
       }
     };
-  }, []);
+  }, [``]);
 
   useEffect(() => { 
     const getAllCodiacsUsers = async () => {
@@ -152,7 +152,7 @@ const Dashboard = () => {
       }
     };
     getAllCodiacsUsers();
-  }, []);
+  }, [loginToken]);
   const arrayLength = codiacsUsers.length;
 
   return (
