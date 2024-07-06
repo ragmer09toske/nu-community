@@ -21,7 +21,7 @@ interface User {
   __v: number;
 }
 
-const page = () => {
+const Page = () => {
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -167,4 +167,4 @@ function Navbar({ className }: { className?: string }) {
       </div>
     );
   }
-export default page
+export default Page
