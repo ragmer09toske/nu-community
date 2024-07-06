@@ -33,7 +33,7 @@ export default function Home_Data_One_Repo() {
                                 </Button>
                                <Button variant="ghost">
                                 <Link href="#">
-                                    Get a for free Website <ArrowBigRight className="inline" />
+                                    Creative Cloud <ArrowBigRight className="inline" />
                                 </Link>
                                </Button>
                             </div>

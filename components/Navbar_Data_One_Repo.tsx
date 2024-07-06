@@ -1,9 +1,9 @@
 "use client"
-
 import Link from 'next/link'
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { Button, Dialog, DialogPanel } from '@tremor/react';
+import Image from 'next/image';
 
 export default function Navbar_Data_Repo() {
     const [state, setState] = useState(false)
@@ -31,7 +31,7 @@ export default function Navbar_Data_Repo() {
         <div className="flex items-center justify-between py-5 md:block">
             
             <a href="javascript:void(0)">
-                <img
+                <Image
                     src="/nu.png"
                     width={40}
                     height={10}
@@ -81,8 +81,8 @@ export default function Navbar_Data_Repo() {
                 <DialogPanel>
                     <h3 className="text-lg font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">Account Created Successfully</h3>
                     <p className="mt-2 leading-6 text-tremor-default text-tremor-content dark:text-dark-tremor-content">
-                    Your account has been created successfully. You can now login to your
-                    account. For more information, please contact us.
+                        Your account has been created successfully. You can now login to your
+                        account. For more information, please contact us.
                     </p>
                     <Button className="mt-8 w-full flex items-center justify-center gap-x-1 py-2 px-4 text-white font-medium bg-gray-800 hover:bg-gray-700 active:bg-gray-900 rounded-full md:inline-flex" onClick={() => setIsOpen(false)}>
                         Sign in
