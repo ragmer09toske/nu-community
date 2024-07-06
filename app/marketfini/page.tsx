@@ -464,8 +464,8 @@ const Dashboard = () => {
                         </TableRow>
                       </TableHeader>
                       <TableBody>
-                          {codiacsUsers.map((codiacs) => (
-                            <TableRow className="bg-accent">
+                          {codiacsUsers.map((codiacs, index) => (
+                            <TableRow className="bg-accent" key={index}>
                                 <TableCell>
                                   <div className="font-medium">{codiacs.name}</div>
                                   <div className="hidden text-sm text-muted-foreground md:inline">
@@ -523,8 +523,8 @@ const Dashboard = () => {
                         </TableRow>
                       </TableHeader>
                       <TableBody>
-                          {codiacs.map((codiacs) => (
-                            <TableRow className="bg-accent">
+                          {codiacs.map((codiacs, index) => (
+                            <TableRow className="bg-accent" key={index}>
                                 <TableCell>
                                   <div className="font-medium">{codiacs.firstname + " " + codiacs.lastname}</div>
                                   <div className="hidden text-sm text-muted-foreground md:inline">
