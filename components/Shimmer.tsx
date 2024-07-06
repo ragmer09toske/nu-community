@@ -8,8 +8,8 @@ interface ShimmerButtonProps {
 
 export function ShimmerButton({ text }: ShimmerButtonProps) {
   return (
-    <div className="px-4 w-full">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full  max-w-7xl mx-auto gap-10">
+    <div className="px-4 w-[120%]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-[120%]  max-w-7xl  gap-10">
         {buttons.map((button, idx) => (
           <ButtonsCard key={idx}>{button.component(text)}</ButtonsCard>
         ))}

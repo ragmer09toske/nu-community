@@ -94,7 +94,7 @@ const page = () => {
                     
                 </div>
             </div>
-            <video src='/Nucleus.mp4' loop muted autoPlay />
+            {/* <video src='/Nucleus.mp4' loop muted autoPlay /> */}
         </div>
   )
 }

@@ -7,6 +7,30 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ShimmerButton} from './Shimmer'
 import useDeviceType from '@/app/Device'
+import { AnimatedTooltip } from '@/app/codiac/learn/animated-tooltip'
+const people = [
+  {
+    id: 1,
+    name: "John Doe",
+    designation: "Software Engineer",
+    image:
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+  },
+  {
+    id: 2,
+    name: "Robert Johnson",
+    designation: "Product Manager",
+    image:
+      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+  },
+  {
+    id: 3,
+    name: "Jane Smith",
+    designation: "Data Scientist",
+    image:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+  },
+];
 
 export const LandingFeed = () => {
   const isDesktop = useDeviceType()
@@ -20,32 +44,63 @@ export const LandingFeed = () => {
         <h4 className="scroll-m-20 p-2 pl-5 text-xl font-extrabold tracking-tight lg:text-xl">
             {/* Community Of Creatives */}
         </h4>
-        {!isDesktop && <div className="p-5 mt-40 lg:mt-0">
+        {!isDesktop && <div className="p-5 mt-36 lg:mt-0">
           <Image
-              src="/one.png"
+              src="/nu.png"
               alt="Nucleus Logo"
               className="relative lg:dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
-              width={120}
-              height={24}
+              width={30}
+              height={14}
               priority
-              // hello world
           />
         </div>}
         
         <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
           <div className='flex flex-col  gap-5'>
           <Link href="/codiac">
-          <Card className="relative w-[100%]">
+          <div className='z-50 fixed w-[85%] border p-5 flex gap-2 -mt-2 justify-center rounded' style={{backgroundColor:"rgba(19, 10, 18, 1.949)"}}>
+                <img
+                    src="/one.png"
+                    width={120}
+                    height={40}
+                    alt="Float UI logo"
+                />
+                Codiac
+            </div>
+          <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
+              <h1 className="text-2xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
+                  Training &<br /> Development classes 
+              </h1>
+              <div className='flex justify-center pl-10 pr-10 items-center'>
+              </div>
+          </div>
+          <div className="flex flex-row items-center justify-center mb-10 w-full">
+            <AnimatedTooltip items={people} />
+            <div className='pl-7'>
+              130+ members
+            </div>
+          </div>
+          <Card className="relative w-[100%] ">
             <CardHeader>
-                <CardTitle>Join Our Codiac Program</CardTitle>
-                <CardDescription>                  
-                  Every second Sunday of every month, we teach professionals and businesses how to build and set up a strong online presence. This may include teaching them how to strategically build websites and maximize their ranking through SEO.
+                <CardTitle>
+                  <b>Join Us as We Empower the Next Generation of Coders and Entrepreneurs!</b>   
+                </CardTitle>
+                <CardDescription>         
+                 <br/>    
+                  Are you a skilled software engineer passionate about sharing your knowledge and experience? We invite you to join our upcoming webinar aimed at training business-minded individuals and aspiring coders to build innovative software products.
                   <br/><br/>
-                  Upon registration, you will receive your RSVP and get the chance to learn while networking with other aspiring professionals like yourself.
+                  <b>How to Get Involved:</b>
+                  <br/>
+                  Register: Sign up
+                  <br/><br/>
+                  Skill Validation: Complete an entry exam to validate your expertise.
+                  <br/><br/>
+                  Interview: Participate in an interview process to ensure a great fit for our program.
+                  <br/><br/>
                 </CardDescription>
             </CardHeader>
             <Image
-              src="/nerdish.jpg"
+              src="/webinar.png"
               alt="Nucleus Logo"
               style={{
                 borderRadius:"0 0 8px 8px"
@@ -54,8 +109,8 @@ export const LandingFeed = () => {
               height={24}
               priority
             />
-            <div className='absolute bottom-14 lg:bottom-44 lg:left-10 left-5'>
-              <ShimmerButton text='Register' />  
+            <div className='absolute bottom-14 left-[100px] top-[535px] lg:bottom-44 lg:left-10 '>
+              {/* <ShimmerButton text='Register' />   */}
             </div>
           </Card>
           </Link>
