@@ -44,31 +44,32 @@ export const LandingFeed = () => {
         <h4 className="scroll-m-20 p-2 pl-5 text-xl font-extrabold tracking-tight lg:text-xl">
             {/* Community Of Creatives */}
         </h4>
-        {!isDesktop && <div className="p-5 mt-36 lg:mt-0">
-          <div className='z-50 fixed w-[84.5%] border p-5 flex gap-2 -mt-2 -ml-1 justify-center rounded' style={{backgroundColor:"rgba(19, 10, 18, 1.949)"}}>
-            <div className='flex'>
-              <Image
-                src="/nu.png"
-                alt="Nucleus Logo"
-                className="relative lg:dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
-                width={30}
-                height={14}
-                priority
-              /> 
-              <Image
-                  src="/one.png"
-                  width={120}
-                  height={40}
-                  alt="Float UI logo"
-              />
-            </div>
-                <b>Codiac</b>
+        {!isDesktop && <div className="p-5 justify-center mt-36 lg:mt-0">
+          <div className='pb-10'>
+            <div className='z-50 fixed w-[84.5%] border p-5 flex gap-2 -mt-2 -ml-1 justify-center rounded' style={{ backgroundImage: "url('/code.jpg')", backgroundSize: "cover" }}>
+              <div className='flex'>
+                <Image
+                  src="/nu.png"
+                  alt="Nucleus Logo"
+                  className="relative lg:dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+                  width={30}
+                  height={14}
+                  priority
+                /> 
+                <Image
+                    src="/one.png"
+                    width={120}
+                    height={40}
+                    alt="Float UI logo"
+                />
+              </div>
+                  <b>Codiac</b>
+              </div>
             </div>
         </div>}
         
         <ScrollArea style={{borderWidth: "0px"}} className="h-[100%] flex flex-col gap-5 w-full rounded-md border p-4">
           <div className='flex flex-col  gap-5'>
-          <Link href="/codiac">
           
           <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
               <h1 className="text-2xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
@@ -83,6 +84,7 @@ export const LandingFeed = () => {
               130+ members
             </div>
           </div>
+          <Link href="/codiac">
           <Card className="relative w-[100%] ">
             <CardHeader>
                 <CardTitle>
