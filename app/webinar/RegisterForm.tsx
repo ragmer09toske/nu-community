@@ -85,7 +85,7 @@ const  RegisterForm = () => {
               <Input id="email" onChange={(e)=>setEmail(e.target.value)} required  placeholder="khotso@gmail.com" type="email" />
             </LabelInputContainer>
             <div className="pt-2 pb-4">
-             <Textarea 
+            <Textarea 
              onChange={(e)=>setReason(e.target.value)} 
              placeholder="Tell us a little bit about yourself"
              required
@@ -234,6 +234,57 @@ const  RegisterForm = () => {
             
             <button
               className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
+              onClick={handleToSocials}
+            >
+              {!loading ? <div onClick={handleNext}>Next &rarr;</div> : <Loader2 className="flex w-full justify-center items-center animate-spin" />}
+              <BottomGradient />
+            </button>
+            <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
+            <div className="flex flex-col space-y-4"></div>
+          </form>
+      )
+    }
+    const handleToSocials = () => {
+      setFormType("socialmedia")
+    }
+    const SocialmediaProfiles = () => {
+      return(
+        <form className="my-8">
+            {jobStatus &&
+              <LabelInputContainer className="mb-4">
+                <div className="flex justify-center">
+                  <Label>You can skip this part</Label>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <div className="flex">
+                    <div className="pl-3">
+                      <Circle />
+                    </div>
+                    <b>-Linkedin</b>
+                  </div>
+                  <div className="flex gap-2">
+                      <div>
+                        <Input  placeholder="Username" />
+                      </div>
+                  </div>
+                </div>
+                <br/>
+                <div className="flex flex-col gap-2">
+                  <div className="flex">
+                    <div className="pl-3">
+                      <Circle />
+                    </div>
+                    <b>-Facebook</b>
+                  </div>
+                  <div className="flex gap-2">
+                      <div>
+                        <Input  placeholder="Username" />
+                      </div>
+                  </div>
+                </div>
+            </LabelInputContainer>}
+            <button
+              className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
             >
               {!loading ? <div onClick={handleNext}>Next &rarr;</div> : <Loader2 className="flex w-full justify-center items-center animate-spin" />}
               <BottomGradient />
@@ -255,6 +306,7 @@ const  RegisterForm = () => {
         <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
         {formType==="initials" && <InitialsForm />}
         {formType==="background" && <BackgroundForm />}
+        {formType==="socialmedia" && <SocialmediaProfiles />}
       </div>
     </ScrollArea>
   );
