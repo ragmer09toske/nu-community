@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/select"
 import { ClaudeLogo, GeminiLogo, MetaIconOutline, OpenAILogo } from "@/components/Marketing-Card";
 import Image from "next/image";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 
 const  RegisterForm = () => {
@@ -131,7 +132,7 @@ const  RegisterForm = () => {
         <form className="my-8">
             <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
             <LabelInputContainer>
-              <Label htmlFor="job-status">Job Status</Label>
+              <Label htmlFor="job-status">Your Job Status</Label>
               <Select value={jobStatus} onValueChange={handleSelectChange}>
                 <SelectTrigger className="w-[180px]">
                   <SelectValue placeholder="choose" />
@@ -246,14 +247,16 @@ const  RegisterForm = () => {
       setFormType("background")
     }
   return (
-    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
-      <h2 className="text-3xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
-        Welcome to Nucleus codiac Webinar
-      </h2>
-      <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
-      {formType==="initials" && <InitialsForm />}
-      {formType==="background" && <BackgroundForm />}
-    </div>
+    <ScrollArea className="h-[470px]">
+      <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
+        <h2 className="text-3xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
+          Welcome to Nucleus codiac Webinar
+        </h2>
+        <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
+        {formType==="initials" && <InitialsForm />}
+        {formType==="background" && <BackgroundForm />}
+      </div>
+    </ScrollArea>
   );
 }
 
