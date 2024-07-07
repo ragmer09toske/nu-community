@@ -6,8 +6,8 @@ import { Card, CardContent } from '@/components/ui/card'
 const Home = () => {
   return (
     <>
-    <div className=''>
-        <div className='p-5'>
+    <div className='relative'>
+        <div className='p-5 fixed top-0'>
             <Image
                 src="/webinarBanner.png"
                 alt="Nucleus Logo"
@@ -21,7 +21,7 @@ const Home = () => {
             />
         </div>
     </div>
-    <div className='p-5 rounded-full'>
+    <div className='p-5 rounded-full mt-36'>
             <RegisterForm />
     </div>
     </>
