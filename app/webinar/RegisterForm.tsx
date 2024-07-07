@@ -56,10 +56,10 @@ const  RegisterForm = () => {
       <h2 className="text-3xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
         Welcome to Nucleus codiac Webinar
       </h2>
-      <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
-        You is about to be a nerd
-      </p>
-
+      {/* <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
+        Complete the Form to become one of our trainers
+      </p> */}
+      <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
       <form className="my-8" onSubmit={handleSubmit}>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
@@ -95,8 +95,7 @@ const  RegisterForm = () => {
           <BottomGradient />
         </button>
         <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
-        <div className="flex flex-col space-y-4">
-        </div>
+        <div className="flex flex-col space-y-4"></div>
       </form>
     </div>
   );
