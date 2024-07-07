@@ -11,21 +11,21 @@ import { AnimatedTooltip } from '@/app/codiac/learn/animated-tooltip'
 const people = [
   {
     id: 1,
-    name: "John Doe",
+    name: "Tankiso Ntoko",
     designation: "Software Engineer",
     image:
       "/tinky.png",
   },
   {
     id: 2,
-    name: "Robert Johnson",
+    name: "Nomvuduka Mabaleha",
     designation: "Product Manager",
     image:
       "/vee.png",
   },
   {
     id: 3,
-    name: "Jane Smith",
+    name: "Tankiso Fuma",
     designation: "Data Scientist",
     image:
       "/fuma.png",
