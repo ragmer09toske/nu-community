@@ -28,7 +28,7 @@ const people = [
     name: "Jane Smith",
     designation: "Data Scientist",
     image:
-      "/me2.png",
+      "/tinky.png",
   },
 ];
 
