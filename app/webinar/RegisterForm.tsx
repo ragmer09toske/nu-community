@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 import { Label } from "@radix-ui/react-label";
 import axios from "axios";
-import { Github, Loader, Loader2 } from "lucide-react";
+import { Circle, Github, Loader, Loader2 } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -17,6 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { ClaudeLogo, GeminiLogo, MetaIconOutline, OpenAILogo } from "@/components/Marketing-Card";
+import Image from "next/image";
 
 
 const  RegisterForm = () => {
@@ -142,9 +143,9 @@ const  RegisterForm = () => {
               </Select>
             </LabelInputContainer>
             </div>
+            <br/>
             {jobStatus &&
               <LabelInputContainer className="mb-4">
-                <Label htmlFor="email"><b>Rate yourself on this technologies</b></Label>
                 <div className="flex flex-row flex-shrink-0 justify-center items-center gap-2">
                   <Container className="h-8 w-8 circle-1">
                     <ClaudeLogo className="h-4 w-4 " />
@@ -162,7 +163,70 @@ const  RegisterForm = () => {
                     <GeminiLogo className="h-4 w-4 " />
                   </Container>
                 </div>
-                <Slider defaultValue={[33]} max={100} step={1} />
+                <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
+                <Label>Rate yourself on this technologies</Label>
+                <div className="flex flex-col gap-1">
+                  <div className="flex">
+                    <div className="pl-3">
+                      <Circle />
+                    </div>
+                    <b>-Github</b>
+                  </div>
+                  <div className="flex gap-2">
+                      <div>
+                        <Container className="h-12 w-12 circle-2">
+                            <Github className="h-6 w-6 dark:text-white" />
+                        </Container>
+                      </div>
+                      <Slider defaultValue={[1]} max={100} step={1} />
+                  </div>
+                </div>
+                <br/>
+                <div className="flex flex-col gap-1">
+                  <div className="flex">
+                    <div className="pl-3">
+                      <Circle />
+                    </div>
+                    <b>-React</b>
+                  </div>
+                  <div className="flex gap-2">
+                      <div>
+                        <Container className="h-12 w-12 circle-2">
+                          <Image 
+                            className="invert"
+                            src={"/react_1.png"}
+                            width={20}
+                            height={20}
+                            alt="react"
+                          />
+                        </Container>
+                      </div>
+                      <Slider defaultValue={[1]} max={100} step={1} />
+                  </div>
+                </div>
+                <br/>
+                <div className="flex flex-col gap-1">
+                  <div className="flex">
+                    <div className="pl-3">
+                      <Circle />
+                    </div>
+                    <b>-HTML5 & CSS</b>
+                  </div>
+                  <div className="flex gap-2">
+                      <div>
+                        <Container className="h-12 w-12 circle-2">
+                          <Image 
+                            className="invert"
+                            src={"/html.png"}
+                            width={20}
+                            height={20}
+                            alt="react"
+                          />
+                        </Container>
+                      </div>
+                      <Slider defaultValue={[1]} max={100} step={1} />
+                  </div>
+                </div>
             </LabelInputContainer>}
             
             <button
