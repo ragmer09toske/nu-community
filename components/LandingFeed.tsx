@@ -14,7 +14,7 @@ const people = [
     name: "John Doe",
     designation: "Software Engineer",
     image:
-      "/fuma.png",
+      "/tinky.png",
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const people = [
     name: "Jane Smith",
     designation: "Data Scientist",
     image:
-      "/tinky.png",
+      "/fuma.png",
   },
 ];
 
