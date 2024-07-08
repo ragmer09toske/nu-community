@@ -1,13 +1,17 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { cn } from "@/app/utils/cn";
 import InitialsForm from "./Initials";
 import BackgroundForm from "./Background";
 import SocialmediaProfiles from "./Socials";
+import { WebinarContext } from "./AppContex";
 
 const  RegisterForm = () => {
-  const [formType, setFormType] = useState<string>("initials")
+  let {formType} = useContext(WebinarContext);
+  let {setFormType} = useContext(WebinarContext);
+
   const [jobStatus, setJobStatus] = useState<string>('');
+  
   return (
     <div className="pt-2 bg-black">
         <h1 className="text-3xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
