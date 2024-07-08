@@ -9,9 +9,8 @@ import { SliderReact } from "@/components/ui/SliderReact";
 import { Circle, Github, Loader2 } from "lucide-react";
 import { SliderGithub } from "@/components/ui/SliderGithub";
 
-const BackgroundForm = () => {
+const BackgroundForm = ({jobStatus, setJobStatus}: {jobStatus:any,setJobStatus:any }) => {
   const [loading, setLoading] = useState<boolean>(false)
-  const [jobStatus, setJobStatus] = useState<string>('');
   const handleJobStatusChange = (value:any) => {
     setJobStatus(value);
   };
