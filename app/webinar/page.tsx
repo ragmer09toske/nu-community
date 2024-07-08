@@ -20,7 +20,8 @@ const Home = () => {
   const [githubValue, setgithubValue] = useState([0]); 
   const [reactValue, setReactValue] = useState([0]); 
   const [htmlValue, setHtmlValue] = useState([0]); 
-
+  const [FacebookProfile, setFacebookProfile]=useState<string>("")
+  const [LinkInProfile, setLinkInProfile]=useState<string>("")
 
 
   const handleSubmit = async () => {
@@ -91,7 +92,9 @@ const Home = () => {
         about, 
         githubValue, setgithubValue,
         reactValue, setReactValue,
-        htmlValue, setHtmlValue
+        htmlValue, setHtmlValue,
+        FacebookProfile, setFacebookProfile,
+        LinkInProfile, setLinkInProfile
       }}>
         <Card className='p-2 mt-36'>
             <div className='h-full'>
