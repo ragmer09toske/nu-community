@@ -20,6 +20,8 @@ import { ClaudeLogo, GeminiLogo, MetaIconOutline, OpenAILogo } from "@/component
 import Image from "next/image";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { SliderHTML } from "@/components/ui/SliderHTML";
+import { SliderGithub } from "@/components/ui/SliderGithub";
+import { SliderReact } from "@/components/ui/SliderReact";
 
 
 const  RegisterForm = () => {
@@ -185,13 +187,13 @@ const  RegisterForm = () => {
                     </div>
                     <b>-Github</b>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 items-center">
                       <div>
                         <Container className="h-12 w-12 circle-2">
                             <Github className="h-6 w-6 dark:text-white" />
                         </Container>
                       </div>
-                      <SliderHTML />
+                      <SliderGithub />
                   </div>
                 </div>
                 <br/>
@@ -237,7 +239,7 @@ const  RegisterForm = () => {
                           />
                         </Container>
                       </div>
-                      <SliderHTML />
+                      <SliderReact />
                   </div>
                 </div>
             </LabelInputContainer>}
