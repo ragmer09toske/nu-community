@@ -7,7 +7,8 @@ import { WebinarContext } from "./AppContex";
 
 const SocialmediaProfiles = () => {
   let {loading} = useContext(WebinarContext);
-
+  const [FacebookProfile, setFacebookProfile]=useState<string>("")
+  const [LinkInProfile, setLinkInProfile]=useState<string>("")
     return(
       <form className="my-8">
           <div className="flex flex-col justify-center">
@@ -24,7 +25,7 @@ const SocialmediaProfiles = () => {
                 </div>
                 <div className="flex gap-2">
                     <div>
-                      <Input  placeholder="Your Profile name" />
+                      <Input onChange={(e)=>{setLinkInProfile(e.target.value)}} placeholder="Your Profile name" />
                     </div>
                 </div>
               </div>
@@ -38,7 +39,7 @@ const SocialmediaProfiles = () => {
                 </div>
                 <div className="flex gap-2">
                     <div>
-                      <Input  placeholder="Your Profile name" />
+                      <Input onChange={(e)=>{setFacebookProfile(e.target.value)}} placeholder="Your Profile name" />
                     </div>
                 </div>
               </div>
