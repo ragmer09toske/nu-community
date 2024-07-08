@@ -133,10 +133,6 @@ const  RegisterForm = () => {
     const handleSelectChange = (value:any) => {
       setJobStatus(value);
     };
-    const [sliderValue, setSliderValue] = useState([1]);
-    const handleSliderChange = (value:any) => {
-      setSliderValue(value);
-    };
 
     const BackgroundForm = () => {
       return(
@@ -312,6 +308,7 @@ const  RegisterForm = () => {
       )
     }
     const handleNext = () => {
+      // handleSubmit
       setFormType("background")
     }
   return (
