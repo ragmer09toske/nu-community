@@ -59,7 +59,7 @@ const SocialmediaProfiles = () => {
       </form>
     )
 }
-
+export default SocialmediaProfiles;
   const BottomGradient = () => {
     return (
         <>

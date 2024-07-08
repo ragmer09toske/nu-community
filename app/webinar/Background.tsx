@@ -132,7 +132,7 @@ const BackgroundForm = () => {
         </form>
     )
 }
-
+export default BackgroundForm;
 const LabelInputContainer = ({
     children,
     className,

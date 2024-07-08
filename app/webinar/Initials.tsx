@@ -88,7 +88,7 @@ const InitialsForm = () => {
         </form>
     )
   }
-  
+export default InitialsForm;
 const BottomGradient = () => {
     return (
         <>
