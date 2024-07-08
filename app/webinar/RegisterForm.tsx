@@ -6,11 +6,7 @@ import BackgroundForm from "./Background";
 import SocialmediaProfiles from "./Socials";
 
 const  RegisterForm = () => {
-  
   const [formType, setFormType] = useState<string>("initials")
-  const handleToSocials = () => {
-    setFormType("socialmedia")
-  }
   return (
     <div className="h-full pt-2">
         <h1 className="text-3xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
@@ -18,7 +14,7 @@ const  RegisterForm = () => {
       </h1>
       <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
       <div className="px-5">
-        {formType==="initials" && <InitialsForm />}
+        {formType==="initials" && <InitialsForm setFormType={setFormType} />}
         {formType==="background" && <BackgroundForm />}
         {formType==="socialmedia" && <SocialmediaProfiles />}
       </div>
