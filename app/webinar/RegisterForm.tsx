@@ -33,8 +33,8 @@ const  RegisterForm = () => {
   const [loading, setLoading] = React.useState<boolean>(false)
   const { toast } = useToast()
   const [formType, setFormType] = useState<string>("initials")
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
+
+    const handleSubmit = async () => {
       try {
         setLoading(true)
         const response = await axios.post(
@@ -308,7 +308,7 @@ const  RegisterForm = () => {
       )
     }
     const handleNext = () => {
-      // handleSubmit
+      handleSubmit()
       setFormType("background")
     }
   return (
