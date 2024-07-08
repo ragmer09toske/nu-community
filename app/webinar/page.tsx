@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
     <div className='relative' >
-        <div className='p-5 fixed top-0'>
+        <div className='p-5 fixed top-0 z-50'>
             <Image
                 src="/webinarBanner.png"
                 alt="Nucleus Logo"

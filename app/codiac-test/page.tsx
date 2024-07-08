@@ -85,13 +85,11 @@ const Page = () => {
                     <Navbar className="top-2 z-50" />
                 </div>
                 <div className='flex justify-center flex-col items-center pt-36'>
-                    
                     <div className='flex-none space-y-5 max-w-xl'>
                         {/* <h1 className="text-5xl text-white font-extrabold sm:text-7xl">
                             Welcome home <span className="text-black">we been been!</span> Expecting you
                         </h1> */}
                     </div>
-                    
                 </div>
             </div>
             {/* <video src='/Nucleus.mp4' loop muted autoPlay /> */}
