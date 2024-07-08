@@ -68,26 +68,29 @@ const  RegisterForm = () => {
     const handleNextlinks = () => {
 
     }
-    
+    const handleNext = () => {
+      handleSubmit()
+      setFormType("background")
+    }
     const InitialsForm = () => {
       return(
         <form className="my-8">
             <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
               <LabelInputContainer>
-                <Label htmlFor="firstname">First name</Label>
-                <Input id="firstname" onChange={(e)=>setFirstName(e.target.value)} required placeholder="Khotso" type="text" />
+                <Label>First name</Label>
+                <Input onChange={(e)=>setFirstName(e.target.value)} required placeholder="Khotso" type="text" />
               </LabelInputContainer>
               <LabelInputContainer>
-                <Label htmlFor="lastname">Last name</Label>
-                <Input id="lastname" onChange={(e)=>setLastname(e.target.value)} required placeholder="Moeketsi" type="text" />
+                <Label>Last name</Label>
+                <Input  onChange={(e)=>setLastname(e.target.value)} required placeholder="Moeketsi" type="text" />
               </LabelInputContainer>
             </div>
             <LabelInputContainer className="mb-4">
-              <Label htmlFor="email">Phone Number</Label>
-              <Input id="number" onChange={(e)=>setNumber(e.target.valueAsNumber)} required placeholder="26659749725" type="number" />
+              <Label>Phone Number</Label>
+              <Input  onChange={(e)=>setNumber(e.target.valueAsNumber)} required placeholder="26659749725" type="number" />
             </LabelInputContainer>
             <LabelInputContainer className="mb-4">
-              <Label htmlFor="email">Email Address</Label>
+              <Label >Email Address</Label>
               <Input id="email" onChange={(e)=>setEmail(e.target.value)} required  placeholder="khotso@gmail.com" type="email" />
             </LabelInputContainer>
             <div className="pt-2 pb-4">
@@ -307,10 +310,7 @@ const  RegisterForm = () => {
         </form>
       )
     }
-    const handleNext = () => {
-      handleSubmit()
-      setFormType("background")
-    }
+    
   return (
     <div className="h-full">
       <ScrollArea className="">
