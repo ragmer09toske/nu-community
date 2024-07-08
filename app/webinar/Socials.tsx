@@ -1,16 +1,15 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Circle, Loader2 } from "lucide-react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { cn } from "../utils/cn";
+import { WebinarContext } from "./AppContex";
 
 const SocialmediaProfiles = () => {
-  const [loading, setLoading] = useState<boolean>(false)
-  const [jobStatus, setJobStatus] = useState<string>('');
+  let {loading} = useContext(WebinarContext);
 
     return(
       <form className="my-8">
-          {jobStatus &&
           <div className="flex flex-col justify-center">
             <LabelInputContainer className="mb-4 flex-col justify-center">
               <div className="flex justify-center">
@@ -45,7 +44,6 @@ const SocialmediaProfiles = () => {
               </div>
           </LabelInputContainer>
           </div>
-          }
 
           <button
             className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"

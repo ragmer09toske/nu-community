@@ -15,9 +15,10 @@ const BackgroundForm = () => {
   let {setJobStatus} = useContext(WebinarContext);
   let {jobStatus} = useContext(WebinarContext);
   let {loading} = useContext(WebinarContext);
+  let {setFormType} = useContext(WebinarContext);
 
   const handleToSocials = () => {
-    
+    setFormType("socialmedia") 
   }
   const handleJobStatusChange = (value:any) => {
     setJobStatus(value);
