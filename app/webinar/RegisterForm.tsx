@@ -19,6 +19,7 @@ import {
 import { ClaudeLogo, GeminiLogo, MetaIconOutline, OpenAILogo } from "@/components/Marketing-Card";
 import Image from "next/image";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { SliderHTML } from "@/components/ui/SliderHTML";
 
 
 const  RegisterForm = () => {
@@ -65,7 +66,8 @@ const  RegisterForm = () => {
     const handleNextlinks = () => {
 
     }
-
+    type SliderProps = React.ComponentProps<typeof Slider>
+    
     const InitialsForm = () => {
       return(
         <form className="my-8" onSubmit={handleSubmit}>
@@ -130,11 +132,11 @@ const  RegisterForm = () => {
     const handleSelectChange = (value:any) => {
       setJobStatus(value);
     };
-    const [sliderValue, setSliderValue] = useState(1);
-
+    const [sliderValue, setSliderValue] = useState([1]);
     const handleSliderChange = (value:any) => {
       setSliderValue(value);
     };
+
     const BackgroundForm = () => {
       return(
         <form className="my-8">
@@ -189,12 +191,8 @@ const  RegisterForm = () => {
                             <Github className="h-6 w-6 dark:text-white" />
                         </Container>
                       </div>
-                      <Slider 
-                        defaultValue={[sliderValue]} 
-                        max={100} 
-                        step={1} 
-                        onChange={handleSliderChange}
-                      />
+                      <SliderHTML />
+                      <div>Slider Value: {sliderValue}</div>
                   </div>
                 </div>
                 <br/>
@@ -240,7 +238,7 @@ const  RegisterForm = () => {
                           />
                         </Container>
                       </div>
-                      <Slider defaultValue={[1]} max={100} step={1} />
+                      <SliderHTML />
                   </div>
                 </div>
             </LabelInputContainer>}
