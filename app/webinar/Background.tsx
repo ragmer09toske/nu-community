@@ -1,16 +1,20 @@
 "use client"
 import Image from "next/image"
 import { ClaudeLogo, GeminiLogo, MetaIconOutline, OpenAILogo } from "@/components/Marketing-Card";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "../utils/cn";
 import { SliderReact } from "@/components/ui/SliderReact";
 import { Circle, Github, Loader2 } from "lucide-react";
 import { SliderGithub } from "@/components/ui/SliderGithub";
+import { WebinarContext } from "./AppContex";
 
-const BackgroundForm = ({jobStatus, setJobStatus}: {jobStatus:any,setJobStatus:any }) => {
+const BackgroundForm = () => {
   const [loading, setLoading] = useState<boolean>(false)
+  let {setJobStatus} = useContext(WebinarContext);
+  let {jobStatus} = useContext(WebinarContext);
+
   const handleToSocials = () => {
     
   }
