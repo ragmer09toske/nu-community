@@ -68,11 +68,10 @@ const  RegisterForm = () => {
     const handleNextlinks = () => {
 
     }
-    type SliderProps = React.ComponentProps<typeof Slider>
     
     const InitialsForm = () => {
       return(
-        <form className="my-8" onSubmit={handleSubmit}>
+        <form className="my-8">
             <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
               <LabelInputContainer>
                 <Label htmlFor="firstname">First name</Label>
