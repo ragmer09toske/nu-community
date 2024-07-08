@@ -192,7 +192,6 @@ const  RegisterForm = () => {
                         </Container>
                       </div>
                       <SliderHTML />
-                      <div>Slider Value: {sliderValue}</div>
                   </div>
                 </div>
                 <br/>
