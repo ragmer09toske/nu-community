@@ -77,7 +77,7 @@ const Page = () => {
                             </Link>
                             </Button>
                         </div>
-                        <MarketingCard />
+                        <Mar  ketingCard />
                     </div>
                 </div>
                
