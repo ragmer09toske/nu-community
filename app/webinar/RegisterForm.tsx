@@ -29,7 +29,7 @@ const  RegisterForm = () => {
   const [lastname, setLastname] = useState<string>("")
   const [number,setNumber] = useState<number>()
   const [email,setEmail] = useState<string>("")
-  const [reason, setReason] = useState<string>("")
+  const [about, setAbout] = useState<string>("")
   const [loading, setLoading] = React.useState<boolean>(false)
   const { toast } = useToast()
   const [formType, setFormType] = useState<string>("initials")
@@ -38,13 +38,13 @@ const  RegisterForm = () => {
       try {
         setLoading(true)
         const response = await axios.post(
-          'https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/register',
+          'https://nu-com-0e51cf02b2c8.herokuapp.com/webinar/register',
           {
             firstname: firstname,
             lastname: lastname,
             number: number,
             email: email,
-            reason: reason,
+            about: about,
           }
         );
 
@@ -93,7 +93,7 @@ const  RegisterForm = () => {
             </LabelInputContainer>
             <div className="pt-2 pb-4">
             <Textarea 
-             onChange={(e)=>setReason(e.target.value)} 
+             onChange={(e)=>setAbout(e.target.value)} 
              placeholder="Tell us a little bit about yourself"
              required
              className="resize-none" />
