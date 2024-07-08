@@ -16,6 +16,7 @@ const InitialsForm = ({setFormType} : {setFormType:any}) => {
     const [loading, setLoading] = useState<boolean>(false)
     const { toast } = useToast()
     const handleNext = () => {
+        handleSubmit();
         setFormType("background")
     }
     const handleSubmit = async () => {
