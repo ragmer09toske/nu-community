@@ -4,16 +4,19 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
 import { Loader2 } from "lucide-react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { cn } from "../utils/cn";
+import { WebinarContext } from "./AppContex";
 
-const InitialsForm = ({setFormType} : {setFormType:any}) => {
+const InitialsForm = () => {
     const [firstname, setFirstName] = useState<string>("")
     const [lastname, setLastname] = useState<string>("")
     const [number,setNumber] = useState<number>()
     const [email,setEmail] = useState<string>("")
     const [about, setAbout] = useState<string>("")
     const [loading, setLoading] = useState<boolean>(false)
+    let {setFormType} = useContext(WebinarContext);
+
     const { toast } = useToast()
     const handleNext = () => {
         handleSubmit();
