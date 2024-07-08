@@ -12,14 +12,15 @@ import { SliderGithub } from "@/components/ui/SliderGithub";
 const BackgroundForm = () => {
   const [loading, setLoading] = useState<boolean>(false)
   const [jobStatus, setJobStatus] = useState<string>('');
-
+  const handleJobStatusChange = (value:any) => {
+    setJobStatus(value);
+  };
     return(
       <form className="my-8">
           <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="job-status">Your Job Status</Label>
-            <Select value={jobStatus}
-            //  onValueChange={handleSelectChange}
+            <Select value={jobStatus} onValueChange={handleJobStatusChange}
              >
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="choose" />
