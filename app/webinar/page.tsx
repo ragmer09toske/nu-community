@@ -2,12 +2,52 @@
 import React, { useState } from 'react'
 import RegisterForm from './RegisterForm'
 import Image from 'next/image'
-import { Card, CardContent } from '@/components/ui/card'
+import { Card } from '@/components/ui/card'
 import { WebinarContext } from './AppContex'
+import { useToast } from '@/components/ui/use-toast'
 
 const Home = () => {
-const [formType, setFormType] = useState<string>("initials")
+  const [formType, setFormType] = useState<string>("initials")
   const [jobStatus, setJobStatus] = useState<string>('');
+  const [firstname, setFirstName] = useState<string>("")
+  const [lastname, setLastname] = useState<string>("")
+  const [number,setNumber] = useState<number>()
+  const [email,setEmail] = useState<string>("")
+  const { toast } = useToast()
+  const [loading, setLoading] = useState<boolean>(false)
+  const [about, setAbout] = useState<string>("")
+
+  const handleSubmit = async () => {
+    try {
+      setLoading(true)
+      const response = await axios.post(
+        'https://nu-com-0e51cf02b2c8.herokuapp.com/webinar/register',
+        {
+          firstname: firstname,
+          lastname: lastname,
+          number: number,
+          email: email,
+          about: about,
+        }
+      );
+
+      toast({
+        title: "Registration succeeded",
+        description: "You will get an email for your RSV",
+      })
+
+      console.log(response.data)
+
+      setLoading(false)
+    } catch (error: any) {
+      console.log('Error:', error.message);
+      toast({
+        title: "Registration failed",
+        description: "try to register again",
+      })
+      setLoading(false)
+    }
+  };
   return (
     <>
     <div className='relative' >
@@ -26,7 +66,24 @@ const [formType, setFormType] = useState<string>("initials")
         </div>
     </div>
     <div className='p-5'>
-      <WebinarContext.Provider value={{formType, setFormType,jobStatus, setJobStatus}}>
+      <WebinarContext.Provider value={{
+        setFormType, 
+        setJobStatus, 
+        setFirstName, 
+        setLastname,
+        setNumber,
+        setEmail,
+        setAbout,
+        setLoading,
+        loading, 
+        formType, 
+        firstname, 
+        jobStatus, 
+        lastname, 
+        number,
+        email,
+        about, 
+      }}>
         <Card className='p-2 mt-36'>
             <div className='h-full'>
                 <RegisterForm />

@@ -1,58 +1,24 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/components/ui/use-toast";
-import axios from "axios";
 import { Loader2 } from "lucide-react";
 import { useContext, useState } from "react";
 import { cn } from "../utils/cn";
 import { WebinarContext } from "./AppContex";
 
 const InitialsForm = () => {
-    const [firstname, setFirstName] = useState<string>("")
-    const [lastname, setLastname] = useState<string>("")
-    const [number,setNumber] = useState<number>()
-    const [email,setEmail] = useState<string>("")
-    const [about, setAbout] = useState<string>("")
-    const [loading, setLoading] = useState<boolean>(false)
     let {setFormType} = useContext(WebinarContext);
+    let {setFirstName} = useContext(WebinarContext);
+    let {setLastname} = useContext(WebinarContext);
+    let {setNumber} = useContext(WebinarContext);
+    let {setEmail} = useContext(WebinarContext);
+    let {setAbout} = useContext(WebinarContext);
+    let {loading} = useContext(WebinarContext);
 
-    const { toast } = useToast()
     const handleNext = () => {
-        handleSubmit();
         setFormType("background")
     }
-    const handleSubmit = async () => {
-        try {
-          setLoading(true)
-          const response = await axios.post(
-            'https://nu-com-0e51cf02b2c8.herokuapp.com/webinar/register',
-            {
-              firstname: firstname,
-              lastname: lastname,
-              number: number,
-              email: email,
-              about: about,
-            }
-          );
-  
-          toast({
-            title: "Registration succeeded",
-            description: "You will get an email for your RSV",
-          })
-  
-          console.log(response.data)
     
-          setLoading(false)
-        } catch (error: any) {
-          console.log('Error:', error.message);
-          toast({
-            title: "Registration failed",
-            description: "try to register again",
-          })
-          setLoading(false)
-        }
-      };
 
     return(
       <form className="my-8">

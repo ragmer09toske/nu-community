@@ -9,11 +9,12 @@ import { SliderReact } from "@/components/ui/SliderReact";
 import { Circle, Github, Loader2 } from "lucide-react";
 import { SliderGithub } from "@/components/ui/SliderGithub";
 import { WebinarContext } from "./AppContex";
+import { SliderHTML } from "@/components/ui/SliderHTML";
 
 const BackgroundForm = () => {
-  const [loading, setLoading] = useState<boolean>(false)
   let {setJobStatus} = useContext(WebinarContext);
   let {jobStatus} = useContext(WebinarContext);
+  let {loading} = useContext(WebinarContext);
 
   const handleToSocials = () => {
     
@@ -121,7 +122,7 @@ const BackgroundForm = () => {
                         />
                       </Container>
                     </div>
-                    <SliderReact />
+                    <SliderHTML />
                 </div>
               </div>
           </LabelInputContainer>}
