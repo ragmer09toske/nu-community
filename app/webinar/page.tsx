@@ -23,7 +23,9 @@ const Home = () => {
     </div>
     <div className='p-5'>
         <Card className='p-2 mt-36'>
-            <RegisterForm />
+            <div className='h-full'>
+                <RegisterForm />
+            </div>
         </Card>
     </div>
     </>
