@@ -216,7 +216,7 @@ const  RegisterForm = () => {
                           />
                         </Container>
                       </div>
-                      <Slider defaultValue={[1]} max={100} step={1} />
+                      <SliderReact />
                   </div>
                 </div>
                 <br/>
