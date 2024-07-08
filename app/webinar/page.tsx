@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Card } from '@/components/ui/card'
 import { WebinarContext } from './AppContex'
 import { useToast } from '@/components/ui/use-toast'
+import axios from 'axios'
 
 const Home = () => {
   const [formType, setFormType] = useState<string>("initials")
@@ -16,6 +17,11 @@ const Home = () => {
   const { toast } = useToast()
   const [loading, setLoading] = useState<boolean>(false)
   const [about, setAbout] = useState<string>("")
+  const [githubValue, setgithubValue] = useState([0]); 
+  const [reactValue, setReactValue] = useState([0]); 
+  const [htmlValue, setHtmlValue] = useState([0]); 
+
+
 
   const handleSubmit = async () => {
     try {
@@ -83,6 +89,9 @@ const Home = () => {
         number,
         email,
         about, 
+        githubValue, setgithubValue,
+        reactValue, setReactValue,
+        htmlValue, setHtmlValue
       }}>
         <Card className='p-2 mt-36'>
             <div className='h-full'>

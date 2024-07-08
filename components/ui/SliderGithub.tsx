@@ -1,27 +1,29 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Slider } from "@/components/ui/slider";
+import { WebinarContext } from "@/app/webinar/AppContex";
 
 type SliderProps = React.ComponentProps<typeof Slider>;
 
 export function SliderGithub({ className, ...props }: SliderProps) {
-  const [value, setValue] = useState([1]); // Initial value of the slider
+  let {githubValue} = useContext(WebinarContext);
+  let {setgithubValue} = useContext(WebinarContext);
 
   const handleChange = (newValue:any) => {
-    setValue(newValue);
+    setgithubValue(newValue);
   };
 
   return (
     <div className="w-full flex gap-2">
       <Slider
-        value={value}
+        value={githubValue}
         onValueChange={handleChange}
         max={100}
         step={1}
         className={cn("w-[60%]", className)}
         {...props}
       />
-      <div>{value}</div> 
+      <div>{githubValue}</div> 
     </div>
   );
 }
