@@ -5,7 +5,7 @@ import { Slider } from "@/components/ui/slider";
 type SliderProps = React.ComponentProps<typeof Slider>;
 
 export function SliderGithub({ className, ...props }: SliderProps) {
-  const [value, setValue] = useState([50]); // Initial value of the slider
+  const [value, setValue] = useState([1]); // Initial value of the slider
 
   const handleChange = (newValue:any) => {
     setValue(newValue);

@@ -12,7 +12,7 @@ export function SliderHTML({ className, ...props }: SliderProps) {
   };
 
   return (
-    <div className="w-full flex gap-2">
+    <div className="w-full flex gap-2 items-center">
       <Slider
         value={value}
         onValueChange={handleChange}
