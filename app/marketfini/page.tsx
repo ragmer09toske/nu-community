@@ -77,6 +77,7 @@ import NewCodian from "./NewCodian"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import useStore from "@/app/Store"
 import WebinarData from "./Webinar"
+import { BarListUsageExample } from "./Tech"
 
 interface Codiac {
   _id: string; // Represents the unique identifier of the object
@@ -373,7 +374,8 @@ const Dashboard = () => {
               <NewCodian />
               {/* where to put the codiac data */}
               <CodiacData />
-              <Card x-chunk="dashboard-05-chunk-2">
+              <BarListUsageExample />
+              {/* <Card x-chunk="dashboard-05-chunk-2">
                 <CardHeader className="pb-2">
                   <CardDescription>Codiac Users</CardDescription>
                   <CardTitle className="text-4xl">{arrayLength}</CardTitle>
@@ -386,7 +388,7 @@ const Dashboard = () => {
                 <CardFooter>
                   <Progress value={arrayLength} aria-label="12% increase" />
                 </CardFooter>
-              </Card>
+              </Card> */}
             </div>
             <Tabs defaultValue="week">
               <div className="flex items-center">
