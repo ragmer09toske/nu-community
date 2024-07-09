@@ -28,8 +28,7 @@ const Home = () => {
     try {
       setLoading(true)
       const response = await axios.post(
-        // 'https://nu-com-0e51cf02b2c8.herokuapp.com/webinar/register',
-        "http://127.0.0.1:8000/webinar/register",
+        'https://nu-com-0e51cf02b2c8.herokuapp.com/webinar/register',
         {
           firstname: firstname,
           lastname : lastname,
