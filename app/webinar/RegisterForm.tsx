@@ -9,7 +9,7 @@ import { WebinarContext } from "./AppContex";
 const  RegisterForm = () => {
   let {formType} = useContext(WebinarContext);
   return (
-    <div className="pt-2 bg-black">
+    <div className="pt-2">
         <h1 className="text-3xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
           Nucleus<br /> Codiac Webinar
       </h1>
