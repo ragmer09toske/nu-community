@@ -46,10 +46,7 @@ const Home = () => {
         }
       );
 
-      toast({
-        title: "Registration succeeded",
-        description: "You will get an email for your RSV",
-      })
+      setIsOpen(true)
 
       console.log(response.data)
 
