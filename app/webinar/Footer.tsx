@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import { BackgroundBeams } from "./background-beams";
+import FooterLinks from "./socilaLinks";
+import Image from "next/image";
 
 export function WebinarFooter() {
   return (
@@ -13,11 +15,20 @@ export function WebinarFooter() {
         <p className="text-neutral-500 max-w-lg mx-auto my-2 text-sm text-center relative z-10">
         Join our free live webinar, held once a week! The software engineering community is made up of selfless individuals who continuously contribute to the growth of others. In this spirit, we aim to provide powerful, free knowledge. Thank you for being part of this culture.
         </p>
-        <input
-          type="text"
-          placeholder="hi@manuarora.in"
-          className="rounded-lg border border-neutral-800 focus:ring-2 focus:ring-teal-500  w-full relative z-10 mt-4  bg-neutral-950 placeholder:text-neutral-700"
-        />
+        <FooterLinks /> 
+        <div className='p-3 flex justify-center  bottom-0 z-50'>
+            <Image
+                src="/one.png"
+                alt="Nucleus Logo"
+                className="relative"
+                width={100}
+                height={24}
+                priority
+                style={{
+                borderRadius:"8px 8px 8px 8px"
+                }}
+            />
+        </div>
       </div>
       <BackgroundBeams />
     </div>
