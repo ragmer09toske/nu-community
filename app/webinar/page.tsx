@@ -23,6 +23,7 @@ const Home = () => {
   const [htmlValue, setHtmlValue] = useState([0]); 
   const [FacebookProfile, setFacebookProfile]=useState<string>("")
   const [LinkInProfile, setLinkInProfile]=useState<string>("")
+  const [isOpen, setIsOpen] = useState(false);
 
 
   const handleSubmit = async () => {
