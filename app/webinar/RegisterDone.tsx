@@ -1,8 +1,11 @@
 import { Button, Dialog, DialogPanel } from '@tremor/react';
-import React from 'react';
+import React, { useContext } from 'react';
+import { WebinarContext } from './AppContex';
 
 export function DialogHero() {
-  const [isOpen, setIsOpen] = React.useState(false);
+  let {setIsOpen} = useContext(WebinarContext);
+  let {isOpen} = useContext(WebinarContext);
+
   return (
     <div className="flex justify-center">
       <Dialog
