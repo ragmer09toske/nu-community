@@ -1,50 +1,50 @@
 import { Facebook, Github, Instagram, LinkedinIcon, Twitter } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 function FooterLinks() {
   let date = new Date();
   let year = date.getFullYear();
   return (
-    <div className="flex justify-center gap-5 p-5">
+    <div className="flex z-50 justify-center gap-5 p-5">
         <div className="social-icons">
-            <a
+            <Link
             href="https://www.linkedin.com/in/nucleus-devs-5295a7262/"
             style={{ color: "white" }}
             target="_blank" 
             rel="nucleus devs"
             >
             <LinkedinIcon />
-            </a>
+            </Link>
         </div>
         <div className="social-icons">
-            <a
-            href="https://web.facebook.com/nucleusdevs.09"
+            <Link href="https://web.facebook.com/nucleusdevs.09"
             style={{ color: "white" }}
             target="_blank" 
             rel="nucleus devs"
             >
             <Facebook />
-            </a>
+            </Link>
         </div>
         <div>
-            <a
+            <Link
             href="https://github.com/ragmer09toske"
             style={{ color: "white" }}
             target="_blank" 
             rel="nucleus devs"
             >
             <Github />
-            </a>
+            </Link>
         </div>
         <div className="social-icons">
-            <a
+            <Link
             href="https://www.instagram.com/nucleus_creative_studio/"
             style={{ color: "white" }}
             target="_blank" 
             rel="nucleus devs"
             >
             <Instagram />
-            </a>
+            </Link>
         </div>
       </div>
   );
