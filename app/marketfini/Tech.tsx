@@ -2,7 +2,7 @@
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { BarList, Card } from '@tremor/react';
 import axios from 'axios';
-import { Github } from 'lucide-react';
+import { Github, Loader2 } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
@@ -99,10 +99,10 @@ export function BarListUsageExample() {
                 <span>Rating</span>
             </p>
             {loading ? (
-                <p>Loading...</p>
+                <Loader2 className='animate-spin'/>
             ) : (
                 <ScrollArea className='h-28'>
-                <BarList data={data} className="mt-2" />
+                    <BarList data={data} className="mt-2" />
                 </ScrollArea>
             )}
         </Card>
