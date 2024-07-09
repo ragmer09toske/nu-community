@@ -32,16 +32,16 @@ const Home = () => {
         "http://127.0.0.1:8000/webinar/register",
         {
           firstname: firstname,
-          lastname: lastname,
+          lastname : lastname,
           number: number,
-          email: email,
-          about: about,
-          jobStatus,
-          githubValue,
-          reactValue,
-          htmlValue,
-          FacebookProfile,
-          LinkInProfile
+          email : email,
+          about : about,
+          jobStatus : jobStatus,
+          githubValue : githubValue,
+          reactValue : reactValue,
+          htmlValue : htmlValue,
+          FacebookProfile : FacebookProfile,
+          LinkInProfile : LinkInProfile,
         }
       );
 
