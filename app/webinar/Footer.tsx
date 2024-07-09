@@ -16,7 +16,7 @@ export function WebinarFooter() {
         Join our free live webinar, held once a week! The software engineering community is made up of selfless individuals who continuously contribute to the growth of others. In this spirit, we aim to provide powerful and free knowledge. Thank you for being part of this culture.
         </p>
         <FooterLinks /> 
-        <div className='p-3 flex justify-center  bottom-0 z-50'>
+        <div className='p-3 flex justify-center'>
             <Image
                 src="/one.png"
                 alt="Nucleus Logo"

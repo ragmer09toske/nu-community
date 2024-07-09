@@ -3,8 +3,6 @@ import Link from "next/link";
 import React from "react";
 
 function FooterLinks() {
-  let date = new Date();
-  let year = date.getFullYear();
   return (
     <div className="flex z-50 justify-center gap-5 p-5">
         <div className="social-icons">

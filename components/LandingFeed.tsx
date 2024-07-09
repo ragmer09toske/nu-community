@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { ShimmerButton} from './Shimmer'
 import useDeviceType from '@/app/Device'
 import { AnimatedTooltip } from '@/app/codiac/learn/animated-tooltip'
+import { WebinarFooter } from '@/app/webinar/Footer'
 const people = [
   {
     id: 1,
@@ -181,6 +182,7 @@ export const LandingFeed = () => {
             />
           </Card>
           </div>
+          <WebinarFooter />
         </ScrollArea>
       </Command>
   </div>
