@@ -95,8 +95,8 @@ export function BarListUsageExample() {
         <Card className="mx-auto max-w-lg">
             <h3 className="text-tremor-title text-tremor-content-strong dark:text-dark-tremor-content-strong font-medium">Website Analytics</h3>
             <p className="mt-4 text-tremor-default flex items-center justify-between text-tremor-content dark:text-dark-tremor-content">
-                <span>Source</span>
-                <span>Views</span>
+                <span>Name</span>
+                <span>Rating</span>
             </p>
             {loading ? (
                 <p>Loading...</p>
