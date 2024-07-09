@@ -136,7 +136,7 @@ const Dashboard = () => {
     const getAllCodiacsUsers = async () => {
       setLoading(true);   
       try {
-        const response = await axios.get(`http://localhost:8000/codiac/users`, {
+        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/users`, {
           headers: {
             Authorization: `Bearer ${loginToken}`,
           },
