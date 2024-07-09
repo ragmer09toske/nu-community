@@ -20,7 +20,7 @@ export function DialogHero() {
             className="mx-auto flex items-center"
             onClick={() => setIsOpen(false)}
           >
-            Close
+            fdsfjsfjkf
           </Button>
         </DialogPanel>
       </Dialog>
