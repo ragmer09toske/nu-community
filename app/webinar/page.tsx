@@ -94,7 +94,7 @@ const Home = () => {
         reactValue, setReactValue,
         htmlValue, setHtmlValue,
         FacebookProfile, setFacebookProfile,
-        LinkInProfile, setLinkInProfile
+        LinkInProfile, setLinkInProfile,
       }}>
         <Card className='p-2 mt-36'>
             <div className='h-full'>
