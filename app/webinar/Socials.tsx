@@ -11,7 +11,7 @@ const SocialmediaProfiles = () => {
   let {setFacebookProfile} = useContext(WebinarContext);
   let {handleRegister} = useContext(WebinarContext);
     return(
-      <form className="my-8">
+      <div className="my-8">
           <div className="flex flex-col justify-center">
             <LabelInputContainer className="mb-4 flex-col justify-center">
               <div className="flex justify-center">
@@ -56,7 +56,7 @@ const SocialmediaProfiles = () => {
           </button>
           <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
           <div className="flex flex-col space-y-4"></div>
-      </form>
+      </div>
     )
 }
 export default SocialmediaProfiles;
