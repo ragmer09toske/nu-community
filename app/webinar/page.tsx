@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card'
 import { WebinarContext } from './AppContex'
 import { useToast } from '@/components/ui/use-toast'
 import axios from 'axios'
+import { WebinarFooter } from './Footer'
 
 const Home = () => {
   const [formType, setFormType] = useState<string>("initials")
@@ -83,7 +84,7 @@ const Home = () => {
         </div>
         <div className='fixed  top-0 w-full h-10' style={{backdropFilter: ("blur(14px)")}}></div>
     </div>
-    <div className='p-5'>
+    <div className=''>
       <WebinarContext.Provider value={{
         setFormType, 
         setJobStatus, 
@@ -108,11 +109,16 @@ const Home = () => {
         FacebookProfile, setFacebookProfile,
         LinkInProfile, setLinkInProfile,
       }}>
-        <Card className='p-2 mt-36'>
-            <div className='h-full'>
-                <RegisterForm />
-            </div>
-        </Card>
+        <div className='p-5'>
+            <Card className='p-2 mt-36'>
+                <div className=' h-full'>
+                    <RegisterForm />
+                </div>
+            </Card>
+        </div>
+        <div className=''>
+          <WebinarFooter />
+        </div>
       </WebinarContext.Provider>
     </div>
     </>
