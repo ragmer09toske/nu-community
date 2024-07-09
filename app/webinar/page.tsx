@@ -55,6 +55,10 @@ const Home = () => {
       setLoading(false)
     }
   };
+
+  const handleRegister = () => {
+    handleSubmit();
+  }
   return (
     <>
     <div className='relative' >
@@ -82,6 +86,7 @@ const Home = () => {
         setEmail,
         setAbout,
         setLoading,
+        handleRegister,
         loading, 
         formType, 
         firstname, 
