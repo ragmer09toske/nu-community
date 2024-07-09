@@ -6,12 +6,10 @@ import {
   ChevronLeft,
   ChevronRight,
   Copy,
-  CreditCard,
   File,
   Home,
   LineChart,
   ListFilter,
-  Loader2,
   MoreVertical,
   Package,
   Package2,
@@ -19,7 +17,6 @@ import {
   Search,
   Settings,
   ShoppingCart,
-  Truck,
   Users2,
 } from "lucide-react"
 
@@ -56,7 +53,6 @@ import {
   PaginationItem,
 } from "@/components/ui/pagination"
 import { Progress } from "@/components/ui/progress"
-import { Separator } from "@/components/ui/separator"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import {
   Table,
@@ -76,11 +72,11 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { useEffect, useState } from "react"
 import axios, { CancelTokenSource } from 'axios'
 import { RiAddFill } from "@remixicon/react"
-import { ProgressCircle } from "@tremor/react"
 import CodiacData from "./codiacData"
 import NewCodian from "./NewCodian"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import useStore from "@/app/Store"
+import WebinarData from "./Webinar"
 
 interface Codiac {
   _id: string; // Represents the unique identifier of the object
@@ -171,7 +167,6 @@ const Dashboard = () => {
             />
             <span className="sr-only">Nucleus Devs</span>
           </Link>
-
           <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
@@ -397,6 +392,7 @@ const Dashboard = () => {
               <div className="flex items-center">
                 <TabsList>
                   <TabsTrigger value="Codians">Codiac Users</TabsTrigger>
+                  <TabsTrigger value="Webinar">Webinar</TabsTrigger>
                   <TabsTrigger value="teams">Codiac Participants</TabsTrigger>
                   <TabsTrigger value="year">In-house-team</TabsTrigger>
                 </TabsList>
@@ -553,6 +549,9 @@ const Dashboard = () => {
                   </div>
                 </Card>
               </TabsContent>
+
+              {/* The webiner Data */}
+              <WebinarData />
             </Tabs>
           </div>
           <div>
