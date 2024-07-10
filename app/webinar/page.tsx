@@ -226,7 +226,7 @@ const Home = () => {
               <div className="relative w-full flex items-center justify-center">
                 <Navbar className="top-2 z-50" />
               </div>
-              <div className='-mt-24'>
+              <div className='-mt-24 w-full'>
                 <Spotlight
                   className="-top-40 left-0 md:left-60 md:-top-20"
                   fill="white"
