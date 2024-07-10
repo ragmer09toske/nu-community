@@ -396,7 +396,7 @@ export function GlobeDemo() {
 
   return (
     <div>
-      <div className=" w-full relative overflow-hidden h-full md:h-[40rem]">
+      <div className=" w-[100%]  relative overflow-hidden h-full md:h-[40rem]">
         <motion.div
           initial={{
             opacity: 0,
