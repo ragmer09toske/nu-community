@@ -103,7 +103,7 @@ const Home = () => {
         isOpen, setIsOpen,
       }}>
         <div className='p-5'>
-            <Card className='p-2 mt-36'>
+            <Card className='p-10 mt-36'>
                 <div className=' h-full'>
                     <RegisterForm />
                 </div>
