@@ -7,6 +7,7 @@ import { WebinarContext } from './AppContex'
 import { useToast } from '@/components/ui/use-toast'
 import axios from 'axios'
 import { WebinarFooter } from './Footer'
+import useMobile from '../Mobile'
 
 const Home = () => {
   const [formType, setFormType] = useState<string>("initials")
@@ -25,7 +26,7 @@ const Home = () => {
   const [LinkInProfile, setLinkInProfile]=useState<string>("")
   const [isOpen, setIsOpen] = useState(false);
 
-
+  const isMobile = useMobile()
   const handleSubmit = async () => {
     try {
       setLoading(true)
@@ -66,6 +67,7 @@ const Home = () => {
   }
   return (
     <>
+    {isMobile &&
     <div className='relative' >
         <div className='p-3 fixed top-0 z-50'>
             <Image
@@ -81,7 +83,7 @@ const Home = () => {
             />
         </div>
         <div className='fixed  top-0 w-full h-10' style={{backdropFilter: ("blur(14px)")}}></div>
-    </div>
+    </div>}
     <div className=''>
       <WebinarContext.Provider value={{
         handleRegister,
