@@ -27,7 +27,7 @@ const Home = () => {
   const [htmlValue, setHtmlValue] = useState([0])
   const [FacebookProfile, setFacebookProfile] = useState<string>("")
   const [LinkInProfile, setLinkInProfile] = useState<string>("")
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(true)
 
   const isMobile = useMobile()
 
@@ -136,13 +136,17 @@ const Home = () => {
                       static={true}
                       className="z-[100]"
                     >
-                      <DialogPanel className="max-w-sm">
+                      <DialogPanel className="max-w-lg">
+                        <div className='flex justify-center pb-5'>
+                          Succefully Registered
+                        </div>
+                        {firstname}
                         <Button
                           variant="light"
                           className="mx-auto flex items-center"
                           onClick={() => setIsOpen(false)}
                         >
-                          Close
+                          Done
                         </Button>
                       </DialogPanel>
                     </Dialog>
