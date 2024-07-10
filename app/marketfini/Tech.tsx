@@ -30,7 +30,7 @@ export function BarListUsageExample() {
         const getAllCodiacsUsers = async () => {
             setLoading(true);
             try {
-                const response = await axios.get('http://127.0.0.1:8000/webinar/registerers');
+                const response = await axios.get('https://nu-com-0e51cf02b2c8.herokuapp.com/webinar/registerers');
                 setWebinarpeople(response.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
