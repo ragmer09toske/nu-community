@@ -14,6 +14,7 @@ import Link from 'next/link'
 import { Facebook, Github, Instagram, LinkedinIcon } from 'lucide-react'
 import Navbar_Codiac from '@/components/CodiacNav'
 import Navbar_Data_Repo from '@/components/Navbar_Data_One_Repo'
+import { Spotlight } from '@/components/Spotlight'
 
 
 const Home = () => {
@@ -213,6 +214,10 @@ const Home = () => {
             <>
               <Navbar_Data_Repo />
               <div className='-mt-16'>
+                <Spotlight
+                  className="-top-40 left-0 md:left-60 md:-top-20"
+                  fill="white"
+                />
                 <WebinarDesktop />
               </div>
             </>
