@@ -14,7 +14,7 @@ const  RegisterForm = () => {
           Nucleus<br /> Codiac Webinar
       </h1>
       <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
-      <div className="px-5">
+      <div className="px-5 lg:p-5">
           {formType==="initials" && <InitialsForm />}
           {formType==="background" && <BackgroundForm />}
           {formType==="socialmedia" && <SocialmediaProfiles />}

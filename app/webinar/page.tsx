@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import RegisterForm from './RegisterForm'
 import Image from 'next/image'
 import { Card } from '@/components/ui/card'
@@ -8,6 +8,7 @@ import { useToast } from '@/components/ui/use-toast'
 import axios from 'axios'
 import { WebinarFooter } from './Footer'
 import useMobile from '../Mobile'
+import WebinarDesktop from './register/page'
 
 const Home = () => {
   const [formType, setFormType] = useState<string>("initials")
@@ -102,16 +103,22 @@ const Home = () => {
         LinkInProfile, setLinkInProfile,
         isOpen, setIsOpen,
       }}>
-        <div className='p-5'>
-            <Card className='p-10 mt-36'>
-                <div className=' h-full'>
+        {isMobile ? 
+        <div className='w-[130%] -m-10 mt-5'>
+          <div className='w-[] p-5'>
+            <Card className='w-[] mt-36'>
+                <div className='h-full'>
                     <RegisterForm />
                 </div>
             </Card>
+          </div>
+          <div className='w-full'>
+            <WebinarFooter />
+          </div>
         </div>
-        <div className=''>
-          <WebinarFooter />
-        </div>
+        :
+        <WebinarDesktop/>
+      }
       </WebinarContext.Provider>
     </div>
     </>
