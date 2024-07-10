@@ -12,6 +12,7 @@ import WebinarDesktop from './register/page'
 import { Button, Dialog, DialogPanel } from '@tremor/react';
 import Link from 'next/link'
 import { Facebook, Github, Instagram, LinkedinIcon } from 'lucide-react'
+import Navbar_Codiac from '@/components/CodiacNav'
 
 
 const Home = () => {
@@ -208,7 +209,10 @@ const Home = () => {
               </div>
             </div>
           ) : (
-            <WebinarDesktop />
+            <>
+              {/* <Navbar_Codiac /> */}
+              <WebinarDesktop />
+            </>
           )}
         </WebinarContext.Provider>
       </div>
