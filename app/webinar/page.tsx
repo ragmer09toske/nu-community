@@ -84,7 +84,7 @@ const Home = () => {
         </div>
         <div className='fixed  top-0 w-full h-10' style={{backdropFilter: ("blur(14px)")}}></div>
     </div>}
-    <div className=''>
+    <div className='lg: w-[70%] m-auto'>
       <WebinarContext.Provider value={{
         handleRegister,
         loading, setLoading,
