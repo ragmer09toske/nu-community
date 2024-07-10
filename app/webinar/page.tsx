@@ -13,6 +13,7 @@ import { Button, Dialog, DialogPanel } from '@tremor/react';
 import Link from 'next/link'
 import { Facebook, Github, Instagram, LinkedinIcon } from 'lucide-react'
 import Navbar_Codiac from '@/components/CodiacNav'
+import Navbar_Data_Repo from '@/components/Navbar_Data_One_Repo'
 
 
 const Home = () => {
@@ -210,8 +211,10 @@ const Home = () => {
             </div>
           ) : (
             <>
-              {/* <Navbar_Codiac /> */}
-              <WebinarDesktop />
+              <Navbar_Data_Repo />
+              <div className='-mt-16'>
+                <WebinarDesktop />
+              </div>
             </>
           )}
         </WebinarContext.Provider>
