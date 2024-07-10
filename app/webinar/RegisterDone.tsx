@@ -1,8 +1,8 @@
 import { Button, Dialog, DialogPanel } from '@tremor/react';
-import React from 'react';
+import React, { useState } from 'react';
 
-export function DialogHero() {
-  const [isOpen, setIsOpen] = React.useState(false);
+export function Done() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="flex justify-center">
       <button
