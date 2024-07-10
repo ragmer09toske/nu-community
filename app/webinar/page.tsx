@@ -104,7 +104,7 @@ const Home = () => {
         isOpen, setIsOpen,
       }}>
         {isMobile ? 
-        <div className='w-[130%] -m-10 mt-5'>
+        <div className='w-[130%] -m-12 mt-5'>
           <div className='w-[] p-5'>
             <Card className='w-[] mt-36'>
                 <div className='h-full'>
