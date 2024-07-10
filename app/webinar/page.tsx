@@ -10,6 +10,8 @@ import { WebinarFooter } from './Footer'
 import useMobile from '../Mobile'
 import WebinarDesktop from './register/page'
 import { Button, Dialog, DialogPanel } from '@tremor/react';
+import Link from 'next/link'
+import { Facebook, Github, Instagram, LinkedinIcon } from 'lucide-react'
 
 
 const Home = () => {
@@ -137,17 +139,64 @@ const Home = () => {
                       className="z-[100]"
                     >
                       <DialogPanel className="max-w-lg">
-                        <div className='flex justify-center pb-5'>
-                          Succefully Registered
+                        <div className='flex justify-center'>
+                          Succefully Registered<br/>
                         </div>
-                        {firstname}
+                        <div className='flex justify-center pb-5'>
+                          {firstname} ✅
+                        </div>
                         <Button
-                          variant="light"
+                          variant="secondary"
                           className="mx-auto flex items-center"
                           onClick={() => setIsOpen(false)}
                         >
                           Done
                         </Button>
+                        <div className='flex justify-center pt-5'>
+                          Follow us on socials
+                        </div>
+                        <div className="flex z-50 justify-center gap-5 p-5">
+                          <div className="social-icons">
+                              <Link
+                              href="https://www.linkedin.com/in/nucleus-devs-5295a7262/"
+                              style={{ color: "white" }}
+                              target="_blank" 
+                              rel="nucleus devs"
+                              >
+                              <LinkedinIcon />
+                              </Link>
+                          </div>
+                          <div className="social-icons">
+                              <Link href="https://web.facebook.com/nucleusdevs.09"
+                              style={{ color: "white" }}
+                              target="_blank" 
+                              rel="nucleus devs"
+                              >
+                              <Facebook />
+                              </Link>
+                          </div>
+                          <div>
+                              <Link
+                              href="https://github.com/ragmer09toske"
+                              style={{ color: "white" }}
+                              target="_blank" 
+                              rel="nucleus devs"
+                              >
+                              <Github />
+                              </Link>
+                          </div>
+                          <div className="social-icons">
+                              <Link
+                              href="https://www.instagram.com/nucleus_creative_studio/"
+                              style={{ color: "white" }}
+                              target="_blank" 
+                              rel="nucleus devs"
+                              >
+                              <Instagram />
+                              </Link>
+                          </div>
+                        </div>
+                       
                       </DialogPanel>
                     </Dialog>
                   </div>
