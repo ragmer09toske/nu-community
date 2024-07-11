@@ -414,7 +414,7 @@ const Dashboard = () => {
                       <DropdownMenuLabel>Filter by</DropdownMenuLabel>
                       <DropdownMenuSeparator />
                       <DropdownMenuCheckboxItem checked>
-                        Fulfilled
+                        Pay
                       </DropdownMenuCheckboxItem>
                       <DropdownMenuCheckboxItem>
                         Declined
