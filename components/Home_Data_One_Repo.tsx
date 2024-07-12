@@ -35,7 +35,7 @@ export default function Home_Data_One_Repo() {
                                Welcome home <span className="text-purple-300">we been been!</span> Expecting you
                             </h1>
                             <p>
-                                Your journey of awesomeness began the minute you allowed us to pilot your business or career into a commanding online presence. Thank you for entrusting us with such a responsibility.
+                              Your journey of awesomeness began the minute you allowed us to pilot your business or career into a commanding online presence. Thank you for entrusting us with such a responsibility.
                             </p>
                             <div className='flex items-center gap-x-4 sm:text-sm'>
                                 <Button
