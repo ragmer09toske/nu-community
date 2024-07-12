@@ -375,20 +375,6 @@ const Dashboard = () => {
               {/* where to put the codiac data */}
               <CodiacData />
               <BarListUsageExample />
-              {/* <Card x-chunk="dashboard-05-chunk-2">
-                <CardHeader className="pb-2">
-                  <CardDescription>Codiac Users</CardDescription>
-                  <CardTitle className="text-4xl">{arrayLength}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-xs text-muted-foreground">
-                    +10% from last month
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Progress value={arrayLength} aria-label="12% increase" />
-                </CardFooter>
-              </Card> */}
             </div>
             <Tabs defaultValue="week">
               <div className="flex items-center">
