@@ -16,7 +16,6 @@ interface User {
     password: string;
     __v: number;
   }
-e  
 export default function Home_Data_One_Repo() {
 
     return (
