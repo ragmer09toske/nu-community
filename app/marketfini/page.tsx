@@ -78,6 +78,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import useStore from "@/app/Store"
 import WebinarData from "./Webinar"
 import { BarListUsageExample } from "./Tech"
+import { TopMenuBar } from "./TopMenuBar"
 
 interface Codiac {
   _id: string; // Represents the unique identifier of the object
@@ -316,25 +317,7 @@ const Dashboard = () => {
               </nav>
             </SheetContent>
           </Sheet>
-          <Breadcrumb className="hidden md:flex">
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="#">Dashboard</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="#">Codians</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>Recent Codians</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+          <TopMenuBar />
           <div className="relative ml-auto flex-1 md:grow-0">
             <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input
