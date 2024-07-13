@@ -79,6 +79,8 @@ import useStore from "@/app/Store"
 import WebinarData from "./Webinar"
 import { BarListUsageExample } from "./Tech"
 import { TopMenuBar } from "./TopMenuBar"
+import HomePage  from "./strapi"
+import DataDisplay from "./strapi"
 
 interface Codiac {
   _id: string; // Represents the unique identifier of the object
@@ -231,16 +233,16 @@ const Dashboard = () => {
 
           <TooltipProvider>
             <Tooltip>
-                <TooltipTrigger asChild>
-                <Link
-                    href="#"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-                >
-                    <LineChart className="h-5 w-5" />
-                    <span className="sr-only">Analytics</span>
-                </Link>
+              <TooltipTrigger asChild>
+                  <Link
+                      href="#"
+                      className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                  >
+                      <LineChart className="h-5 w-5" />
+                      <span className="sr-only">Analytics</span>
+                  </Link>
                 </TooltipTrigger>
-                <TooltipContent side="right">Analytics</TooltipContent>
+              <TooltipContent side="right">Analytics</TooltipContent>
             </Tooltip>
           </TooltipProvider>
         </nav>
@@ -283,20 +285,20 @@ const Dashboard = () => {
                   href="#"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                 >
-                  <Home className="h-5 w-5" />
+                <Home className="h-5 w-5" />
                   Dashboard
                 </Link>
-                <Link
-                  href="#"
-                  className="flex items-center gap-4 px-2.5 text-foreground"
-                >
-                  <ShoppingCart className="h-5 w-5" />
-                  Orders
-                </Link>
-                <Link
-                  href="#"
-                  className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-                >
+                  <Link
+                    href="#"
+                    className="flex items-center gap-4 px-2.5 text-foreground"
+                  >
+                    <ShoppingCart className="h-5 w-5" />
+                    Orders
+                  </Link>
+                  <Link
+                    href="#"
+                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                  >
                   <Package className="h-5 w-5" />
                   Products
                 </Link>
@@ -403,6 +405,7 @@ const Dashboard = () => {
                   </Button>
                 </div>
               </div>
+
               <TabsContent value="Codians">
                 <Card x-chunk="dashboard-05-chunk-3">
                   <CardHeader className="px-7">
@@ -413,50 +416,50 @@ const Dashboard = () => {
                   </CardHeader>
                   <div className="pr-5">
                   <ScrollArea className="h-[420px]">
-                  <CardContent>
-                    <Table>
-                      <TableHeader>
-                        <TableRow>
-                          <TableHead>Customer</TableHead>
-                          <TableHead className="hidden sm:table-cell">
-                            Type
-                          </TableHead>
-                          <TableHead className="hidden sm:table-cell">
-                            Status
-                          </TableHead>
-                          <TableHead className="hidden md:table-cell">
-                            Date
-                          </TableHead>
-                          <TableHead className="text-right">Amount</TableHead>
-                        </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                          {codiacsUsers.map((codiacs, index) => (
-                            <TableRow className="bg-accent" key={index}>
-                                <TableCell>
-                                  <div className="font-medium">{codiacs.name}</div>
-                                  <div className="hidden text-sm text-muted-foreground md:inline">
-                                    {codiacs.email}
-                                  </div>
-                                </TableCell>
-                                <TableCell className="hidden sm:table-cell">
-                                  Sale
-                                </TableCell>
-                                <TableCell className="hidden sm:table-cell">
-                                  <Badge className="text-xs">
-                                    Fulfilled
-                                  </Badge>
-                                </TableCell>
-                                <TableCell className="hidden md:table-cell">
-                                  2023-06-23
-                                </TableCell>
-                                <TableCell className="text-right">$250.00</TableCell>
-                            </TableRow>
-                          ))}
-                        {/* Make this into a map => get the data from, our Codiac table */}
-                      </TableBody>
-                    </Table>
-                  </CardContent>
+                    <CardContent>
+                      <Table>
+                        <TableHeader>
+                          <TableRow>
+                            <TableHead>Customer</TableHead>
+                            <TableHead className="hidden sm:table-cell">
+                              Type
+                            </TableHead>
+                            <TableHead className="hidden sm:table-cell">
+                              Status
+                            </TableHead>
+                            <TableHead className="hidden md:table-cell">
+                              Date
+                            </TableHead>
+                            <TableHead className="text-right">Amount</TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {codiacsUsers.map((codiacs, index) => (
+                              <TableRow className="bg-accent" key={index}>
+                                  <TableCell>
+                                    <div className="font-medium">{codiacs.name}</div>
+                                    <div className="hidden text-sm text-muted-foreground md:inline">
+                                      {codiacs.email}
+                                    </div>
+                                  </TableCell>
+                                  <TableCell className="hidden sm:table-cell">
+                                    Sale
+                                  </TableCell>
+                                  <TableCell className="hidden sm:table-cell">
+                                    <Badge className="text-xs">
+                                      Fulfilled
+                                    </Badge>
+                                  </TableCell>
+                                  <TableCell className="hidden md:table-cell">
+                                    2023-06-23
+                                  </TableCell>
+                                  <TableCell className="text-right">$250.00</TableCell>
+                              </TableRow>
+                            ))}
+                          {/* Make this into a map => get the data from, our Codiac table */}
+                        </TableBody>
+                      </Table>
+                    </CardContent>
                   </ScrollArea>
                   </div>
                 </Card>
@@ -582,7 +585,11 @@ const Dashboard = () => {
                 <Card className="grid gap-3 p-5">
                   <p className="font-semibold">Sales</p>
                   <CardDescription>Take our products out to people</CardDescription>
-                  </Card>
+                </Card>
+                <Card className="grid gap-3 p-5">
+                  <p className="font-semibold">Issues</p>
+                  <CardDescription>Take our products out to people</CardDescription>
+                </Card>
               </CardContent>
               <CardFooter className="flex flex-row items-center border-t bg-muted/50 px-6 py-3">
                 <div className="text-xs text-muted-foreground">
@@ -605,6 +612,7 @@ const Dashboard = () => {
                   </PaginationContent>
                 </Pagination>
               </CardFooter>
+              <DataDisplay/>
             </Card>
           </div>
         </main>
