@@ -5,11 +5,10 @@ const Header = () => {
   return (
     <div className="header">
       <h1 className="text-2xl md:text-4xl text-center text-gray-700 dark:text-white font-extrabold">
-        Get Lifetime Accesss
+      Programming & Development
       </h1>
       <p className="max-w-2xl text-gray-500 dark:text-white text-center md:mx-auto mx-4 mt-4 text-sm md:text-lg ">
-        Get Early access to premium components and all the additional benefits. Get 1-year updates
-        for all the components and additional updates we release.
+      Enroll now for exclusive mentorship and enjoy one year of updates, including all new releases. Stay ahead with continuous improvements and new features designed to enhance your learning journey
       </p>
     </div>
   )
@@ -137,10 +136,8 @@ const ApplicationPricing = () => {
           <div className="features">
             <Step text="Free Wifi" />
             <Step text="8am to 4pm access to our CBD Office" />
-            {/* <Step text="" />
-            <Step text="1-year premium updates" />
-            <Step text="Button Builder" />
-            <Step text="New Monthly Components" /> */}
+            <Step text="Webinar Sessions" />
+            <Step text="Free Consultations" />
           </div>
 
               <button className="w-full rounded-md py-4 font-semibold bg-tmk-blue mt-4 text-white">

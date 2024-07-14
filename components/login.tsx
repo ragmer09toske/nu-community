@@ -61,7 +61,7 @@ export function SignupForm({setLoading}:{setLoading:any}) {
       } catch (error) {
         setLoading(false);
         if (error instanceof Error) {
-          setError(error.message); // Handle as an Error instance
+          setError('Wrong credentials'); // Handle as an Error instance
         } else {
           setError(String(error)); // Handle as a general error
         }

@@ -43,7 +43,7 @@ export default function Navbar() {
 
     const Brand = () => (
         <div className="flex items-center justify-between py-5 md:block">
-            <a href="javascript:void(0)">
+            <a href="/">
                 <Image
                     src="/nu.png"
                     width={40}
