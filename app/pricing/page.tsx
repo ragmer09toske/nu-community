@@ -17,7 +17,7 @@ const people = [
       name: "Nomvuduka Mabaleha",
       designation: "Product Manager",
       image:
-        "/vee.png",
+        "/vee2.png",
     },
     {
       id: 3,
