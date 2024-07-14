@@ -4,8 +4,8 @@ import Head from 'next/head'
 const Header = () => {
   return (
     <div className="header">
-      <h1 className="text-2xl md:text-4xl text-center text-gray-700 dark:text-white font-extrabold">
-      Programming & Development
+      <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
+        Programming & Development
       </h1>
       <p className="max-w-2xl text-gray-500 dark:text-white text-center md:mx-auto mx-4 mt-4 text-sm md:text-lg ">
       Enroll now for exclusive mentorship and enjoy one year of updates, including all new releases. Stay ahead with continuous improvements and new features designed to enhance your learning journey
