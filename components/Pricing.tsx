@@ -111,7 +111,9 @@ const MarketingApplicationFunctionalPricing = () => {
             className="absolute bg-tmk-blue rounded-md px-2 py-2 font-semibold -top-5 dark:text-gray-100"
             style={{ zIndex: 20 }}
           >
-            <p className='text-2xl'>MOST POPULAR</p>
+            <h1 className="text-3xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
+            MOST POPULAR
+            </h1>
           </div>
         </div>
       </div>
