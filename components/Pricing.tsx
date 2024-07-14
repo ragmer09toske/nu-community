@@ -59,7 +59,7 @@ const MarketingPricing = () => {
           </div>
 
               <button className="w-full rounded-md py-4 font-semibold bg-tmk-blue mt-4 text-white">
-                Buy Now
+                Register Now
               </button>
 
         </div>
@@ -102,7 +102,7 @@ const MarketingApplicationFunctionalPricing = () => {
           </div>
 
               <button className="w-full rounded-md py-4 font-semibold bg-tmk-blue mt-4 text-white">
-                Buy Now
+              Register Now
               </button>
 
         </div>
@@ -141,7 +141,7 @@ const ApplicationPricing = () => {
           </div>
 
               <button className="w-full rounded-md py-4 font-semibold bg-tmk-blue mt-4 text-white">
-                Buy Now
+              Registery Now
               </button>
 
           {/* <button className="w-full rounded-md py-4 font-semibold bg-tmk-blue mt-4">Buy Now</button> */}
