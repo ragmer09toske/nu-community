@@ -2,12 +2,10 @@
 import Navbar_Codiac from '@/components/CodiacNav'
 import { MarketingCard } from '@/components/Marketing-Card'
 import { Button } from '@/components/moving-border'
-import { ScrollArea } from '@/components/ui/scroll-area'
 import { ArrowBigRight, Rocket } from 'lucide-react'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { useScroll, useTransform } from "framer-motion";
-import { GoogleGeminiEffect } from '@/components/google-gemini-effect';
 import { cn } from '../utils/cn';
 import { HoveredLink, Menu, MenuItem, ProductItem } from '@/components/navbar-menu';
 import { Spotlight } from '@/components/Spotlight';
@@ -28,11 +26,6 @@ const Page = () => {
     offset: ["start start", "end start"],
   });
   const words = `We are not just in IT & Software Engineering; we are craftsmen. Our attention to aesthetics is simple yet stings like bee. Join the community.`;
-  const pathLengthFirst = useTransform(scrollYProgress, [0, 0.8], [0.2, 1.2]);
-  const pathLengthSecond = useTransform(scrollYProgress, [0, 0.8], [0.15, 1.2]);
-  const pathLengthThird = useTransform(scrollYProgress, [0, 0.8], [0.1, 1.2]);
-  const pathLengthFourth = useTransform(scrollYProgress, [0, 0.8], [0.05, 1.2]);
-  const pathLengthFifth = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
 
   useEffect(()=>{
 

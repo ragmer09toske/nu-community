@@ -75,7 +75,6 @@ export default function Navbar_Codiac() {
                     }
                 </ul>
                 <div className="z-50 items-center justify-end mt-6 space-y-6 md:flex md:mt-0">
-                   
                     <div className='flex items-center justify-center gap-x-1 py-2 px-4 text-white font-medium bg-gray-800 hover:bg-gray-700 active:bg-gray-900 rounded-full md:inline-flex' onClick={() => setIsOpen(false)}>
                         <LoginDialog />
                     </div>

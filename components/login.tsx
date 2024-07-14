@@ -11,8 +11,10 @@ import { Input } from './ui/input';
 import { cn } from '@/app/utils/cn';
 import axios from 'axios';
 import useStore from "@/app/Store"
+import { Card } from './ui/card';
+import LinearBuffer from './MUI_LoadBuffer';
 
-export function SignupForm() {
+export function SignupForm({setLoading}:{setLoading:any}) {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       console.log("Form submitted");
@@ -31,13 +33,13 @@ export function SignupForm() {
 
     async function makeUserObject() {
       try {
+        setLoading(true)
         const response = await axios.get(`http://localhost:8000/codiac/users/${userIDloggedIn}`, {
           headers: {
             Authorization: `Bearer ${loginToken}`,
           },
         });
-        // const { name, number, email } = response.data;
-        // console.log(name)
+        setLoading(false)
         setUser(response.data)
         console.log("user details from storage: ", UserDetails)
       } catch (error) {
@@ -47,15 +49,18 @@ export function SignupForm() {
 
     async function login(email:any, password:any) {
       try {
+        setLoading(true)
         const response = await axios.post('http://localhost:8000/codiac/auth/login', {
           email: email,
           password: password,
         });
+        setLoading(false)
         const { token, userID } = response.data;
         setUserID(userID)
         setLoginToken(token);
         makeUserObject();
       } catch (error) {
+        setLoading(false)
         console.error('We ran into a prorblem');
       }
     }
@@ -65,7 +70,7 @@ export function SignupForm() {
     }
 
     return (
-      <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
+      <Card className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input">
         <form className="my-8" onSubmit={handleSubmit}>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="email">Email Address</Label>
@@ -118,11 +123,13 @@ export function SignupForm() {
             </button>
           </div>
         </form>
-      </div>
+      </Card>
     );
   }
 export function LoginDialog() {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [isLoading, setLoading] = React.useState(false);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form submitted");
@@ -132,6 +139,7 @@ export function LoginDialog() {
     <div className="mx-auto block cursor-pointer" onClick={() => setIsOpen(true)}>Sign in </div>
     <Dialog open={isOpen} onClose={(val) => setIsOpen(val)} static={true} >
       <DialogPanel className='flex flex-col gap-5 w-[80]'>
+        {isLoading && <LinearBuffer />}
         <div>
           <div className='p-5'>
               <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
@@ -144,13 +152,7 @@ export function LoginDialog() {
           </div>
         </div>
         <div className='gap-5'>
-          <SignupForm />
-          {/* <img
-            src="/login.svg"
-            width={430}
-            height={10}
-            alt="Float UI logo"
-          /> */}
+          <SignupForm setLoading={setLoading} />
         </div>
       </DialogPanel>
     </Dialog>

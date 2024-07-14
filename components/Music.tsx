@@ -3,14 +3,12 @@ import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 import { ChevronDownCircle, CircleDashed, FastForward, Pause, Play, Rewind, XCircle } from 'lucide-react';
 import { Progress } from './ui/progress';
-import useDeviceType from '@/app/Device';
 import { motion } from "framer-motion"
 const Music = () => {
     const [playing, setPlaying] = useState<boolean>(false);
     const [progress, setProgress] = useState<number>(0);
     const audioRef = useRef<HTMLAudioElement>(null);
     const [MusicON, setMusicON] = useState<boolean>(true)
-    const constraintsRef = useRef(null)
     const handlePlay = () => {
         const audio = audioRef.current;
         if (audio) {
@@ -73,10 +71,10 @@ const Music = () => {
     }, [playing]);
 
     return (
-        <div className='relative bottom-0'>
-        {MusicON && <motion.div ref={constraintsRef}>
-        <motion.div drag dragConstraints={{left: 0, right: 800, bottom: 800, top: 0}}>
-        {(<div className='relative bottom-0 lg:w-[400px] md:w-[300px]  p-5 flex justify-center '>
+        <div className='relative'>
+        {MusicON && 
+        <div className='h-full absolute top[300px] z-[9999]'>
+        {(<div className='relative lg:w-[400px] md:w-[300px] p-5 flex justify-center'>
             <div className='absolute -top-2 right-6'>
                 <XCircle onClick={()=>setMusicON(false)} size={15} color='gray' />
             </div>
@@ -120,8 +118,7 @@ const Music = () => {
                 </div>
             </div>
         </div>)}
-        </motion.div>
-        </motion.div>}
+        </div>}
         </div>
     );
 }

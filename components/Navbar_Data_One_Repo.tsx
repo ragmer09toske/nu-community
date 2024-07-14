@@ -8,15 +8,14 @@ import Image from 'next/image';
 export default function Navbar_Data_Repo() {
     const [state, setState] = useState(false)
     const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
     const [isOpen, setIsOpen] = React.useState(false);
   
     // Replace javascript:void(0) paths with your paths
     const navigation = [
-        { title: "Codiac", path: "/codiac" },
-        { title: "Market-Fini", path: "javascript:void(0)" },
-        { title: "Algo-Finance", path: "javascript:void(0)" },
+        { title: "Nudevs Academy", path: "/nudevs" },
+        { title: "Codiac", path: "/codiac-test" },
+        { title: "Creative Cloud", path: "javascript:void(0)" },
+        { title: "Sign In", path: "javascript:void(0)" },
         // { title: "Pricing", path: "javascript:void(0)" }
     ]
 
@@ -59,10 +58,10 @@ export default function Navbar_Data_Repo() {
     )
 
   return (
-    <nav className={`pb-5 md:text-sm ${state ? "absolute top-0 inset-x-0 bg-white shadow-lg rounded-xl border mx-2 mt-2 md:shadow-none md:border-none md:mx-0 md:mt-0 md:relative md:bg-transparent" : ""}`}>
-<div className="gap-x-14 items-center max-w-screen-xl mx-auto px-4 md:flex md:px-8">
+    <nav className={`pb-5 z-[9999] pt-10 md:text-sm ${state ? "absolute top-0 inset-x-0 bg-white shadow-lg rounded-xl border mx-2 mt-2 md:shadow-none md:border-none md:mx-0 md:mt-0 md:relative md:bg-transparent" : ""}`}>
+    <div className="gap-x-14 items-center max-w-screen-xl mx-auto px-4 md:flex md:px-8">
     <Brand />
-    <div className={`flex-1 items-center mt-8 md:mt-0 md:flex ${state ? 'block' : 'hidden'} `}>
+    <div className={`flex-1 items-center mt-16 md:mt-0 md:flex ${state ? 'block' : 'hidden'} `}>
         <ul className="flex-1 justify-center items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
             {
                 navigation.map((item, idx) => {
