@@ -4,6 +4,8 @@ import PricingComponent from '@/components/Pricing'
 import React from 'react'
 import useMobile from '../Mobile'
 import { AnimatedTooltip } from '../codiac/learn/animated-tooltip'
+import FooterLinks from '../webinar/socilaLinks'
+import { WebinarFooter } from '../webinar/Footer'
 const people = [
     {
       id: 1,
@@ -39,6 +41,7 @@ const Page = () => {
         </div>
     </div>
     <PricingComponent />
+    <WebinarFooter />
     </>
   )
 }
