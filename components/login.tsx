@@ -21,15 +21,14 @@ export function SignupForm({setLoading}:{setLoading:any}) {
     };
     const [email,setEmail] = useState<string>("");
     const [password,setPassword] = useState<string>("");
-    const setLoginToken = useStore((state) => state.setLoginToken)
-    const setUserID = useStore((state) => state.setUserID)
-    const setUser = useStore((state) => state.setUser)
-    const UserDetails = useStore((state) => state.user)
+    const setLoginToken = useStore((state) => state.setLoginToken);
+    const setUserID = useStore((state) => state.setUserID);
+    const setUser = useStore((state) => state.setUser);
+    const UserDetails = useStore((state) => state.user);
+    const [error,setError] = useState<string>();error
 
     const userIDloggedIn = useStore((state) => state.userID)
     const loginToken = useStore((state) => state.loginToken)
-
-    const userDetails = useStore((state) => state.user)
 
     async function makeUserObject() {
       try {
@@ -60,8 +59,12 @@ export function SignupForm({setLoading}:{setLoading:any}) {
         setLoginToken(token);
         makeUserObject();
       } catch (error) {
-        setLoading(false)
-        console.error('We ran into a prorblem');
+        setLoading(false);
+        if (error instanceof Error) {
+          setError(error.message); // Handle as an Error instance
+        } else {
+          setError(String(error)); // Handle as a general error
+        }
       }
     }
 
@@ -74,11 +77,15 @@ export function SignupForm({setLoading}:{setLoading:any}) {
         <form className="my-8" onSubmit={handleSubmit}>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="email">Email Address</Label>
-            <Input id="email" onChange={(e)=>{setEmail(e.target.value)}} placeholder="retsepile@nucleusdevs.com" type="email" />
+            <Input id="email" onChange={(e)=>{setEmail(e.target.value)}} placeholder="retsepile@nucleusdevs.com" type="email" required />
+            
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="password">Password</Label>
-            <Input id="password" onChange={(e)=>{setPassword(e.target.value)}} placeholder="••••••••" type="password" />
+            <Input id="password" onChange={(e)=>{setPassword(e.target.value)}} placeholder="••••••••" type="password" required/>
+            <div className='w-full justify-center text-center text-xs text-red-600'>
+              {error && <>{error}</>}
+            </div>
           </LabelInputContainer>
           <button
             className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"

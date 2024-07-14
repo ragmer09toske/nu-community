@@ -95,7 +95,7 @@ const MarketingApplicationFunctionalPricing = () => {
             <Step text="UX/UI Principles" />
             <Step text="Learn Figma" />
             <Step text="Become Part of the Programming Wars" />
-            <Step text="Advanced State Management in React" />
+            <Step text="Data Structures and Algorithms" />
             <Step text="Progressive Web Apps (PWAs)" />
             <Step text="Web Security Best Practices" />
             <Step text="DevOps for Developers" />
