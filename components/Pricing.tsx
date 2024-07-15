@@ -108,10 +108,10 @@ const MarketingApplicationFunctionalPricing = () => {
         </div>
         <div className=" flex justify-center">
           <div
-            className="absolute bg-tmk-blue rounded-md px-2 py-2 font-semibold -top-5 dark:text-gray-100"
+            className="absolute bg-tmk-blue rounded-md px-2 py-2 font-semibold md:-top-5 dark:text-gray-100"
             style={{ zIndex: 20 }}
           >
-            <h1 className="text-3xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
+            <h1 className="text-3xl md:text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
             MOST POPULAR
             </h1>
           </div>
