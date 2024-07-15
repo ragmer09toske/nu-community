@@ -55,12 +55,12 @@ export default function Navbar() {
     )
 
   return (
-    <nav className={`pb-5 z-[9999] pt-10 md:text-sm ${state ? "absolute top-0 inset-x-0 bg-white shadow-lg rounded-xl border mx-2 mt-2 md:shadow-none md:border-none md:mx-0 md:mt-0 md:relative md:bg-transparent" : ""}`}>
+    <nav className={`pb-5 z-[9999] pt-5 md:text-sm ${state ? "absolute top-0 inset-x-0 bg-white shadow-lg rounded-xl border mx-2 mt-2 md:shadow-none md:border-none md:mx-0 md:mt-0 md:relative md:bg-transparent" : ""}`}>
         <div className="gap-x-14 items-center max-w-screen-xl mx-auto px-4 md:flex md:px-8">
         <Brand />
         <div className={`flex-1 items-center text-gray-500 mt-16 md:mt-0 md:flex ${state ? 'block' : 'hidden'} `}>
             <div
-                className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
+                className={cn(" top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
             >
                 <Menu setActive={setActive}>
                     <MenuItem setActive={setActive} active={active} item="Nudevs Academy">
