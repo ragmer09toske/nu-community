@@ -48,11 +48,14 @@ const Page = () => {
   return (
     <>
     {!isMobile && <Navbar />}
-    {isMobile && <div className='p-5 px-8 flex  justify-between items-center'>
-        <Brand />
-        <Layers3 />
+    {isMobile && 
+    <div className='fixed w-full -top-5 z-[9999]' style={{backdropFilter: "blur(14px)"}}>
+        <div className='p-5 px-8 flex  justify-between items-center'>
+            <Brand />
+            <Layers3 />
+        </div>
     </div>}
-    <div className="flex flex-row items-center justify-center pt-20 w-full">
+    <div className="flex flex-row items-center justify-center pt-36 w-full">
         <AnimatedTooltip items={people} />
         <div className='pl-7'>
         130+ join members
