@@ -49,8 +49,8 @@ const Page = () => {
     <>
     {!isMobile && <Navbar />}
     {isMobile && 
-    <div className='fixed w-full -top-5 z-[9999]' style={{backdropFilter: "blur(14px)"}}>
-        <div className='p-5 px-8 flex  justify-between items-center'>
+    <div className='fixed w-full -top-5 z-[9999] h-[80px]' style={{backdropFilter: "blur(14px)"}}>
+        <div className='p-3 px-8 flex  justify-between items-center'>
             <Brand />
             <Layers3 />
         </div>
