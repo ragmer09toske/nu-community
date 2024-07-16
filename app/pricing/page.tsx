@@ -7,6 +7,7 @@ import { AnimatedTooltip } from '../codiac/learn/animated-tooltip'
 import FooterLinks from '../webinar/socilaLinks'
 import { WebinarFooter } from '../webinar/Footer'
 import Image from 'next/image'
+import { Layers3 } from 'lucide-react'
 const people = [
     {
       id: 1,
@@ -47,8 +48,9 @@ const Page = () => {
   return (
     <>
     {!isMobile && <Navbar />}
-    {isMobile && <div className='p-5'>
+    {isMobile && <div className='p-5 px-8 flex  justify-between items-center'>
         <Brand />
+        <Layers3 />
     </div>}
     <div className="flex flex-row items-center justify-center pt-20 w-full">
         <AnimatedTooltip items={people} />
