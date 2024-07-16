@@ -1,14 +1,13 @@
 import React from 'react'
-import Head from 'next/head'
 
 const Header = () => {
   return (
     <div className="header">
-      <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
-      Professional Training for Software Engineers 
+      <h1 className="text-2xl md:text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
+        Professional Training <br/>for Software Engineers 
       </h1>
       <p className="max-w-2xl text-gray-500 dark:text-white text-center md:mx-auto mx-4 mt-4 text-sm md:text-lg ">
-      Enroll now for exclusive mentorship and enjoy one year of updates, including all new releases. Stay ahead with continuous improvements and new features designed to enhance your learning journey
+        Enroll now for exclusive mentorship and enjoy one year of updates, including all new releases. Stay ahead with continuous improvements and new features designed to enhance your learning journey
       </p>
     </div>
   )
@@ -57,11 +56,9 @@ const MarketingPricing = () => {
             <Step text="SEO and SEM Analysis" />
             <Step text="Brand Consistency Check" />
           </div>
-
-              <button className="w-full rounded-md py-4 font-semibold bg-tmk-blue mt-4 text-white">
-                Register 
-              </button>
-
+            <button className="w-full rounded-md py-4 font-semibold bg-tmk-blue mt-4 text-white">
+            Register 
+            </button>
         </div>
         <div
           className="absolute inset-0 transform -rotate-3 opacity-20 rounded-md  bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"
@@ -100,11 +97,9 @@ const MarketingApplicationFunctionalPricing = () => {
             <Step text="DevOps for Developers" />
             {/* <Step text="New Monthly Components" /> */}
           </div>
-
-              <button className="w-full rounded-md py-4 font-semibold bg-tmk-blue mt-4 text-white">
-              Register
-              </button>
-
+            <button className="w-full rounded-md py-4 font-semibold bg-tmk-blue mt-4 text-white">
+            Register
+            </button>
         </div>
         <div className=" flex justify-center">
           <div
@@ -159,7 +154,7 @@ const ApplicationPricing = () => {
 
 export default function PricingComponent() {
   return (
-    <div>
+    <div className='pb-10'>
       <div className="page-container pt-28">
         <Header />
       </div>
