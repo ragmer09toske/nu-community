@@ -27,10 +27,6 @@ const Page = () => {
   });
   const words = `We are not just in IT & Software Engineering; we are craftsmen. Our attention to aesthetics is simple yet stings like bee. Join the community.`;
 
-  useEffect(()=>{
-
-  },[])
-
   return (
         <div 
             className="relative"
@@ -79,9 +75,6 @@ const Page = () => {
                 </div>
                 <div className='flex justify-center flex-col items-center pt-36'>
                     <div className='flex-none space-y-5 max-w-xl'>
-                        {/* <h1 className="text-5xl text-white font-extrabold sm:text-7xl">
-                            Welcome home <span className="text-black">we been been!</span> Expecting you
-                        </h1> */}
                     </div>
                 </div>
             </div>
@@ -92,18 +85,18 @@ const Page = () => {
 function Navbar({ className }: { className?: string }) {
     const [active, setActive] = useState<string | null>(null);
       // Use the useState hook with the User type
-  const [user, setUser] = useState<User | null>(null);
+    const [user, setUser] = useState<User | null>(null);
 
-  useEffect(() => {
-    // Retrieve the JSON string from localStorage
-    const userString = localStorage.getItem("user");
+    useEffect(() => {
+      // Retrieve the JSON string from localStorage
+      const userString = localStorage.getItem("user");
 
-    if (userString) {
-      // Parse the JSON string to get the original object and set it as the user
-      const user: User = JSON.parse(userString);
-      setUser(user);
-    }
-  }, []); 
+      if (userString) {
+        // Parse the JSON string to get the original object and set it as the user
+        const user: User = JSON.parse(userString);
+        setUser(user);
+      }
+    }, []); 
 
     return (
       <div
