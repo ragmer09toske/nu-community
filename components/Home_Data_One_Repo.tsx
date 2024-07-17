@@ -64,8 +64,6 @@ export default function Home_Data_One_Repo() {
                     </div>
                 </section>
             </div>
-            
-            
         </div>
     )
 }

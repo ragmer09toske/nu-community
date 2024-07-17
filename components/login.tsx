@@ -1,10 +1,9 @@
-import { Button, Dialog, DialogPanel } from '@tremor/react';
-import React, { useEffect, useState } from 'react';
+import { Dialog, DialogPanel } from '@tremor/react';
+import React, { useState } from 'react';
 
 import {
   IconBrandGithub,
   IconBrandGoogle,
-  IconBrandOnlyfans,
 } from "@tabler/icons-react";
 import { Label } from './ui/label';
 import { Input } from './ui/input';
@@ -137,10 +136,6 @@ export function LoginDialog() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isLoading, setLoading] = React.useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Form submitted");
-  };
   return (
     <div className='w-full'>
     <div className="mx-auto block cursor-pointer" onClick={() => setIsOpen(true)}>Sign in </div>

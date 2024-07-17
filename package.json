@@ -60,6 +60,7 @@
     "cmdk": "^0.2.1",
     "codemirror": "^5.65.16",
     "date-fns": "^3.6.0",
+    "firebase": "^10.12.3",
     "framer-motion": "^11.0.24",
     "i": "^0.3.7",
     "install": "^0.13.0",

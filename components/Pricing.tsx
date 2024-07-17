@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Spotlight } from './Spotlight'
+import { PriceContext } from '@/app/webinar/AppContex'
 
 const Header = () => {
   return (
@@ -34,6 +36,10 @@ const Step = ({ text }:{text:any}) => {
 }
 
 const MarketingPricing = () => {
+  let {setIsOpenOnlinePresence} = useContext(PriceContext);
+  const OnlinePresence = () => {
+    setIsOpenOnlinePresence(true)
+  }
   return (
     <>
       <div className="relative z-10">
@@ -56,7 +62,7 @@ const MarketingPricing = () => {
             <Step text="SEO and SEM Analysis" />
             <Step text="Brand Consistency Check" />
           </div>
-            <button className="w-full rounded-md py-4 font-semibold bg-tmk-blue mt-4 text-white">
+            <button className="w-full rounded-md py-4 font-semibold bg-tmk-blue mt-4 text-white" onClick={OnlinePresence}>
             Register 
             </button>
         </div>
@@ -70,6 +76,10 @@ const MarketingPricing = () => {
 }
 
 const MarketingApplicationFunctionalPricing = () => {
+  let {setIsOpenUnderTheHoodStudies} = useContext(PriceContext);
+  const UnderTheHoodStudies = () => {
+    setIsOpenUnderTheHoodStudies(true)
+  }
   return (
     <>
       <div className="relative z-10">
@@ -97,7 +107,7 @@ const MarketingApplicationFunctionalPricing = () => {
             <Step text="DevOps for Developers" />
             {/* <Step text="New Monthly Components" /> */}
           </div>
-            <button className="w-full rounded-md py-4 font-semibold bg-tmk-blue mt-4 text-white">
+            <button className="w-full rounded-md py-4 font-semibold bg-tmk-blue mt-4 text-white" onClick={UnderTheHoodStudies}>
             Register
             </button>
         </div>
@@ -117,6 +127,10 @@ const MarketingApplicationFunctionalPricing = () => {
 }
 
 const ApplicationPricing = () => {
+  let {setIsOpenFullstackMentorship} = useContext(PriceContext);
+  const FullstackMentorship = () => {
+    setIsOpenFullstackMentorship(true)
+  }
   return (
     <>
       <div className="relative z-10">
@@ -136,12 +150,7 @@ const ApplicationPricing = () => {
             <Step text="Webinar Sessions" />
             <Step text="Free Consultations" />
           </div>
-
-              <button className="w-full rounded-md py-4 font-semibold bg-tmk-blue mt-4 text-white">
-              Register
-              </button>
-
-          {/* <button className="w-full rounded-md py-4 font-semibold bg-tmk-blue mt-4">Buy Now</button> */}
+            <button className="w-full rounded-md py-4 font-semibold bg-tmk-blue mt-4 text-white" onClick={FullstackMentorship}>Register</button>
         </div>
         <div
           className="absolute inset-0 transform -rotate-3 opacity-20 rounded-md  bg-gradient-to-r from-yellow-200 via-green-200 to-green-500"
@@ -159,6 +168,10 @@ export default function PricingComponent() {
         <Header />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 mt-20 mx-4 md:mx-8 xl:mx-40 gap-8 z-10 content-center items-center">
+        <Spotlight
+          className="-top-40 left-0 md:left-60 md:-top-20"
+          fill="white"
+        />
         <MarketingPricing />
         <MarketingApplicationFunctionalPricing />
         <ApplicationPricing />
