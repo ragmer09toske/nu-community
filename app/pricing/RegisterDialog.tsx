@@ -7,8 +7,10 @@ import RegisterForm from '../webinar/RegisterForm'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { Loader2 } from 'lucide-react'
+import { Loader2, SidebarCloseIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import useMobile from '../Mobile'
+import { RiCloseCircleFill } from '@remixicon/react'
 
 const RegisterDialog = () => {
   let {setIsOpenUnderTheHoodStudies} = useContext(PriceContext);
@@ -22,6 +24,8 @@ const RegisterDialog = () => {
   
   let {isLoading} = useContext(PriceContext);
   let {setLoading} = useContext(PriceContext);
+
+  const isMobile =  useMobile();
 
   return (
     <div className='w-full'>
@@ -43,6 +47,9 @@ const RegisterDialog = () => {
                 <div>
                     <form className="my-8">
                         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
+                            {isMobile && <div>
+                                <RiCloseCircleFill />
+                            </div>}
                             <LabelInputContainer>
                             <Label>First name</Label>
                             <Input required placeholder="Khotso" type="text" />
@@ -65,9 +72,7 @@ const RegisterDialog = () => {
                         placeholder="Tell us a little bit about yourself"
                         required
                         className="resize-none" />
-                        </div>
-                
-                       
+                        </div>       
                             <button
                             className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
                             >
@@ -85,16 +90,19 @@ const RegisterDialog = () => {
         <Dialog open={isOpenFullstackMentorship} onClose={(val) => setIsOpenFullstackMentorship(val)} static={true} >
             <DialogPanel className='flex flex-col gap-5 w-[80]'>
                 {isLoading && <LinearBuffer />}
-                <div>
-                <div className='p-5'>
-                    <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
-                        Welcome to Nucleus talend cloud
-                    </h2>
-                    <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
-                        Login to Nucleus if you can because we don&apos;t have a login flow
-                        yet
-                    </p>
-                </div>
+                <div className='flex justify-between items-baseline'>
+                    <div className='p-5'>
+                        <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
+                            Welcome to Nucleus talend cloud
+                        </h2>
+                        <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
+                            Login to Nucleus if you can because we don&apos;t have a login flow
+                            yet
+                        </p>
+                    </div>
+                    {isMobile && <div>
+                        <RiCloseCircleFill />
+                    </div>}
                 </div>
                 <div className='gap-5'>
                 <SignupForm setLoading={setLoading} />

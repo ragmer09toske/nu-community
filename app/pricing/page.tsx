@@ -37,7 +37,7 @@ const Page = () => {
   const [isOpenOnlinePresence, setIsOpenOnlinePresence] = useState<boolean>(false)
   const [isOpenFullstackMentorship, setIsOpenFullstackMentorship] = useState<boolean>(false)
   const [isOpenUnderTheHoodStudies, setIsOpenUnderTheHoodStudies] = useState<boolean>(false)
-
+  
   const Brand = () => (
     <div className="flex items-center justify-between py-5 md:block">
         <a href="/">
