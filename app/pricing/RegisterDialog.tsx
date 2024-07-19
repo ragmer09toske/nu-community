@@ -32,24 +32,25 @@ const RegisterDialog = () => {
         <Dialog open={isOpenUnderTheHoodStudies} onClose={(val) => setIsOpenUnderTheHoodStudies(val)} static={true} >
             <DialogPanel className='flex flex-col gap-5 w-[80]'>
                 {isLoading && <LinearBuffer />}
-                <div>
-                <div className='p-5'>
-                    <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
-                        Welcome to Nucleus talend cloud
-                    </h2>
-                    <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
-                        Login to Nucleus if you can because we don&apos;t have a login flow
-                        yet
-                    </p>
-                </div>
+                <div className='flex justify-between items-center'> 
+                    <div className='p-5'>
+                        <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
+                            Welcome to Nucleus talend cloud
+                        </h2>
+                        <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
+                            Login to Nucleus if you can because we don&apos;t have a login flow
+                            yet
+                        </p>
+                    </div>
+                    {isMobile && <div>
+                        <RiCloseCircleFill onClick={()=>setIsOpenUnderTheHoodStudies(false)} />
+                    </div>}
                 </div>
                 <div className='gap-5'>
                 <div>
                     <form className="my-8">
                         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
-                            {isMobile && <div>
-                                <RiCloseCircleFill onClick={()=>setIsOpenUnderTheHoodStudies(false)} />
-                            </div>}
+                            
                             <LabelInputContainer>
                             <Label>First name</Label>
                             <Input required placeholder="Khotso" type="text" />
@@ -90,7 +91,7 @@ const RegisterDialog = () => {
         <Dialog open={isOpenFullstackMentorship} onClose={(val) => setIsOpenFullstackMentorship(val)} static={true} >
             <DialogPanel className='flex flex-col gap-5 w-[80]'>
                 {isLoading && <LinearBuffer />}
-                <div className='flex justify-between items-baseline'>
+                <div className='flex justify-between items-center'>
                     <div className='p-5'>
                         <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
                             Welcome to Nucleus talend cloud
@@ -101,7 +102,7 @@ const RegisterDialog = () => {
                         </p>
                     </div>
                     {isMobile && <div>
-                        <RiCloseCircleFill onClick={()=>setIsOpenUnderTheHoodStudies(false)} />
+                        <RiCloseCircleFill onClick={()=>setIsOpenFullstackMentorship(false)} />
                     </div>}
                 </div>
                 <div className='gap-5'>
@@ -113,16 +114,19 @@ const RegisterDialog = () => {
         <Dialog open={isOpenOnlinePresence} onClose={(val) => setIsOpenOnlinePresence(val)} static={true} >
             <DialogPanel className='flex flex-col gap-5 w-[80]'>
                 {isLoading && <LinearBuffer />}
-                <div>
-                <div className='p-5'>
-                    <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
-                        Welcome to Nucleus talend cloud
-                    </h2>
-                    <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
-                        Login to Nucleus if you can because we don&apos;t have a login flow
-                        yet
-                    </p>
-                </div>
+                <div className='flex justify-between items-center'>
+                    <div className='p-5'>
+                        <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
+                            Welcome to Nucleus talend cloud
+                        </h2>
+                        <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
+                            Login to Nucleus if you can because we don&apos;t have a login flow
+                            yet
+                        </p>
+                    </div>
+                    {isMobile && <div>
+                        <RiCloseCircleFill onClick={()=>setIsOpenOnlinePresence(false)} />
+                    </div>}
                 </div>
                 <div className='gap-5'>
                 <SignupForm setLoading={setLoading} />
