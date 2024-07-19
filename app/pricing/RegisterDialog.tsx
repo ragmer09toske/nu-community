@@ -48,7 +48,7 @@ const RegisterDialog = () => {
                     <form className="my-8">
                         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
                             {isMobile && <div>
-                                <RiCloseCircleFill />
+                                <RiCloseCircleFill onClick={()=>setIsOpenUnderTheHoodStudies(false)} />
                             </div>}
                             <LabelInputContainer>
                             <Label>First name</Label>
@@ -101,7 +101,7 @@ const RegisterDialog = () => {
                         </p>
                     </div>
                     {isMobile && <div>
-                        <RiCloseCircleFill />
+                        <RiCloseCircleFill onClick={()=>setIsOpenUnderTheHoodStudies(false)} />
                     </div>}
                 </div>
                 <div className='gap-5'>
@@ -147,10 +147,10 @@ const LabelInputContainer = ({
 };
 const BottomGradient = () => {
     return (
-        <>
-        <span className="group-hover/btn:opacity-100 block transition duration-500 opacity-0 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
-        <span className="group-hover/btn:opacity-100 blur-sm block transition duration-500 opacity-0 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
-        </>
+    <>
+      <span className="group-hover/btn:opacity-100 block transition duration-500 opacity-0 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
+      <span className="group-hover/btn:opacity-100 blur-sm block transition duration-500 opacity-0 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
+    </>
     );
 };
 export default RegisterDialog
