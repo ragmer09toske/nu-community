@@ -13,8 +13,11 @@ import {
     MenubarSubTrigger,
     MenubarTrigger,
   } from "@/components/ui/menubar"
+import { useContext } from "react"
+import { MenuContext } from "../webinar/AppContex"
   
   export function TopMenuBar() {
+    const {setView,view} = useContext(MenuContext)
     return (
       <Menubar>
         <MenubarMenu>
@@ -71,9 +74,11 @@ import {
         <MenubarMenu>
           <MenubarTrigger>View</MenubarTrigger>
           <MenubarContent>
-            <MenubarCheckboxItem>Always Show Bookmarks Bar</MenubarCheckboxItem>
-            <MenubarCheckboxItem checked>
-              Always Show Full URLs
+            <MenubarCheckboxItem checked={view === "Workspace"} onClick={()=>setView("Workspace")}>
+              Show Workspace
+            </MenubarCheckboxItem>
+            <MenubarCheckboxItem checked={view === "dash"} onClick={()=>setView("dash")}>
+              Show Dashboard
             </MenubarCheckboxItem>
             <MenubarSeparator />
             <MenubarItem inset>

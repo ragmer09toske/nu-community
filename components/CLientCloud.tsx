@@ -86,7 +86,7 @@ export const CLientCloud = () => {
   const [receivedMessage, setReceivedMessage] = useState('');
   const [room, setRoom] = useState<string>("1");
   const userDetails = useStore((state) => state.user);
-  
+
   useEffect(() => {
     const newSocket = io("https://socket-io-server-d1d904e77e8c.herokuapp.com");
     // setSocket(newSocket);
@@ -124,9 +124,9 @@ export const CLientCloud = () => {
         <Tabs defaultValue="account" className="flex  h-[100%] flex-col">
           <LinearBuffer />
           <TabsList>
-            <TabsTrigger value="ticket">Tickets</TabsTrigger>
-            <TabsTrigger value="rooms">Rooms</TabsTrigger>
-            <TabsTrigger value="temp_on">Temp-On</TabsTrigger>
+            <TabsTrigger value="ticket">Media</TabsTrigger>
+            <TabsTrigger value="rooms">Pages</TabsTrigger>
+            <TabsTrigger value="temp_on">Content</TabsTrigger>
           </TabsList>
           <ScrollArea
             style={{ borderWidth: "0px" }}
