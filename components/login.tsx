@@ -32,7 +32,7 @@ export function SignupForm({setLoading}:{setLoading:any}) {
     async function makeUserObject() {
       try {
         setLoading(true)
-        const response = await axios.get(`nu-com-0e51cf02b2c8.herokuapp.com/codiac/users/${userIDloggedIn}`, {
+        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/users/${userIDloggedIn}`, {
           headers: {
             Authorization: `Bearer ${loginToken}`,
           },
