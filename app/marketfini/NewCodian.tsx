@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import { CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Card } from '@tremor/react'
 import React from 'react'
+import { AnimatedModal } from './components/AnimatedModa'
 
 const NewCodian = () => {
   return (
@@ -16,7 +17,7 @@ const NewCodian = () => {
           </CardDescription>
       </CardHeader>
       <CardFooter>
-          <Button>New Codian</Button>
+        <AnimatedModal />
       </CardFooter>
     </Card>
   )
