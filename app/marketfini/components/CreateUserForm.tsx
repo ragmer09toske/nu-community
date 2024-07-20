@@ -39,7 +39,7 @@ import { NuUserContext } from "@/app/webinar/AppContex";
 export function CreateUserForm() {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
-  const {setClient,setNames,setPassword,setEmail,setRepeatPassword}  = useContext(NuUserContext)
+  const {setClient,setNames,setPassword,setEmail,setRepeatPassword,setPhones}  = useContext(NuUserContext)
 
   useEffect(()=>{
     setClient(value)
@@ -50,7 +50,7 @@ export function CreateUserForm() {
     e.preventDefault();
     console.log("Form submitted");
   };
-  
+
   return (
     <div className="flex  gap-5  items-center">
         <div className="max-w-md mx-auto w-full rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
@@ -61,7 +61,7 @@ export function CreateUserForm() {
             </LabelInputContainer>
             <LabelInputContainer>
                 <Label htmlFor="lastname">Phone</Label>
-                <Input id="lastname" onChange={(e)=>{setPassword(e.target.value)}} placeholder="56234554" type="number" />
+                <Input id="lastname" onChange={(e)=>{setPhones(e.target.value)}} placeholder="56234554" type="number" />
             </LabelInputContainer>
             <LabelInputContainer className="mb-4">
             <Label htmlFor="email">Email Address</Label>

@@ -7,9 +7,10 @@ import {
   ModalFooter,
   ModalTrigger,
 } from "./animated-modal";
-import { User2 } from "lucide-react";
+import { Loader2, User2 } from "lucide-react";
 import { CreateUserForm } from "./CreateUserForm";
 import { NuUserContext } from "@/app/webinar/AppContex";
+import axios from "axios";
 
 export function AnimatedModal() {
     const [names, setNames] = useState<string>('');
@@ -17,7 +18,38 @@ export function AnimatedModal() {
     const [email, setEmail] = useState<string>('');
     const [client, setClient] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [loading, setLoading] = useState<boolean>();
     const [repeatPassword, setRepeatPassword] = useState<string>('');
+
+    async function register() {
+        try {
+          setLoading(true)
+          const response = await axios.post('https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/auth/register', {
+            name : names,
+            number : phones,
+            email : email,
+            acount : client,
+            password : password
+          });
+          setLoading(false)
+          const { token, userID } = response.data;
+        } catch (error) {
+          setLoading(false);
+          if (error instanceof Error) {
+            
+          } else {
+
+          }
+        }
+    }
+    const submit = () =>{
+        console.log("names: ",names)
+        console.log("phone: ",phones)
+        console.log(email)
+        console.log(client)
+        console.log(password)
+        register()
+    }
   return (
     <NuUserContext.Provider value={{
         names, setNames,
@@ -45,8 +77,8 @@ export function AnimatedModal() {
                 <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
                 Cancel
                 </button>
-                <button className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
-                Save Profile
+                <button onClick={submit} className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
+                    {!loading ? "Save Profile" : <Loader2 className="animate-spin flex w-full justify-center "/>}
                 </button>
             </ModalFooter>
             </ModalBody>
