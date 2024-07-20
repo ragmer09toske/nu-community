@@ -32,7 +32,7 @@ export function SignupForm({setLoading}:{setLoading:any}) {
     async function makeUserObject() {
       try {
         setLoading(true)
-        const response = await axios.get(`http://localhost:8000/codiac/users/${userIDloggedIn}`, {
+        const response = await axios.get(`nu-com-0e51cf02b2c8.herokuapp.com/codiac/users/${userIDloggedIn}`, {
           headers: {
             Authorization: `Bearer ${loginToken}`,
           },
@@ -48,7 +48,7 @@ export function SignupForm({setLoading}:{setLoading:any}) {
     async function login(email:any, password:any) {
       try {
         setLoading(true)
-        const response = await axios.post('http://localhost:8000/codiac/auth/login', {
+        const response = await axios.post('nu-com-0e51cf02b2c8.herokuapp.com/codiac/auth/login', {
           email: email,
           password: password,
         });
