@@ -2,7 +2,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import {
-    Badge,
+  Badge,
   ChevronLeft,
   ChevronRight,
   Copy,
@@ -20,14 +20,6 @@ import {
   Users2,
 } from "lucide-react"
 
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -52,7 +44,6 @@ import {
   PaginationContent,
   PaginationItem,
 } from "@/components/ui/pagination"
-import { Progress } from "@/components/ui/progress"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import {
   Table,
@@ -79,8 +70,8 @@ import useStore from "@/app/Store"
 import WebinarData from "./Webinar"
 import { BarListUsageExample } from "./Tech"
 import { TopMenuBar } from "./TopMenuBar"
-import HomePage  from "./strapi"
 import DataDisplay from "./strapi"
+import { AnimatedModal } from "./components/AnimatedModa"
 
 interface Codiac {
   _id: string; // Represents the unique identifier of the object
@@ -320,6 +311,7 @@ const Dashboard = () => {
             </SheetContent>
           </Sheet>
           <TopMenuBar />
+          <AnimatedModal />
           <div className="relative ml-auto flex-1 md:grow-0">
             <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input

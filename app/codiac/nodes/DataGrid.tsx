@@ -36,9 +36,9 @@ export const DataGrid = () => {
         setLoading(false);
       } catch (error) {
         if (axios.isCancel(error)) {
-          console.log('Request canceled', error.message);
+          /* Testing done, change this if testing again */;
         } else {
-          console.log(error);
+          /* Testing done, change this if testing again */;
         }
         setLoading(false);
       }

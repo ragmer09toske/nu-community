@@ -16,7 +16,7 @@ import LinearBuffer from './MUI_LoadBuffer';
 export function SignupForm({setLoading}:{setLoading:any}) {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      console.log("Form submitted");
+      /* */
     };
     const [email,setEmail] = useState<string>("");
     const [password,setPassword] = useState<string>("");
@@ -39,7 +39,6 @@ export function SignupForm({setLoading}:{setLoading:any}) {
         });
         setLoading(false)
         setUser(response.data)
-        console.log("user details from storage: ", UserDetails)
       } catch (error) {
         console.error('We ran into a prorblem');
       }
