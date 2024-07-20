@@ -17,7 +17,6 @@ import {
   GripHorizontal,
   HelpCircle,
   LucideIcon,
-  Send,
   SlidersHorizontal,
   XCircle,
 } from "lucide-react"
@@ -28,7 +27,6 @@ import {
   Command,
   CommandEmpty,
   CommandGroup,
-  CommandInput,
   CommandItem,
   CommandList,
 } from "@/components/ui/command"
@@ -142,7 +140,6 @@ export const CLientCloud = () => {
             className="flex flex-col gap-5 w-full rounded-md border p-4"
           >
             <TabsContent value="ticket">
-              {/* <MenuList /> */}
             <div className="flex items-center space-x-4">
               <SlidersHorizontal  className="text-sm text-muted-foreground" />
               <Popover open={open} onOpenChange={setOpen}>
