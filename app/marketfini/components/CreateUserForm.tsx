@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Label } from "./label";
 import { Input } from "./input";
 import { cn } from "@/lib/utils";
@@ -34,16 +34,12 @@ const frameworks = [
 ]
 import Image from "next/image";
 import { Value } from "@radix-ui/react-select";
+import { NuUserContext } from "@/app/webinar/AppContex";
 
 export function CreateUserForm() {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
-  const [names, setNames] = useState<string>('');
-  const [phones, setPhones] = useState<number>();
-  const [email, setEmail] = useState<string>('');
-  const [client, setClient] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [repeatPassword, setRepeatPassword] = useState<string>('');
+  const {setClient,setNames,setPassword,setEmail,setRepeatPassword}  = useContext(NuUserContext)
 
   useEffect(()=>{
     setClient(value)
@@ -54,6 +50,7 @@ export function CreateUserForm() {
     e.preventDefault();
     console.log("Form submitted");
   };
+  
   return (
     <div className="flex  gap-5  items-center">
         <div className="max-w-md mx-auto w-full rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
