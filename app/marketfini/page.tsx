@@ -88,6 +88,7 @@ interface CodiacUsers {
   name: string; // Represents the first name of the person
   email: string; // Represents the email address of the person
   number: number; // Represents the phone number of the person
+  acount:string;
   __v: number; // Represents the version key in MongoDB
 }
 const Dashboard = () => {
@@ -105,7 +106,7 @@ const Dashboard = () => {
       try {
         source = axios.CancelToken.source();
         const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/registerers`, {
-          cancelToken: source.token
+          cancelToken: source.token,
         });
         setCodiacs(response.data);
         setLoading(false);
@@ -131,7 +132,7 @@ const Dashboard = () => {
     const getAllCodiacsUsers = async () => {
       setLoading(true);   
       try {
-        const response = await axios.get(`nu-com-0e51cf02b2c8.herokuapp.com/codiac/users`, {
+        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/users`, {
           headers: {
             Authorization: `Bearer ${loginToken}`,
           },
@@ -420,9 +421,9 @@ const Dashboard = () => {
                               Status
                             </TableHead>
                             <TableHead className="hidden md:table-cell">
-                              Date
+                              Numbers
                             </TableHead>
-                            <TableHead className="text-right">Amount</TableHead>
+                            <TableHead className="text-right">For</TableHead>
                           </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -443,9 +444,9 @@ const Dashboard = () => {
                                     </Badge>
                                   </TableCell>
                                   <TableCell className="hidden md:table-cell">
-                                    2023-06-23
+                                  {codiacs.number}
                                   </TableCell>
-                                  <TableCell className="text-right">$250.00</TableCell>
+                                  <TableCell className="text-right">{codiacs.acount}</TableCell>
                               </TableRow>
                             ))}
                           {/* Make this into a map => get the data from, our Codiac table */}
