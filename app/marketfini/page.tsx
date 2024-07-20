@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image"
 import Link from "next/link"
+import axios, { CancelTokenSource } from 'axios'
 import {
   Home,
   LineChart,
@@ -12,9 +13,7 @@ import {
   ShoppingCart,
   Users2,
 } from "lucide-react"
-
 import { Button } from "@/components/ui/button"
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,14 +24,13 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-
+import useStore from "@/app/Store"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-
 import { TopMenuBar } from "./TopMenuBar"
 import Main from "./Main"
 import Workspace from "../workspace/page"
 import { MenuContext } from "../webinar/AppContex"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 interface Codiac {
@@ -55,10 +53,63 @@ interface CodiacUsers {
 }
 const Dashboard = () => {
   const [view, setView] = useState<string>("dash")
+  const [loading, setLoading] = useState<boolean>(false);
+  const [codiacs, setCodiacs] = useState<Codiac[]>([]);
+  const [codiacsUsers, setCodiacsUsers] = useState<CodiacUsers[]>([]);
+  const loginToken = useStore((state) => state.loginToken)
 
+  useEffect(() => { 
+    let source: CancelTokenSource;
+    const getAllCodiacs = async () => {
+      setLoading(true);   
+      try {
+        source = axios.CancelToken.source();
+        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/registerers`, {
+          cancelToken: source.token,
+        });
+        setCodiacs(response.data);
+        setLoading(false);
+      } catch (error) {
+        if (axios.isCancel(error)) {
+          console.log('Request canceled', error.message);
+        } else {
+          console.log(error);
+        }
+        setLoading(false);
+      }
+    };
+    getAllCodiacs();
+
+    return () => {
+      if (source) {
+        source.cancel('Component unmounted');
+      }
+    };
+  }, [``]);
+
+  useEffect(() => { 
+    const getAllCodiacsUsers = async () => {
+      setLoading(true);   
+      try {
+        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/users`, {
+          headers: {
+            Authorization: `Bearer ${loginToken}`,
+          },
+        });
+        setCodiacsUsers(response.data);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+      }
+    };
+    getAllCodiacsUsers();
+  }, [loginToken]);
   return (
     <MenuContext.Provider value={{
-      view, setView
+      view, setView,
+      loading, setLoading,
+      codiacs, setCodiacs,
+      codiacsUsers, setCodiacsUsers
     }}>
       <div className="flex min-h-screen w-full flex-col bg-muted/40">
         <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
