@@ -48,7 +48,7 @@ export function SignupForm({setLoading}:{setLoading:any}) {
     async function login(email:any, password:any) {
       try {
         setLoading(true)
-        const response = await axios.post('nu-com-0e51cf02b2c8.herokuapp.com/codiac/auth/login', {
+        const response = await axios.post('https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/auth/login', {
           email: email,
           password: password,
         });
@@ -60,9 +60,9 @@ export function SignupForm({setLoading}:{setLoading:any}) {
       } catch (error) {
         setLoading(false);
         if (error instanceof Error) {
-          setError('Wrong credentials'); // Handle as an Error instance
+          setError('Wrong credentials'); 
         } else {
-          setError(String(error)); // Handle as a general error
+          setError(String(error)); 
         }
       }
     }
