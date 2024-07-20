@@ -86,14 +86,7 @@ export const CLientCloud = () => {
   const [receivedMessage, setReceivedMessage] = useState('');
   const [room, setRoom] = useState<string>("1");
   const userDetails = useStore((state) => state.user);
-  // const [socket, setSocket] = useState<SocketIOClient.Socket | null>(null);
-
-  // const sendMessage = useCallback(() => {
-  //   if (socket) {
-  //     socket.emit("send_message", { message: message, room: room });
-  //   }
-  // }, [socket, message, room]);
-
+  
   useEffect(() => {
     const newSocket = io("https://socket-io-server-d1d904e77e8c.herokuapp.com");
     // setSocket(newSocket);
