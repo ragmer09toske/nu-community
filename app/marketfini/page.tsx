@@ -31,6 +31,8 @@ import Main from "./Main"
 import Workspace from "../workspace/page"
 import { MenuContext } from "../webinar/AppContex"
 import { useEffect, useState } from "react"
+import HumanResource from "./HumanResource"
+import Programs from "./Programs"
 
 
 interface Codiac {
@@ -133,7 +135,7 @@ const Dashboard = () => {
                   href="#"
                   className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                 >
-                  <Home className="h-5 w-5" />
+                  <Home onClick={()=>{setView("dash")}} className="h-5 w-5" />
                   <span className="sr-only">Dashboard</span>
                 </Link>
               </TooltipTrigger>
@@ -163,11 +165,11 @@ const Dashboard = () => {
                   href="#"
                   className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                 >
-                  <Package className="h-5 w-5" />
-                  <span className="sr-only">Products</span>
+                  <Package onClick={()=>{setView("Programs")}} className="h-5 w-5" />
+                  <span className="sr-only">Programs</span>
                 </Link>
               </TooltipTrigger>
-              <TooltipContent side="right">Products</TooltipContent>
+              <TooltipContent side="right">Programs</TooltipContent>
             </Tooltip>
             </TooltipProvider>
 
@@ -178,11 +180,11 @@ const Dashboard = () => {
                   href="#"
                   className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                 >
-                  <Users2 className="h-5 w-5" />
-                  <span className="sr-only">Customers</span>
+                  <Users2 onClick={()=>{setView("HumanResource")}} className="h-5 w-5" />
+                  <span className="sr-only">Human Resouce</span>
                 </Link>
               </TooltipTrigger>
-              <TooltipContent side="right">Customers</TooltipContent>
+              <TooltipContent side="right">Human Resource</TooltipContent>
             </Tooltip>
             </TooltipProvider>
 
@@ -311,6 +313,8 @@ const Dashboard = () => {
           </header>
           {view === "dash" && <Main />}
           {view == "Workspace" && <Workspace />}
+          {view == "HumanResource" && <HumanResource />}
+          {view == "Programs" && <Programs />}
         </div>
       </div>
     </MenuContext.Provider>
