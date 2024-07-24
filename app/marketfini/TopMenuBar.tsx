@@ -15,9 +15,24 @@ import {
   } from "@/components/ui/menubar"
 import { useContext } from "react"
 import { MenuContext } from "../webinar/AppContex"
-  
+import useStore from "@/app/Store"
+interface CodiacUsers {
+  _id: string; // Represents the unique identifier of the object
+  name: string; // Represents the first name of the person
+  email: string; // Represents the email address of the person
+  number: number; // Represents the phone number of the person
+  acount:string;
+  __v: number; // Represents the version key in MongoDB
+}
   export function TopMenuBar() {
     const {setView,view} = useContext(MenuContext)
+    // I can the Current use. Get his/her account type then go 
+    // through all users and show only those with the same account 
+    // type as the current logged in user
+
+    const UserDetails = useStore((state) => state.user);
+
+
     return (
       <Menubar>
         <MenubarMenu>
@@ -97,7 +112,7 @@ import { MenuContext } from "../webinar/AppContex"
           <MenubarTrigger>Profiles</MenubarTrigger>
           <MenubarContent>
             <MenubarRadioGroup value="benoit">
-              <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
+              <MenubarRadioItem value="andy">{UserDetails?.name}</MenubarRadioItem>
               <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
               <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
             </MenubarRadioGroup>

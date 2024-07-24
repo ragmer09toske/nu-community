@@ -27,10 +27,10 @@ export default async function RootLayout({
   return (
     <html lang="en">
        <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
         >
           <SessionProvider session={session}>
             <Analytics/>

@@ -7,7 +7,7 @@ import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/componen
 
 const Workspace = () => {
   return (
-    <div>
+    <div className="w-full">
       <div className='flex w-full gap-3 justify-center top-5 items-center h-full fixed bottom-7'>
         <Card style={{
           backdropFilter: "blur(5px)",

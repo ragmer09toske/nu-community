@@ -29,6 +29,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@tremor/react'
 import useStore from "@/app/Store"
 import axios, { CancelTokenSource } from 'axios'
+import NewCodian from './NewCodian'
 
 interface Codiac {
     _id: string; // Represents the unique identifier of the object
@@ -103,7 +104,10 @@ useEffect(() => {
   }, [loginToken]);
 
   return (
-    <div className='px-5'>
+    <div className='px-5 w-[50%]'>
+      <div className='p-2'>
+        <NewCodian />
+      </div>
         <Tabs defaultValue="week">
             <div className="flex items-center">
             <TabsList>
