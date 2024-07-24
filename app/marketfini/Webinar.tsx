@@ -39,8 +39,7 @@ const WebinarData = () => {
           }
         };
         getAllCodiacsUsers();
-      }, []);
-      const arrayLength = webinarpeople.length;
+    }, []);
 
   return (
     <TabsContent value="Webinar">

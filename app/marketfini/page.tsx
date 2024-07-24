@@ -33,6 +33,7 @@ import { MenuContext } from "../webinar/AppContex"
 import { useEffect, useState } from "react"
 import HumanResource from "./HumanResource"
 import Programs from "./Programs"
+import Analytics from "./Analytics"
 
 
 interface Codiac {
@@ -195,7 +196,7 @@ const Dashboard = () => {
                         href="#"
                         className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                     >
-                        <LineChart className="h-5 w-5" />
+                        <LineChart onClick={()=>{setView("Analytics")}} className="h-5 w-5" />
                         <span className="sr-only">Analytics</span>
                     </Link>
                   </TooltipTrigger>
@@ -315,6 +316,7 @@ const Dashboard = () => {
           {view == "Workspace" && <Workspace />}
           {view == "HumanResource" && <HumanResource />}
           {view == "Programs" && <Programs />}
+          {view == "Analytics" && <Analytics />}
         </div>
       </div>
     </MenuContext.Provider>
