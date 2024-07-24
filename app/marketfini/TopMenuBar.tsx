@@ -72,7 +72,7 @@ import { MenuContext } from "../webinar/AppContex"
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
-          <MenubarTrigger>View</MenubarTrigger>
+          <MenubarTrigger>Tools</MenubarTrigger>
           <MenubarContent>
             <MenubarCheckboxItem checked={view === "Workspace"} onClick={()=>setView("Workspace")}>
               Show Workspace
