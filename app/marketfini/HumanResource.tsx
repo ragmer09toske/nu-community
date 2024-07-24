@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     Table,
     TableBody,
@@ -27,6 +27,8 @@ import { File, ListFilter } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@tremor/react'
+import useStore from "@/app/Store"
+import axios, { CancelTokenSource } from 'axios'
 
 interface Codiac {
     _id: string; // Represents the unique identifier of the object
@@ -49,8 +51,56 @@ interface CodiacUsers {
   
 const HumanResource = () => {
 const [loading, setLoading] = useState<boolean>(false);
-  const [codiacs, setCodiacs] = useState<Codiac[]>([]);
-  const [codiacsUsers, setCodiacsUsers] = useState<CodiacUsers[]>([]);
+const [codiacs, setCodiacs] = useState<Codiac[]>([]);
+const [codiacsUsers, setCodiacsUsers] = useState<CodiacUsers[]>([]);
+const loginToken = useStore((state) => state.loginToken)
+
+useEffect(() => { 
+    let source: CancelTokenSource;
+    const getAllCodiacs = async () => {
+      setLoading(true);   
+      try {
+        source = axios.CancelToken.source();
+        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/registerers`, {
+          cancelToken: source.token,
+        });
+        setCodiacs(response.data);
+        setLoading(false);
+      } catch (error) {
+        if (axios.isCancel(error)) {
+          console.log('Request canceled', error.message);
+        } else {
+          console.log(error);
+        }
+        setLoading(false);
+      }
+    };
+    getAllCodiacs();
+
+    return () => {
+      if (source) {
+        source.cancel('Component unmounted');
+      }
+    };
+  }, [``]);
+  
+  useEffect(() => { 
+    const getAllCodiacsUsers = async () => {
+      setLoading(true);   
+      try {
+        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/users`, {
+          headers: {
+            Authorization: `Bearer ${loginToken}`,
+          },
+        });
+        setCodiacsUsers(response.data);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+      }
+    };
+    getAllCodiacsUsers();
+  }, [loginToken]);
 
   return (
     <div className='px-5'>
