@@ -1,8 +1,10 @@
 import React from 'react'
+import useStore from "@/app/Store"
 
 const Org = () => {
+  const UserDetails = useStore((state) => state.user);
   return (
-    <div>Org</div>
+    <div>{UserDetails?.acount}</div>
   )
 }
 

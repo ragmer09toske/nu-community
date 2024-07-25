@@ -16,14 +16,6 @@ import {
 import { useContext } from "react"
 import { MenuContext } from "../webinar/AppContex"
 import useStore from "@/app/Store"
-interface CodiacUsers {
-  _id: string; // Represents the unique identifier of the object
-  name: string; // Represents the first name of the person
-  email: string; // Represents the email address of the person
-  number: number; // Represents the phone number of the person
-  acount:string;
-  __v: number; // Represents the version key in MongoDB
-}
   export function TopMenuBar() {
     const {setView,view} = useContext(MenuContext)
     // I can the Current use. Get his/her account type then go 
@@ -32,6 +24,7 @@ interface CodiacUsers {
 
     const UserDetails = useStore((state) => state.user);
 
+    localStorage.removeItem("user"); 
 
     return (
       <Menubar>
@@ -113,7 +106,7 @@ interface CodiacUsers {
           <MenubarContent>
             <MenubarRadioGroup value="benoit">
               <MenubarRadioItem value="andy">{UserDetails?.name}</MenubarRadioItem>
-              <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
+              <MenubarRadioItem value="benoit">{UserDetails?.acount}</MenubarRadioItem>
               <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
             </MenubarRadioGroup>
             <MenubarSeparator />

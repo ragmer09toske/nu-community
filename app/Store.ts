@@ -6,7 +6,7 @@ interface User {
   number: number;
   email: string;
   password: string;
-  role: string;
+  acount: string;
   organization: string;
   avatar: string;
   __v: number;
