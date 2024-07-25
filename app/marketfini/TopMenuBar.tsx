@@ -21,10 +21,8 @@ import useStore from "@/app/Store"
     // I can the Current use. Get his/her account type then go 
     // through all users and show only those with the same account 
     // type as the current logged in user
-
     const UserDetails = useStore((state) => state.user);
-
-    localStorage.removeItem("user"); 
+    // localStorage.removeItem("user"); 
 
     return (
       <Menubar>
@@ -107,7 +105,6 @@ import useStore from "@/app/Store"
             <MenubarRadioGroup value="benoit">
               <MenubarRadioItem value="andy">{UserDetails?.name}</MenubarRadioItem>
               <MenubarRadioItem value="benoit">{UserDetails?.acount}</MenubarRadioItem>
-              <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
             </MenubarRadioGroup>
             <MenubarSeparator />
             <MenubarItem inset>Edit...</MenubarItem>

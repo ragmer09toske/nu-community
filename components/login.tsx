@@ -56,6 +56,7 @@ export function SignupForm({setLoading}:{setLoading:any}) {
         setUserID(userID)
         setLoginToken(token);
         makeUserObject();
+        window.location.reload();
       } catch (error) {
         setLoading(false);
         if (error instanceof Error) {

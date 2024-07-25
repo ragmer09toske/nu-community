@@ -86,7 +86,7 @@
     "react-player": "^2.14.1",
     "react-resizable-panels": "^2.0.9",
     "react-simple-code-editor": "^0.13.1",
-    "recharts": "^2.12.1",
+    "recharts": "^2.12.7",
     "simplex-noise": "^4.0.1",
     "socket.io": "^4.7.4",
     "socket.io-client": "^4.7.4",
