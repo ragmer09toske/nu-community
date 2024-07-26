@@ -35,6 +35,7 @@ import HumanResource from "./HumanResource"
 import Programs from "./Programs"
 import Analytics from "./Analytics"
 import Org from "./Org"
+import { SettingsParnel } from "./Settings"
 
 
 interface Codiac {
@@ -153,10 +154,10 @@ const Dashboard = () => {
                   className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                 >
                   <ShoppingCart className="h-5 w-5" />
-                  <span className="sr-only">Orders</span>
+                  <span className="sr-only">Commerce</span>
                 </Link>
               </TooltipTrigger>
-              <TooltipContent side="right">Orders</TooltipContent>
+              <TooltipContent side="right">Commerce</TooltipContent>
             </Tooltip>
             </TooltipProvider>
 
@@ -213,7 +214,7 @@ const Dashboard = () => {
                       href="#"
                       className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                   >
-                      <Settings className="h-5 w-5" />
+                      <Settings onClick={()=>setView("Settings")} className="h-5 w-5" />
                       <span className="sr-only">Settings</span>
                   </Link>
                   </TooltipTrigger>
@@ -318,6 +319,8 @@ const Dashboard = () => {
           {view == "HumanResource" && <HumanResource />}
           {view == "Programs" && <Programs />}
           {view == "Analytics" && <Analytics />}
+          {view == "Settings" && <div><SettingsParnel /></div>}
+          
         </div>
       </div>
     </MenuContext.Provider>

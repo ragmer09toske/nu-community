@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import CodiacData from "./codiacData"
 import NewCodian from "./NewCodian"
 import { BarListUsageExample } from "./Tech"
+import { Chart } from '@/components/Chart';
+import { Blocks } from './Blocks';
 
 interface Codiac {
   _id: string; // Represents the unique identifier of the object
@@ -32,6 +34,12 @@ const Main = () => {
           <CodiacData />
           <BarListUsageExample />
         </div>
+          <div className=''>
+            <Chart />
+          </div>
+      </div>
+      <div className='-mt-8'> 
+        <Blocks />
       </div>
     </main>
   )
