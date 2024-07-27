@@ -108,7 +108,18 @@ export function SignupForm({setLoading}:{setLoading:any}) {
     }
 
     const handleLogin = () => {
-      login(email,password);
+      const waitlogin = async () => {
+        try{
+          await login(email,password);
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
+        }
+        catch(e){
+          console.log("We run into some trouble")
+        }
+      }
+      waitlogin();
     }
 
     return (
