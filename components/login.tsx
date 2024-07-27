@@ -1,7 +1,7 @@
 import { Dialog, DialogPanel } from '@tremor/react';
 import React, { useState } from 'react';
-
 import {
+  IconBooks,
   IconBrandGithub,
   IconBrandGoogle,
 } from "@tabler/icons-react";
@@ -17,11 +17,6 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar"
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card"
 import {
   Cloud,
   CreditCard,
@@ -39,7 +34,6 @@ import {
   Users,
 } from "lucide-react"
  
-import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -202,7 +196,7 @@ export function LoginDialog() {
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        <DropdownMenuLabel>{UserDetails.name}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
@@ -221,9 +215,9 @@ export function LoginDialog() {
             <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Keyboard className="mr-2 h-4 w-4" />
-            <span>Keyboard shortcuts</span>
-            <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
+            <IconBooks className="mr-2 h-4 w-4" />
+            <span>Learn Dash</span>
+            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />

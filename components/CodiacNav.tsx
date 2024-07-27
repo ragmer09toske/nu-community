@@ -24,8 +24,7 @@ export default function Navbar_Codiac() {
     }, [])
 
     const Brand = () => (
-        <>
-        
+        <> 
         <div className="flex items-center z-50 justify-between py-5 md:block " >
             <a href="javascript:void(0)">
                 <img

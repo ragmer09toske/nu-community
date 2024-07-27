@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { LoginDialog } from './login';
 import { cn } from '@/lib/utils';
 import { HoveredLink, Menu, MenuItem, ProductItem } from './navbar-menu';
+import useStore from '@/app/Store';
 
 interface User {
     _id: string;
@@ -20,6 +21,7 @@ export default function Navbar() {
     const [active, setActive] = useState<string | null>(null);
     // Use the useState hook with the User type
     const [user, setUser] = useState<User | null>(null);
+    const UserDetails = useStore((state) => state.user);
 
     useEffect(() => {
     // Retrieve the JSON string from localStorage
@@ -111,9 +113,12 @@ export default function Navbar() {
             </div>
         </div>
         <div className="z-50 items-center justify-end mt-6 space-y-6 md:flex md:mt-0">
-            <div className='flex items-center justify-center gap-x-1 py-2 px-4 text-white font-medium bg-gray-800 hover:bg-gray-700 active:bg-gray-900 rounded-full md:inline-flex' onClick={() => setIsOpen(false)}>
+            {!UserDetails ? <div className='flex items-center justify-center gap-x-1 py-2 px-4 text-white font-medium bg-gray-800 hover:bg-gray-700 active:bg-gray-900 rounded-full md:inline-flex' onClick={() => setIsOpen(false)}>
                 <LoginDialog />
             </div>
+            :
+            <LoginDialog />
+            }
         </div>
     </div>
 </nav>

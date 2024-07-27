@@ -47,12 +47,12 @@ export default function Home_Data_One_Repo() {
                                     className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800"
                                 >
                                     <Link href="/codiac">
-                                        Codiac <Rocket className="inline"/> 
+                                        Academy <Rocket className="inline"/> 
                                     </Link>
                                 </Button>
                                <Button variant="ghost">
                                 <Link href="#">
-                                    Current Event <ArrowBigRight className="inline" />
+                                    For Developers <ArrowBigRight className="inline" />
                                 </Link>
                                </Button>
                             </div>
