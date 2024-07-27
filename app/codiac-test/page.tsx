@@ -10,6 +10,7 @@ import { cn } from '../utils/cn';
 import { HoveredLink, Menu, MenuItem, ProductItem } from '@/components/navbar-menu';
 import { Spotlight } from '@/components/Spotlight';
 import { TextGenerateEffect } from '@/components/TextGenerateEffect';
+
 interface User {
   _id: string;
   name: string;
@@ -29,7 +30,7 @@ const Page = () => {
 
   return (
     <div className="relative h-screen w-screen overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full z-0">
+      {/* <div className="absolute top-0 left-0 w-full h-full z-0">
         <iframe
           className="w-full h-full"
           src="https://www.youtube.com/embed/K_8AY2Anr-8?autoplay=1&mute=1&loop=1&playlist=K_8AY2Anr-8"
@@ -38,7 +39,7 @@ const Page = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
-      </div>
+      </div> */}
       <div className="absolute top-0 left-0 w-full h-full z-10 bg-black/[0.6]">
         <div className="relative w-full h-full flex flex-col items-center justify-center">
           <div className="absolute top-0 w-full">
