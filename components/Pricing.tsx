@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Spotlight } from './Spotlight'
-import { PriceContext } from '@/app/webinar/AppContex'
+import { PriceContext } from '@/app/academy/AppContex'
 
 const Header = () => {
   return (

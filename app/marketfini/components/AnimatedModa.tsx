@@ -9,7 +9,7 @@ import {
 } from "./animated-modal";
 import { Loader2, User2 } from "lucide-react";
 import { CreateUserForm } from "./CreateUserForm";
-import { NuUserContext } from "@/app/webinar/AppContex";
+import { NuUserContext } from "@/app/academy/AppContex";
 import axios from "axios";
 
 export function AnimatedModal() {

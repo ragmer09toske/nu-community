@@ -8,7 +8,7 @@ import Link from 'next/link'
 import { ShimmerButton} from './Shimmer'
 import useDeviceType from '@/app/Device'
 import { AnimatedTooltip } from '@/app/codiac/learn/animated-tooltip'
-import { WebinarFooter } from '@/app/webinar/Footer'
+import { WebinarFooter } from '@/app/academy/Footer'
 const people = [
   {
     id: 1,

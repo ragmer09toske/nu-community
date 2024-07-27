@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Slider } from "@/components/ui/slider";
-import { WebinarContext } from "@/app/webinar/AppContex";
+import { WebinarContext } from "@/app/academy/AppContex";
 
 type SliderProps = React.ComponentProps<typeof Slider>;
 

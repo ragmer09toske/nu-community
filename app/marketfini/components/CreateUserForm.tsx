@@ -34,7 +34,7 @@ const frameworks = [
 ]
 import Image from "next/image";
 import { Value } from "@radix-ui/react-select";
-import { NuUserContext } from "@/app/webinar/AppContex";
+import { NuUserContext } from "@/app/academy/AppContex";
 
 export function CreateUserForm() {
   const [open, setOpen] = React.useState(false)

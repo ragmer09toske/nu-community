@@ -14,7 +14,7 @@ import {
     MenubarTrigger,
   } from "@/components/ui/menubar"
 import { useContext } from "react"
-import { MenuContext } from "../webinar/AppContex"
+import { MenuContext } from "../academy/AppContex"
 import useStore from "@/app/Store"
   export function TopMenuBar() {
     const {setView,view} = useContext(MenuContext)

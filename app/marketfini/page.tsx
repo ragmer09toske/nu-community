@@ -29,7 +29,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { TopMenuBar } from "./TopMenuBar"
 import Main from "./Main"
 import Workspace from "../workspace/page"
-import { MenuContext } from "../webinar/AppContex"
+import { MenuContext } from "../academy/AppContex"
 import { useEffect, useState } from "react"
 import HumanResource from "./HumanResource"
 import Programs from "./Programs"
