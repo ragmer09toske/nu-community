@@ -9,6 +9,7 @@ import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
 import { HoveredLink, Menu, MenuItem, ProductItem } from "./navbar-menu"
 import Music from "./Music"
+import { HomeText } from "./HomeText"
 interface User {
     _id: string;
     name: string;
@@ -28,33 +29,31 @@ export default function Home_Data_One_Repo() {
               className="-top-40 left-0 md:left-60 md:-top-20"
               fill="white"
             />
-            <div className="absolute bottom-[100px]">
+            <div className="absolute -bottom-10">
               <Music />
             </div>
             <div className='relative'>
                 <section>
-                    <div className="max-w-screen-xl mx-auto px-4 py-28 gap-12 text-gray-600 overflow-hidden md:px-8 md:flex">
-                        <div className='flex-none space-y-5 max-w-xl'>
-                            <h1 className="text-5xl text-white font-extrabold sm:text-7xl">
-                               Nerd? <span className="text-purple-300">naw!</span> you is about to be better, <span className="text-purple-600">Precautious</span>
-                            </h1>
-                            <p>
-                              Your journey of awesomeness began the minute you allowed us to pilot your business or career into a commanding online presence. Thank you for entrusting us with such a responsibility.
-                            </p>
-                            <div className='flex items-center gap-x-4 sm:text-sm'>
-                                <Button
-                                    borderRadius="1.75rem"
-                                    className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800"
-                                >
+                    <div className="max-w-screen-xl mx-auto px-4 gap-5 text-gray-600 overflow-hidden md:px-8 md:flex">
+                        <div className='flex-none max-w-xl'>
+                            <HomeText/>
+                            <div className='flex items-center gap-x-4 -mt-[200px] sm:text-sm'>
+                                <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                                  <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+                                  <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
                                     <Link href="/codiac">
                                         Academy <Rocket className="inline"/> 
                                     </Link>
-                                </Button>
-                               <Button variant="ghost">
-                                <Link href="#">
-                                    For Developers <ArrowBigRight className="inline" />
-                                </Link>
-                               </Button>
+                                  </span>
+                                </button>
+                                <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                                  <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+                                  <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+                                    <Link href="#">
+                                      For Developers <ArrowBigRight className="inline" />
+                                    </Link>
+                                  </span>
+                                </button>
                             </div>
                         </div>
                         <div className='flex-1 hidden md:block'>
