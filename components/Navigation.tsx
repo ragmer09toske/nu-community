@@ -101,7 +101,7 @@ export function Navigation() {
   // Auth variables, From Zustand Store
   const setLoginToken = useStore((state) => state.setLoginToken)
   const loginToken = useStore((state) => state.loginToken)
-  const setUserDetails = useStore((state) => state.setUser)
+  // const setUserDetails = useStore((state) => state.setUser)
   const userDetails = useStore((state) => state.user)
   const userID = useStore((state) => state.userID)
   const setUserID = useStore((state) => state.setUserID)
@@ -192,7 +192,7 @@ export function Navigation() {
           `https://nucleus-community-55ff7e3e4dd0.herokuapp.com/workspace/users/${userID}`, config
         );
 
-        setUserDetails(response.data)
+        // setUserDetails(response.data)
 
         setLoading(false)
       } catch (error) {
@@ -201,7 +201,7 @@ export function Navigation() {
       }
     };
     getUser()
-  }, [loginToken, setLoginToken, setUserDetails, userID])
+  }, [loginToken, setLoginToken, userID])
 
   return (
     <div className="flex p-2 pr-5 items-center w-full pt-5 lg:gap-10" style={{
