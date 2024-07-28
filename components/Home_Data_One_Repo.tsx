@@ -29,7 +29,7 @@ export default function Home_Data_One_Repo() {
               className="-top-40 left-0 md:left-60 md:-top-20"
               fill="white"
             />
-            <div className="absolute -bottom-10">
+            <div className="absolute bottom-10">
               <Music />
             </div>
             <div className='relative'>
