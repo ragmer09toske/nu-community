@@ -71,10 +71,10 @@ const Music = () => {
     }, [playing]);
 
     return (
-        <div className='relative'>
+        <div className='relative' >
         {MusicON && 
-        <div className='h-full absolute top[300px] z-[9999]'>
-        {(<div className='relative lg:w-[400px] md:w-[300px] p-5 flex justify-center'>
+        <div className='h-full absolute top[300px] z-[9999px]'>
+        {(<div className='relative lg:w-[400px] md:w-[300px] p-5 flex justify-center' >
             <div className='absolute -top-2 right-6'>
                 <XCircle onClick={()=>setMusicON(false)} size={15} color='gray' />
             </div>
@@ -83,7 +83,7 @@ const Music = () => {
             </div>
             <div className='relative w-full p-2 border-solid border-1 dark:border-black' 
                 style={{
-                    backdropFilter: "blur(5px)",
+                    backdropFilter: "blur(15px)",
                     background: "rgba(255, 255, 255, 0.064)",
                     borderRadius: "2px 2px 10px 10px",
                 }}>

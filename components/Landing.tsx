@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+  import React, { useState } from 'react'
 import { Card } from './ui/card'
 import { LandingFeed } from './LandingFeed'
 import useDeviceType from '@/app/Device'
