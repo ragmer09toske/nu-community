@@ -8,7 +8,6 @@ import {
     Cloud,
     CreditCard,
     Github,
-    Keyboard,
     LifeBuoy,
     LogOut,
     Mail,
@@ -49,8 +48,8 @@ const DefaultUserAvater = () => {
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-                <AvatarFallback>CN</AvatarFallback>
+                    <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                    <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
@@ -72,11 +71,14 @@ const DefaultUserAvater = () => {
                     <span>Settings</span>
                     <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                {
+                UserDetails?.acount ==="nu-devs" && 
+                <DropdownMenuItem onClick={()=>{window.location.href="/marketfini"}}>
                     <IconBooks className="mr-2 h-4 w-4" />
                     <span>Learn Dash</span>
                     <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
                 </DropdownMenuItem>
+                }
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
@@ -103,7 +105,7 @@ const DefaultUserAvater = () => {
                         <DropdownMenuItem>
                         <PlusCircle className="mr-2 h-4 w-4" />
                         <span>More...</span>
-                        </DropdownMenuItem>
+                        </DropdownMenuItem> 
                     </DropdownMenuSubContent>
                     </DropdownMenuPortal>
                 </DropdownMenuSub>

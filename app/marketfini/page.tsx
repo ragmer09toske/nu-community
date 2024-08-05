@@ -36,6 +36,7 @@ import Programs from "./Programs"
 import Analytics from "./Analytics"
 import Org from "./Org"
 import { SettingsParnel } from "./Settings"
+import Youthconnect from "./Youthconnect"
 
 
 interface Codiac {
@@ -320,6 +321,7 @@ const Dashboard = () => {
           {view == "Programs" && <Programs />}
           {view == "Analytics" && <Analytics />}
           {view == "Settings" && <div><SettingsParnel /></div>}
+          {view == "Youthconnect" && <div><Youthconnect /></div>}
           
         </div>
       </div>

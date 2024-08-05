@@ -156,7 +156,9 @@ export function LoginDialog() {
     <div className='w-full'>
     {!UserDetails ? <div className="mx-auto block cursor-pointer" onClick={() => setIsOpen(true)}>Sign in</div> : 
       // this is Where the The User will go
-      <DefaultUserAvater />
+      <div className='w-full'>
+        <DefaultUserAvater />
+      </div>
     }
     <Dialog open={isOpen} onClose={(val) => setIsOpen(val)} static={true} >
       <DialogPanel className='flex flex-col gap-5 w-[80]'>

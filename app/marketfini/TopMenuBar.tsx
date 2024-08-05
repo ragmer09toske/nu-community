@@ -87,8 +87,8 @@ import useStore from "@/app/Store"
               Show Dashboard
             </MenubarCheckboxItem>
             <MenubarSeparator />
-            <MenubarItem inset>
-              Reload <MenubarShortcut>⌘R</MenubarShortcut>
+            <MenubarItem inset onClick={()=>setView("Youthconnect")}>
+              Yout Connect <MenubarShortcut>{" "}⌘R</MenubarShortcut>
             </MenubarItem>
             <MenubarItem disabled inset>
               Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>

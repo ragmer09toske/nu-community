@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/toaster'
-import Music from '@/components/Music'
 import "@uploadthing/react/styles.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { getServerSession } from 'next-auth'
