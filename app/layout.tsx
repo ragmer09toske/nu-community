@@ -37,7 +37,6 @@ export default async function RootLayout({
             <body className={inter.className}>
               {children}
             </body>
-            {/* <FeaturesSectionDemo /> */}
           </SessionProvider>
           <Toaster />
           <SpeedInsights/>
