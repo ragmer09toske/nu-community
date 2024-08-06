@@ -31,7 +31,7 @@ const TicketDetails: React.FC = () => {
 
     if (id) {
         setTicketId(id);
-    }
+    }   
   }, []);
 
   async function fetchTicketDetails(id: string) {
