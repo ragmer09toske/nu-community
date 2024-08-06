@@ -1,5 +1,5 @@
 import React from 'react'
-import { SidebarDemo } from '../marketfini/SidebarDemo'
+import { SidebarDemo } from '../util/SidebarDemo'
 
 const Page = () => {
   return (

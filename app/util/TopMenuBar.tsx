@@ -18,11 +18,7 @@ import { MenuContext } from "../academy/AppContex"
 import useStore from "@/app/Store"
   export function TopMenuBar() {
     const {setView,view} = useContext(MenuContext)
-    // I can the Current use. Get his/her account type then go 
-    // through all users and show only those with the same account 
-    // type as the current logged in user
     const UserDetails = useStore((state) => state.user);
-    // localStorage.removeItem("user"); 
 
     return (
       <Menubar>
@@ -88,7 +84,7 @@ import useStore from "@/app/Store"
             </MenubarCheckboxItem>
             <MenubarSeparator />
             <MenubarItem inset onClick={()=>setView("Youthconnect")}>
-              Yout Connect <MenubarShortcut>{" "}⌘R</MenubarShortcut>
+              Youth Connect <MenubarShortcut>{" "}⌘R</MenubarShortcut>
             </MenubarItem>
             <MenubarItem disabled inset>
               Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>

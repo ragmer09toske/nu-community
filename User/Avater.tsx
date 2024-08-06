@@ -73,7 +73,7 @@ const DefaultUserAvater = () => {
                 </DropdownMenuItem>
                 {
                 UserDetails?.acount ==="nu-devs" && 
-                <DropdownMenuItem onClick={()=>{window.location.href="/marketfini"}}>
+                <DropdownMenuItem onClick={()=>{window.location.href="/util"}}>
                     <IconBooks className="mr-2 h-4 w-4" />
                     <span>Learn Dash</span>
                     <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
