@@ -61,8 +61,8 @@ const Youthconnect = () => {
 
     const ticketData = {
       issued_to: issuedTo,
-      order_number: Number(orderNumber),
-      date: new Date().toISOString().split('T')[0], // Current date in YYYY-MM-DD format
+      order_number: Math.floor(Math.random() * 1000000000),
+      date: new Date().toLocaleDateString('en-ZA', { timeZone: 'Africa/Johannesburg', year: 'numeric', month: '2-digit', day: '2-digit' }).split('/').reverse().join('-'),// Current date in YYYY-MM-DD format
       ticket_type: ticketType
     };
 
@@ -91,7 +91,6 @@ const Youthconnect = () => {
     <div className='p-10 bg-white border-t-0 border-gray-700'>
       <div className='py-5'>
         <Input placeholder="Issued To" onChange={(e) => setIssuedTo(e.target.value)} />
-        <Input placeholder="Order Number" onChange={(e) => setOrderNumber(e.target.value)} />
         <Input placeholder="Ticket Type" onChange={(e) => setTicketType(e.target.value)} />
         <Button onClick={registerTicket} disabled={loading}>
           {loading ? <Loader2 className='animate-spin' size="sm" /> : 'Register and Generate PDF'}
