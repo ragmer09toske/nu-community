@@ -111,7 +111,7 @@ const Youthconnect = () => {
                 <div className='pt-10'>
                   <p className='text-gray-500 text-sm'><b>&apos;Manthabiseng Convention Center, Maseru</b></p>
                 </div>
-                <h4 className='text-sm'><b>August 14, 2024 10:00am (SAT)</b></h4>
+                <h4 className='text-sm'><b>August 14, 2024 8:00am (SAT)</b></h4>
                 <div className='flex gap-5 pt-5'>
                   <div>
                     <h4 className='text-sm font-bold'>ISSUED TO</h4>

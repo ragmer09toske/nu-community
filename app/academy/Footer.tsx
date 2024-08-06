@@ -13,7 +13,7 @@ export function WebinarFooter() {
         </h1>
         <p></p>
         <p className="text-neutral-500 max-w-lg mx-auto my-2 text-sm text-center relative z-10">
-        Join our free live webinar, held once a week! The software engineering community is made up of selfless individuals who continuously contribute to the growth of others. In this spirit, we aim to provide powerful and free knowledge. Thank you for being part of this culture.
+        {/* Join our free live webinar, held once a week! The software engineering community is made up of selfless individuals who continuously contribute to the growth of others. In this spirit, we aim to provide powerful and free knowledge. Thank you for being part of this culture. */}
         </p>
         <FooterLinks /> 
         <div className='p-3 flex justify-center'>

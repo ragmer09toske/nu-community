@@ -2,6 +2,29 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import useStore from "@/app/Store";
+import { ListOrderedIcon, Loader2, Trophy, User2 } from 'lucide-react';
+import { WebinarFooter } from '@/app/academy/Footer';
+import Image from 'next/image';
+import {
+    Calculator,
+    Calendar,
+    CreditCard,
+    Settings,
+    Smile,
+    User,
+  } from "lucide-react"
+   
+  import {
+    Command,
+    CommandEmpty,
+    CommandGroup,
+    CommandInput,
+    CommandItem,
+    CommandList,
+    CommandSeparator,
+    CommandShortcut,
+  } from "@/components/ui/command"
+import { RiOrganizationChart } from '@remixicon/react';
 
 // Define the TypeScript interfaces for the ticket and response
 interface Ticket {
@@ -56,34 +79,67 @@ const TicketDetails: React.FC = () => {
   }, [ticketId]);
 
   return (
-    <div className='p-10 bg-white border-t-0 border-gray-700'>
-      <input
-        type='text'
-        placeholder='Enter Ticket ID'
-        value={ticketId}
-        onChange={(e) => setTicketId(e.target.value)}
-        className='mb-4 p-2 border rounded'
-      />
-      <button
-        onClick={() => fetchTicketDetails(ticketId)}
-        disabled={loading}
-        className='bg-blue-500 text-white px-4 py-2 rounded'
-      >
-        {loading ? 'Loading...' : 'Get Ticket Details'}
-      </button>
-
-      {error && <p className='text-red-500 mt-4'>{error}</p>}
-      {ticketDetails ? (
-        <div className='mt-4 text-black'>
-          <h2 className='text-xl font-bold'>Ticket Details</h2>
-          <p><b>Issued To:</b> {ticketDetails.issued_to}</p>
-          <p><b>Order Number:</b> {ticketDetails.order_number}</p>
-          <p><b>Date:</b> {ticketDetails.date}</p>
-          <p><b>Ticket Type:</b> {ticketDetails.ticket_type}</p>
+    <div className='flex flex-col gap-10'>
+    <div className="p-5 justify-center mt-10 lg:mt-0">
+          <div className='pb-10'>
+            <div className='z-50 fixed w-[90.5%] border p-5 flex gap-2 -mt-6 -ml-2 justify-center rounded' style={{ backgroundImage: "url('/code.jpg')", backgroundSize: "cover" }}>
+              <div className='flex'>
+                <Image
+                  src="/nu.png"
+                  alt="Nucleus Logo"
+                  className="relative lg:dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+                  width={30}
+                  height={14}
+                  priority
+                /> 
+                <Image
+                    src="/one.png"
+                    width={120}
+                    height={40}
+                    alt="Float UI logo"
+                />
+              </div>
+                  <b>devs</b>
+              </div>
+            </div>
         </div>
-      ) : (
-        <p className='mt-4 text-gray-500'>No ticket details available</p>
-      )}
+        <div className='p-10'>
+            <div className='w-full flex justify-center'>
+                {loading && <Loader2 className='animate-spin'/>}
+            </div>
+            {ticketDetails && <Command className="rounded-lg border shadow-md">
+                <div className='flex gap-2 justify-center items-center p-3'>
+                   <RiOrganizationChart className='text-sm' />
+                   <p>Youth Connekt Lesotho</p>
+                </div>
+                <CommandSeparator />
+                <CommandList>
+                    <CommandEmpty>No results found.</CommandEmpty>
+                    <CommandGroup heading="Details">
+                    <CommandItem>
+                        <User2 className="mr-2 h-4 w-4" />
+                        <span>{ticketDetails.issued_to}</span>
+                    </CommandItem>
+                    <CommandItem>
+                        <ListOrderedIcon className="mr-2 h-4 w-4" />
+                        <span>{ticketDetails.order_number}</span>
+                    </CommandItem>
+                    <CommandItem>
+                        <Calendar className="mr-2 h-4 w-4" />
+                        <span>{ticketDetails.date}</span>
+                    </CommandItem>
+                    </CommandGroup>
+                    <CommandSeparator />
+                    <CommandGroup heading="Ticket Type">
+                    <CommandItem>
+                        <Trophy className="mr-2 h-4 w-4" />
+                        <span>{ticketDetails.ticket_type}</span>
+                    </CommandItem>
+                    </CommandGroup>
+                </CommandList>
+            </Command>}
+        </div>
+        <WebinarFooter />
     </div>
   );
 };
