@@ -20,7 +20,7 @@ const Youthconnect = () => {
 
   const generateQR = async (id: string) => {
     try {
-      const qrCodeDataURL = await QRCode.toDataURL(`https://nucleusdevs.com/tickets?q=${id}`);
+      const qrCodeDataURL = await QRCode.toDataURL(`https://nucleusdevs.com/util/tickets?q=${id}`);
       setSrc(qrCodeDataURL);
       setTicketId(id);
       setGeneratePdf(true); // Trigger PDF generation
