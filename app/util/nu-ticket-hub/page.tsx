@@ -129,10 +129,9 @@ const Youthconnect = () => {
                     <SelectValue placeholder="Select" />
                   </SelectTrigger>
                   <SelectContent position="popper">
-                    {disabled ? (
+                    {!disabled ? (
                         <div>
                             <SelectItem value="GENERAL">General</SelectItem>
-                            <SelectItem value="VIP" disabled>VIP</SelectItem>
                         </div>
                     ):
                         <div>
