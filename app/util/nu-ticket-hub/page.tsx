@@ -124,23 +124,23 @@ const Youthconnect = () => {
         <Input placeholder="Issued To" onChange={(e) => setIssuedTo(e.target.value)} />
         {/* <Input placeholder="" onChange={(e) => setTicketType(e.target.value)} /> */}
         <Label htmlFor="framework">Ticket Type</Label>
-                <Select onValueChange={(v) => setTicketType(v)}>
-                  <SelectTrigger id="framework">
-                    <SelectValue placeholder="Select" />
-                  </SelectTrigger>
-                  <SelectContent position="popper">
-                    {!disabled ? (
-                        <div>
-                            <SelectItem value="GENERAL">General</SelectItem>
-                        </div>
-                    ):
-                        <div>
-                            <SelectItem value="GENERAL" disabled>General</SelectItem>
-                            <SelectItem value="VIP">VIP</SelectItem>
-                        </div>
-                    }
-                  </SelectContent>
-                </Select>
+            <Select onValueChange={(v) => setTicketType(v)}>
+                <SelectTrigger id="framework">
+                <SelectValue placeholder="Select" />
+                </SelectTrigger>
+                <SelectContent position="popper">
+                {!disabled ? (
+                    <div>
+                        <SelectItem value="GENERAL">General</SelectItem>
+                    </div>
+                ):
+                    <div>
+                        <SelectItem value="GENERAL" disabled>General</SelectItem>
+                        <SelectItem value="VIP">VIP</SelectItem>
+                    </div>
+                }
+                </SelectContent>
+            </Select>
         <Button onClick={registerTicket} disabled={loading}>
           {loading ? <Loader2 className='animate-spin' size="sm" /> : 'Register and Download Ticket'}
         </Button>
