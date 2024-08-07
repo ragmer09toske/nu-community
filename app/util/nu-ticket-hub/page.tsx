@@ -69,7 +69,7 @@ const Youthconnect = () => {
           heightLeft -= pageHeight;
         }
 
-        pdf.save(`YOUTHCONNECT_2024${ticketId}.pdf`);
+        pdf.save(`YOUTHCONNEKT_2024${ticketId}.pdf`);
       });
     }
   };
@@ -173,10 +173,7 @@ const Youthconnect = () => {
         </div>
       </div>}
       {isMobile&&
-      <div id='ticket pt-5'>
-        <div className='pb-3' style={{fontSize:8}}>
-          <h4 className='text-black'><b>This is your Ticket</b></h4>
-        </div>
+      <div id='ticket'>
       <Card className="w-[350px]"> 
         <div className='flex gap-2'>
             <div> 
