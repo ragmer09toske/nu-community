@@ -31,7 +31,6 @@ import { signOut, useSession } from 'next-auth/react';
 
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetDescription,
   SheetFooter,
@@ -40,16 +39,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 
-import {
-  Drawer,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer"
-import MenuList from "./MenuQoute";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 import { PlaceholdersAndVanishInput } from "./ui/placeholders-and-vanish-input";
 import { RiOrganizationChart } from "@remixicon/react";
@@ -238,7 +227,8 @@ export function Navigation() {
 
         </NavigationMenu>
           :
-          (<Sheet>
+          (<div className="fixed mt-5">
+          <Sheet>
             <SheetTrigger asChild>
               <div className="flex gap-5 pl-5">
                 {/* <GripHorizontal /> */}
@@ -322,7 +312,7 @@ export function Navigation() {
               <SheetFooter>
               </SheetFooter>
             </SheetContent>
-          </Sheet>)
+          </Sheet></div>)
         }
       </div>
     </div>

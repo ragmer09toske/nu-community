@@ -81,7 +81,7 @@ const TicketDetails: React.FC = () => {
   return (
     <div className='flex flex-col gap-10'>
     <div className="p-5 justify-center mt-10 lg:mt-0">
-          <div className='pb-10'>
+        <div className='pb-10'>
             <div className='z-50 fixed w-[90.5%] border p-5 flex gap-2 -mt-6 -ml-2 justify-center rounded' style={{ backgroundImage: "url('/code.jpg')", backgroundSize: "cover" }}>
               <div className='flex'>
                 <Image

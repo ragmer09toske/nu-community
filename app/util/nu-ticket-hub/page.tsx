@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/select"
 import useMobile from '@/app/Mobile';
 import { Navigation } from '@/components/Navigation';
+import { Stage } from '@react-three/drei';
 const Youthconnect = () => {
   const [issuedTo, setIssuedTo] = useState<string>("");
   const [orderNumber, setOrderNumber] = useState<string>("");
@@ -36,6 +37,10 @@ const Youthconnect = () => {
   const [generatePdf, setGeneratePdf] = useState<boolean>(false);
   const [disabled,setDisabled] = useState<boolean>(false)
   const isMobile = useMobile()
+  const [formStage, setFormStage] = useState<string>('one')
+  const [ticket,setTicket] = useState<boolean>(false)
+  const [ticketReady,setTicketReady] = useState<boolean>(false)
+  const [typeRegister,setTypeRegister] = useState<boolean>(true)
   const generateQR = async (id: string) => {
     try {
       const qrCodeDataURL = await QRCode.toDataURL(`https://nucleusdevs.com/util/tickets?q=${id}`);
@@ -107,7 +112,15 @@ const Youthconnect = () => {
     }
   };
 
- 
+  const handleTicketReady = () =>{
+    setTicketReady(true)
+    setTypeRegister(!typeRegister)
+  }
+  useEffect(() => {
+    if (ticketType) {
+      setTicket(!ticket)
+    }
+  }, [ticketType]);
 
   useEffect(() => {
     if (generatePdf && src) {
@@ -119,9 +132,18 @@ const Youthconnect = () => {
   return (
     <>
     <Navigation />
-    <div className='pt-5 flex flex-col justify-center items-center gap-5 border-t-0 border-gray-700'>
-      <Card className='p-5 flex flex-col gap-3 w-[350px]'>
-        <Input placeholder="Issued To" onChange={(e) => setIssuedTo(e.target.value)} />
+    {isMobile && <div className="p-5 justify-center mt-10 lg:mt-0">
+        <div className='pb-10'>
+            <div className='z-50 fixed w-[90.5%] border p-5 flex gap-2 -mt-6 -ml-2 justify-center rounded' style={{ backgroundImage: "url('/youth.png')", backgroundSize: "cover" }}>
+              <div className='flex min-h-[100px]'>
+              </div>
+            </div>
+        </div>
+    </div>}
+    {formStage === 'two' && <div className='pt-5 mt-14 lg:mt-0 flex flex-col justify-center items-center gap-5'>
+      {typeRegister &&
+        <Card className='p-5 flex flex-col gap-3 w-[350px]'>
+        {/* <Input placeholder="Issued To" onChange={(e) => setIssuedTo(e.target.value)} /> */}
         {/* <Input placeholder="" onChange={(e) => setTicketType(e.target.value)} /> */}
         <Label htmlFor="framework">Ticket Type</Label>
             <Select onValueChange={(v) => setTicketType(v)}>
@@ -141,10 +163,12 @@ const Youthconnect = () => {
                 }
                 </SelectContent>
             </Select>
-        <Button onClick={registerTicket} disabled={loading}>
-          {loading ? <Loader2 className='animate-spin' size="sm" /> : 'Register and Download Ticket'}
+            {/* onClick={registerTicket} */}
+        <Button onClick={handleTicketReady} disabled={!ticket}>
+          {loading ? <Loader2 className='animate-spin' size="sm" /> : 'Prepare Ticket'}
         </Button>
-      </Card>
+      </Card>}
+      {ticketReady && <div className=''>
       {!isMobile && <div id='ticket' className='p-10  bg-white'>
         <div className='pb-5'>
           <h4 className='text-black'><b>This is your Ticket</b></h4>
@@ -189,11 +213,12 @@ const Youthconnect = () => {
           <h4 className='text-gray-500 text-sm pt-2'><b>© 2024 Youth Connekt Lesotho - All Rights Reserved</b></h4>
         </div>
       </div>}
+
       {isMobile&&
       <div id='ticket'>
-        <div className='pb-3 pt-5'>
-          <h4 className='' style={{fontSize:8}}><b>This is your Ticket</b></h4>
-        </div>
+      <div className='pb-3 pt-5'>
+        <h4 className='' style={{fontSize:8}}><b>This is your Ticket</b></h4>
+      </div>
       <Card className="w-[350px]"> 
         <div className='flex gap-2'>
             <div> 
@@ -235,9 +260,27 @@ const Youthconnect = () => {
       <div className='flex justify-center' >
           <p className='text-gray-500 text-sm pt-2' style={{fontSize:8}}><b>© 2024 Youth Connekt Lesotho - All Rights Reserved</b></p>
       </div>
+      <div className='w-full flex justify-center p-2'>
+        <Button onClick={registerTicket}>
+            {loading ? <Loader2 className='animate-spin' size="sm" /> : 'Download Ticket'}
+        </Button>
+      </div>
       </div>}
-    </div>
-    {/* <WebinarFooter /> */}
+      </div>}
+    </div>}
+    {formStage === "one" && 
+    
+    <div className='pt-5 flex flex-col mt-14 lg:mt-0 justify-center items-center gap-5'>
+        <Card className='p-5 flex flex-col gap-3 w-[350px]'>
+        <Input placeholder="Full names" onChange={(e) => setIssuedTo(e.target.value)} />
+        <Input placeholder="email" type='email' />
+        <Label htmlFor="framework">Phone</Label>
+        <Input placeholder="country code + phone number" type='tel' />
+        <Button onClick={()=>setFormStage("two")} disabled={loading}>
+          {loading ? <Loader2 className='animate-spin' size="sm" /> : 'Continue'}
+        </Button>
+      </Card>
+    </div>}
     </>
   );
 }
