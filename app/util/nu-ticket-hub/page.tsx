@@ -28,7 +28,6 @@ import {
 } from "@/components/ui/select"
 import useMobile from '@/app/Mobile';
 import { Navigation } from '@/components/Navigation';
-import { Stage } from '@react-three/drei';
 const Youthconnect = () => {
   const [issuedTo, setIssuedTo] = useState<string>("");
   const [orderNumber, setOrderNumber] = useState<string>("");
@@ -267,12 +266,13 @@ const Youthconnect = () => {
       <div className='flex justify-center' >
           <p className='text-gray-500 text-sm pt-2' style={{fontSize:8}}><b>© 2024 Youth Connekt Lesotho - All Rights Reserved</b></p>
       </div>
+      
+      </div>}
       <div className='w-full flex justify-center p-2'>
         <Button onClick={registerTicket}>
             {loading ? <Loader2 className='animate-spin' size="sm" /> : 'Download Ticket'}
         </Button>
       </div>
-      </div>}
       </div>}
     </div>}
     {formStage === "one" && 
