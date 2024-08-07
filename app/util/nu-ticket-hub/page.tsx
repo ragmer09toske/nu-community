@@ -9,7 +9,6 @@ import html2canvas from 'html2canvas';
 import { Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import useMobile from '../Mobile';
 import {
   CardContent,
   CardDescription,
@@ -25,6 +24,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import useMobile from '@/app/Mobile';
+import { Navigation } from '@/components/Navigation';
+import { WebinarFooter } from '@/app/academy/Footer';
 const Youthconnect = () => {
   const [issuedTo, setIssuedTo] = useState<string>("");
   const [orderNumber, setOrderNumber] = useState<string>("");
@@ -106,11 +108,22 @@ const Youthconnect = () => {
   }, [generatePdf, src]);
 
   return (
-    <div className='p-10 flex flex-col gap-5 border-t-0 border-gray-700'>
-      <Card className='p-5 w-[35%] flex flex-col gap-3 '>
+    <>
+    <Navigation />
+    <div className='pt-5 flex flex-col justify-center items-center gap-5 border-t-0 border-gray-700'>
+      <Card className='p-5 flex flex-col gap-3 '>
         <Input placeholder="Issued To" onChange={(e) => setIssuedTo(e.target.value)} />
-        <Input placeholder="Ticket Type" onChange={(e) => setTicketType(e.target.value)} />
-
+        {/* <Input placeholder="" onChange={(e) => setTicketType(e.target.value)} /> */}
+        <Label htmlFor="framework">Ticket Type</Label>
+                <Select onValueChange={(v) => setTicketType(v)}>
+                  <SelectTrigger id="framework">
+                    <SelectValue placeholder="Select" />
+                  </SelectTrigger>
+                  <SelectContent position="popper">
+                    <SelectItem value="GENERAL">General</SelectItem>
+                    <SelectItem value="VIP" disabled>VIP</SelectItem>
+                  </SelectContent>
+                </Select>
         <Button onClick={registerTicket} disabled={loading}>
           {loading ? <Loader2 className='animate-spin' size="sm" /> : 'Register and Download Ticket'}
         </Button>
@@ -160,43 +173,52 @@ const Youthconnect = () => {
         </div>
       </div>}
       {isMobile&&
-      <div>
-      <Card className="w-[350px]">  
-        <CardHeader>
-          <CardTitle>Create project</CardTitle>
-          <CardDescription>Deploy your new project in one-click.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form>
-            <div className="grid w-full items-center gap-4">
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="name">Name</Label>
-                <Input id="name" placeholder="Name of your project" />
-              </div>
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="framework">Framework</Label>
-                <Select>
-                  <SelectTrigger id="framework">
-                    <SelectValue placeholder="Select" />
-                  </SelectTrigger>
-                  <SelectContent position="popper">
-                    <SelectItem value="next">Next.js</SelectItem>
-                    <SelectItem value="sveltekit">SvelteKit</SelectItem>
-                    <SelectItem value="astro">Astro</SelectItem>
-                    <SelectItem value="nuxt">Nuxt.js</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+      <div id='ticket'>
+      <Card className="w-[350px]"> 
+        <div className='flex gap-2'>
+            <div> 
+                <CardHeader>
+                <CardDescription style={{fontSize:10}}>Lesotho, Maseru</CardDescription>
+                <CardTitle className='font-[10px]' style={{fontSize:8}}>Youth Connekt Lesotho</CardTitle>
+                </CardHeader>
+                <div className='-mt-5'>
+                    <CardHeader>
+                        <CardDescription style={{fontSize:7}}>&apos;Manthabiseng Convention Center, Maseru</CardDescription>
+                        <CardTitle style={{fontSize:7}}>August 14, 2024 800am (SAT)</CardTitle>
+                    </CardHeader>
+                </div>
             </div>
-          </form>
-        </CardContent>
-        <CardFooter className="flex justify-between">
-          <Button variant="outline">Cancel</Button>
-          <Button>Deploy</Button>
-        </CardFooter>
+            <div className='p-5 pl-0'>
+                {src && <Image src={src} width={200} height={200} alt='QR Code' />}
+            </div>
+        </div>
+        <div className=" bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent h-[1px] w-full" />
+        <div className='flex justify-center gap-5 p-5'>
+            <div>
+            <h4 className='text-sm font-bold' style={{fontSize:8}}>ISSUED TO</h4>
+            <p className='text-sm'style={{fontSize:8}}>{issuedTo || 'N/A'}</p>
+            </div>
+            <div>
+            <h4 className='text-sm font-bold' style={{fontSize:8}}>ORDER NUMBER</h4>
+            <p className='' style={{fontSize:8}}>{orderNumber || 'N/A'}</p>
+            <p className='' style={{fontSize:8}}>Registered</p>
+            <p className='' style={{fontSize:8}}>{new Date().toLocaleDateString()}</p>
+            </div>
+            <div>
+            <h4 className='text-sm font-bold' style={{fontSize:8}}>Ticket</h4>
+            <h4 className='text-sm' style={{fontSize:8}}>{ticketType || 'N/A'}</h4>
+            <p className='' style={{fontSize:8}}>Youth Connekt Lesotho</p>
+            <p className='' style={{fontSize:8}}><b>Free</b></p>
+            </div>
+        </div>
       </Card>
+      <div className='flex justify-center' >
+          <p className='text-gray-500 text-sm pt-2' style={{fontSize:8}}><b>© 2024 Youth Connekt Lesotho - All Rights Reserved</b></p>
+      </div>
       </div>}
     </div>
+    {/* <WebinarFooter /> */}
+    </>
   );
 }
 

@@ -52,6 +52,7 @@ import {
 import MenuList from "./MenuQoute";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 import { PlaceholdersAndVanishInput } from "./ui/placeholders-and-vanish-input";
+import { RiOrganizationChart } from "@remixicon/react";
  interface ApiResponse {
   _id: string;
   name: string;
@@ -239,7 +240,20 @@ export function Navigation() {
           :
           (<Sheet>
             <SheetTrigger asChild>
-              <GripHorizontal />
+              <div className="flex gap-5 pl-5">
+                {/* <GripHorizontal /> */}
+                <Link href={"/"}>
+                  <Image
+                    src="/nu.png"
+                    alt="Nucleus Logo"
+                    width={30}
+                    height={24}
+                    priority
+                    onClick={() => setContent("Landing")}
+                  />
+                </Link>
+                <GripHorizontal />
+              </div>
             </SheetTrigger>
             <SheetContent className="" style={{ zIndex: 9999 }}>
               <SheetHeader>
@@ -247,10 +261,8 @@ export function Navigation() {
                 <SheetDescription>
                 </SheetDescription>
               </SheetHeader>
-              <Command className="rounded-lg  shadow-md">
-                <CommandInput placeholder="Type a command or search..." />
+              <Command className="rounded-lg p-5  shadow-md">
                 <CommandList>
-                  <CommandEmpty>No results found.</CommandEmpty>
                   <CommandGroup heading="Suggestions">
                     <Link href="/">
                       <CommandItem>
@@ -264,29 +276,20 @@ export function Navigation() {
                         <span>Blog</span>
                       </CommandItem>
                     </Link>
-                    <CommandItem>
-                      <SheetClose asChild>
-                        <Button
-                          variant="outline"
-                          size={"sm"}
-                          className="w-[200px]"
-                          onClick={() => setQoutaionON(!qoutaionON)}
-                        >
-                          <>+ Qoutation</>
-                        </Button>
-                      </SheetClose>
-                    </CommandItem>
-
                   </CommandGroup>
                   <CommandSeparator />
                   <CommandGroup heading="Settings">
                     <CommandItem>
                       <User className="mr-2 h-4 w-4" />
-                      <span>Profile</span>
+                      <Link href={'/codiac-test'}>
+                        <span>Nu-Codiac</span>
+                      </Link>
                     </CommandItem>
                     <CommandItem>
-                      <Settings className="mr-2 h-4 w-4" />
-                      <span>Settings</span>
+                      <RiOrganizationChart className="mr-2 h-4 w-4" />
+                      <Link href={"/pricing"}>
+                        <span>Nu-devs Academy</span>
+                      </Link>
                     </CommandItem>
                   </CommandGroup>
                 </CommandList>
@@ -316,37 +319,6 @@ export function Navigation() {
                 </DropdownMenu>
                 </div>
               </Command>
-
-              <Drawer>
-                <DrawerTrigger asChild>
-                </DrawerTrigger>
-                <DrawerContent>
-                  <DrawerHeader>
-                    <DrawerTitle>Get a qoute</DrawerTitle>
-                    <DrawerDescription>Choose what features you want on your site</DrawerDescription>
-                  </DrawerHeader>
-                  <div className="p-4 pb-0">
-
-                  </div>
-                  <div className="w-full flex justify-center ">
-                    <DrawerFooter className="w-full justify-center">
-                      <div className="w-full flex justify-center ">
-                        <Button
-                          variant="outline"
-                          size={"sm"}
-                          className="w-[200px]"
-                          onClick={() => setQoutaionON(!qoutaionON)}
-                        >
-                          <>+ Qoutation</>
-                        </Button>
-                      </div>
-                      {qoutaionON && <div className="w-full">
-                        <MenuList />
-                      </div>}
-                    </DrawerFooter>
-                  </div>
-                </DrawerContent>
-              </Drawer>
               <SheetFooter>
               </SheetFooter>
             </SheetContent>

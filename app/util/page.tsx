@@ -64,6 +64,16 @@ const Dashboard = () => {
   const [codiacsUsers, setCodiacsUsers] = useState<CodiacUsers[]>([]);
   const loginToken = useStore((state) => state.loginToken)
 
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    const params = new URLSearchParams(url.search);
+    const id = params.get('state');
+
+    if (id === "ticket") {
+      setView("Youthconnect")
+    }   
+  }, []);
+  
   useEffect(() => { 
     let source: CancelTokenSource;
     const getAllCodiacs = async () => {
