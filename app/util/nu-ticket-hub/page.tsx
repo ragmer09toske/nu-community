@@ -174,6 +174,9 @@ const Youthconnect = () => {
       </div>}
       {isMobile&&
       <div id='ticket'>
+        <div className='pb-3 pt-5'>
+          <h4 className='' style={{fontSize:8}}><b>This is your Ticket</b></h4>
+        </div>
       <Card className="w-[350px]"> 
         <div className='flex gap-2'>
             <div> 
