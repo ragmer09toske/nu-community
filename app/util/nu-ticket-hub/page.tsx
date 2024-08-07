@@ -111,7 +111,7 @@ const Youthconnect = () => {
     <>
     <Navigation />
     <div className='pt-5 flex flex-col justify-center items-center gap-5 border-t-0 border-gray-700'>
-      <Card className='p-5 flex flex-col gap-3 '>
+      <Card className='p-5 flex flex-col gap-3 w-[350px]'>
         <Input placeholder="Issued To" onChange={(e) => setIssuedTo(e.target.value)} />
         {/* <Input placeholder="" onChange={(e) => setTicketType(e.target.value)} /> */}
         <Label htmlFor="framework">Ticket Type</Label>
