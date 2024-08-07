@@ -9,6 +9,8 @@ import html2canvas from 'html2canvas';
 import { Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { useTheme } from "next-themes"
+
 import {
   CardContent,
   CardDescription,
@@ -41,6 +43,8 @@ const Youthconnect = () => {
   const [ticket,setTicket] = useState<boolean>(false)
   const [ticketReady,setTicketReady] = useState<boolean>(false)
   const [typeRegister,setTypeRegister] = useState<boolean>(true)
+  const { theme, setTheme } = useTheme()
+
   const generateQR = async (id: string) => {
     try {
       const qrCodeDataURL = await QRCode.toDataURL(`https://nucleusdevs.com/util/tickets?q=${id}`);
@@ -122,6 +126,9 @@ const Youthconnect = () => {
     }
   }, [ticketType]);
 
+  useEffect(()=>{
+    setTheme("light")
+  })
   useEffect(() => {
     if (generatePdf && src) {
       generatePDF();
