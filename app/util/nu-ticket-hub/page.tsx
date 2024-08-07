@@ -26,7 +26,6 @@ import {
 } from "@/components/ui/select"
 import useMobile from '@/app/Mobile';
 import { Navigation } from '@/components/Navigation';
-import { WebinarFooter } from '@/app/academy/Footer';
 const Youthconnect = () => {
   const [issuedTo, setIssuedTo] = useState<string>("");
   const [orderNumber, setOrderNumber] = useState<string>("");
@@ -35,6 +34,7 @@ const Youthconnect = () => {
   const [ticketId, setTicketId] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [generatePdf, setGeneratePdf] = useState<boolean>(false);
+  const [disabled,setDisabled] = useState<boolean>(false)
   const isMobile = useMobile()
   const generateQR = async (id: string) => {
     try {
@@ -47,6 +47,15 @@ const Youthconnect = () => {
     }
   };
 
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    const params = new URLSearchParams(url.search);
+    const id = params.get('toske');
+
+    if (id === "Xwyu768") {
+        setDisabled(true);
+    }   
+  }, []);
   const generatePDF = async () => {
     const input = document.getElementById('ticket');
     if (input) {
@@ -120,8 +129,17 @@ const Youthconnect = () => {
                     <SelectValue placeholder="Select" />
                   </SelectTrigger>
                   <SelectContent position="popper">
-                    <SelectItem value="GENERAL">General</SelectItem>
-                    <SelectItem value="VIP" disabled>VIP</SelectItem>
+                    {disabled ? (
+                        <div>
+                            <SelectItem value="GENERAL">General</SelectItem>
+                            <SelectItem value="VIP" disabled>VIP</SelectItem>
+                        </div>
+                    ):
+                        <div>
+                            <SelectItem value="GENERAL" disabled>General</SelectItem>
+                            <SelectItem value="VIP">VIP</SelectItem>
+                        </div>
+                    }
                   </SelectContent>
                 </Select>
         <Button onClick={registerTicket} disabled={loading}>
