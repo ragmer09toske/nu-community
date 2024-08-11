@@ -6,23 +6,16 @@ import { ListOrderedIcon, Loader2, Trophy, User2 } from 'lucide-react';
 import { WebinarFooter } from '@/app/academy/Footer';
 import Image from 'next/image';
 import {
-    Calculator,
     Calendar,
-    CreditCard,
-    Settings,
-    Smile,
-    User,
   } from "lucide-react"
    
   import {
     Command,
     CommandEmpty,
     CommandGroup,
-    CommandInput,
     CommandItem,
     CommandList,
     CommandSeparator,
-    CommandShortcut,
   } from "@/components/ui/command"
 import { RiOrganizationChart } from '@remixicon/react';
 
@@ -44,7 +37,6 @@ const TicketDetails: React.FC = () => {
   const [ticketId, setTicketId] = useState<string>('');
   const [ticketDetails, setTicketDetails] = useState<Ticket | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string>('');
   const loginToken = useStore((state) => state.loginToken);
 
   useEffect(() => {

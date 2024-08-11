@@ -18,7 +18,7 @@ export const Files: React.FC = () => {
   const [fileResponses, setFileResponses] = useState<FileResponse[]>([]);
   return (
     <div className='w-full flex justify-center gap-5 pl-5'>
-        <Card className="flex w-[200px] h-[50vh] flex-col gap-5">
+        <Card className="flex w-[300px] h-[70vh] flex-col gap-5">
             <div className='pt-5 flex justify-center pl-5 pr-5' style={{fontSize: 13}}>
                 <p><b>Your Files</b></p>
             </div>

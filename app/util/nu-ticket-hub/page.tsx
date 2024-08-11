@@ -219,7 +219,6 @@ const Youthconnect = () => {
           <h4 className='text-gray-500 text-sm pt-2'><b>© 2024 Youth Connekt Lesotho - All Rights Reserved</b></h4>
         </div>
       </div>}
-
       {isMobile&&
       <div id='ticket'>
       <div className='pb-3 pt-5'>
@@ -263,6 +262,7 @@ const Youthconnect = () => {
             </div>
         </div>
       </Card>
+
       <div className='flex justify-center' >
           <p className='text-gray-500 text-sm pt-2' style={{fontSize:8}}><b>© 2024 Youth Connekt Lesotho - All Rights Reserved</b></p>
       </div>

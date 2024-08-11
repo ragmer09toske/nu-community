@@ -37,6 +37,7 @@ import Analytics from "./Analytics"
 import Org from "./Org"
 import { SettingsParnel } from "./Settings"
 import Youthconnect from "./Youthconnect"
+import { Commerce } from "./Commerce"
 
 
 interface Codiac {
@@ -73,7 +74,7 @@ const Dashboard = () => {
       setView("Youthconnect")
     }   
   }, []);
-  
+
   useEffect(() => { 
     let source: CancelTokenSource;
     const getAllCodiacs = async () => {
@@ -164,7 +165,7 @@ const Dashboard = () => {
                   href="#"
                   className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                 >
-                  <ShoppingCart className="h-5 w-5" />
+                  <ShoppingCart className="h-5 w-5" onClick={()=>{setView("Commerce")}}/>
                   <span className="sr-only">Commerce</span>
                 </Link>
               </TooltipTrigger>
@@ -332,7 +333,7 @@ const Dashboard = () => {
           {view == "Analytics" && <Analytics />}
           {view == "Settings" && <div><SettingsParnel /></div>}
           {view == "Youthconnect" && <div><Youthconnect /></div>}
-          
+          {view == "Commerce" && <div><Commerce /></div>}
         </div>
       </div>
     </MenuContext.Provider>
