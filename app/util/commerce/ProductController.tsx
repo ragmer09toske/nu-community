@@ -341,31 +341,33 @@ const ProductController = () => {
                         </DialogTrigger>
                         <DialogContent className="p-10">
                             <DialogHeader>
-                            <DialogTitle>Variants</DialogTitle>
-                            <DialogDescription>
-                                Selected variant will apply on the Stock table
-                            </DialogDescription>
+                                <DialogTitle>Thumbnail</DialogTitle>
+                                <DialogDescription>
+                                    Select a presentable picture, preferably with a white background.
+                                </DialogDescription>
                             </DialogHeader>
-                            <div className="grid gap-4 py-4">
-                                <Select onValueChange={(v)=>setVariant(v)}>
-                                    <SelectTrigger
-                                    id="category"
-                                    aria-label="Select category"
-                                    >
-                                        <SelectValue placeholder="Select" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="shoe sizes">Shoe Sizes</SelectItem>
-                                        <SelectItem value="colors">Colors</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </div>
-                            <DialogFooter>
-                                <Button size="sm" variant="ghost" className="gap-1" onClick={handleAddVariant}>
-                                    <PlusCircle className="h-3.5 w-3.5" />
-                                    Add Variant
-                                </Button>
-                            </DialogFooter>
+                            <UploadDropzone
+                                endpoint="mediaPost"
+                                onClientUploadComplete={(res: FileResponse[]) => {
+                                // Do something with the response array
+                                console.log("Files: ", res);
+
+                                // Update the fileResponses state variable
+                                setFileResponses(res);
+
+                                // Accessing the name of each file
+                                res.forEach(file => {
+                                    const fileName = file.name;
+                                    console.log("File Name: ", fileName);
+                                    // Do something with the file name
+                                });
+
+                                }}
+                                onUploadError={(error: Error) => {
+                                // Do something with the error.
+                                
+                                }}
+                            />
                         </DialogContent>
                     </Dialog>
                 </button>
@@ -383,26 +385,28 @@ const ProductController = () => {
                                 Selected variant will apply on the Stock table
                             </DialogDescription>
                             </DialogHeader>
-                            <div className="grid gap-4 py-4">
-                                <Select onValueChange={(v)=>setVariant(v)}>
-                                    <SelectTrigger
-                                    id="category"
-                                    aria-label="Select category"
-                                    >
-                                        <SelectValue placeholder="Select" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="shoe sizes">Shoe Sizes</SelectItem>
-                                        <SelectItem value="colors">Colors</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </div>
-                            <DialogFooter>
-                                <Button size="sm" variant="ghost" className="gap-1" onClick={handleAddVariant}>
-                                    <PlusCircle className="h-3.5 w-3.5" />
-                                    Add Variant
-                                </Button>
-                            </DialogFooter>
+                            <UploadDropzone
+                                endpoint="mediaPost"
+                                onClientUploadComplete={(res: FileResponse[]) => {
+                                // Do something with the response array
+                                console.log("Files: ", res);
+
+                                // Update the fileResponses state variable
+                                setFileResponses(res);
+
+                                // Accessing the name of each file
+                                res.forEach(file => {
+                                    const fileName = file.name;
+                                    console.log("File Name: ", fileName);
+                                    // Do something with the file name
+                                });
+
+                                }}
+                                onUploadError={(error: Error) => {
+                                // Do something with the error.
+                                
+                                }}
+                            />
                         </DialogContent>
                     </Dialog>
                   </button>
@@ -419,62 +423,66 @@ const ProductController = () => {
                                 Selected variant will apply on the Stock table
                             </DialogDescription>
                             </DialogHeader>
-                            <div className="grid gap-4 py-4">
-                                <Select onValueChange={(v)=>setVariant(v)}>
-                                    <SelectTrigger
-                                    id="category"
-                                    aria-label="Select category"
-                                    >
-                                        <SelectValue placeholder="Select" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="shoe sizes">Shoe Sizes</SelectItem>
-                                        <SelectItem value="colors">Colors</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </div>
-                            <DialogFooter>
-                                <Button size="sm" variant="ghost" className="gap-1" onClick={handleAddVariant}>
-                                    <PlusCircle className="h-3.5 w-3.5" />
-                                    Add Variant
-                                </Button>
-                            </DialogFooter>
+                            <UploadDropzone
+                                endpoint="mediaPost"
+                                onClientUploadComplete={(res: FileResponse[]) => {
+                                // Do something with the response array
+                                console.log("Files: ", res);
+
+                                // Update the fileResponses state variable
+                                setFileResponses(res);
+
+                                // Accessing the name of each file
+                                res.forEach(file => {
+                                    const fileName = file.name;
+                                    console.log("File Name: ", fileName);
+                                    // Do something with the file name
+                                });
+
+                                }}
+                                onUploadError={(error: Error) => {
+                                // Do something with the error.
+                                
+                                }}
+                            />
                         </DialogContent>
                     </Dialog>
                   </button>
-                  
+
                   <button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
                     <Dialog>
                         <DialogTrigger asChild>
                             <Upload className="h-4 w-4 text-muted-foreground" />
                         </DialogTrigger>
-                        <DialogContent className="p-10">
+                        <DialogContent className="w-[40%] h-[50%] p-10">
                             <DialogHeader>
                             <DialogTitle>Variants</DialogTitle>
                             <DialogDescription>
                                 Selected variant will apply on the Stock table
                             </DialogDescription>
                             </DialogHeader>
-                            <div className="grid gap-4 py-4">
-                                <Select onValueChange={(v)=>setVariant(v)}>
-                                    <SelectTrigger
-                                    id="category"
-                                    aria-label="Select category"
-                                    >
-                                        <SelectValue placeholder="Select" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="shoe sizes">Shoe Sizes</SelectItem>
-                                        <SelectItem value="colors">Colors</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </div>
-                            <DialogFooter>
-                                <Button size="sm" variant="ghost" className="gap-1" onClick={handleAddVariant}>
-                                    <PlusCircle className="h-3.5 w-3.5" />
-                                    Add Variant
-                                </Button>
-                            </DialogFooter>
+                            <UploadDropzone
+                                endpoint="mediaPost"
+                                onClientUploadComplete={(res: FileResponse[]) => {
+                                // Do something with the response array
+                                console.log("Files: ", res);
+
+                                // Update the fileResponses state variable
+                                setFileResponses(res);
+
+                                // Accessing the name of each file
+                                res.forEach(file => {
+                                    const fileName = file.name;
+                                    console.log("File Name: ", fileName);
+                                    // Do something with the file name
+                                });
+
+                                }}
+                                onUploadError={(error: Error) => {
+                                // Do something with the error.
+                                
+                                }}
+                            />
                         </DialogContent>
                     </Dialog>
                   </button>
