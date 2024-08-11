@@ -165,35 +165,32 @@ const ProductController = () => {
                 </DialogTrigger>
                 <DialogContent className="p-10">
                     <DialogHeader>
-                    <DialogTitle>Edit profile</DialogTitle>
+                    <DialogTitle>Variants</DialogTitle>
                     <DialogDescription>
-                        Make changes to your profile here. Click save when you're done.
+                        Selected variant will apply on the Stock table
                     </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4 py-4">
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="name" className="text-right">
-                        Name
-                        </Label>
-                        <Input
-                        id="name"
-                        defaultValue="Pedro Duarte"
-                        className="col-span-3"
-                        />
-                    </div>
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="username" className="text-right">
-                        Username
-                        </Label>
-                        <Input
-                        id="username"
-                        defaultValue="@peduarte"
-                        className="col-span-3"
-                        />
-                    </div>
+                        <Select>
+                            <SelectTrigger
+                            id="category"
+                            aria-label="Select category"
+                            >
+                                <SelectValue placeholder="Select" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="clothing">Shoe Sizes</SelectItem>
+                                <SelectItem value="electronics">
+                                    Colors
+                                </SelectItem>
+                            </SelectContent>
+                        </Select>
                     </div>
                     <DialogFooter>
-                    <Button type="submit">Save changes</Button>
+                        <Button size="sm" variant="ghost" className="gap-1">
+                            <PlusCircle className="h-3.5 w-3.5" />
+                            Add Variant
+                        </Button>
                     </DialogFooter>
                 </DialogContent>
             </Dialog>
