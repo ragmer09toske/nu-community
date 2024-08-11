@@ -52,6 +52,7 @@ import { ToastAction } from "@/components/ui/toast"
 import { useToast } from "@/components/ui/use-toast"
 import { UploadDropzone } from '@/app/utils/uploadthing';
 import { ProductContext } from '@/app/academy/AppContex'
+import axios from 'axios'
 interface FileResponse {
     key: string;
     name: string;
@@ -121,12 +122,34 @@ const ProductController = () => {
   }
 
   useEffect(()=>{
-    setThumbnail(fileResponsesArray.url)
-    setImageOne(fileResponses_Array1.url)
-    setImageTwo(fileResponses_Array2.url)
-    setImageThree(fileResponses_Array3.url)
+    setThumbnail(fileResponsesArray?.url)
+    setImageOne(fileResponses_Array1?.url)
+    setImageTwo(fileResponses_Array2?.url)
+    setImageThree(fileResponses_Array3?.url)
   })
 
+  const postProduct = async () => {
+    try {
+      const response = await axios.post('https://nu-com-0e51cf02b2c8.herokuapp.com/nu-commerce', {
+        name,
+        description,
+        quantity,
+        price,
+        size,
+        category,
+        subcategory,
+        status,
+        color,
+        thumbnail,
+        image_one,
+        image_two,
+        image_three,
+      });
+      console.log('Product posted successfully:', response.data);
+    } catch (error) {
+      console.error('Error posting product:', error);
+    }
+  };
   return (
     <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
     <div className="mx-auto grid  flex-1 auto-rows-max gap-4">
