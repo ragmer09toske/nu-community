@@ -38,11 +38,20 @@ import {
 ToggleGroup,
 ToggleGroupItem,
 } from "@/components/ui/toggle-group"
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog"
 
 const ProductController = () => {
   return (
     <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
-    <div className="mx-auto grid max-w-[59rem] flex-1 auto-rows-max gap-4">
+    <div className="mx-auto grid  flex-1 auto-rows-max gap-4">
       <div className="flex items-center gap-4">
         <Button variant="outline" size="icon" className="h-7 w-7">
           <ChevronLeft className="h-4 w-4" />
@@ -103,17 +112,14 @@ const ProductController = () => {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead className="w-[100px]">SKU</TableHead>
                     <TableHead>Stock</TableHead>
                     <TableHead>Price</TableHead>
                     <TableHead className="w-[100px]">Size</TableHead>
+                    {/* <TableHead className="w-[100px]">Color</TableHead> */}
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   <TableRow>
-                    <TableCell className="font-semibold">
-                      GGPC-001
-                    </TableCell>
                     <TableCell>
                       <Label htmlFor="stock-1" className="sr-only">
                         Stock
@@ -150,10 +156,47 @@ const ProductController = () => {
               </Table>
             </CardContent>
             <CardFooter className="justify-center border-t p-4">
-              <Button size="sm" variant="ghost" className="gap-1">
-                <PlusCircle className="h-3.5 w-3.5" />
-                Add Variant
-              </Button>
+            <Dialog>
+                <DialogTrigger asChild>
+                <Button size="sm" variant="ghost" className="gap-1">
+                    <PlusCircle className="h-3.5 w-3.5" />
+                    Add Variant
+                </Button>
+                </DialogTrigger>
+                <DialogContent className="p-10">
+                    <DialogHeader>
+                    <DialogTitle>Edit profile</DialogTitle>
+                    <DialogDescription>
+                        Make changes to your profile here. Click save when you're done.
+                    </DialogDescription>
+                    </DialogHeader>
+                    <div className="grid gap-4 py-4">
+                    <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="name" className="text-right">
+                        Name
+                        </Label>
+                        <Input
+                        id="name"
+                        defaultValue="Pedro Duarte"
+                        className="col-span-3"
+                        />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="username" className="text-right">
+                        Username
+                        </Label>
+                        <Input
+                        id="username"
+                        defaultValue="@peduarte"
+                        className="col-span-3"
+                        />
+                    </div>
+                    </div>
+                    <DialogFooter>
+                    <Button type="submit">Save changes</Button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
             </CardFooter>
           </Card>
           <Card x-chunk="dashboard-07-chunk-2">
