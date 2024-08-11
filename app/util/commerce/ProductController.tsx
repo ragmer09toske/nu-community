@@ -71,7 +71,7 @@ interface Product {
     category: string;
     subcategory?: string;
     status?: string;
-    color?: string;
+    color?: any;
     thumbnail: string;
     image_one?: string;
     image_two?: string;
@@ -87,7 +87,7 @@ const ProductController = () => {
   const [category, setCategory] = useState<string>('');
   const [subcategory, setSubcategory] = useState<string | undefined>(undefined);
   const [status, setStatus] = useState<string | undefined>(undefined);
-  const [color, setColor] = useState<string | undefined>(undefined);
+  const [color, setColor] = useState<any>();
   const [thumbnail, setThumbnail] = useState<string>('');
   const [image_one, setImageOne] = useState<string | undefined>(undefined);
   const [image_two, setImageTwo] = useState<string | undefined>(undefined);
@@ -224,13 +224,14 @@ const ProductController = () => {
 
                       {savedVariant ==="shoe sizes" && (<ToggleGroup
                         type="single"
-                        defaultValue="s"
+                        defaultValue="7"
                         variant="outline"
                       >
                         <Input
                             id="price-1"
                             type="number"
                             defaultValue="7"
+                            onChange={(v)=>setSize(v)}
                         />
                       </ToggleGroup>)}
                     </TableCell>
@@ -239,7 +240,8 @@ const ProductController = () => {
                         type="single"
                         defaultValue="s"
                         variant="outline"
-                      >
+                        onChange={(v)=>setColor(v)}
+                        >
                         <ToggleGroupItem value="blue">
                             <div className="w-5 h-5 bg-blue-500 rounded-full"></div>
                         </ToggleGroupItem>
