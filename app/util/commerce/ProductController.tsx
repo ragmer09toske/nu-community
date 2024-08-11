@@ -100,6 +100,10 @@ const ProductController = () => {
   const fileResponses_len1 = fileResponses1.length;
   const fileResponses_len2 = fileResponses2.length;
   const fileResponses_len3 = fileResponses3.length;
+  const fileResponsesArray = fileResponses[0];
+  const fileResponses_Array1 = fileResponses1[0];
+  const fileResponses_Array2 = fileResponses2[0];
+  const fileResponses_Array3 = fileResponses3[0];
   const {setView} = useContext(ProductContext);
   const [Variant,setVariant]  = useState<string>("")
   const [savedVariant,setSavedVariant]  = useState<string>("")
@@ -355,7 +359,7 @@ const ProductController = () => {
               <div className="grid gap-6">
                 <div className="grid gap-3">
                   <Label htmlFor="status">Status</Label>
-                  <Select>
+                  <Select onValueChange={(v)=>setStatus(v)}>
                     <SelectTrigger id="status" aria-label="Select status">
                       <SelectValue placeholder="Select status" />
                     </SelectTrigger>
