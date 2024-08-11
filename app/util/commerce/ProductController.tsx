@@ -130,7 +130,7 @@ const ProductController = () => {
                   <TableRow>
                     <TableHead>Stock</TableHead>
                     <TableHead>Price</TableHead>
-                    <TableHead className="w-[100px]">Size</TableHead>
+                    {savedVariant !=="shoe sizes" && (<TableHead className="w-[100px]">Size</TableHead>)}
                     {savedVariant && (<TableHead className="w-[100px]">{Variant}</TableHead>)}
                   </TableRow>
                 </TableHeader>
