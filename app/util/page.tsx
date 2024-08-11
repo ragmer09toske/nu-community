@@ -37,7 +37,7 @@ import Analytics from "./Analytics"
 import Org from "./Org"
 import { SettingsParnel } from "./Settings"
 import Youthconnect from "./Youthconnect"
-import { Commerce } from "./Commerce"
+import { Commerce } from "./commerce/Commerce"
 
 
 interface Codiac {
