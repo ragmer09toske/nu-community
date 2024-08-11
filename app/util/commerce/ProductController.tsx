@@ -191,7 +191,7 @@ const ProductController = () => {
                         </Select>
                     </div>
                     <DialogFooter>
-                        <Button size="sm" variant="ghost" className="gap-1">
+                        <Button size="sm" variant="ghost" className="gap-1" onClick={handleAddVariant}>
                             <PlusCircle className="h-3.5 w-3.5" />
                             Add Variant
                         </Button>
