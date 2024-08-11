@@ -59,9 +59,39 @@ interface FileResponse {
     size: number;
     url: string;
     // Add other attributes if present in the response
-  }
+}
+
+interface Product {
+    _id: string;
+    name: string;
+    description: string;
+    quantity: number;
+    price: number;
+    size: string;
+    category: string;
+    subcategory?: string;
+    status?: string;
+    color?: string;
+    thumbnail: string;
+    image_one?: string;
+    image_two?: string;
+    image_three?: string;
+}
 
 const ProductController = () => {
+  const [name, setName] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
+  const [quantity, setQuantity] = useState<number>(0);
+  const [price, setPrice] = useState<number>(0);
+  const [size, setSize] = useState<string>('');
+  const [category, setCategory] = useState<string>('');
+  const [subcategory, setSubcategory] = useState<string | undefined>(undefined);
+  const [status, setStatus] = useState<string | undefined>(undefined);
+  const [color, setColor] = useState<string | undefined>(undefined);
+  const [thumbnail, setThumbnail] = useState<string>('');
+  const [image_one, setImageOne] = useState<string | undefined>(undefined);
+  const [image_two, setImageTwo] = useState<string | undefined>(undefined);
+  const [image_three, setImageThree] = useState<string | undefined>(undefined);
   const [fileResponses, setFileResponses] = useState<FileResponse[]>([]);
   const [fileResponses1, setFileResponses1] = useState<FileResponse[]>([]);
   const [fileResponses2, setFileResponses2] = useState<FileResponse[]>([]);
@@ -124,6 +154,7 @@ const ProductController = () => {
                     type="text"
                     className="w-full"
                     defaultValue="Gamer Gear Pro Controller"
+                    onChange={(e)=>setName(e.target.value)}
                   />
                 </div>
                 <div className="grid gap-3">
@@ -132,6 +163,7 @@ const ProductController = () => {
                     id="description"
                     defaultValue="Provide clear, concise details highlighting key features and benefits. Include materials, dimensions, and unique selling points to inform and engage customers."
                     className="min-h-32"
+                    onChange={(e)=>setDescription(e.target.value)}
                   />
                 </div>
               </div>
