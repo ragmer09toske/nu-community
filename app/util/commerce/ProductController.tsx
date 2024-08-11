@@ -333,7 +333,7 @@ const ProductController = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid gap-2">
+              <div className="grid gap-2 items-center">
                 <button className="w-[70%]">
                     {/* <Upload className="h-4 w-4 text-muted-foreground" /> */}
                     <UploadDropzone
@@ -360,17 +360,54 @@ const ProductController = () => {
                     />
                 </button>
                 <div className="grid grid-cols-3 gap-2">
-                  <button className="flex aspect-square w-full items-center justify-center rounded-md border border-dashed">
-                    <Upload className="h-4 w-4 text-muted-foreground" />
+                 <button className="w-[75%]">
+                  <UploadDropzone
+                        endpoint="mediaPost"
+                        onClientUploadComplete={(res: FileResponse[]) => {
+                        // Do something with the response array
+                        console.log("Files: ", res);
+
+                        // Update the fileResponses state variable
+                        setFileResponses(res);
+
+                        // Accessing the name of each file
+                        res.forEach(file => {
+                            const fileName = file.name;
+                            console.log("File Name: ", fileName);
+                            // Do something with the file name
+                        });
+
+                        }}
+                        onUploadError={(error: Error) => {
+                        // Do something with the error.
+                        
+                        }}
+                    />
                   </button>
                 
-                  <button className="flex aspect-square w-full items-center justify-center rounded-md border border-dashed">
-                    <Upload className="h-4 w-4 text-muted-foreground" />
-                  </button>
+                  <button className="w-[75%]">
+                  <UploadDropzone
+                        endpoint="mediaPost"
+                        onClientUploadComplete={(res: FileResponse[]) => {
+                        // Do something with the response array
+                        console.log("Files: ", res);
 
-                  <button className="flex aspect-square w-full items-center justify-center rounded-md border border-dashed">
-                    <Upload className="h-4 w-4 text-muted-foreground" />
-                    <span className="sr-only">Upload</span>
+                        // Update the fileResponses state variable
+                        setFileResponses(res);
+
+                        // Accessing the name of each file
+                        res.forEach(file => {
+                            const fileName = file.name;
+                            console.log("File Name: ", fileName);
+                            // Do something with the file name
+                        });
+
+                        }}
+                        onUploadError={(error: Error) => {
+                        // Do something with the error.
+                        
+                        }}
+                    />
                   </button>
                 </div>
               </div>
