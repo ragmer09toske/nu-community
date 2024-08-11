@@ -335,10 +335,41 @@ const ProductController = () => {
             <CardContent>
               <div className="grid gap-2 items-center">
                 <button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
-                    <Upload className="h-4 w-4 text-muted-foreground" />
-                    <span className="sr-only">Upload</span>
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <Upload className="h-4 w-4 text-muted-foreground" />
+                        </DialogTrigger>
+                        <DialogContent className="p-10">
+                            <DialogHeader>
+                            <DialogTitle>Variants</DialogTitle>
+                            <DialogDescription>
+                                Selected variant will apply on the Stock table
+                            </DialogDescription>
+                            </DialogHeader>
+                            <div className="grid gap-4 py-4">
+                                <Select onValueChange={(v)=>setVariant(v)}>
+                                    <SelectTrigger
+                                    id="category"
+                                    aria-label="Select category"
+                                    >
+                                        <SelectValue placeholder="Select" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem value="shoe sizes">Shoe Sizes</SelectItem>
+                                        <SelectItem value="colors">Colors</SelectItem>
+                                    </SelectContent>
+                                </Select>
+                            </div>
+                            <DialogFooter>
+                                <Button size="sm" variant="ghost" className="gap-1" onClick={handleAddVariant}>
+                                    <PlusCircle className="h-3.5 w-3.5" />
+                                    Add Variant
+                                </Button>
+                            </DialogFooter>
+                        </DialogContent>
+                    </Dialog>
                 </button>
-                
+
                 <div className="grid grid-cols-3 gap-2">
                   <button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
                     <Upload className="h-4 w-4 text-muted-foreground" />
