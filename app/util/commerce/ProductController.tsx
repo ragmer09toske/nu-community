@@ -304,7 +304,7 @@ const ProductController = () => {
               <div className="sm:w-full grid gap-6 sm:grid-cols-3">
                 <div className="grid gap-3">
                   <Label htmlFor="category">Category</Label>
-                  <Select>
+                  <Select onValueChange={(v)=>setCategory(v)}>
                     <SelectTrigger
                       id="category"
                       aria-label="Select category"
