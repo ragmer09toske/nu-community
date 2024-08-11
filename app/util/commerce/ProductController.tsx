@@ -65,10 +65,13 @@ const ProductController = () => {
   const [fileResponses1, setFileResponses1] = useState<FileResponse[]>([]);
   const [fileResponses2, setFileResponses2] = useState<FileResponse[]>([]);
   const [fileResponses3, setFileResponses3] = useState<FileResponse[]>([]);
+  const fileResponses_len = fileResponses.length;
+  const fileResponses_len1 = fileResponses1.length;
+  const fileResponses_len2 = fileResponses2.length;
+  const fileResponses_len3 = fileResponses3.length;
   const [Variant,setVariant]  = useState<string>("")
   const [savedVariant,setSavedVariant]  = useState<string>("")
   const { toast } = useToast()
-  const fileResponses_len = fileResponses.length;
   const handleAddVariant = () => {
     setSavedVariant(Variant)
     toast({
