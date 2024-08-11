@@ -68,6 +68,7 @@ const ProductController = () => {
   const [Variant,setVariant]  = useState<string>("")
   const [savedVariant,setSavedVariant]  = useState<string>("")
   const { toast } = useToast()
+  const fileResponses_len = fileResponses.length;
   const handleAddVariant = () => {
     setSavedVariant(Variant)
     toast({
@@ -337,8 +338,7 @@ const ProductController = () => {
             </CardHeader>
             <CardContent>
               <div className="grid gap-2 items-center">
-               {
-                fileResponses.map((file, index) => (
+               {fileResponses.map((file, index) => (
                     <Image
                     key={index}
                         alt="Product image"
@@ -347,9 +347,8 @@ const ProductController = () => {
                         src={file.url}
                         width="84"
                     />
-                ))
-                }
-                {fileResponses !==null && (<button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
+                ))}
+                {fileResponses_len === 0 && (<button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
                     <Dialog>
                         <DialogTrigger asChild>
                             <Upload className="h-4 w-4 text-muted-foreground" />
