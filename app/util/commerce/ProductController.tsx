@@ -157,7 +157,7 @@ const ProductController = () => {
                       />
                     </TableCell>
                     <TableCell>
-                      <ToggleGroup
+                      {savedVariant ==="shoe sizes" && (<ToggleGroup
                         type="single"
                         defaultValue="s"
                         variant="outline"
@@ -165,7 +165,7 @@ const ProductController = () => {
                         <ToggleGroupItem value="s">S</ToggleGroupItem>
                         <ToggleGroupItem value="m">M</ToggleGroupItem>
                         <ToggleGroupItem value="l">L</ToggleGroupItem>
-                      </ToggleGroup>
+                      </ToggleGroup>)}
                     </TableCell>
                     {savedVariant ==="colors" && (<TableCell>
                       <ToggleGroup
