@@ -1,4 +1,5 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import {
     Card,
     CardContent,
@@ -49,6 +50,7 @@ import {
 } from "@/components/ui/dialog"
 
 const ProductController = () => {
+  const [Variant,setVariant]  = useState<string>("")
   return (
     <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
     <div className="mx-auto grid  flex-1 auto-rows-max gap-4">
@@ -115,7 +117,7 @@ const ProductController = () => {
                     <TableHead>Stock</TableHead>
                     <TableHead>Price</TableHead>
                     <TableHead className="w-[100px]">Size</TableHead>
-                    {/* <TableHead className="w-[100px]">Color</TableHead> */}
+                    {Variant && (<TableHead className="w-[100px]">Variant</TableHead>)}
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -171,7 +173,7 @@ const ProductController = () => {
                     </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4 py-4">
-                        <Select>
+                        <Select onValueChange={(v)=>setVariant(v)}>
                             <SelectTrigger
                             id="category"
                             aria-label="Select category"
