@@ -67,7 +67,7 @@ const ProductController = () => {
             <CardHeader>
               <CardTitle>Product Details</CardTitle>
               <CardDescription>
-                Lipsum dolor sit amet, consectetur adipiscing elit
+                Highlight key features, materials, and dimensions for clear, engaging product information.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -85,7 +85,7 @@ const ProductController = () => {
                   <Label htmlFor="description">Description</Label>
                   <Textarea
                     id="description"
-                    defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc."
+                    defaultValue="Provide clear, concise details highlighting key features and benefits. Include materials, dimensions, and unique selling points to inform and engage customers."
                     className="min-h-32"
                   />
                 </div>
@@ -96,7 +96,7 @@ const ProductController = () => {
             <CardHeader>
               <CardTitle>Stock</CardTitle>
               <CardDescription>
-                Lipsum dolor sit amet, consectetur adipiscing elit
+                Stock details
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -267,7 +267,7 @@ const ProductController = () => {
             <CardHeader>
               <CardTitle>Archive Product</CardTitle>
               <CardDescription>
-                Lipsum dolor sit amet, consectetur adipiscing elit.
+                Manage discontinued items for future reference and analytics.
               </CardDescription>
             </CardHeader>
             <CardContent>
