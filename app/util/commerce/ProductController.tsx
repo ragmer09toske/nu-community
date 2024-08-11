@@ -57,8 +57,8 @@ const ProductController = () => {
   const handleAddVariant = () => {
     setSavedVariant(Variant)
     toast({
-        title: "Scheduled: Catch up ",
-        description: "Variant",
+        title: "Variant",
+        description: "Selected variant will apply on the Stock table",
         action: (
           <ToastAction altText="Goto schedule to undo" onClick={()=>{setSavedVariant("")}}>Undo</ToastAction>
         ),
@@ -167,6 +167,23 @@ const ProductController = () => {
                         <ToggleGroupItem value="l">L</ToggleGroupItem>
                       </ToggleGroup>
                     </TableCell>
+                    {savedVariant && (<TableCell>
+                      <ToggleGroup
+                        type="single"
+                        defaultValue="s"
+                        variant="outline"
+                      >
+                        <ToggleGroupItem value="blue">
+                            <div className="w-5 h-5 bg-blue-500 rounded-full"></div>
+                        </ToggleGroupItem>
+                        <ToggleGroupItem value="yellow">
+                            <div className="w-5 h-5 bg-yellow-500 rounded-full"></div>
+                        </ToggleGroupItem>
+                        <ToggleGroupItem value="red">
+                            <div className="w-5 h-5 bg-red-500 rounded-full"></div>
+                        </ToggleGroupItem>
+                      </ToggleGroup>
+                    </TableCell>)}
                   </TableRow>
                 </TableBody>
               </Table>
