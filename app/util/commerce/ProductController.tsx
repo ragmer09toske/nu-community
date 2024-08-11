@@ -66,7 +66,7 @@ interface Product {
     name: string;
     description: string;
     quantity: any;
-    price: number;
+    price: any;
     size: string;
     category: string;
     subcategory?: string;
@@ -82,7 +82,7 @@ const ProductController = () => {
   const [name, setName] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [quantity, setQuantity] = useState<any>();
-  const [price, setPrice] = useState<number>(0);
+  const [price, setPrice] = useState<any>();
   const [size, setSize] = useState<string>('');
   const [category, setCategory] = useState<string>('');
   const [subcategory, setSubcategory] = useState<string | undefined>(undefined);
@@ -207,6 +207,7 @@ const ProductController = () => {
                         id="price-1"
                         type="number"
                         defaultValue="99.99"
+                        onChange={(e)=>setPrice(e.target.value)}
                       />
                     </TableCell>
                     <TableCell>
@@ -214,6 +215,7 @@ const ProductController = () => {
                         type="single"
                         defaultValue="s"
                         variant="outline"
+                        onChange={(v)=>setPrice(v)}
                       >
                         <ToggleGroupItem value="s">S</ToggleGroupItem>
                         <ToggleGroupItem value="m">M</ToggleGroupItem>
