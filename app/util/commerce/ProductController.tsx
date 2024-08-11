@@ -65,7 +65,7 @@ interface Product {
     _id: string;
     name: string;
     description: string;
-    quantity: number;
+    quantity: any;
     price: number;
     size: string;
     category: string;
@@ -81,7 +81,7 @@ interface Product {
 const ProductController = () => {
   const [name, setName] = useState<string>('');
   const [description, setDescription] = useState<string>('');
-  const [quantity, setQuantity] = useState<number>(0);
+  const [quantity, setQuantity] = useState<any>();
   const [price, setPrice] = useState<number>(0);
   const [size, setSize] = useState<string>('');
   const [category, setCategory] = useState<string>('');
@@ -196,6 +196,7 @@ const ProductController = () => {
                         id="stock-1"
                         type="number"
                         defaultValue="100"
+                        onChange={(e)=>{setQuantity(e.target.value)}}
                       />
                     </TableCell>
                     <TableCell>
