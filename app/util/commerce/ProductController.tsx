@@ -167,7 +167,7 @@ const ProductController = () => {
                         <ToggleGroupItem value="l">L</ToggleGroupItem>
                       </ToggleGroup>
                     </TableCell>
-                    {savedVariant && (<TableCell>
+                    {savedVariant ==="colors" && (<TableCell>
                       <ToggleGroup
                         type="single"
                         defaultValue="s"
