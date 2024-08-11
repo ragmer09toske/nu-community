@@ -146,78 +146,6 @@ const ProductController = () => {
                       </ToggleGroup>
                     </TableCell>
                   </TableRow>
-                  <TableRow>
-                    <TableCell className="font-semibold">
-                      GGPC-002
-                    </TableCell>
-                    <TableCell>
-                      <Label htmlFor="stock-2" className="sr-only">
-                        Stock
-                      </Label>
-                      <Input
-                        id="stock-2"
-                        type="number"
-                        defaultValue="143"
-                      />
-                    </TableCell>
-                    <TableCell>
-                      <Label htmlFor="price-2" className="sr-only">
-                        Price
-                      </Label>
-                      <Input
-                        id="price-2"
-                        type="number"
-                        defaultValue="99.99"
-                      />
-                    </TableCell>
-                    <TableCell>
-                      <ToggleGroup
-                        type="single"
-                        defaultValue="m"
-                        variant="outline"
-                      >
-                        <ToggleGroupItem value="s">S</ToggleGroupItem>
-                        <ToggleGroupItem value="m">M</ToggleGroupItem>
-                        <ToggleGroupItem value="l">L</ToggleGroupItem>
-                      </ToggleGroup>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-semibold">
-                      GGPC-003
-                    </TableCell>
-                    <TableCell>
-                      <Label htmlFor="stock-3" className="sr-only">
-                        Stock
-                      </Label>
-                      <Input
-                        id="stock-3"
-                        type="number"
-                        defaultValue="32"
-                      />
-                    </TableCell>
-                    <TableCell>
-                      <Label htmlFor="price-3" className="sr-only">
-                        Stock
-                      </Label>
-                      <Input
-                        id="price-3"
-                        type="number"
-                        defaultValue="99.99"
-                      />
-                    </TableCell>
-                    <TableCell>
-                      <ToggleGroup
-                        type="single"
-                        defaultValue="s"
-                        variant="outline"
-                      >
-                        <ToggleGroupItem value="s">S</ToggleGroupItem>
-                        <ToggleGroupItem value="m">M</ToggleGroupItem>
-                        <ToggleGroupItem value="l">L</ToggleGroupItem>
-                      </ToggleGroup>
-                    </TableCell>
-                  </TableRow>
                 </TableBody>
               </Table>
             </CardContent>
@@ -307,37 +235,26 @@ const ProductController = () => {
             <CardHeader>
               <CardTitle>Product Images</CardTitle>
               <CardDescription>
-                Lipsum dolor sit amet, consectetur adipiscing elit
+              Opt for high-quality, clear images with neutral backgrounds. Use varied angles and good graphics to enhance product appeal
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid gap-2">
-                <Image
-                  alt="Product image"
-                  className="aspect-square w-full rounded-md object-cover"
-                  height="300"
-                  src="/placeholder.svg"
-                  width="300"
-                />
+                <button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
+                    <Upload className="h-4 w-4 text-muted-foreground" />
+                    <span className="sr-only">Upload</span>
+                </button>
                 <div className="grid grid-cols-3 gap-2">
-                  <button>
-                    <Image
-                      alt="Product image"
-                      className="aspect-square w-full rounded-md object-cover"
-                      height="84"
-                      src="/placeholder.svg"
-                      width="84"
-                    />
+                  <button className="flex aspect-square w-full items-center justify-center rounded-md border border-dashed">
+                    <Upload className="h-4 w-4 text-muted-foreground" />
+                    <span className="sr-only">Upload</span>
                   </button>
-                  <button>
-                    <Image
-                      alt="Product image"
-                      className="aspect-square w-full rounded-md object-cover"
-                      height="84"
-                      src="/placeholder.svg"
-                      width="84"
-                    />
+                
+                  <button className="flex aspect-square w-full items-center justify-center rounded-md border border-dashed">
+                    <Upload className="h-4 w-4 text-muted-foreground" />
+                    <span className="sr-only">Upload</span>
                   </button>
+
                   <button className="flex aspect-square w-full items-center justify-center rounded-md border border-dashed">
                     <Upload className="h-4 w-4 text-muted-foreground" />
                     <span className="sr-only">Upload</span>
