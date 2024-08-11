@@ -51,6 +51,7 @@ import {
 
 const ProductController = () => {
   const [Variant,setVariant]  = useState<string>("")
+  const [savedVariant,setSavedVariant]  = useState<string>("")
   return (
     <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
     <div className="mx-auto grid  flex-1 auto-rows-max gap-4">
@@ -117,7 +118,7 @@ const ProductController = () => {
                     <TableHead>Stock</TableHead>
                     <TableHead>Price</TableHead>
                     <TableHead className="w-[100px]">Size</TableHead>
-                    {Variant && (<TableHead className="w-[100px]">Variant</TableHead>)}
+                    {Variant && (<TableHead className="w-[100px]">{Variant}</TableHead>)}
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -181,10 +182,8 @@ const ProductController = () => {
                                 <SelectValue placeholder="Select" />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="clothing">Shoe Sizes</SelectItem>
-                                <SelectItem value="electronics">
-                                    Colors
-                                </SelectItem>
+                                <SelectItem value="shoe sizes">Shoe Sizes</SelectItem>
+                                <SelectItem value="colors">Colors</SelectItem>
                             </SelectContent>
                         </Select>
                     </div>
