@@ -121,16 +121,18 @@ const ProductController = () => {
     })
   }
 
-  useEffect(()=>{
-    setThumbnail(fileResponsesArray?.url)
-    setImageOne(fileResponses_Array1?.url)
-    setImageTwo(fileResponses_Array2?.url)
-    setImageThree(fileResponses_Array3?.url)
-  })
+  useEffect(() => {
+    setThumbnail(fileResponsesArray?.url);
+    setImageOne(fileResponses_Array1?.url);
+    setImageTwo(fileResponses_Array2?.url);
+    setImageThree(fileResponses_Array3?.url);
+  }, [fileResponsesArray, fileResponses_Array1, fileResponses_Array2, fileResponses_Array3]);
+  
 
   const postProduct = async () => {
     try {
-      const response = await axios.post('https://nu-com-0e51cf02b2c8.herokuapp.com/nu-commerce', {
+      // Ensure that the state variables are correctly updated
+      const productData = {
         name,
         description,
         quantity,
@@ -144,12 +146,40 @@ const ProductController = () => {
         image_one,
         image_two,
         image_three,
+      };
+  
+      // Log the data being sent to check correctness
+      console.log('Posting product data:', productData);
+  
+      // Send the POST request
+      const response = await axios.post('https://nu-com-0e51cf02b2c8.herokuapp.com/nu-commerce', productData, {
+        headers: {
+          'Content-Type': 'application/json',
+          // Add other headers if required by your API
+        },
       });
+  
+      // Log the response from the server
       console.log('Product posted successfully:', response.data);
+  
+      // Optionally, show a success message to the user
+      toast({
+        title: "Success",
+        description: "Product has been posted successfully!",
+      });
+  
     } catch (error) {
+      // Log and handle the error
       console.error('Error posting product:', error);
+  
+      // Optionally, show an error message to the user
+      toast({
+        title: "Error",
+        description: "Failed to post the product. Please try again.",
+      });
     }
   };
+  
 
   return (
     <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
