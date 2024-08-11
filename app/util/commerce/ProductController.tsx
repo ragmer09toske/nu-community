@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {
     Card,
     CardContent,
@@ -51,6 +51,7 @@ import {
 import { ToastAction } from "@/components/ui/toast"
 import { useToast } from "@/components/ui/use-toast"
 import { UploadDropzone } from '@/app/utils/uploadthing';
+import { ProductContext } from '@/app/academy/AppContex'
 interface FileResponse {
     key: string;
     name: string;
@@ -69,6 +70,7 @@ const ProductController = () => {
   const fileResponses_len1 = fileResponses1.length;
   const fileResponses_len2 = fileResponses2.length;
   const fileResponses_len3 = fileResponses3.length;
+  const {setView} = useContext(ProductContext);
   const [Variant,setVariant]  = useState<string>("")
   const [savedVariant,setSavedVariant]  = useState<string>("")
   const { toast } = useToast()
@@ -82,12 +84,12 @@ const ProductController = () => {
         ),
     })
   }
-  
+
   return (
     <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
     <div className="mx-auto grid  flex-1 auto-rows-max gap-4">
       <div className="flex items-center gap-4">
-        <Button variant="outline" size="icon" className="h-7 w-7">
+        <Button variant="outline" size="icon" className="h-7 w-7" onClick={()=>{setView("")}}>
           <ChevronLeft className="h-4 w-4" />
           <span className="sr-only">Back</span>
         </Button>

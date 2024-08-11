@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import axios from 'axios';
 import {
@@ -42,6 +42,7 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/components/ui/tabs';
+import { ProductContext } from '@/app/academy/AppContex';
 
 interface Product {
   _id: string;
@@ -62,6 +63,7 @@ interface Product {
 
 const ProductsDetails: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const {setView} = useContext(ProductContext);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -116,7 +118,7 @@ const ProductsDetails: React.FC = () => {
                 Export
               </span>
             </Button>
-            <Button size="sm" className="h-8 gap-1">
+            <Button size="sm" className="h-8 gap-1" onClick={()=>setView("products_controller")}>
               <PlusCircle className="h-3.5 w-3.5" />
               <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
                 Add Product
