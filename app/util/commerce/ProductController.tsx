@@ -160,8 +160,8 @@ const ProductController = () => {
             <CardHeader>
               <CardTitle>Product Category</CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="grid gap-6 sm:grid-cols-3">
+            <CardContent className='w-full'>
+              <div className="sm:w-full grid gap-6 sm:grid-cols-3">
                 <div className="grid gap-3">
                   <Label htmlFor="category">Category</Label>
                   <Select>
@@ -169,7 +169,7 @@ const ProductController = () => {
                       id="category"
                       aria-label="Select category"
                     >
-                      <SelectValue placeholder="Select category" />
+                      <SelectValue placeholder="Select" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="clothing">Clothing</SelectItem>
@@ -191,7 +191,7 @@ const ProductController = () => {
                       id="subcategory"
                       aria-label="Select subcategory"
                     >
-                      <SelectValue placeholder="Select subcategory" />
+                      <SelectValue placeholder="Select" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="t-shirts">T-Shirts</SelectItem>
