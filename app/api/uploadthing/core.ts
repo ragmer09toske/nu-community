@@ -31,8 +31,8 @@ export const ourFileRouter = {
     }),
 
     mediaPost: f({
-      image: { maxFileSize: "1GB", maxFileCount: 4},
-      video: { maxFileSize: "1GB", maxFileCount: 1},
+      image: { maxFileSize: "32MB", maxFileCount: 1},
+      // video: { maxFileSize: "1GB", maxFileCount: 1},
     })
     // .middleware((req) => auth(req))
     .onUploadComplete((data)=> console.log("file", data))

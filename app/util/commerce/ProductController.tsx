@@ -50,7 +50,18 @@ import {
 } from "@/components/ui/dialog"
 import { ToastAction } from "@/components/ui/toast"
 import { useToast } from "@/components/ui/use-toast"
+import { UploadDropzone } from '@/app/utils/uploadthing';
+interface FileResponse {
+    key: string;
+    name: string;
+    serverData: any; // Adjust the type if serverData has a specific structure
+    size: number;
+    url: string;
+    // Add other attributes if present in the response
+  }
+
 const ProductController = () => {
+  const [fileResponses, setFileResponses] = useState<FileResponse[]>([]);
   const [Variant,setVariant]  = useState<string>("")
   const [savedVariant,setSavedVariant]  = useState<string>("")
   const { toast } = useToast()
@@ -323,19 +334,38 @@ const ProductController = () => {
             </CardHeader>
             <CardContent>
               <div className="grid gap-2">
-                <button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
-                    <Upload className="h-4 w-4 text-muted-foreground" />
-                    <span className="sr-only">Upload</span>
+                <button className="w-[70%]">
+                    {/* <Upload className="h-4 w-4 text-muted-foreground" /> */}
+                    <UploadDropzone
+                        endpoint="mediaPost"
+                        onClientUploadComplete={(res: FileResponse[]) => {
+                        // Do something with the response array
+                        console.log("Files: ", res);
+
+                        // Update the fileResponses state variable
+                        setFileResponses(res);
+
+                        // Accessing the name of each file
+                        res.forEach(file => {
+                            const fileName = file.name;
+                            console.log("File Name: ", fileName);
+                            // Do something with the file name
+                        });
+
+                        }}
+                        onUploadError={(error: Error) => {
+                        // Do something with the error.
+                        
+                        }}
+                    />
                 </button>
                 <div className="grid grid-cols-3 gap-2">
                   <button className="flex aspect-square w-full items-center justify-center rounded-md border border-dashed">
                     <Upload className="h-4 w-4 text-muted-foreground" />
-                    <span className="sr-only">Upload</span>
                   </button>
                 
                   <button className="flex aspect-square w-full items-center justify-center rounded-md border border-dashed">
                     <Upload className="h-4 w-4 text-muted-foreground" />
-                    <span className="sr-only">Upload</span>
                   </button>
 
                   <button className="flex aspect-square w-full items-center justify-center rounded-md border border-dashed">
