@@ -62,6 +62,9 @@ interface FileResponse {
 
 const ProductController = () => {
   const [fileResponses, setFileResponses] = useState<FileResponse[]>([]);
+  const [fileResponses1, setFileResponses1] = useState<FileResponse[]>([]);
+  const [fileResponses2, setFileResponses2] = useState<FileResponse[]>([]);
+  const [fileResponses3, setFileResponses3] = useState<FileResponse[]>([]);
   const [Variant,setVariant]  = useState<string>("")
   const [savedVariant,setSavedVariant]  = useState<string>("")
   const { toast } = useToast()
@@ -334,7 +337,19 @@ const ProductController = () => {
             </CardHeader>
             <CardContent>
               <div className="grid gap-2 items-center">
-                <button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
+               {
+                fileResponses.map((file, index) => (
+                    <Image
+                    key={index}
+                        alt="Product image"
+                        className="aspect-square w-full rounded-md object-cover"
+                        height="84"
+                        src={file.url}
+                        width="84"
+                    />
+                ))
+                }
+                {fileResponses !==null && (<button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
                     <Dialog>
                         <DialogTrigger asChild>
                             <Upload className="h-4 w-4 text-muted-foreground" />
@@ -370,7 +385,7 @@ const ProductController = () => {
                             />
                         </DialogContent>
                     </Dialog>
-                </button>
+                </button>)}
 
                 <div className="grid grid-cols-3 gap-2">
                   <button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
@@ -392,7 +407,7 @@ const ProductController = () => {
                                 console.log("Files: ", res);
 
                                 // Update the fileResponses state variable
-                                setFileResponses(res);
+                                setFileResponses1(res);
 
                                 // Accessing the name of each file
                                 res.forEach(file => {
@@ -430,7 +445,7 @@ const ProductController = () => {
                                 console.log("Files: ", res);
 
                                 // Update the fileResponses state variable
-                                setFileResponses(res);
+                                setFileResponses2(res);
 
                                 // Accessing the name of each file
                                 res.forEach(file => {
@@ -468,7 +483,7 @@ const ProductController = () => {
                                 console.log("Files: ", res);
 
                                 // Update the fileResponses state variable
-                                setFileResponses(res);
+                                setFileResponses3(res);
 
                                 // Accessing the name of each file
                                 res.forEach(file => {
