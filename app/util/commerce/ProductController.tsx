@@ -390,7 +390,17 @@ const ProductController = () => {
                 </button>)}
 
                 <div className="grid grid-cols-3 gap-2">
-                  <button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
+                {fileResponses1.map((file, index) => (
+                    <Image
+                    key={index}
+                        alt="Product image"
+                        className="aspect-square w-full rounded-md object-cover"
+                        height="84"
+                        src={file.url}
+                        width="84"
+                    />
+                ))} 
+                  {fileResponses_len1 === 0 &&(<button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
                     <Dialog>
                         <DialogTrigger asChild>
                             <Upload className="h-4 w-4 text-muted-foreground" />
@@ -426,9 +436,19 @@ const ProductController = () => {
                             />
                         </DialogContent>
                     </Dialog>
-                  </button>
+                  </button>)}
 
-                  <button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
+                  {fileResponses2.map((file, index) => (
+                    <Image
+                    key={index}
+                        alt="Product image"
+                        className="aspect-square w-full rounded-md object-cover"
+                        height="84"
+                        src={file.url}
+                        width="84"
+                    />
+                  ))}
+                  {fileResponses_len2 === 0 &&(<button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
                     <Dialog>
                         <DialogTrigger asChild>
                             <Upload className="h-4 w-4 text-muted-foreground" />
@@ -464,9 +484,19 @@ const ProductController = () => {
                             />
                         </DialogContent>
                     </Dialog>
-                  </button>
+                  </button>)}
 
-                  <button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
+                  {fileResponses3.map((file, index) => (
+                    <Image
+                    key={index}
+                        alt="Product image"
+                        className="aspect-square w-full rounded-md object-cover"
+                        height="84"
+                        src={file.url}
+                        width="84"
+                    />
+                  ))}
+                  {fileResponses_len3 === 0 && (<button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
                     <Dialog>
                         <DialogTrigger asChild>
                             <Upload className="h-4 w-4 text-muted-foreground" />
@@ -502,7 +532,7 @@ const ProductController = () => {
                             />
                         </DialogContent>
                     </Dialog>
-                  </button>
+                  </button>)}
                 </div>
               </div>
             </CardContent>
