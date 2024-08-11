@@ -48,13 +48,23 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-
+import { ToastAction } from "@/components/ui/toast"
+import { useToast } from "@/components/ui/use-toast"
 const ProductController = () => {
   const [Variant,setVariant]  = useState<string>("")
   const [savedVariant,setSavedVariant]  = useState<string>("")
+  const { toast } = useToast()
   const handleAddVariant = () => {
     setSavedVariant(Variant)
+    toast({
+        title: "Scheduled: Catch up ",
+        description: "Variant",
+        action: (
+          <ToastAction altText="Goto schedule to undo" onClick={()=>{setSavedVariant("")}}>Undo</ToastAction>
+        ),
+    })
   }
+  
   return (
     <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
     <div className="mx-auto grid  flex-1 auto-rows-max gap-4">
