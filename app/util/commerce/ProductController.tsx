@@ -169,7 +169,7 @@ const ProductController = () => {
           <Button variant="outline" size="sm">
             Discard
           </Button>
-          <Button size="sm">Save Product</Button>
+          <Button size="sm" onClick={postProduct}>Save Product</Button>
         </div>
       </div>
       <div className="grid gap-4 md:grid-cols-[1fr_250px] lg:grid-cols-3 lg:gap-8">
