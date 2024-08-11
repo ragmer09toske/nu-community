@@ -326,7 +326,7 @@ const ProductController = () => {
                   <Label htmlFor="subcategory">
                     Subcategory (optional)
                   </Label>
-                  <Select>
+                  <Select onValueChange={(v)=>setSubcategory(v)}>
                     <SelectTrigger
                       id="subcategory"
                       aria-label="Select subcategory"
