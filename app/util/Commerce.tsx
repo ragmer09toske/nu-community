@@ -26,15 +26,52 @@ export function Commerce() {
             className="grid gap-4 text-sm text-muted-foreground" x-chunk="dashboard-04-chunk-0"
           >
             <Link href="#" className="font-semibold text-primary">
-              General
+              Store
             </Link>
             <Link href="#">API</Link>
             <Link href="#">Access Control</Link>
             <Link href="#">History</Link>
             <Link href="#">Organization</Link>
-            <Link href="#">Settings</Link>
           </nav>
           <div className="grid gap-6">
+            <nav className="flex gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
+                <Link
+                    href="#"
+                    className="flex items-center gap-2 text-lg font-semibold md:text-base"
+                >
+                    <Package2 className="h-6 w-6" />
+                </Link>
+                <Link
+                    href="#"
+                    className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                    Dashboard
+                </Link>
+                <Link
+                    href="#"
+                    className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                    Orders
+                </Link>
+                <Link
+                    href="#"
+                    className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                    Products
+                </Link>
+                <Link
+                    href="#"
+                    className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                    Customers
+                </Link>
+                <Link
+                    href="#"
+                    className="text-foreground transition-colors hover:text-foreground"
+                >
+                    Settings
+                </Link>
+            </nav>
             <Card x-chunk="dashboard-04-chunk-1">
               <CardHeader>
                 <CardTitle>Store Name</CardTitle>
@@ -44,7 +81,7 @@ export function Commerce() {
               </CardHeader>
               <CardContent>
                 <form>
-                  <Input placeholder="Store Name" />
+                  <Input placeholder="Store Name" value={"V-Mol"} />
                 </form>
               </CardContent>
               <CardFooter className="border-t px-6 py-4">
@@ -53,17 +90,16 @@ export function Commerce() {
             </Card>
             <Card x-chunk="dashboard-04-chunk-2">
               <CardHeader>
-                <CardTitle>Plugins Directory</CardTitle>
+                <CardTitle>Customers</CardTitle>
                 <CardDescription>
-                  The directory within your project, in which your plugins are
-                  located.
+                  People who recently viewed you store
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <form className="flex flex-col gap-4">
                   <Input
                     placeholder="Project Name"
-                    defaultValue="/content/plugins"
+                    defaultValue="/stores/v-mol"
                   />
                   <div className="flex items-center space-x-2">
                     <Checkbox id="include" defaultChecked />
@@ -77,7 +113,7 @@ export function Commerce() {
                 </form>
               </CardContent>
               <CardFooter className="border-t px-6 py-4">
-                <Button>Save</Button>
+                <Button>View</Button>
               </CardFooter>
             </Card>
           </div>
