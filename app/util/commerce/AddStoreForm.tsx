@@ -19,7 +19,6 @@ const frameworks = [
   } 
 ]
 
-import { Value } from "@radix-ui/react-select";
 import { Label } from "../components/label";
 import { Input } from "../components/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -48,13 +47,17 @@ export function AddStoreForm() {
     logo, setLogo,
     avatar, setAvatar
   } = useContext(StoreContext);
-
+  const fileResponsesArray = fileResponses[0];
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form submitted");
   };
 
+  useEffect(()=>{
+    setAvatar(fileResponsesArray.url);
+    setLogo();
+  },[avatar,logo])
   return (
     <div className="flex  gap-5  items-center">
         <div className="max-w-md mx-auto w-full rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
