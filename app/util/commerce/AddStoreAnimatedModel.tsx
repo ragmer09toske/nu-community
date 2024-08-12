@@ -12,6 +12,7 @@ import { Loader2, User2 } from "lucide-react";
 import { NuUserContext } from "@/app/academy/AppContex";
 import axios from "axios";
 import { CreateUserForm } from "../components/CreateUserForm";
+import { AddStoreForm } from "./AddStoreForm";
 
 export function AddStoreAnimatedModel() {
     const [names, setNames] = useState<string>('');
@@ -72,7 +73,7 @@ export function AddStoreAnimatedModel() {
             </ModalTrigger>
             <ModalBody>
             <ModalContent >
-              <CreateUserForm />
+              <AddStoreForm />
             </ModalContent>
             <ModalFooter className="gap-4">
                 <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">

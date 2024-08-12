@@ -465,30 +465,30 @@ const ProductController = () => {
                             <DialogHeader>
                                 <DialogTitle>Thumbnail</DialogTitle>
                                 <DialogDescription>
-                                    Select a presentable picture, preferably with a white background.
+                                  Select a presentable picture, preferably with a white background.
                                 </DialogDescription>
                             </DialogHeader>
                             <UploadDropzone
-                                endpoint="mediaPost"
-                                onClientUploadComplete={(res: FileResponse[]) => {
-                                // Do something with the response array
-                                console.log("Files: ", res);
+                              endpoint="mediaPost"
+                              onClientUploadComplete={(res: FileResponse[]) => {
+                              // Do something with the response array
+                              console.log("Files: ", res);
 
-                                // Update the fileResponses state variable
-                                setFileResponses(res);
+                              // Update the fileResponses state variable
+                              setFileResponses(res);
 
-                                // Accessing the name of each file
-                                res.forEach(file => {
-                                    const fileName = file.name;
-                                    console.log("File Name: ", fileName);
-                                    // Do something with the file name
-                                });
+                              // Accessing the name of each file
+                              res.forEach(file => {
+                                  const fileName = file.name;
+                                  console.log("File Name: ", fileName);
+                                  // Do something with the file name
+                              });
 
-                                }}
-                                onUploadError={(error: Error) => {
-                                // Do something with the error.
-                                
-                                }}
+                              }}
+                              onUploadError={(error: Error) => {
+                              // Do something with the error.
+                              
+                              }}
                             />
                         </DialogContent>
                     </Dialog>
@@ -518,26 +518,26 @@ const ProductController = () => {
                             </DialogDescription>
                             </DialogHeader>
                             <UploadDropzone
-                                endpoint="mediaPost"
-                                onClientUploadComplete={(res: FileResponse[]) => {
-                                // Do something with the response array
-                                console.log("Files: ", res);
+                              endpoint="mediaPost"
+                              onClientUploadComplete={(res: FileResponse[]) => {
+                              // Do something with the response array
+                              console.log("Files: ", res);
 
-                                // Update the fileResponses state variable
-                                setFileResponses1(res);
+                              // Update the fileResponses state variable
+                              setFileResponses1(res);
 
-                                // Accessing the name of each file
-                                res.forEach(file => {
-                                    const fileName = file.name;
-                                    console.log("File Name: ", fileName);
-                                    // Do something with the file name
-                                });
+                              // Accessing the name of each file
+                              res.forEach(file => {
+                                  const fileName = file.name;
+                                  console.log("File Name: ", fileName);
+                                  // Do something with the file name
+                              });
 
-                                }}
-                                onUploadError={(error: Error) => {
-                                // Do something with the error.
-                                
-                                }}
+                              }}
+                              onUploadError={(error: Error) => {
+                              // Do something with the error.
+                              
+                              }}
                             />
                         </DialogContent>
                     </Dialog>
@@ -546,11 +546,11 @@ const ProductController = () => {
                   {fileResponses2.map((file, index) => (
                     <Image
                     key={index}
-                        alt="Product image"
-                        className="aspect-square w-full rounded-md object-cover"
-                        height="84"
-                        src={file.url}
-                        width="84"
+                      alt="Product image"
+                      className="aspect-square w-full rounded-md object-cover"
+                      height="84"
+                      src={file.url}
+                      width="84"
                     />
                   ))}
                   {fileResponses_len2 === 0 &&(<button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
@@ -566,26 +566,26 @@ const ProductController = () => {
                             </DialogDescription>
                             </DialogHeader>
                             <UploadDropzone
-                                endpoint="mediaPost"
-                                onClientUploadComplete={(res: FileResponse[]) => {
-                                // Do something with the response array
-                                console.log("Files: ", res);
+                              endpoint="mediaPost"
+                              onClientUploadComplete={(res: FileResponse[]) => {
+                              // Do something with the response array
+                              console.log("Files: ", res);
 
-                                // Update the fileResponses state variable
-                                setFileResponses2(res);
+                              // Update the fileResponses state variable
+                              setFileResponses2(res);
 
-                                // Accessing the name of each file
-                                res.forEach(file => {
-                                    const fileName = file.name;
-                                    console.log("File Name: ", fileName);
-                                    // Do something with the file name
-                                });
+                              // Accessing the name of each file
+                              res.forEach(file => {
+                                  const fileName = file.name;
+                                  console.log("File Name: ", fileName);
+                                  // Do something with the file name
+                              });
 
-                                }}
-                                onUploadError={(error: Error) => {
-                                // Do something with the error.
-                                
-                                }}
+                              }}
+                              onUploadError={(error: Error) => {
+                              // Do something with the error.
+                              
+                              }}
                             />
                         </DialogContent>
                     </Dialog>
