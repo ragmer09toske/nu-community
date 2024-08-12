@@ -10,8 +10,11 @@ import {
 } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
+import useStore from "@/app/Store"
 
 const Dashboard = () => {
+  const UserDetails = useStore((state) => state.user);
+
   return (
     <div className='grid gap-6'>
         <Card x-chunk="dashboard-04-chunk-1">
@@ -23,7 +26,7 @@ const Dashboard = () => {
             </CardHeader>
             <CardContent>
             <form>
-                <Input placeholder="Store Name" value={"V-Mol"} />
+                <Input placeholder="Store Name" value={UserDetails?.acount} />
             </form>
             </CardContent>
             <CardFooter className="border-t px-6 py-4">

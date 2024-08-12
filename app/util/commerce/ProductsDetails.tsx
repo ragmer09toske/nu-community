@@ -147,7 +147,7 @@ const ProductsDetails: React.FC = () => {
                       Price
                     </TableHead>
                     <TableHead className="hidden md:table-cell">
-                      Total Sales
+                      Quantity
                     </TableHead>
                     <TableHead className="hidden md:table-cell">
                       Created at
