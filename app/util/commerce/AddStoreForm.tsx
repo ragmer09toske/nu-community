@@ -44,6 +44,7 @@ interface FileResponse {
 
 export function AddStoreForm() {
   const [fileResponses, setFileResponses] = useState<FileResponse[]>([]);
+  const [fileResponsesAvatar, setFileResponsesAvatar] = useState<FileResponse[]>([]);
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
   const {
@@ -56,6 +57,7 @@ export function AddStoreForm() {
     avatar, setAvatar
   } = useContext(StoreContext);
   const fileResponsesArray = fileResponses[0];
+  const fileResponsesAvatarArray = fileResponsesAvatar[0];
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -63,8 +65,8 @@ export function AddStoreForm() {
   };
 
   useEffect(()=>{
-    setAvatar(fileResponsesArray.url);
-    setLogo();
+    setAvatar(fileResponsesArray?.url);
+    setLogo(fileResponsesAvatarArray.url);
   },[avatar,logo])
   return (
     <div className="flex  gap-5  items-center">
@@ -129,7 +131,7 @@ export function AddStoreForm() {
                         console.log("Files: ", res);
 
                         // Update the fileResponses state variable
-                        setFileResponses(res);
+                        setFileResponsesAvatar(res);
 
                         // Accessing the name of each file
                         res.forEach(file => {
