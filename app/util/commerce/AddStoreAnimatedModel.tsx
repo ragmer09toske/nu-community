@@ -9,58 +9,76 @@ import {
 } from "../components/animated-modal";
 import { Loader2, User2 } from "lucide-react";
 // import { CreateUserForm } from "./CreateUserForm";
-import { NuUserContext } from "@/app/academy/AppContex";
+import { NuUserContext, StoreContext } from "@/app/academy/AppContex";
 import axios from "axios";
 import { CreateUserForm } from "../components/CreateUserForm";
 import { AddStoreForm } from "./AddStoreForm";
 
 export function AddStoreAnimatedModel() {
-    const [names, setNames] = useState<string>('');
-    const [phones, setPhones] = useState<number>();
-    const [email, setEmail] = useState<string>('');
-    const [client, setClient] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-    const [loading, setLoading] = useState<boolean>();
-    const [repeatPassword, setRepeatPassword] = useState<string>('');
+    // State variables for store attributes
+    const [name, setName] = useState<string>(''); // Store name
+    const [description, setDescription] = useState<string>(''); // Store description
+    const [officeNumber, setOfficeNumber] = useState<string>(''); // Office number
+    const [whatsappLink, setWhatsappLink] = useState<string>(''); // WhatsApp link
+    const [facebookLink, setFacebookLink] = useState<string>(''); // Facebook link
+    const [logo, setLogo] = useState<string>(''); // Logo URL
+    const [avatar, setAvatar] = useState<string>(''); // Avatar URL
 
+    // Optional state for loading or other purposes
+    const [loading, setLoading] = useState<boolean>(false); // Loading state
     async function register() {
         try {
-          setLoading(true)
-          const response = await axios.post('https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/auth/register', {
-            name : names,
-            number : phones,
-            email : email,
-            acount : client,
-            password : password
-          });
-          setLoading(false)
-          const { token, userID } = response.data;
+            setLoading(true);
+    
+            // Send a POST request to create a new store
+            const response = await axios.post('https://nu-com-0e51cf02b2c8.herokuapp.com/nu-commerce/store', {
+                name: name,                  // Store name
+                description: description,    // Store description
+                office_number: officeNumber, // Store office number
+                whatsapp_link: whatsappLink,// Store WhatsApp link
+                facebook_link: facebookLink,// Store Facebook link
+                logo: logo,                  // Store logo URL
+                avatar: avatar               // Store avatar URL
+            });
+    
+            setLoading(false);
+    
+            // Handle successful response
+            const { data } = response; // Adjust this based on your API response
+            console.log('Store created successfully:', data);
+            // You may want to handle further actions such as redirecting or displaying a success message
+    
         } catch (error) {
-          setLoading(false);
-          if (error instanceof Error) {
-            
-          } else {
-
-          }
+            setLoading(false);
+    
+            // Handle error
+            if (axios.isAxiosError(error)) {
+                // If the error is from Axios, you can handle it specifically
+                console.error('An error occurred:', error.message);
+                // Optionally set an error state or show an error message to the user
+            } else if (error instanceof Error) {
+                // General error handling
+                console.error('An unexpected error occurred:', error.message);
+                // Optionally set an error state or show an error message to the user
+            } else {
+                // Handle unexpected error types
+                console.error('An unknown error occurred');
+            }
         }
     }
     const submit = () =>{
-        console.log("names: ",names)
-        console.log("phone: ",phones)
-        console.log(email)
-        console.log(client)
-        console.log(password)
         register()
     }
   return (
-    <NuUserContext.Provider value={{
-        names, setNames,
-        phones, setPhones,
-        email, setEmail,
-        client, setClient,
-        password, setPassword,
-        repeatPassword, setRepeatPassword
-    }}>
+    <StoreContext.Provider value={{
+        name, setName,
+        description, setDescription,
+        officeNumber, setOfficeNumber,
+        whatsappLink, setWhatsappLink,
+        facebookLink, setFacebookLink,
+        logo, setLogo,
+        avatar, setAvatar
+      }}>
         <div className=" flex items-center justify-center w-screen">
         <Modal >
             <ModalTrigger className="bg-black dark:bg-white dark:text-black text-white flex justify-center group/modal-btn">
@@ -80,13 +98,13 @@ export function AddStoreAnimatedModel() {
                 Cancel
                 </button>
                 <button onClick={submit} className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
-                    {!loading ? "Save Profile" : <Loader2 className="animate-spin flex w-full justify-center "/>}
+                    {!loading ? "Save Store" : <Loader2 className="animate-spin flex w-full justify-center "/>}
                 </button>
             </ModalFooter>
             </ModalBody>
         </Modal>
         </div>
-    </NuUserContext.Provider>
+    </StoreContext.Provider>
   );
 }
 

@@ -20,11 +20,11 @@ const frameworks = [
 ]
 
 import { Value } from "@radix-ui/react-select";
-import { NuUserContext } from "@/app/academy/AppContex";
 import { Label } from "../components/label";
 import { Input } from "../components/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Upload } from "lucide-react";
+import { StoreContext } from "@/app/academy/AppContex";
 
 interface FileResponse {
     key: string;
@@ -39,12 +39,16 @@ export function AddStoreForm() {
   const [fileResponses, setFileResponses] = useState<FileResponse[]>([]);
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
-  const {setClient,setNames,setPassword,setEmail,setRepeatPassword,setPhones}  = useContext(NuUserContext)
+  const {
+    name, setName,
+    description, setDescription,
+    officeNumber, setOfficeNumber,
+    whatsappLink, setWhatsappLink,
+    facebookLink, setFacebookLink,
+    logo, setLogo,
+    avatar, setAvatar
+  } = useContext(StoreContext);
 
-  useEffect(()=>{
-    setClient(value)
-    console.log("the value of Value is: ", Value)
-  },[value])
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -57,11 +61,11 @@ export function AddStoreForm() {
         <form className="my-8" onSubmit={handleSubmit}>
             <LabelInputContainer>
                 <Label htmlFor="firstname">Store Names</Label>
-                <Input id="firstname" onChange={(e)=>{setNames(e.target.value)}} placeholder="Rethabile" type="text" />
+                <Input id="firstname" onChange={(e)=>{setName(e.target.value)}} placeholder="Rethabile" type="text" />
             </LabelInputContainer>
             <LabelInputContainer>
                 <Label htmlFor="lastname">Office Phone</Label>
-                <Input id="lastname" onChange={(e)=>{setPhones(e.target.value)}} placeholder="56234554" type="number" />
+                <Input id="lastname" onChange={(e)=>{officeNumber(e.target.value)}} placeholder="56234554" type="number" />
             </LabelInputContainer>
             <div className="grid gap-3">
                 <Label htmlFor="description">Description</Label>
@@ -69,19 +73,19 @@ export function AddStoreForm() {
                 id="description"
                 defaultValue="Provide clear, concise details highlighting key features and benefits. Include materials, dimensions, and unique selling points to inform and engage customers."
                 className="min-h-32"
-                // onChange={(e)=>setDescription(e.target.value)}
+                onChange={(e)=>setDescription(e.target.value)}
                 />
             </div>
             <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
             <div className="flex gap-3">
                 <LabelInputContainer>
                     <Label htmlFor="lastname">Whatsapp</Label>
-                    <Input id="lastname" onChange={(e)=>{setPhones(e.target.value)}} placeholder="56234554" type="number" />
+                    <Input id="lastname" onChange={(e)=>{setWhatsappLink(e.target.value)}} placeholder="56234554" type="number" />
                 </LabelInputContainer>
 
                 <LabelInputContainer>
                     <Label htmlFor="lastname">Facebook</Label>
-                    <Input id="lastname" onChange={(e)=>{setPhones(e.target.value)}} placeholder="56234554" type="number" />
+                    <Input id="lastname" onChange={(e)=>{setFacebookLink(e.target.value)}} placeholder="56234554" type="number" />
                 </LabelInputContainer>
             </div>
         </form>

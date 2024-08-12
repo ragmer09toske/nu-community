@@ -7,3 +7,4 @@ export const PriceContext = createContext(defaultValue);
 export const NuUserContext = createContext(defaultValue);
 export const MenuContext = createContext(defaultValue);
 export const ProductContext = createContext(defaultValue);
+export const StoreContext = createContext(defaultValue);
