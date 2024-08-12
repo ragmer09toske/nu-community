@@ -9,10 +9,8 @@ import {
 } from "../components/animated-modal";
 import { Loader2, User2 } from "lucide-react";
 // import { CreateUserForm } from "./CreateUserForm";
-import { NuUserContext, StoreContext } from "@/app/academy/AppContex";
 import axios from "axios";
 import { AddStoreForm } from "./AddStoreForm";
-import { ToastAction } from "@/components/ui/toast"
 import { useToast } from "@/components/ui/use-toast"
 
 export function AddStoreAnimatedModel() {
@@ -45,7 +43,7 @@ export function AddStoreAnimatedModel() {
             setLoading(false);
             toast({
                 title: "Success",
-                description: "Product has been posted successfully!",
+                description: "Store has been created successfully!",
               });
             // Handle successful response
             const { data } = response; // Adjust this based on your API response
@@ -54,10 +52,14 @@ export function AddStoreAnimatedModel() {
     
         } catch (error) {
             setLoading(false);
-    
+            
             // Handle error
             if (axios.isAxiosError(error)) {
                 // If the error is from Axios, you can handle it specifically
+                toast({
+                    title: "Error",
+                    description: "An unexpected error occurred",
+                  });
                 console.error('An error occurred:', error.message);
                 // Optionally set an error state or show an error message to the user
             } else if (error instanceof Error) {
