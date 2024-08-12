@@ -9,6 +9,7 @@ import {
 } from "../components/animated-modal";
 import { Loader2, User2 } from "lucide-react";
 // import { CreateUserForm } from "./CreateUserForm";
+import { NuUserContext, StoreContext } from "@/app/academy/AppContex";
 import axios from "axios";
 import { AddStoreForm } from "./AddStoreForm";
 import { useToast } from "@/components/ui/use-toast"
@@ -43,8 +44,8 @@ export function AddStoreAnimatedModel() {
             setLoading(false);
             toast({
                 title: "Success",
-                description: "Store has been created successfully!",
-              });
+                description: "Store has been cr successfully!",
+            });
             // Handle successful response
             const { data } = response; // Adjust this based on your API response
             console.log('Store created successfully:', data);
@@ -52,23 +53,27 @@ export function AddStoreAnimatedModel() {
     
         } catch (error) {
             setLoading(false);
-            
             // Handle error
             if (axios.isAxiosError(error)) {
                 // If the error is from Axios, you can handle it specifically
                 toast({
                     title: "Error",
-                    description: "An unexpected error occurred",
-                  });
-                console.error('An error occurred:', error.message);
+                    description: "An error occurred!",
+                });
                 // Optionally set an error state or show an error message to the user
             } else if (error instanceof Error) {
                 // General error handling
-                console.error('An unexpected error occurred:', error.message);
+                toast({
+                    title: "Error",
+                    description: "An unexpected error occurred!",
+                });
                 // Optionally set an error state or show an error message to the user
             } else {
                 // Handle unexpected error types
-                console.error('An unknown error occurred');
+                toast({
+                    title: "Error",
+                    description: "An unknown error occurred!",
+                });
             }
         }
     }
