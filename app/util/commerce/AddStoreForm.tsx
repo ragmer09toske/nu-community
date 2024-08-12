@@ -84,7 +84,7 @@ export function AddStoreForm() {
             </LabelInputContainer>
             <LabelInputContainer>
                 <Label htmlFor="lastname">Office Phone</Label>
-                <Input id="lastname" onChange={(e)=>{officeNumber(e.target.value)}} placeholder="56234554" type="number" />
+                <Input id="lastname" onChange={(e)=>{setOfficeNumber(e.target.value)}} placeholder="56234554" type="number" />
             </LabelInputContainer>
             <div className="grid gap-3">
                 <Label htmlFor="description">Description</Label>
