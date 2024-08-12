@@ -176,7 +176,8 @@ const ProductsDetails: React.FC = () => {
                         <Badge variant="outline">{product.status || 'N/A'}</Badge>
                       </TableCell>
                       <TableCell className="hidden md:table-cell">
-                        M{product.price.toFixed(2)}
+                        {/* M{product.price.toFixed(2)} */}
+                        M{product.price}
                       </TableCell>
                       <TableCell className="hidden md:table-cell">
                         {product.quantity}
