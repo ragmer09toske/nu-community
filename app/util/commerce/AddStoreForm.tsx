@@ -3,6 +3,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { UploadDropzone } from '@/app/utils/uploadthing';
 import {
+    Avatar,
+    AvatarFallback,
+    AvatarImage,
+} from "@/components/ui/avatar"
+import {
     Dialog,
     DialogContent,
     DialogDescription,
@@ -107,7 +112,7 @@ export function AddStoreForm() {
         
         <div className="max-w-md mx-auto h-full flex flex-col gap-7">
             Store Assets
-            <Dialog>
+            {fileResponsesAvatarArray && <Dialog>
                 <DialogTrigger asChild>
                 <div className="max-w-md mx-auto h-full">
                     <button className="flex items-center justify-center  border border-dashed aspect-square w-20 h-20 rounded-full object-cover">
@@ -148,7 +153,11 @@ export function AddStoreForm() {
                         }}
                     />
                 </DialogContent>
-            </Dialog>
+            </Dialog>}
+            {fileResponsesAvatarArray && <Avatar>
+                <AvatarImage src={fileResponsesAvatarArray.url} alt="@shadcn" />
+                <AvatarFallback>CN</AvatarFallback>
+            </Avatar>}
             <Label htmlFor="lastname">Logo</Label>
             {!fileResponsesArray && <UploadDropzone
                 endpoint="mediaPost"
