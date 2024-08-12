@@ -2,7 +2,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { UploadDropzone } from '@/app/utils/uploadthing';
-
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog"
  
 const frameworks = [
   {
@@ -96,14 +104,48 @@ export function AddStoreForm() {
         
         <div className="max-w-md mx-auto h-full flex flex-col gap-7">
             Store Assets
-            <div className="max-w-md mx-auto h-full">
-                <button className="flex items-center justify-center  border border-dashed aspect-square w-20 h-20 rounded-full object-cover">
-                    <div className="flex flex-col justify-center items-center">
-                        <Upload className="h-4 w-4 text-muted-foreground" />
-                        <p className="" style={{fontSize: 10, color:"gray"}}>Avatar</p>
-                    </div>
-                </button>
-            </div>
+            <Dialog>
+                <DialogTrigger asChild>
+                <div className="max-w-md mx-auto h-full">
+                    <button className="flex items-center justify-center  border border-dashed aspect-square w-20 h-20 rounded-full object-cover">
+                        <div className="flex flex-col justify-center items-center">
+                            <Upload className="h-4 w-4 text-muted-foreground" />
+                            <p className="" style={{fontSize: 10, color:"gray"}}>Avatar</p>
+                        </div>
+                    </button>
+                </div>
+                </DialogTrigger>
+                <DialogContent className="p-10">
+                    <DialogHeader>
+                        <DialogTitle>Thumbnail</DialogTitle>
+                        <DialogDescription>
+                            Select a presentable picture, preferably with a white background.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <UploadDropzone
+                        endpoint="mediaPost"
+                        onClientUploadComplete={(res: FileResponse[]) => {
+                        // Do something with the response array
+                        console.log("Files: ", res);
+
+                        // Update the fileResponses state variable
+                        setFileResponses(res);
+
+                        // Accessing the name of each file
+                        res.forEach(file => {
+                            const fileName = file.name;
+                            console.log("File Name: ", fileName);
+                            // Do something with the file name
+                        });
+
+                        }}
+                        onUploadError={(error: Error) => {
+                        // Do something with the error.
+                        
+                        }}
+                    />
+                </DialogContent>
+            </Dialog>
             <Label htmlFor="lastname">Logo</Label>
             <UploadDropzone
                 endpoint="mediaPost"
