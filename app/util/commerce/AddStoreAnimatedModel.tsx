@@ -11,8 +11,9 @@ import { Loader2, User2 } from "lucide-react";
 // import { CreateUserForm } from "./CreateUserForm";
 import { NuUserContext, StoreContext } from "@/app/academy/AppContex";
 import axios from "axios";
-import { CreateUserForm } from "../components/CreateUserForm";
 import { AddStoreForm } from "./AddStoreForm";
+import { ToastAction } from "@/components/ui/toast"
+import { useToast } from "@/components/ui/use-toast"
 
 export function AddStoreAnimatedModel() {
     // State variables for store attributes
@@ -23,7 +24,7 @@ export function AddStoreAnimatedModel() {
     const [facebookLink, setFacebookLink] = useState<string>(''); // Facebook link
     const [logo, setLogo] = useState<string>(''); // Logo URL
     const [avatar, setAvatar] = useState<string>(''); // Avatar URL
-
+    const { toast } = useToast()
     // Optional state for loading or other purposes
     const [loading, setLoading] = useState<boolean>(false); // Loading state
     async function register() {
@@ -42,7 +43,10 @@ export function AddStoreAnimatedModel() {
             });
     
             setLoading(false);
-    
+            toast({
+                title: "Success",
+                description: "Product has been posted successfully!",
+              });
             // Handle successful response
             const { data } = response; // Adjust this based on your API response
             console.log('Store created successfully:', data);
