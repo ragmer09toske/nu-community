@@ -32,6 +32,7 @@ import { Input } from "../components/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Upload } from "lucide-react";
 import { StoreContext } from "@/app/academy/AppContex";
+import Image from "next/image";
 
 interface FileResponse {
     key: string;
@@ -66,7 +67,7 @@ export function AddStoreForm() {
 
   useEffect(()=>{
     setAvatar(fileResponsesArray?.url);
-    setLogo(fileResponsesAvatarArray.url);
+    setLogo(fileResponsesAvatarArray?.url);
   },[avatar,logo])
   return (
     <div className="flex  gap-5  items-center">
@@ -149,7 +150,7 @@ export function AddStoreForm() {
                 </DialogContent>
             </Dialog>
             <Label htmlFor="lastname">Logo</Label>
-            <UploadDropzone
+            {!fileResponsesArray && <UploadDropzone
                 endpoint="mediaPost"
                 onClientUploadComplete={(res: FileResponse[]) => {
                 // Do something with the response array
@@ -170,7 +171,17 @@ export function AddStoreForm() {
                 // Do something with the error.
                 
                 }}
-            />
+            />}
+            {fileResponsesArray && 
+            <div className="w-full p-10 rounded-md border border-dashed">
+                <Image
+                    alt="Product image"
+                    className="aspect-square w-full rounded-md object-cover"
+                    height="84"
+                    src={fileResponsesArray.url}
+                    width="84"
+                />
+            </div>}
         </div>
     </div>
   );
