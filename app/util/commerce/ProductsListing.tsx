@@ -5,6 +5,7 @@ import axios from 'axios';
 import {
   File,
   ListFilter,
+  Loader2,
   MoreHorizontal,
   PlusCircle,
 } from 'lucide-react';
@@ -64,7 +65,7 @@ interface Product {
 const ProductsDetails: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const {setView} = useContext(ProductContext);
-
+  const [isLoading, setIsloading] = useState<boolean>(false)
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -78,6 +79,22 @@ const ProductsDetails: React.FC = () => {
     fetchProducts();
   }, []);
 
+  // delete product
+  const deleteProducts = async (id: string) => {
+    setIsloading(true);
+    try {
+      await axios.delete(`https://nu-com-0e51cf02b2c8.herokuapp.com/nu-commerce/${id}`);
+      
+      // Filter out the deleted product from the current state
+      setProducts((prevProducts) => prevProducts.filter(product => product._id !== id));
+      
+      setIsloading(false);
+    } catch (error) {
+      console.error('Error deleting product:', error);
+      setIsloading(false);
+    }
+  };
+
   return (
     <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
       <Tabs defaultValue="all">
@@ -90,6 +107,7 @@ const ProductsDetails: React.FC = () => {
               Archived
             </TabsTrigger>
           </TabsList>
+          {isLoading && <Loader2 className='animate-spin' />}
           <div className="ml-auto flex items-center gap-2">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -201,7 +219,7 @@ const ProductsDetails: React.FC = () => {
                           <DropdownMenuContent align="end">
                             <DropdownMenuLabel>Actions</DropdownMenuLabel>
                             <DropdownMenuItem>Edit</DropdownMenuItem>
-                            <DropdownMenuItem>Delete</DropdownMenuItem>
+                            <DropdownMenuItem onClick={()=>deleteProducts(product._id)}>Delete</DropdownMenuItem>
                           </DropdownMenuContent>
                         </DropdownMenu>
                       </TableCell>

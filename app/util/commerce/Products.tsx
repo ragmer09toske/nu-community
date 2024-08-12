@@ -3,7 +3,7 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import IfNoProducts from "./IfNoProducts";
-import ProductsDetails from "./ProductsDetails";
+import ProductsDetails from "./ProductsListing";
 import ProductController from "./ProductController";
 import { ProductContext } from "@/app/academy/AppContex";
 
