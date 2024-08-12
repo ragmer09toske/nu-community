@@ -112,7 +112,7 @@ export function AddStoreForm() {
         
         <div className="max-w-md mx-auto h-full flex flex-col gap-7">
             Store Assets
-            {fileResponsesAvatarArray && <Dialog>
+            {!fileResponsesAvatarArray && <Dialog>
                 <DialogTrigger asChild>
                 <div className="max-w-md mx-auto h-full">
                     <button className="flex items-center justify-center  border border-dashed aspect-square w-20 h-20 rounded-full object-cover">
