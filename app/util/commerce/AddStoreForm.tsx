@@ -112,24 +112,7 @@ export function AddStoreForm() {
         
         <div className="max-w-md mx-auto h-full flex flex-col gap-7">
             Store Assets
-            {!fileResponsesAvatarArray && <Dialog>
-                <DialogTrigger asChild>
-                <div className="max-w-md mx-auto h-full">
-                    <button className="flex items-center justify-center  border border-dashed aspect-square w-20 h-20 rounded-full object-cover">
-                        <div className="flex flex-col justify-center items-center">
-                            <Upload className="h-4 w-4 text-muted-foreground" />
-                            <p className="" style={{fontSize: 10, color:"gray"}}>Avatar</p>
-                        </div>
-                    </button>
-                </div>
-                </DialogTrigger>
-                <DialogContent className="p-10">
-                    <DialogHeader>
-                        <DialogTitle>Thumbnail</DialogTitle>
-                        <DialogDescription>
-                            Select a presentable picture, preferably with a white background.
-                        </DialogDescription>
-                    </DialogHeader>
+            {!fileResponsesAvatarArray && <>
                     <UploadDropzone
                         endpoint="mediaPost"
                         onClientUploadComplete={(res: FileResponse[]) => {
@@ -152,8 +135,7 @@ export function AddStoreForm() {
                         
                         }}
                     />
-                </DialogContent>
-            </Dialog>}
+                </>}
             {fileResponsesAvatarArray && <Avatar>
                 <AvatarImage src={fileResponsesAvatarArray.url} alt="@shadcn" />
                 <AvatarFallback>CN</AvatarFallback>
