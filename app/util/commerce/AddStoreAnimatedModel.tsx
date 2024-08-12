@@ -6,13 +6,14 @@ import {
   ModalContent,
   ModalFooter,
   ModalTrigger,
-} from "./animated-modal";
+} from "../components/animated-modal";
 import { Loader2, User2 } from "lucide-react";
-import { CreateUserForm } from "./CreateUserForm";
+// import { CreateUserForm } from "./CreateUserForm";
 import { NuUserContext } from "@/app/academy/AppContex";
 import axios from "axios";
+import { CreateUserForm } from "../components/CreateUserForm";
 
-export function AnimatedModal() {
+export function AddStoreAnimatedModel() {
     const [names, setNames] = useState<string>('');
     const [phones, setPhones] = useState<number>();
     const [email, setEmail] = useState<string>('');
@@ -22,68 +23,68 @@ export function AnimatedModal() {
     const [repeatPassword, setRepeatPassword] = useState<string>('');
 
     async function register() {
-      try {
-        setLoading(true)
-        const response = await axios.post('https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/auth/register', {
-          name : names,
-          number : phones,
-          email : email,
-          acount : client,
-          password : password
-        });
-        setLoading(false)
-        const { token, userID } = response.data;
-      } catch (error) {
-        setLoading(false);
-        if (error instanceof Error) {
-          
-        } else {
+        try {
+          setLoading(true)
+          const response = await axios.post('https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/auth/register', {
+            name : names,
+            number : phones,
+            email : email,
+            acount : client,
+            password : password
+          });
+          setLoading(false)
+          const { token, userID } = response.data;
+        } catch (error) {
+          setLoading(false);
+          if (error instanceof Error) {
+            
+          } else {
 
+          }
         }
-      }
     }
     const submit = () =>{
-      console.log("names: ",names)
-      console.log("phone: ",phones)
-      console.log(email)
-      console.log(client)
-      console.log(password)
-      register()
+        console.log("names: ",names)
+        console.log("phone: ",phones)
+        console.log(email)
+        console.log(client)
+        console.log(password)
+        register()
     }
   return (
     <NuUserContext.Provider value={{
-      names, setNames,
-      phones, setPhones,
-      email, setEmail,
-      client, setClient,
-      password, setPassword,
-      repeatPassword, setRepeatPassword
+        names, setNames,
+        phones, setPhones,
+        email, setEmail,
+        client, setClient,
+        password, setPassword,
+        repeatPassword, setRepeatPassword
     }}>
-      <div className=" flex items-center justify-center w-screen">
+        <div className=" flex items-center justify-center w-screen">
         <Modal >
-          <ModalTrigger className="bg-black dark:bg-white dark:text-black text-white flex justify-center group/modal-btn">
+            <ModalTrigger className="bg-black dark:bg-white dark:text-black text-white flex justify-center group/modal-btn">
             <span className="group-hover/modal-btn:translate-x-40 text-center transition duration-500">
-              Add Profile
+                Add Store
             </span>
             <div className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
-              <User2 /> {" "} +
+                <User2 /> {" "} +
             </div>
-          </ModalTrigger>
-          <ModalBody>
+            </ModalTrigger>
+            <ModalBody>
             <ModalContent >
-            <CreateUserForm />
+              <CreateUserForm />
             </ModalContent>
             <ModalFooter className="gap-4">
-              <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
+                <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
                 Cancel
-              </button>
-              <button onClick={submit} className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
-                {!loading ? "Save Profile" : <Loader2 className="animate-spin flex w-full justify-center "/>}
-              </button>
+                </button>
+                <button onClick={submit} className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
+                    {!loading ? "Save Profile" : <Loader2 className="animate-spin flex w-full justify-center "/>}
+                </button>
             </ModalFooter>
-          </ModalBody>
+            </ModalBody>
         </Modal>
-      </div>
+        </div>
     </NuUserContext.Provider>
   );
 }

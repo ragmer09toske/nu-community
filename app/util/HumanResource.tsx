@@ -30,25 +30,26 @@ import { Badge } from '@tremor/react'
 import useStore from "@/app/Store"
 import axios, { CancelTokenSource } from 'axios'
 import NewCodian from './NewCodian'
+import NewStore from './commerce/NewStore'
 
 interface Codiac {
-    _id: string; // Represents the unique identifier of the object
-    firstname: string; // Represents the first name of the person
-    lastname: string; // Represents the last name of the person
-    number: number; // Represents the phone number of the person
-    email: string; // Represents the email address of the person
-    reason: string; // Represents the reason or purpose related to the person
-    __v: number; // Represents the version key in MongoDB
+  _id: string; // Represents the unique identifier of the object
+  firstname: string; // Represents the first name of the person
+  lastname: string; // Represents the last name of the person
+  number: number; // Represents the phone number of the person
+  email: string; // Represents the email address of the person
+  reason: string; // Represents the reason or purpose related to the person
+  __v: number; // Represents the version key in MongoDB
 }
   
 interface CodiacUsers {
-    _id: string; // Represents the unique identifier of the object
-    name: string; // Represents the first name of the person
-    email: string; // Represents the email address of the person
-    number: number; // Represents the phone number of the person
-    acount:string;
-    __v: number; // Represents the version key in MongoDB
-  }
+  _id: string; // Represents the unique identifier of the object
+  name: string; // Represents the first name of the person
+  email: string; // Represents the email address of the person
+  number: number; // Represents the phone number of the person
+  acount:string;
+  __v: number; // Represents the version key in MongoDB
+}
   
 const HumanResource = () => {
 const [loading, setLoading] = useState<boolean>(false);
@@ -77,7 +78,6 @@ useEffect(() => {
       }
     };
     getAllCodiacs();
-
     return () => {
       if (source) {
         source.cancel('Component unmounted');
@@ -105,51 +105,52 @@ useEffect(() => {
 
   return (
     <div className='px-5 w-[50%]'>
-      <div className='p-2'>
+      <div className='grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 pb-10'>
         <NewCodian />
+        <NewStore />
       </div>
         <Tabs defaultValue="week">
             <div className="flex items-center">
             <TabsList>
-                <TabsTrigger value="Codians">Codiac Users</TabsTrigger>
-                <TabsTrigger value="Webinar">Webinar</TabsTrigger>
-                <TabsTrigger value="teams">Codiac Participants</TabsTrigger>
-                <TabsTrigger value="year">In-house-team</TabsTrigger>
+              <TabsTrigger value="Codians">Codiac Users</TabsTrigger>
+              <TabsTrigger value="Webinar">Webinar</TabsTrigger>
+              <TabsTrigger value="teams">Codiac Participants</TabsTrigger>
+              <TabsTrigger value="year">In-house-team</TabsTrigger>
             </TabsList>
             <div className="ml-auto flex items-center gap-2">
-                <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                    <Button
-                    variant="outline"
-                    size="sm"
-                    className="h-7 gap-1 text-sm"
-                    >
-                    <ListFilter className="h-3.5 w-3.5" />
-                    <span className="sr-only sm:not-sr-only">Filter</span>
-                    </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                    <DropdownMenuLabel>Filter by</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuCheckboxItem checked>
-                    Pay
-                    </DropdownMenuCheckboxItem>
-                    <DropdownMenuCheckboxItem>
-                    Declined
-                    </DropdownMenuCheckboxItem>
-                    <DropdownMenuCheckboxItem>
-                    Refunded
-                    </DropdownMenuCheckboxItem>
-                </DropdownMenuContent>
-                </DropdownMenu>
+              <DropdownMenu>
+              <DropdownMenuTrigger asChild>
                 <Button
-                size="sm"
                 variant="outline"
+                size="sm"
                 className="h-7 gap-1 text-sm"
                 >
-                <File className="h-3.5 w-3.5" />
-                <span className="sr-only sm:not-sr-only">Export</span>
+                  <ListFilter className="h-3.5 w-3.5" />
+                  <span className="sr-only sm:not-sr-only">Filter</span>
                 </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                  <DropdownMenuLabel>Filter by</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuCheckboxItem checked>
+                    Pay
+                  </DropdownMenuCheckboxItem>
+                  <DropdownMenuCheckboxItem>
+                    Declined
+                  </DropdownMenuCheckboxItem>
+                  <DropdownMenuCheckboxItem>
+                    Refunded
+                  </DropdownMenuCheckboxItem>
+              </DropdownMenuContent>
+              </DropdownMenu>
+              <Button
+              size="sm"
+              variant="outline"
+              className="h-7 gap-1 text-sm"
+              >
+              <File className="h-3.5 w-3.5" />
+              <span className="sr-only sm:not-sr-only">Export</span>
+              </Button>
             </div>
             </div>
 
