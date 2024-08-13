@@ -32,7 +32,6 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import { Separator } from "@/components/ui/separator"
 
 export function Blocks() {
   return (
