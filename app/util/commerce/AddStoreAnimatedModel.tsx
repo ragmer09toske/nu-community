@@ -8,8 +8,7 @@ import {
   ModalTrigger,
 } from "../components/animated-modal";
 import { Loader2, User2 } from "lucide-react";
-// import { CreateUserForm } from "./CreateUserForm";
-import { NuUserContext, StoreContext } from "@/app/academy/AppContex";
+import { StoreContext } from "@/app/academy/AppContex";
 import axios from "axios";
 import { AddStoreForm } from "./AddStoreForm";
 import { useToast } from "@/components/ui/use-toast"
