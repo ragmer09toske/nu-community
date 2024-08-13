@@ -242,6 +242,7 @@ const Youthconnect = () => {
                 {src && <Image src={src} width={200} height={200} alt='QR Code' />}
             </div>
         </div>
+        {/*  */}
         <div className=" bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent h-[1px] w-full" />
         <div className='flex justify-center gap-5 p-5'>
             <div>
