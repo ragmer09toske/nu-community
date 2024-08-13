@@ -140,7 +140,7 @@ const Youthconnect = () => {
     <Navigation />
     {isMobile && <div className="p-5 justify-center mt-10 lg:mt-0">
         <div className='pb-10'>
-            <div className='z-50 fixed w-[90.5%] border p-5 flex gap-2 -mt-6 -ml-2 justify-center rounded' style={{ backgroundImage: "url('/youth.png')", backgroundSize: "cover" }}>
+            <div className='z-50 fixed w-[90.5%] border p-5 flex gap-2 -mt-6 -ml-2 justify-center rounded' style={{ backgroundImage: "url('/inter.png')", backgroundSize: "cover" }}>
               <div className='flex min-h-[100px]'>
               </div>
             </div>
