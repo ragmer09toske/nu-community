@@ -124,8 +124,8 @@ const Youthconnect = () => {
           <div className='p-10 flex justify-between bg-gray-100 text-black lg:w-[950px] w-[80%]'>
             <div className='flex'>
               <div>
-                <p className='text-sm text-gray-500'><b>Youth Connekt-Maseru</b></p>
-                <h4><b>Lesotho Youth Connect Maseru</b></h4>
+                <p className='text-sm text-gray-500'><b>International Youth day</b></p>
+                <h4><b>International Youth day</b></h4>
                 <div className='pt-10'>
                   <p className='text-gray-500 text-sm'><b>&apos;Manthabiseng Convention Center, Maseru</b></p>
                 </div>
@@ -144,7 +144,7 @@ const Youthconnect = () => {
                   <div>
                     <h4 className='text-sm font-bold'>Ticket</h4>
                     <h4 className='text-sm'>{ticketType || 'N/A'}</h4>
-                    <p className='text-sm text-gray-700'>Youth Connekt Lesotho</p>
+                    <p className='text-sm text-gray-700'>International Youth day</p>
                     <p className='text-sm text-gray-700'><b>Free</b></p>
                   </div>
                 </div>
@@ -156,10 +156,10 @@ const Youthconnect = () => {
           </div>
         </div>
         <div className='flex ml-72'>
-          <h4 className='text-gray-500 text-sm pt-2'><b>© 2024 Youth Connekt Lesotho - All Rights Reserved</b></h4>
+          <h4 className='text-gray-500 text-sm pt-2'><b>© 2024 International Youth day - All Rights Reserved</b></h4>
         </div>
       </div>}
-      {isMobile&&
+      {isMobile &&
       <div>
       <Card className="w-[350px]">  
         <CardHeader>

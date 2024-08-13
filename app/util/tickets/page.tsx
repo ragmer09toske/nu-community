@@ -102,7 +102,7 @@ const TicketDetails: React.FC = () => {
             {ticketDetails && <Command className="rounded-lg border shadow-md">
                 <div className='flex gap-2 justify-center items-center p-3'>
                    <RiOrganizationChart className='text-sm' />
-                   <p>Youth Connekt Lesotho</p>
+                   <p>International Youth day</p>
                 </div>
                 <CommandSeparator />
                 <CommandList>
