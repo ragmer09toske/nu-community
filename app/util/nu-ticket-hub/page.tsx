@@ -184,8 +184,8 @@ const Youthconnect = () => {
           <div className='p-10 flex justify-between bg-gray-100 text-black lg:w-[950px] w-[80%]'>
             <div className='flex'>
               <div>
-                <p className='text-sm text-gray-500'><b>Youth Connekt-Maseru</b></p>
-                <h4><b>Lesotho Youth Connect Maseru</b></h4>
+                <p className='text-sm text-gray-500'><b>International Youth day</b></p>
+                <h4><b>International Youth day</b></h4>
                 <div className='pt-10'>
                   <p className='text-gray-500 text-sm'><b>&apos;Manthabiseng Convention Center, Maseru</b></p>
                 </div>
@@ -204,7 +204,7 @@ const Youthconnect = () => {
                   <div>
                     <h4 className='text-sm font-bold'>Ticket</h4>
                     <h4 className='text-sm'>{ticketType || 'N/A'}</h4>
-                    <p className='text-sm text-gray-700'>Youth Connekt Lesotho</p>
+                    <p className='text-sm text-gray-700'>International Youth day</p>
                     <p className='text-sm text-gray-700'><b>Free</b></p>
                   </div>
                 </div>
@@ -216,7 +216,7 @@ const Youthconnect = () => {
           </div>
         </div>
         <div className='flex ml-72'>
-          <h4 className='text-gray-500 text-sm pt-2'><b>© 2024 Youth Connekt Lesotho - All Rights Reserved</b></h4>
+          <h4 className='text-gray-500 text-sm pt-2'><b>© 2024 International Youth - All Rights Reserved</b></h4>
         </div>
       </div>}
       {isMobile&&
@@ -229,7 +229,7 @@ const Youthconnect = () => {
             <div> 
                 <CardHeader>
                 <CardDescription style={{fontSize:10}}>Lesotho, Maseru</CardDescription>
-                <CardTitle className='font-[10px]' style={{fontSize:8}}>Youth Connekt Lesotho</CardTitle>
+                <CardTitle className='font-[10px]' style={{fontSize:8}}>International Youth day</CardTitle>
                 </CardHeader>
                 <div className='-mt-5'>
                     <CardHeader>
@@ -257,14 +257,14 @@ const Youthconnect = () => {
             <div>
             <h4 className='text-sm font-bold' style={{fontSize:8}}>Ticket</h4>
             <h4 className='text-sm' style={{fontSize:8}}>{ticketType || 'N/A'}</h4>
-            <p className='' style={{fontSize:8}}>Youth Connekt Lesotho</p>
+            <p className='' style={{fontSize:8}}>International Youth</p>
             <p className='' style={{fontSize:8}}><b>Free</b></p>
             </div>
         </div>
       </Card>
 
       <div className='flex justify-center' >
-          <p className='text-gray-500 text-sm pt-2' style={{fontSize:8}}><b>© 2024 Youth Connekt Lesotho - All Rights Reserved</b></p>
+          <p className='text-gray-500 text-sm pt-2' style={{fontSize:8}}><b>© 2024 International Youth - All Rights Reserved</b></p>
       </div>
       
       </div>}
