@@ -32,8 +32,39 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-
+import { useEffect, useState } from "react";
+import axios from "axios";
+interface Product {
+  _id: string;
+  name: string;
+  description: string;
+  quantity: number;
+  price: number;
+  size: string;
+  category: string;
+  subcategory?: string;
+  status?: string;
+  color?: string;
+  thumbnail: string;
+  image_one?: string;
+  image_two?: string;
+  image_three?: string;
+}
 export function Blocks() {
+  const [IYD,setIYD] = useState<Product[]>([])
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const { data } = await axios.get<Product[]>('https://nu-com-0e51cf02b2c8.herokuapp.com/util/nu-ticket-hub');
+        setIYD(data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+        // Optionally handle error state here
+      }
+    };
+
+    fetchProducts();
+  }, []);
   return (
     <div className="chart-wrapper mx-auto flex max-w-6xl flex-col flex-wrap items-start justify-center gap-6 p-6 sm:flex-row sm:p-8">
       <div className="grid w-full gap-6 sm:grid-cols-2 lg:max-w-[22rem] lg:grid-cols-1 xl:max-w-[25rem]">
