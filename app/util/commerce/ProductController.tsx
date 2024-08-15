@@ -343,11 +343,11 @@ const ProductController = () => {
                             id="category"
                             aria-label="Select category"
                             >
-                                <SelectValue placeholder="Select" />
+                              <SelectValue placeholder="Select" />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="shoe sizes">Shoe Sizes</SelectItem>
-                                <SelectItem value="colors">Colors</SelectItem>
+                              <SelectItem value="shoe sizes">Shoe Sizes</SelectItem>
+                              <SelectItem value="colors">Colors</SelectItem>
                             </SelectContent>
                         </Select>
                     </div>
@@ -448,11 +448,11 @@ const ProductController = () => {
                {fileResponses.map((file, index) => (
                     <Image
                     key={index}
-                        alt="Product image"
-                        className="aspect-square w-full rounded-md object-cover"
-                        height="84"
-                        src={file.url}
-                        width="84"
+                      alt="Product image"
+                      className="aspect-square w-full rounded-md object-cover"
+                      height="84"
+                      src={file.url}
+                      width="84"
                     />
                 ))}
                 {fileResponses_len === 0 && (<button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
@@ -478,11 +478,10 @@ const ProductController = () => {
 
                               // Accessing the name of each file
                               res.forEach(file => {
-                                  const fileName = file.name;
-                                  console.log("File Name: ", fileName);
-                                  // Do something with the file name
+                                const fileName = file.name;
+                                console.log("File Name: ", fileName);
+                                // Do something with the file name
                               });
-
                               }}
                               onUploadError={(error: Error) => {
                               // Do something with the error.
@@ -497,11 +496,11 @@ const ProductController = () => {
                 {fileResponses1.map((file, index) => (
                     <Image
                     key={index}
-                        alt="Product image"
-                        className="aspect-square w-full rounded-md object-cover"
-                        height="84"
-                        src={file.url}
-                        width="84"
+                      alt="Product image"
+                      className="aspect-square w-full rounded-md object-cover"
+                      height="84"
+                      src={file.url}
+                      width="84"
                     />
                 ))} 
                   {fileResponses_len1 === 0 &&(<button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
@@ -527,9 +526,9 @@ const ProductController = () => {
 
                               // Accessing the name of each file
                               res.forEach(file => {
-                                  const fileName = file.name;
-                                  console.log("File Name: ", fileName);
-                                  // Do something with the file name
+                                const fileName = file.name;
+                                console.log("File Name: ", fileName);
+                                // Do something with the file name
                               });
 
                               }}
@@ -561,7 +560,7 @@ const ProductController = () => {
                             <DialogHeader>
                             <DialogTitle>Variants</DialogTitle>
                             <DialogDescription>
-                                Selected variant will apply on the Stock table
+                              Selected variant will apply on the Stock table
                             </DialogDescription>
                             </DialogHeader>
                             <UploadDropzone
@@ -575,9 +574,9 @@ const ProductController = () => {
 
                               // Accessing the name of each file
                               res.forEach(file => {
-                                  const fileName = file.name;
-                                  console.log("File Name: ", fileName);
-                                  // Do something with the file name
+                                const fileName = file.name;
+                                console.log("File Name: ", fileName);
+                                // Do something with the file name
                               });
 
                               }}
@@ -593,17 +592,17 @@ const ProductController = () => {
                   {fileResponses3.map((file, index) => (
                     <Image
                     key={index}
-                        alt="Product image"
-                        className="aspect-square w-full rounded-md object-cover"
-                        height="84"
-                        src={file.url}
-                        width="84"
+                      alt="Product image"
+                      className="aspect-square w-full rounded-md object-cover"
+                      height="84"
+                      src={file.url}
+                      width="84"
                     />
                   ))}
                   {fileResponses_len3 === 0 && (<button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
                     <Dialog>
                         <DialogTrigger asChild>
-                            <Upload className="h-4 w-4 text-muted-foreground" />
+                          <Upload className="h-4 w-4 text-muted-foreground" />
                         </DialogTrigger>
                         <DialogContent className="w-[40%] h-[50%] p-10">
                             <DialogHeader>
@@ -623,9 +622,9 @@ const ProductController = () => {
 
                                 // Accessing the name of each file
                                 res.forEach(file => {
-                                    const fileName = file.name;
-                                    console.log("File Name: ", fileName);
-                                    // Do something with the file name
+                                  const fileName = file.name;
+                                  console.log("File Name: ", fileName);
+                                  // Do something with the file name
                                 });
 
                                 }}

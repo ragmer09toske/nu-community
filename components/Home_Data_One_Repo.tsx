@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils"
 import { HoveredLink, Menu, MenuItem, ProductItem } from "./navbar-menu"
 import Music from "./Music"
 import { HomeText } from "./HomeText"
+import People from "./people"
 interface User {
     _id: string;
     name: string;
@@ -61,6 +62,7 @@ export default function Home_Data_One_Repo() {
                             <GlobeDemo />
                         </div>
                     </div>
+                    <People />
                 </section>
             </div>
         </div>

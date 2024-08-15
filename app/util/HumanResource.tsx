@@ -106,8 +106,8 @@ useEffect(() => {
   return (
     <div className='px-5 w-[50%]'>
       <div className='grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 pb-10'>
-        <NewCodian />
-        <NewStore />
+        {/* <NewCodian /> */}
+        {/* <NewStore /> */}
       </div>
         <Tabs defaultValue="week">
             <div className="flex items-center">
@@ -163,7 +163,7 @@ useEffect(() => {
                 </CardDescription>
                 </CardHeader>
                 <div className="pr-5">
-                <ScrollArea className="h-[420px]">
+                <ScrollArea className="h-[620px]">
                 <CardContent>
                     <Table>
                     <TableHeader>
@@ -229,15 +229,11 @@ useEffect(() => {
                     <TableRow>
                         <TableHead>Customer</TableHead>
                         <TableHead className="hidden sm:table-cell">
-                        Type
+                         Numbers
                         </TableHead>
                         <TableHead className="hidden sm:table-cell">
-                        Status
+                        Email
                         </TableHead>
-                        <TableHead className="hidden md:table-cell">
-                        Date
-                        </TableHead>
-                        <TableHead className="text-right">Amount</TableHead>
                     </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -250,17 +246,13 @@ useEffect(() => {
                                 </div>
                             </TableCell>
                             <TableCell className="hidden sm:table-cell">
-                                Sale
+                                {codiacs.number}
                             </TableCell>
                             <TableCell className="hidden sm:table-cell">
                                 <Badge className="text-xs">
-                                Fulfilled
+                                {codiacs.email}
                                 </Badge>
                             </TableCell>
-                            <TableCell className="hidden md:table-cell">
-                                2023-06-23
-                            </TableCell>
-                            <TableCell className="text-right">$250.00</TableCell>
                         </TableRow>
                         ))}
                     {/* Make this into a map => get the data from, our Codiac table */}
