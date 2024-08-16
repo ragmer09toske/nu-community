@@ -74,7 +74,7 @@ export default function  Navbar() {
                         </div>
                     </MenuItem>
                     <MenuItem setActive={setActive} active={active} item="Codiac">
-                        <div className="  text-sm grid grid-cols-2 gap-10 p-4">
+                        <div className="  text-sm grid grid-cols-2 gap-10 p-4"> 
                         <ProductItem
                             title="Pricing"
                             href="/pricing"
