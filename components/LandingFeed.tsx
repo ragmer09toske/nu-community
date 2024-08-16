@@ -9,6 +9,7 @@ import { ShimmerButton} from './Shimmer'
 import useDeviceType from '@/app/Device'
 import { AnimatedTooltip } from '@/app/codiac/learn/animated-tooltip'
 import { WebinarFooter } from '@/app/academy/Footer'
+import { FloatingDockMobile } from './FloatingDocker'
 const people = [
   {
     id: 1,
@@ -40,7 +41,8 @@ export const LandingFeed = () => {
         borderWidth: "1px",
         borderTopWidth: "0px",
         borderBottomWidth: "0px", 
-    }}>       
+    }}>   
+      <FloatingDockMobile/>    
       <Command className="rounded-lg border shadow-md" style={{ background: "rgba(255, 255, 255, 0)", borderWidth: "0px"}}>
         <h4 className="scroll-m-20 p-2 pl-5 text-xl font-extrabold tracking-tight lg:text-xl">
             {/* Community Of Creatives */}
