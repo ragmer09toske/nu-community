@@ -15,7 +15,7 @@ interface User {
     password: string;
     __v: number;
   }
-export default function Navbar() {
+export default function  Navbar() {
     const [state, setState] = useState(false)
     const [isOpen, setIsOpen] = React.useState(false);
     const [active, setActive] = useState<string | null>(null);
@@ -44,7 +44,7 @@ export default function Navbar() {
     }, [])
 
     const Brand = () => (
-        <div className="flex items-center justify-between py-5 md:block">
+        <div className="flex items-center justify-between py-5 md:block z-[9999]">
             <a href="/">
                 <Image
                     src="/nu.png"

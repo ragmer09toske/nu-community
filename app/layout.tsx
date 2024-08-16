@@ -16,7 +16,6 @@ export const metadata: Metadata = {
   keywords: 'Nucleus,Nucleus devs, Nucleusdevs, Nucleus devs, software development, courses, tutorials,learn how to code, learn to programme, tools, consulting services, custom solutions, Lesotho, online presence, codiac, Nucleus Codiac, Nucleusdevs Academy, Nudevs Academy, Retsepile Shao'
 }
 import { Analytics } from "@vercel/analytics/react"
-import { FeaturesSectionDemo } from '../components/Footer'
  
 export default async function RootLayout({
   children,
