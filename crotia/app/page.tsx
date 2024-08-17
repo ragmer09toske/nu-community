@@ -1,4 +1,5 @@
 "use client";
+import Example from "@/app/util/JustCode";
 import Navbar_Codiac from "@/components/CodiacNav";
 import Home_Data_One_Repo from "@/components/Home_Data_One_Repo";
 import Navbar from "@/components/Navbar";

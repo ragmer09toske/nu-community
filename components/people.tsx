@@ -24,6 +24,12 @@ const people = [
         imageUrl:
           '/people/5.png',
       },
+      {
+        name: 'Lemohang Makintane',
+        role: 'Senior Software Engineer',
+        imageUrl:
+          '/people/6.png',
+      },
   ]
 const People = () => {
   return (

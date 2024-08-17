@@ -43,24 +43,6 @@ export default function Home_Data_One_Repo() {
                   <div className="max-w-screen-xl mx-auto px-4 gap-5 text-gray-600 overflow-hidden md:px-8 md:flex">
                       <div className='flex-none max-w-xl'>
                           <HomeText/>
-                          <div className='flex items-center gap-x-4 -mt-[200px] sm:text-sm'>
-                              <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-                                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-                                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
-                                  <Link href="/codiac">
-                                      Academy <Rocket className="inline"/> 
-                                  </Link>
-                                </span>
-                              </button>
-                              <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-                                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-                                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
-                                  <Link href="#">
-                                    For Developers <ArrowBigRight className="inline" />
-                                  </Link>
-                                </span>
-                              </button>
-                          </div>
                       </div>
                       <div className='flex-1 hidden md:block'>
                           {/* Replace with your image */}

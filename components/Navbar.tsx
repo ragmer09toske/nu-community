@@ -60,10 +60,11 @@ export default function  Navbar() {
     <nav className={`pb-5 z-[9999] pt-5 md:text-sm ${state ? "absolute top-0 inset-x-0 bg-white shadow-lg rounded-xl border mx-2 mt-2 md:shadow-none md:border-none md:mx-0 md:mt-0 md:relative md:bg-transparent" : ""}`}>
         <div className="gap-x-14 items-center max-w-screen-xl mx-auto px-4 md:flex md:px-8">
         <Brand />
-        <div className={`flex-1 items-center text-gray-500 mt-16 md:mt-0 md:flex ${state ? 'block' : 'hidden'} `}>
+        <div className={`flex-1 items-center text-white mt-16 md:mt-0 md:flex ${state ? 'block' : 'hidden'} `}>
             <div
                 className={cn(" top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
             >
+
                 <Menu setActive={setActive}>
                     <MenuItem setActive={setActive} active={active} item="Nudevs Academy">
                         <div className="flex flex-col space-y-4 text-sm">
@@ -113,7 +114,8 @@ export default function  Navbar() {
             </div>
         </div>
         <div className="z-50 items-center justify-end mt-6 space-y-6 md:flex md:mt-0">
-            {!UserDetails ? <div className='flex items-center justify-center gap-x-1 py-2 px-4 text-white font-medium bg-gray-800 hover:bg-gray-700 active:bg-gray-900 rounded-full md:inline-flex' onClick={() => setIsOpen(false)}>
+            {!UserDetails ? 
+            <div className='flex items-center justify-center gap-x-1 py-2 px-4 text-white font-medium bg-gray-800 hover:bg-gray-700 active:bg-gray-900 rounded-full md:inline-flex' onClick={() => setIsOpen(false)}>
                 <LoginDialog />
             </div>
             :

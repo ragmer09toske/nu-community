@@ -1,5 +1,6 @@
 import React from "react";
 import { FlipWords } from "./flip-words";
+import { Cover } from "./cover";
 
 export function HomeText() {
   const words = ["us", "by-us"];
@@ -9,7 +10,7 @@ export function HomeText() {
       <div className="text-4xl mx-auto font-normal text-neutral-600 dark:text-neutral-400">
         This is
         <FlipWords words={words} /> <br />
-        Welcome to Nucleusdevs.
+        Welcome to <Cover>Nucleusdevs</Cover>
       </div>
     </div>
   );
