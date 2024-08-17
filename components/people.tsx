@@ -13,7 +13,7 @@ const people = [
           '/people/4.png',
       },
       {
-        name: 'Leslie Alexander',
+        name: 'Tankiso Fuma',
         role: 'Senior Software Engineer',
         imageUrl:
           '/people/2.png',

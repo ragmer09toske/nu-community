@@ -35,7 +35,7 @@ export default function Home_Data_One_Repo() {
             className="-top-40 left-0 md:left-60 md:-top-20"
             fill="white"
           />
-          <div className="fixed bottom-32">
+          <div className="fixed bottom-32 z-[9999]">
             <Music />
           </div>
           <div className='relative'>
