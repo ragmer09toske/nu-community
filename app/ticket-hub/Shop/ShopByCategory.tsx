@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { DirectionAwareHover } from "./direction-aware-hover";
 import { Callout } from "@tremor/react";
+import { AuthorCard } from "./AuthorCards";
 
 const callouts = [
     {
@@ -36,14 +37,15 @@ const callouts = [
       <div className="">
         <div className="mx-auto max-w-7xl">
           <div className="">
-            <div className=" lg:grid lg:grid-cols-3 grid grid-cols-3">
+            <div className=" lg:grid lg:grid-cols-3">
               {callouts.map((callout) => (
                 <div key={callout.name} className="group relative">
                   <div className="flex items-center justify-center lg:p-0 p-1">
-                    <DirectionAwareHover imageUrl={callout.imageSrc}>
+                    {/* <DirectionAwareHover imageUrl={callout.imageSrc}>
                         <p className="font-bold text-xl">{callout.name}</p>
                         <p className="font-normal text-sm">$1299 / night</p>
-                    </DirectionAwareHover>
+                    </DirectionAwareHover> */}
+                    <AuthorCard />
                     </div>
                 </div>
               ))}
