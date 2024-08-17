@@ -4,6 +4,7 @@
 import { Fragment, useState } from 'react'
 
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { FloatingDockMobile } from './FloatingNav'
 
 
 export default function Example() {
@@ -11,6 +12,9 @@ export default function Example() {
 
   return (
     <div className="w-full">
+      <div className='p-5 fixed -bottom-40 z-[9999]'>
+        <FloatingDockMobile />    
+      </div> 
       {/* Mobile menu */}
       <header className="relative w-full">
         <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
