@@ -9,6 +9,7 @@ import {
 } from "@tabler/icons-react";
 import Image from "next/image";
 import { FloatingDock } from "@/components/floating-dock";
+import { LogIn } from "lucide-react";
 
 export function FloatingDockMobile() {
   const links = [
@@ -21,55 +22,9 @@ export function FloatingDockMobile() {
     },
 
     {
-      title: "Products",
-      icon: (
-        <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
-    },
-    {
       title: "Components",
       icon: (
-        <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
-    },
-    {
-      title: "Nucleus UI",
-      icon: (
-        <Image
-          src="/nu.png"
-          width={20}
-          height={20}
-          alt="Aceternity Logo"
-        />
-      ),
-      href: "#",
-    },
-    {
-      title: "Next",
-      icon: (
-        <Image
-          src="/next.png"
-          width={980}
-          height={980}
-          alt="Aceternity Logo"
-        />
-      ),
-      href: "#",
-    },
-
-    {
-      title: "Twitter",
-      icon: (
-        <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
-    },
-    {
-      title: "GitHub",
-      icon: (
-        <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <LogIn className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
       href: "#",
     },
