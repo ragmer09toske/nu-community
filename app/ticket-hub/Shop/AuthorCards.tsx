@@ -29,7 +29,7 @@ export function AuthorCard() {
         </div>
         <div className="">
           <h1 className="font-bold text-xl md:text-2xl text-gray-50 relative left-0 z-10">
-            Nextjs
+            Next.js
           </h1>
           <p className="font-normal text-sm text-gray-50 relative z-10 my-4">
             Card with Author avatar, complete name and time to read - most

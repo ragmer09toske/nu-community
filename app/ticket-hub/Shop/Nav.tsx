@@ -33,10 +33,9 @@ export default function Example() {
                   <img
                     alt=""
                     src="/nu-devs.png"
-                    height={2
-                    }
-                    // width={10}
-                    className="h-8 w-auto"
+                    height={110}
+                    width={50}
+                    // className="h-8 w-auto"
                   />
                 </a>
               </div>
