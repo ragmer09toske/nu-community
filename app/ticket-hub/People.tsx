@@ -10,13 +10,6 @@ const people = [
       "/people/1.png",
   },
   {
-    id: 2,
-    name: "Tankiso Fuma",
-    designation: "Software Engineer",
-    image:
-      "/people/2.png",
-  },
-  {
     id: 4,
     name: "Kamohelo Khosana",
     designation: "Product Manager",
@@ -36,6 +29,13 @@ const people = [
     designation: "Software Engineer",
     image:
       "/people/6.png",
+  },
+  {
+    id: 2,
+    name: "Tankiso Fuma",
+    designation: "Software Engineer",
+    image:
+      "/people/2.png",
   },
 ];
 
