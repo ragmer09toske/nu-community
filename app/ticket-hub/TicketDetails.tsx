@@ -47,7 +47,7 @@ export default function TicketDetails() {
           </div>
           <img
             alt="Product screenshot"
-            src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
+            src="/academy/banner.png"
             width={2432}
             height={1442}
             className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"

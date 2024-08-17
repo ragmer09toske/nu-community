@@ -5,6 +5,8 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import TicketDetails from './TicketDetails'
 import CTA from './CallToAction'
+import Topnav from './topnav'
+import Footer from './Footer'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -18,6 +20,7 @@ export default function Example() {
 
   return (
     <div className="bg-white">
+      {/* <Topnav /> */}
       <header className="absolute inset-x-0 top-0 z-50">
         <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
           <div className="flex lg:flex-1">
@@ -25,7 +28,7 @@ export default function Example() {
               <span className="sr-only">Your Company</span>
               <img
                 alt=""
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                src="/nu-devs.png"
                 className="h-8 w-auto"
               />
             </a>
@@ -160,6 +163,7 @@ export default function Example() {
       </div>
       <CTA />
       <TicketDetails />
+      <Footer />
     </div>
   )
 }
