@@ -35,7 +35,7 @@ export function FloatingDockMobile() {
       href: "#",
     },
     {
-      title: "Aceternity UI",
+      title: "Nucleus UI",
       icon: (
         <Image
           src="/nu.png"
@@ -47,9 +47,14 @@ export function FloatingDockMobile() {
       href: "#",
     },
     {
-      title: "Changelog",
+      title: "Next",
       icon: (
-        <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <Image
+          src="/nu.png"
+          width={20}
+          height={20}
+          alt="Aceternity Logo"
+        />
       ),
       href: "#",
     },
