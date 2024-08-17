@@ -50,9 +50,9 @@ export function FloatingDockMobile() {
       title: "Next",
       icon: (
         <Image
-          src="/nu.png"
-          width={20}
-          height={20}
+          src="/next.png"
+          width={980}
+          height={980}
           alt="Aceternity Logo"
         />
       ),
