@@ -10,7 +10,8 @@ const nextConfig = {
         'files.stripe.com',
         'lh3.googleusercontent.com',
         'assets.aceternity.com',
-        'images.unsplash.com'
+        'images.unsplash.com',
+        'tailwindui.com'
       ], 
     },
   }
