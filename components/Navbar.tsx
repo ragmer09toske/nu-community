@@ -66,15 +66,12 @@ export default function  Navbar() {
             >
 
                 <Menu setActive={setActive}>
-                    <MenuItem setActive={setActive} active={active} item="Nudevs Academy">
+                    <MenuItem setActive={setActive} active={active} item="Products">
                         <div className="flex flex-col space-y-4 text-sm">
-                            <HoveredLink href="/web-dev">Web Development</HoveredLink>
-                            <HoveredLink href="/interface-design">Interface Design</HoveredLink>
-                            <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-                            <HoveredLink href="/branding">Branding</HoveredLink>
+                            <HoveredLink href="/Ticket-hub">Ticket-hub</HoveredLink>
                         </div>
                     </MenuItem>
-                    <MenuItem setActive={setActive} active={active} item="Codiac">
+                    <MenuItem setActive={setActive} active={active} item="Services">
                         <div className="  text-sm grid grid-cols-2 gap-10 p-4"> 
                         <ProductItem
                             title="Pricing"
@@ -104,10 +101,7 @@ export default function  Navbar() {
                     </MenuItem>
                     <MenuItem setActive={setActive} active={active} item="Creative Cloud">
                         <div className="flex flex-col space-y-4 text-sm">
-                        <HoveredLink href="/hobby">{user?.name}</HoveredLink>
-                        <HoveredLink href="/individual">Individual</HoveredLink>
-                        <HoveredLink href="/team">Team</HoveredLink>
-                        <HoveredLink href="/enterprise">Enterprise</HoveredLink>
+                            <HoveredLink href="/portfolio">Nucleusdevs Portfolio</HoveredLink>
                         </div>
                     </MenuItem>
                 </Menu>
