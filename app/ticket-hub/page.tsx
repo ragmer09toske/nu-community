@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import TicketDetails from './TicketDetails'
+import CTA from './CallToAction'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -156,6 +158,8 @@ export default function Example() {
           />
         </div>
       </div>
+      <CTA />
+      <TicketDetails />
     </div>
   )
 }
