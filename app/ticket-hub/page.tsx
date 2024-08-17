@@ -138,6 +138,7 @@ export default function Example() {
       <MentoShipPricing />
       <div id='collectins'>
         <ProductView />
+        <ProductView />
       </div>
       <CTA />
       <div className='z-[9999]'>
