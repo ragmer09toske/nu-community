@@ -10,6 +10,7 @@ import Footer from './Footer'
 import MentoShipPricing from './LifeTimeMentorship'
 import Collections from './Shop/ShopByCategory'
 import Nav from './Shop/Nav'
+import { People } from './People'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -131,6 +132,7 @@ export default function Example() {
           />
         </div>
       </div>
+      <People />
       <MentoShipPricing />
       <Collections />
       <CTA />
