@@ -12,6 +12,7 @@ import Music from "./Music"
 import { HomeText } from "./HomeText"
 import { useTheme } from "next-themes"
 import People from "./people"
+import { Team } from "./Footer"
 
 interface User {
     _id: string;
@@ -49,7 +50,7 @@ export default function Home_Data_One_Repo() {
                           <GlobeDemo />
                       </div>
                   </div>
-                  <People />
+                  <Team />
                   {/* <FloatingDockMobile/> */}
               </section>
           </div>
