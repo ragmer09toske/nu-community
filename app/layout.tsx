@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   keywords: 'Nucleus,Nucleus devs, Nucleusdevs, Nucleus devs, software development, courses, tutorials,learn how to code, learn to programme, tools, consulting services, custom solutions, Lesotho, online presence, codiac, Nucleus Codiac, Nucleusdevs Academy, Nudevs Academy, Retsepile Shao'
 }
 import { Analytics } from "@vercel/analytics/react"
- 
+
 export default async function RootLayout({
   children,
 }: {
@@ -25,21 +25,30 @@ export default async function RootLayout({
   const session = await getServerSession(authOptions);
   return (
     <html lang="en">
-       <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <SessionProvider session={session}>
-            <Analytics/>
-            <body className={inter.className}>
-              {children}
-            </body>
-          </SessionProvider>
-          <Toaster />
-          <SpeedInsights/>
-        </ThemeProvider>
+      <head>
+        <script 
+          id="vtag-ai-js" 
+          async 
+          src="https://r2.leadsy.ai/tag.js" 
+          data-pid="1pyCrohWBXxpGzqrC" 
+          data-version="062024">
+        </script>
+      </head>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="dark"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <SessionProvider session={session}>
+          <Analytics/>
+          <body className={inter.className}>
+            {children}
+          </body>
+        </SessionProvider>
+        <Toaster />
+        <SpeedInsights/>
+      </ThemeProvider>
     </html>
   )
 }
