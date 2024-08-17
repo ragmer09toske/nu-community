@@ -41,8 +41,10 @@ export const LandingFeed = () => {
         borderWidth: "1px",
         borderTopWidth: "0px",
         borderBottomWidth: "0px", 
-    }}>   
-      <FloatingDockMobile/>    
+    }}>  
+      <div className='absolute -bottom-32 z-[9999]'>
+        <FloatingDockMobile/>    
+      </div> 
       <Command className="rounded-lg border shadow-md" style={{ background: "rgba(255, 255, 255, 0)", borderWidth: "0px"}}>
         <h4 className="scroll-m-20 p-2 pl-5 text-xl font-extrabold tracking-tight lg:text-xl">
             {/* Community Of Creatives */}
