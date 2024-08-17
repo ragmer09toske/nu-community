@@ -38,7 +38,7 @@ export function FloatingDockMobile() {
       title: "Aceternity UI",
       icon: (
         <Image
-          src="https://assets.aceternity.com/logo-dark.png"
+          src="/nu.png"
           width={20}
           height={20}
           alt="Aceternity Logo"

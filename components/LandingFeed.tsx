@@ -49,7 +49,7 @@ export const LandingFeed = () => {
         <h4 className="scroll-m-20 p-2 pl-5 text-xl font-extrabold tracking-tight lg:text-xl">
             {/* Community Of Creatives */}
         </h4>
-        {!isDesktop && <div className="p-5 justify-center mt-36 lg:mt-0">
+        {!isDesktop && <div className="p-5 justify-center mt-40 lg:mt-0">
           <div className='pb-10'>
             <div className='z-50 fixed w-[90.5%] border p-5 flex gap-2 -mt-6 -ml-2 justify-center rounded' style={{ backgroundImage: "url('/code.jpg')", backgroundSize: "cover" }}>
               <div className='flex'>
