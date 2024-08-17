@@ -11,6 +11,8 @@ import MentoShipPricing from './LifeTimeMentorship'
 import Collections from './Shop/ShopByCategory'
 import Nav from './Shop/Nav'
 import { People } from './People'
+import { ProductView } from './Shop/ProductView'
+import Cart from './Shop/Cart'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -135,9 +137,12 @@ export default function Example() {
       <People />
       <MentoShipPricing />
       <div id='collectins'>
-        <Collections />
+        <ProductView />
       </div>
       <CTA />
+      <div className='z-[9999]'>
+        <Cart />
+      </div>
       <TicketDetails />
       <Footer />
     </div>
