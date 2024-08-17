@@ -36,7 +36,7 @@ const callouts = [
       <div className="">
         <div className="mx-auto max-w-7xl">
           <div className="">
-            <h2 className="p-5 flex lg:justify-normal justify-center  text-2xl font-bold text-gray-900">Courses</h2>
+            <h2 className="p-5  text-2xl font-bold text-gray-900">Courses</h2>
             <div className=" lg:grid lg:grid-cols-3">
               {callouts.map((callout) => (
                 <div key={callout.name} className="group relative">
