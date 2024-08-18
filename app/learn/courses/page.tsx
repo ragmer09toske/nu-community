@@ -67,7 +67,11 @@ export default function Example() {
             onChange={()=>console.log("log")}
             />
       </div>
-      <MentoShipPricing />
+      <div className='py-10 mt-24 lg:mt-0 flex flex-col gap-5'>
+        <MentoShipPricing />
+        <MentoShipPricing />
+        <MentoShipPricing />
+      </div>
       <Footer />
       </div>
       </CartContext.Provider>
