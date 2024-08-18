@@ -56,7 +56,7 @@ export default function Cart() {
                     <div className="ml-3 flex h-7 items-center">
                       <button
                         type="button"
-                        onClick={() => setOpen(false)}
+                        onClick={() => setCartOpen(false)}
                         className="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
                       >
                         <span className="absolute -inset-0.5" />
