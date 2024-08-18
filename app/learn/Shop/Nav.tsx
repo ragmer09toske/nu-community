@@ -13,7 +13,7 @@ export default function Example() {
   const {cartOpen, setCartOpen} = useContext(CartContext)
 
   return (
-    <div className="w-full fixed">
+    <div className="w-full fixed" style={{backdropFilter: "blur(14px)"}}>
       {isMobile &&(<div className='p-5 fixed -bottom-40 z-[9999]'>
         <FloatingDockMobile />    
       </div> )}
