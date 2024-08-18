@@ -13,7 +13,7 @@ export default function Example() {
   const {cartOpen, setCartOpen} = useContext(CartContext)
 
   return (
-    <div className="w-full z-[9999]">
+    <div className="w-full z-[]">
       {isMobile &&(<div className='p-3.5 fixed -bottom-40 z-[9999]'>
         <FloatingDockMobile />    
       </div> )}

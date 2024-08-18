@@ -72,6 +72,9 @@ export default function Example() {
         <MentoShipPricing />
         <MentoShipPricing />
       </div>
+      <div className='z-[9999]'>
+        <Cart />
+      </div>
       <Footer />
       </div>
       </CartContext.Provider>

@@ -15,7 +15,7 @@ export function FloatingDockMobile() {
       icon: (
         <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "/learn",
     },
     {
       title: "Home",
