@@ -13,8 +13,8 @@ export default function Example() {
   const {cartOpen, setCartOpen} = useContext(CartContext)
 
   return (
-    <div className="w-full fixed" style={{backdropFilter: "blur(14px)"}}>
-      {isMobile &&(<div className='p-5 fixed -bottom-40 z-[9999]'>
+    <div className="w-full z-[9999]">
+      {isMobile &&(<div className='p-3.5 fixed -bottom-40 z-[9999]'>
         <FloatingDockMobile />    
       </div> )}
       {/* Mobile menu */}
@@ -60,16 +60,16 @@ export default function Example() {
                   </a>
                 </div>
                 {/* Cart */}
-                <div className="ml-4 flow-root lg:ml-6">
-                  <a href="#" className="group -m-2 flex items-center p-2">
+                <div className="ml-4 flow-root lg:ml-6" onClick={()=>setCartOpen(true)}>
+                  <div className="group -m-2 flex items-center p-2">
                     <ShoppingBagIcon
                       aria-hidden="true"
                       className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                      onClick={()=>setCartOpen(true)}
+                      // onClick={()=>setCartOpen(true)}
                     />
                     <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{cart.length}</span>
                     <span className="sr-only">items in cart, view bag</span>
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>
