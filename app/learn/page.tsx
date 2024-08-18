@@ -2,13 +2,10 @@
 
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import TicketDetails from './TicketDetails'
 import CTA from './CallToAction'
-import Topnav from './topnav'
 import Footer from './Footer'
 import MentoShipPricing from './LifeTimeMentorship'
-import Collections from './Shop/ShopByCategory'
 import Nav from './Shop/Nav'
 import { People } from './People'
 import { ProductView } from './Shop/ProductView'
