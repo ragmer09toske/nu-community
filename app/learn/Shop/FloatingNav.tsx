@@ -1,9 +1,14 @@
-import React from "react";
+"use client"
+import React, { useContext } from "react";
 import { IconHome } from "@tabler/icons-react";
 import { FloatingDock } from "@/components/floating-dock";
-import { LogIn } from "lucide-react";
+import { LogIn, } from "lucide-react";
+import { CartContext } from "../StoreContext";
+import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 
 export function FloatingDockMobile() {
+  const {cartOpen, setCartOpen} = useContext(CartContext)
+
   const links = [
     {
       title: "Home",
@@ -12,7 +17,17 @@ export function FloatingDockMobile() {
       ),
       href: "#",
     },
-
+    {
+      title: "Home",
+      icon: (
+        <ShoppingBagIcon
+          aria-hidden="true"
+          className="h-full w-full text-neutral-500 dark:text-neutral-300"
+          onClick={()=>setCartOpen(true)}
+        />
+      ),
+      href: "#",
+    },
     {
       title: "Components",
       icon: (
