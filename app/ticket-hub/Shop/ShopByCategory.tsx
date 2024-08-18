@@ -41,11 +41,7 @@ const callouts = [
               {callouts.map((callout) => (
                 <div key={callout.name} className="group relative">
                   <div className="flex items-center justify-center lg:p-0 p-1">
-                    {/* <DirectionAwareHover imageUrl={callout.imageSrc}>
-                        <p className="font-bold text-xl">{callout.name}</p>
-                        <p className="font-normal text-sm">$1299 / night</p>
-                    </DirectionAwareHover> */}
-                    <AuthorCard />
+                     <AuthorCard />
                     </div>
                 </div>
               ))}

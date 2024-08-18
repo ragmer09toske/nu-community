@@ -15,7 +15,6 @@ export function ProductView() {
     <div className=" flex items-center justify-center">
       <Modal>
         <ModalTrigger className="p-5 w-full">
-        {/* <h2 className="p-5  text-2xl font-bold text-gray-900">Courses</h2> */}
           <Collections />
         </ModalTrigger>
         <ModalBody>
