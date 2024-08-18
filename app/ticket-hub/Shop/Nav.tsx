@@ -1,18 +1,13 @@
 
 'use client'
-
-import { Fragment, useState } from 'react'
-
-import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { FloatingDockMobile } from './FloatingNav'
 import useMobile from '@/app/Mobile'
 import { useCartStore } from './stores/cartStore'
 
-
 export default function Example() {
-  const [open, setOpen] = useState(false)
   const isMobile = useMobile()
-  const { cart, removeFromCart, clearCart, getTotalItems, getTotalPrice } = useCartStore();
+  const { cart } = useCartStore();
 
   return (
     <div className="w-full">
@@ -61,7 +56,6 @@ export default function Example() {
                     <MagnifyingGlassIcon aria-hidden="true" className="h-6 w-6" />
                   </a>
                 </div>
-
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
                   <a href="#" className="group -m-2 flex items-center p-2">

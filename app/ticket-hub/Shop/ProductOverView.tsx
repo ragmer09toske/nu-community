@@ -1,8 +1,20 @@
 import { useState } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
-import { RadioGroup } from '@headlessui/react'
-import { Radio } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { useCartStore } from './stores/cartStore'
+import { Product } from '../types';
+
+
+const ProductToCart: Product = {
+    id: "1", // Unique identifier for the product
+    title: "Full Stack Web Development Course", // Title of the course
+    description: "A comprehensive course on full stack web development using modern technologies like React, Node.js, and more.", // Course description
+    price: 3000, // Price of the course in your chosen currency
+    instructor_id: "123", // ID of the instructor associated with the course
+    category: "Full Stack", // Category of the course
+    created_at: new Date().toISOString(), // Timestamp for when the course was created
+    updated_at: new Date().toISOString() // Timestamp for when the course was last updated
+};
 
 const product = {
   name: 'Basic Tee 6-Pack',
@@ -65,6 +77,7 @@ function classNames(...classes:any) {
 export default function ProductOverView() {
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
   const [selectedSize, setSelectedSize] = useState(product.sizes[2])
+  const addToCart = useCartStore(state => state.addToCart);
 
   return (
     <div className="">
@@ -166,11 +179,9 @@ export default function ProductOverView() {
               </div>
             </div>
 
-            <form className="mt-10">
-              <Button variant={"secondary"}>
+              <Button variant={"secondary"} onClick={() => addToCart(ProductToCart)} >
                 Add to bag
               </Button>
-            </form>
           </div>
 
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-800 lg:pb-16 lg:pr-8 lg:pt-6">
