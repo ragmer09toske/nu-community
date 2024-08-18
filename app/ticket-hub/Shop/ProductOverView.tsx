@@ -75,10 +75,7 @@ function classNames(...classes:any) {
 }
 
 export default function ProductOverView() {
-  const [selectedColor, setSelectedColor] = useState(product.colors[0])
-  const [selectedSize, setSelectedSize] = useState(product.sizes[2])
   const addToCart = useCartStore(state => state.addToCart);
-
   return (
     <div className="">
       <div className="pt-6">
@@ -178,10 +175,9 @@ export default function ProductOverView() {
                 </a>
               </div>
             </div>
-
-              <Button variant={"secondary"} onClick={() => addToCart(ProductToCart)} >
+            <Button variant={"secondary"} onClick={() => addToCart(ProductToCart)} >
                 Add to bag
-              </Button>
+            </Button>
           </div>
 
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-800 lg:pb-16 lg:pr-8 lg:pt-6">

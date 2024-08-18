@@ -13,6 +13,7 @@ import Nav from './Shop/Nav'
 import { People } from './People'
 import { ProductView } from './Shop/ProductView'
 import Cart from './Shop/Cart'
+import { CartContext } from './StoreContext'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -23,8 +24,10 @@ const navigation = [
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [cartOpen, setCartOpen] = useState(false)
   return (
-    <div className="bg-white">
+    <CartContext.Provider value={{cartOpen, setCartOpen}}>
+        <div className="bg-white">
       {/* <Topnav /> */}
       <header className="absolute inset-x-0 top-0 z-50">
         <Nav />
@@ -128,6 +131,7 @@ export default function Example() {
       </div>
       <TicketDetails />
       <Footer />
-    </div>
+      </div>
+      </CartContext.Provider>
   )
 }

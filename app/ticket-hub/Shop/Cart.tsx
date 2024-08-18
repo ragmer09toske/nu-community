@@ -1,9 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { useCartStore } from './stores/cartStore'
+import { CartContext } from '../StoreContext'
 
 const products = [
   {
@@ -31,10 +32,11 @@ const products = [
 ]
 
 export default function Cart() {
-  const [open, setOpen] = useState(true)
+  const {cartOpen, setCartOpen} = useContext(CartContext)
   const { cart, removeFromCart, clearCart, getTotalItems, getTotalPrice } = useCartStore();
+
   return (
-    <Dialog open={open} onClose={setOpen} className="relative z-[9999]">
+    <Dialog open={cartOpen} onClose={setCartOpen} className="relative z-[9999]">
       <Dialog.Backdrop
         // transition
         className="z-[999] fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity duration-500 ease-in-out data-[closed]:opacity-10"
@@ -67,31 +69,23 @@ export default function Cart() {
                   <div className="mt-8">
                     <div className="flow-root">
                       <ul role="list" className="-my-6 divide-y divide-gray-200">
-                        {products.map((product) => (
+                        {cart.map((product) => (
                           <li key={product.id} className="flex py-6">
-                            <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                              <img
-                                alt={product.imageAlt}
-                                src={product.imageSrc}
-                                className="h-full w-full object-cover object-center"
-                              />
-                            </div>
-
                             <div className="ml-4 flex flex-1 flex-col">
                               <div>
                                 <div className="flex justify-between text-base font-medium text-gray-900">
                                   <h3>
-                                    <a href={product.href}>{product.name}</a>
+                                    <a href={product.id}>{product.title}</a>
                                   </h3>
                                   <p className="ml-4">{product.price}</p>
                                 </div>
-                                <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+                                <p className="mt-1 text-sm text-gray-500">{product.description}</p>
                               </div>
                               <div className="flex flex-1 items-end justify-between text-sm">
                                 <p className="text-gray-500">Qty {product.quantity}</p>
 
                                 <div className="flex">
-                                  <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">
+                                  <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500" onClick={()=>removeFromCart(product.id)}>
                                     Remove
                                   </button>
                                 </div>

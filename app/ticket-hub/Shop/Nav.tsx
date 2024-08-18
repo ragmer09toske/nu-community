@@ -4,10 +4,13 @@ import { MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/reac
 import { FloatingDockMobile } from './FloatingNav'
 import useMobile from '@/app/Mobile'
 import { useCartStore } from './stores/cartStore'
+import { useContext } from 'react'
+import { CartContext } from '../StoreContext'
 
 export default function Example() {
   const isMobile = useMobile()
   const { cart } = useCartStore();
+  const {cartOpen, setCartOpen} = useContext(CartContext)
 
   return (
     <div className="w-full">
@@ -62,6 +65,7 @@ export default function Example() {
                     <ShoppingBagIcon
                       aria-hidden="true"
                       className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                      onClick={()=>setCartOpen(true)}
                     />
                     <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{cart.length}</span>
                     <span className="sr-only">items in cart, view bag</span>
