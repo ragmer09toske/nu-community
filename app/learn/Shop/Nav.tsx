@@ -32,9 +32,9 @@ export default function Example() {
                   <span className="sr-only">Your Company</span>
                   <img
                     alt=""
-                    src="/nu-devs.png"
-                    height={110}
-                    width={50}
+                    src="/nu.png"
+                    width={25}
+                    height={20}
                     // className="h-8 w-auto"
                   />
                 </a>
