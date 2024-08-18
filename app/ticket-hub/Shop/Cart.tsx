@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import { useCartStore } from './stores/cartStore'
 
 const products = [
   {
@@ -31,7 +32,7 @@ const products = [
 
 export default function Cart() {
   const [open, setOpen] = useState(true)
-
+  const { cart, removeFromCart, clearCart, getTotalItems, getTotalPrice } = useCartStore();
   return (
     <Dialog open={open} onClose={setOpen} className="relative z-[9999]">
       <Dialog.Backdrop

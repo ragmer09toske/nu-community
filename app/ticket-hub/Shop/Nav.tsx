@@ -6,11 +6,13 @@ import { Fragment, useState } from 'react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { FloatingDockMobile } from './FloatingNav'
 import useMobile from '@/app/Mobile'
+import { useCartStore } from './stores/cartStore'
 
 
 export default function Example() {
   const [open, setOpen] = useState(false)
   const isMobile = useMobile()
+  const { cart, removeFromCart, clearCart, getTotalItems, getTotalPrice } = useCartStore();
 
   return (
     <div className="w-full">
@@ -67,7 +69,7 @@ export default function Example() {
                       aria-hidden="true"
                       className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                     />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{cart.length}</span>
                     <span className="sr-only">items in cart, view bag</span>
                   </a>
                 </div>
