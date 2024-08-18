@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  IconBrandGithub,
-  IconBrandX,
-  IconExchange,
-  IconHome,
-  IconNewSection,
-  IconTerminal2,
-} from "@tabler/icons-react";
-import Image from "next/image";
+import { IconHome } from "@tabler/icons-react";
 import { FloatingDock } from "@/components/floating-dock";
 import { LogIn } from "lucide-react";
 
