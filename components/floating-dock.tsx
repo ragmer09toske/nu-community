@@ -14,6 +14,7 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
+import { Grid2X2Icon } from "lucide-react";
 import Link from "next/link";
 import { useRef, useState } from "react";
 
@@ -83,7 +84,7 @@ const FloatingDockMobile = ({
         onClick={() => setOpen(!open)}
         className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-800 flex items-center justify-center"
       >
-        <IconLayoutNavbarCollapse className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
+        <Grid2X2Icon className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
       </button>
     </div>
   );
