@@ -117,7 +117,7 @@ export default function Cart() {
                       or{' '}
                       <button
                         type="button"
-                        onClick={() => setOpen(false)}
+                        onClick={() => setCartOpen(false)}
                         className="font-medium text-indigo-600 hover:text-indigo-500"
                       >
                         Continue Shopping
