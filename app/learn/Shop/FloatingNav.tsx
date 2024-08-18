@@ -26,7 +26,7 @@ export function FloatingDockMobile() {
           onClick={()=>setCartOpen(true)}
         />
       ),
-      href: "#",
+      // href: "#",
     },
     {
       title: "Components",
