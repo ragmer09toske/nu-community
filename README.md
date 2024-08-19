@@ -98,8 +98,10 @@ Check out the Next.js deployment documentation for more details.
 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-Contact
+**Contact**
+
 For any inquiries, please contact us at:
 
 Email: support@nucleus.com
+
 Website: https://nucleusdevs.com 
