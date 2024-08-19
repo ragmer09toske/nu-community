@@ -32,17 +32,17 @@ Copy code
 npm run dev
 ```
 
-# or
+**or**
 ```bash
 yarn dev
 ```
 
-# or
+**or**
 ```bash 
 pnpm dev
 ```
 
-# or
+**or**
 ```bash
 bun dev
 ```
@@ -102,6 +102,6 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 For any inquiries, please contact us at:
 
-Email: support@nucleus.com
+Email: help@nucleusdevs.com
 
 Website: https://nucleusdevs.com 
