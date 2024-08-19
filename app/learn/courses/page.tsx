@@ -1,17 +1,17 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import TicketDetails from '../TicketDetails'
 import CTA from '../CallToAction'
 import Footer from '../Footer'
 import MentoShipPricing from '../LifeTimeMentorship'
 import Nav from '../Shop/Nav'
-import { People } from '../People'
-import { ProductView } from '../Shop/ProductView'
+import { useTheme } from "next-themes"
 import Cart from '../Shop/Cart'
 import { CartContext } from '../StoreContext'
 import { PlaceholdersAndVanishInput } from '@/components/ui/placeholders-and-vanish-input'
+import SearchModel from '../Shop/SearchModel'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -23,10 +23,15 @@ const placeholders = [
     "Search course",
 ];
 export default function Example() {
+  const { theme, setTheme } = useTheme()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [cartOpen, setCartOpen] = useState(false)
+  const [searchOpen, setSearchtOpen] = useState(false);
+  useEffect(()=>{
+    setTheme("light")
+  },[])
   return (
-    <CartContext.Provider value={{cartOpen, setCartOpen}}>
+    <CartContext.Provider value={{cartOpen, setCartOpen, searchOpen, setSearchtOpen}}>
         <div className="bg-white">
       {/* <Topnav /> */}
       <header className="absolute inset-x-0 top-0 z-50">
@@ -60,12 +65,12 @@ export default function Example() {
           </Dialog.Panel>
         </Dialog>
       </header>
-      <div className='relative top-28 p-5 pb-10'>
+      <div className='relative top-28 p-5 pb-10 z-10' >
         <PlaceholdersAndVanishInput
             placeholders={placeholders}
             onSubmit={()=>console.log("clicked")}
             onChange={()=>console.log("log")}
-            />
+        />
       </div>
       <div className='py-10 mt-24 lg:mt-0 flex flex-col gap-5'>
         <MentoShipPricing />
@@ -74,6 +79,7 @@ export default function Example() {
       </div>
       <div className='z-[9999]'>
         <Cart />
+        <SearchModel />
       </div>
       <Footer />
       </div>

@@ -7,9 +7,12 @@ export interface Product {
     category: string;
     created_at: string;
     updated_at: string;
-  }
-  
-  export interface CartItem extends Product {
-    quantity: number;
-  }
+}
+export interface CartItem extends Product {
+  quantity: number;
+}
+
+export const placeholders = [
+    "Search course",
+];
   

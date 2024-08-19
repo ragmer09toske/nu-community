@@ -7,7 +7,8 @@ import { CartContext } from "../StoreContext";
 import { MagnifyingGlassIcon, ShoppingBagIcon } from "@heroicons/react/24/outline";
 
 export function FloatingDockMobile() {
-  const {cartOpen, setCartOpen} = useContext(CartContext)
+  const {setCartOpen} = useContext(CartContext)
+  const { setSearchtOpen} = useContext(CartContext)
 
   const links = [
     {
@@ -30,7 +31,7 @@ export function FloatingDockMobile() {
     {
       title: "Cart",
       icon: (
-        <MagnifyingGlassIcon aria-hidden="true" className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <MagnifyingGlassIcon aria-hidden="true" className="h-full w-full text-neutral-500 dark:text-neutral-300" onClick={()=>setSearchtOpen(true)}/>
       ),
     },
     {

@@ -10,15 +10,16 @@ import { CartContext } from '../StoreContext'
 export default function Example() {
   const isMobile = useMobile()
   const { cart } = useCartStore();
-  const {cartOpen, setCartOpen} = useContext(CartContext)
+  const { setCartOpen } = useContext(CartContext)
+  const { setSearchtOpen } = useContext(CartContext)
 
   return (
-    <div className="w-full z-[]">
+    <div className="w-full z-[9999] lg:fixed lg:bg-white">
       {isMobile &&(<div className='p-3.5 fixed -bottom-40 z-[9999]'>
         <FloatingDockMobile />    
       </div> )}
       {/* Mobile menu */}
-      <header className="relative w-full">
+      <header className="relative w-full z-[9999]">
         <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
           Get free Mentorship on orders over M10,000
         </p>
@@ -56,7 +57,7 @@ export default function Example() {
                 <div className="flex lg:ml-6">
                   <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
-                    <MagnifyingGlassIcon aria-hidden="true" className="h-6 w-6" />
+                    <MagnifyingGlassIcon aria-hidden="true" className="h-6 w-6" onClick={()=>setSearchtOpen(true)} />
                   </a>
                 </div>
                 {/* Cart */}
