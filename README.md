@@ -1,7 +1,7 @@
 Nucleusdevs.com
 Welcome to the official repository for the Nucleus website, a platform dedicated to software developers and aspiring programmers. This website serves as the digital hub for Nucleus, providing access to a wide range of resources, including the Nucleus Academy for programming lessons and a dedicated section for developers.
 
-Table of Contents
+**Table of Contents**
 Introduction
 Features
 Getting Started
@@ -15,7 +15,7 @@ Nucleus is a tech company specializing in software engineering, offering tailore
 
 This is a Next.js project bootstrapped with create-next-app.
 
-Features
+**Features**
 Developers' Section: A dedicated space for developers to access resources, tools, and community discussions.
 Nucleus Academy: Access to a variety of programming lessons, including membership-based courses.
 Blog: Stay updated with the latest in software development, company news, and announcements.
@@ -81,4 +81,4 @@ Contact
 For any inquiries, please contact us at:
 
 Email: support@nucleus.com
-Website: https://nucleusdevs.com
+Website: https://nucleusdevs.com 
