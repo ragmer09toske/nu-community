@@ -1,3 +1,4 @@
+import { nu_api_base_url } from '@/app/Contants';
 import { Card, SparkAreaChart } from '@tremor/react';
 import axios, { CancelTokenSource } from 'axios';
 import { Loader2 } from 'lucide-react';
@@ -54,10 +55,10 @@ export function SparkAreaUsage() {
       setLoading(true);
       try {
         source = axios.CancelToken.source();
-        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/registerers`, {
+        const response = await axios.get(`${nu_api_base_url}/codiac/registerers`, {
           cancelToken: source.token
         });
-        setCodiacs(response.data);
+        setCodiacs(response.data);0
         setLoading(false);
       } catch (error) {
         if (axios.isCancel(error)) {

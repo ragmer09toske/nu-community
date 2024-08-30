@@ -5,6 +5,7 @@ import { TabsContent } from '@/components/ui/tabs';
 import { Badge } from '@tremor/react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { nu_api_base_url } from '../Contants';
 
 
 interface Webinarpeople {
@@ -31,7 +32,7 @@ const WebinarData = () => {
         const getAllCodiacsUsers = async () => {
           setLoading(true);   
           try {
-            const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/webinar/registerers`);
+            const response = await axios.get(`${nu_api_base_url}/webinar`);
             setWebinarpeople(response.data);
             setLoading(false);
           } catch (error) {

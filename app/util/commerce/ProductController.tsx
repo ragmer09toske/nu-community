@@ -52,6 +52,7 @@ import { useToast } from "@/components/ui/use-toast"
 import { UploadDropzone } from '@/app/utils/uploadthing';
 import { ProductContext } from '@/app/academy/AppContex'
 import axios from 'axios'
+import { nu_api_base_url } from '@/app/Contants'
 interface FileResponse {
     key: string;
     name: string;
@@ -151,7 +152,7 @@ const ProductController = () => {
       console.log('Posting product data:', productData);
   
       // Send the POST request
-      const response = await axios.post('https://nu-com-0e51cf02b2c8.herokuapp.com/nu-commerce', productData, {
+      const response = await axios.post(`${nu_api_base_url}/nu-commerce`, productData, {
         headers: {
           'Content-Type': 'application/json',
           // Add other headers if required by your API

@@ -33,6 +33,7 @@ import { RiHeartFill } from '@remixicon/react'
 import Link from 'next/link'
 
 import { useToast } from '@/components/ui/use-toast'
+import { nu_api_base_url } from '../Contants'
 interface Post {
  like: number,
  comment?: string
@@ -57,7 +58,7 @@ const Retsepile = () => {
     const getAllPosts = async () => {
       try {
         source = axios.CancelToken.source();
-        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/retsepile/66454198384658227e748c6e`, {
+        const response = await axios.get(`${nu_api_base_url}/retsepile/66454198384658227e748c6e`, {
           cancelToken: source.token
         });
         setPost(response.data);
@@ -81,7 +82,7 @@ const Retsepile = () => {
 
   async function updateRetsepilePost(postId: string): Promise<void> {
     try {
-      const url = `https://nu-com-0e51cf02b2c8.herokuapp.com/retsepile/${postId}`;
+      const url = `${nu_api_base_url}/retsepile/${postId}`;
       const response = await axios.get<Post>(url);
       const currentLike = response.data.like;
       const newLike = currentLike + 1;
@@ -98,7 +99,7 @@ const Retsepile = () => {
   async function updateRetsepilePostComment(postId: string): Promise<void> {
     try {
       const body = { comment: commentVar };
-      const response = await axios.put(`https://nu-com-0e51cf02b2c8.herokuapp.com/retsepile/${postId}`, body);
+      const response = await axios.put(`${nu_api_base_url}/retsepile/${postId}`, body);
       console.log(`Post ${postId} updated successfully.`);
       // Assuming response.data.comment contains the updated comment value
       // Update the state or perform any necessary actions with the updated comment value

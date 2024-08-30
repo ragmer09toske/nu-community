@@ -44,6 +44,7 @@ import {
   TabsTrigger,
 } from '@/components/ui/tabs';
 import { ProductContext } from '@/app/academy/AppContex';
+import { nu_api_base_url } from '@/app/Contants';
 
 interface Product {
   _id: string;
@@ -69,7 +70,7 @@ const ProductsDetails: React.FC = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get<Product[]>('https://nu-com-0e51cf02b2c8.herokuapp.com/nu-commerce/');
+        const response = await axios.get<Product[]>(`${nu_api_base_url}/nu-commerce/`);
         setProducts(response.data);
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -83,7 +84,7 @@ const ProductsDetails: React.FC = () => {
   const deleteProducts = async (id: string) => {
     setIsloading(true);
     try {
-      await axios.delete(`https://nu-com-0e51cf02b2c8.herokuapp.com/nu-commerce/${id}`);
+      await axios.delete(`${nu_api_base_url}/nu-commerce/${id}`);
       
       // Filter out the deleted product from the current state
       setProducts((prevProducts) => prevProducts.filter(product => product._id !== id));

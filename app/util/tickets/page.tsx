@@ -18,6 +18,7 @@ import {
     CommandSeparator,
   } from "@/components/ui/command"
 import { RiOrganizationChart } from '@remixicon/react';
+import { nu_api_base_url } from '@/app/Contants';
 
 // Define the TypeScript interfaces for the ticket and response
 interface Ticket {
@@ -52,7 +53,7 @@ const TicketDetails: React.FC = () => {
   async function fetchTicketDetails(id: string) {
     try {
       setLoading(true)
-      const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/ticket/qr/${id}`, {
+      const response = await axios.get(`${nu_api_base_url}/ticket/qr/${id}`, {
         headers: {
           Authorization: `Bearer ${loginToken}`,
         },

@@ -14,6 +14,7 @@ import { Card } from './ui/card';
 import LinearBuffer from './MUI_LoadBuffer';
 import Avater from '@/User/Avater';
 import DefaultUserAvater from '@/User/Avater';
+import { nu_api_base_url } from '@/app/Contants';
 
  
 export function SignupForm({setLoading}:{setLoading:any}) {
@@ -34,7 +35,7 @@ export function SignupForm({setLoading}:{setLoading:any}) {
     async function makeUserObject() {
       try {
         setLoading(true)
-        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/users/${userIDloggedIn}`, {
+        const response = await axios.get(`${nu_api_base_url}/codiac/users/${userIDloggedIn}`, {
           headers: {
             Authorization: `Bearer ${loginToken}`,
           },
@@ -49,7 +50,7 @@ export function SignupForm({setLoading}:{setLoading:any}) {
     async function login(email:any, password:any) {
       try {
         setLoading(true)
-        const response = await axios.post('https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/auth/login', {
+        const response = await axios.post(`${nu_api_base_url}/codiac/auth/login`, {
           email: email,
           password: password,
         });

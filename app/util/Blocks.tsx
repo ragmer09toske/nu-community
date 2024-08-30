@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/chart";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { nu_api_base_url } from "../Contants";
 
 interface Product {
   issued_to: string;
@@ -41,7 +42,7 @@ export function Blocks() {
     const fetchProducts = async () => {
       try {
         const { data } = await axios.get<Product[]>(
-          "https://nu-com-0e51cf02b2c8.herokuapp.com/ticket"
+          `${nu_api_base_url}/ticket`
         );
         setIYD(data);
       } catch (error) {

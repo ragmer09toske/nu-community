@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Github, Loader2 } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { nu_api_base_url } from '../Contants';
 
 interface Webinarpeople {
     _id: string; // Represents the unique identifier of the object
@@ -30,7 +31,7 @@ export function BarListUsageExample() {
         const getAllCodiacsUsers = async () => {
             setLoading(true);
             try {
-                const response = await axios.get('https://nu-com-0e51cf02b2c8.herokuapp.com/webinar/registerers');
+                const response = await axios.get(`${nu_api_base_url}/webinar`);
                 setWebinarpeople(response.data);
             } catch (error) {
                 console.error("Error fetching data:", error);

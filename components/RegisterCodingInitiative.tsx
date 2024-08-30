@@ -8,6 +8,7 @@ import { Textarea } from "./ui/textarea";
 import axios from "axios";
 import { useToast } from "./ui/use-toast"
 import { Loader, Loader2 } from "lucide-react";
+import { nu_api_base_url } from "@/app/Contants";
 
 export function RegisterCodingInitiative() {
   const [firstname, setFirstName] = useState<string>("")
@@ -23,7 +24,7 @@ export function RegisterCodingInitiative() {
       try {
         setLoading(true)
         const response = await axios.post(
-          'https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/register',
+          `${nu_api_base_url}/codiac/register`,
           {
             firstname: firstname,
             lastname: lastname,

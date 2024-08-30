@@ -6,6 +6,7 @@ import { RiRecordCircleFill } from '@remixicon/react';
 import { Badge, BadgeDelta } from '@tremor/react';
 import { RSVP } from './Tabs';
 import { Loader2 } from 'lucide-react';
+import { nu_api_base_url } from '@/app/Contants';
 
 // Define the Codiac interface
   interface Codiac {
@@ -29,7 +30,7 @@ export const DataGrid = () => {
       setLoading(true);
       try {
         source = axios.CancelToken.source();
-        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/registerers`, {
+        const response = await axios.get(`${nu_api_base_url}/registerers`, {
           cancelToken: source.token
         });
         setCodiacs(response.data);

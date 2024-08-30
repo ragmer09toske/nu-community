@@ -17,6 +17,7 @@ import Navbar_Data_Repo from '@/components/Navbar_Data_One_Repo'
 import { Spotlight } from '@/components/Spotlight'
 import { cn } from '../utils/cn'
 import { HoveredLink, Menu, MenuItem, ProductItem } from '@/components/navbar-menu';
+import { nu_api_base_url } from '../Contants'
 
 interface User {
   _id: string;
@@ -50,7 +51,7 @@ const Home = () => {
     try {
       setLoading(true)
       const response = await axios.post(
-        'https://nu-com-0e51cf02b2c8.herokuapp.com/webinar/register',
+        `${nu_api_base_url}/webinar/register`,
         {
           firstname,
           lastname,

@@ -11,6 +11,7 @@ import { Loader2, User2 } from "lucide-react";
 import { CreateUserForm } from "./CreateUserForm";
 import { NuUserContext } from "@/app/academy/AppContex";
 import axios from "axios";
+import { nu_api_base_url } from "@/app/Contants";
 
 export function AnimatedModal() {
     const [names, setNames] = useState<string>('');
@@ -24,7 +25,7 @@ export function AnimatedModal() {
     async function register() {
       try {
         setLoading(true)
-        const response = await axios.post('https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/auth/register', {
+        const response = await axios.post(`${nu_api_base_url}/codiac/auth/register`, {
           name : names,
           number : phones,
           email : email,

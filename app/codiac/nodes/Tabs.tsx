@@ -87,6 +87,7 @@ import {
 import axios from "axios"
 import RsvpPagination from "./pagination"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { nu_api_base_url } from "@/app/Contants";
 // import CodeEditor from "./codeEditor";
 
 const frameworks = [
@@ -172,7 +173,7 @@ const handleSelectAll = () => {
     const getAllCodiacs = async()  => {
       setLoading(true)
       try{
-        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/search/?searchParam=${search}`)
+        const response = await axios.get(`${nu_api_base_url}/codiac/search/?searchParam=${search}`)
         if (response.data.length !== 0) {
           setCodiacs(response.data);
           toast({
@@ -203,7 +204,7 @@ const handleSelectAll = () => {
   const getAllCodiacs = async()  => {
     setLoading(true)
     try{
-      const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/registerers`)
+      const response = await axios.get(`${nu_api_base_url}/codiac/registerers`)
       if (Array.isArray(response.data)) {
         setCodiacs(response.data)
       } else {
@@ -228,7 +229,7 @@ const handleSelectAll = () => {
   useEffect(()=>{
     const getAllCodiacs = async()  => {
       try{
-        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/registerers`)
+        const response = await axios.get(`${nu_api_base_url}/codiac/registerers`)
         if(response.data){
           setCodiacs(response.data)
           setLoading(false)
@@ -338,7 +339,7 @@ const handleSelectAll = () => {
         try {
             // Send a POST request to your server
             setEmailLoading(true)
-            const response = await fetch(`https://nu-com-0e51cf02b2c8.herokuapp.com/mailing`, {
+            const response = await fetch(`${nu_api_base_url}/mailing`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json', // Specify the content type as JSON

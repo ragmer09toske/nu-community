@@ -90,7 +90,7 @@ useEffect(() => {
     const getAllCodiacsUsers = async () => {
       setLoading(true);   
       try {
-        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/users`, {
+        const response = await axios.get(`${nu_api_base_url}/codiac/users`, {
           headers: {
             Authorization: `Bearer ${loginToken}`,
           },

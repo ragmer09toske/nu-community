@@ -4,6 +4,7 @@ import { Navigation } from '@/components/Navigation'
 import axios, { CancelTokenSource } from 'axios'
   import DataGrid from './DataGrid';
 import SideNav from './SideNav';
+import { nu_api_base_url } from '@/app/Contants';
 
 // Define the Codiac interface
 interface Codiac {
@@ -27,7 +28,7 @@ const Page = () => {
       setLoading(true);
       try {
         source = axios.CancelToken.source();
-        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/registerers`, {
+        const response = await axios.get(`${nu_api_base_url}/codiac/registerers`, {
           cancelToken: source.token
         });
         setCodiacs(response.data);

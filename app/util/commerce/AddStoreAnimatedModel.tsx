@@ -12,6 +12,7 @@ import { StoreContext } from "@/app/academy/AppContex";
 import axios from "axios";
 import { AddStoreForm } from "./AddStoreForm";
 import { useToast } from "@/components/ui/use-toast"
+import { nu_api_base_url } from "@/app/Contants";
 
 export function AddStoreAnimatedModel() {
     // State variables for store attributes
@@ -30,7 +31,7 @@ export function AddStoreAnimatedModel() {
             setLoading(true);
     
             // Send a POST request to create a new store
-            const response = await axios.post('https://nu-com-0e51cf02b2c8.herokuapp.com/nu-commerce/store', {
+            const response = await axios.post(`${nu_api_base_url}/nu-commerce/store`, {
                 name: name,                  // Store name
                 description: description,    // Store description
                 office_number: officeNumber, // Store office number

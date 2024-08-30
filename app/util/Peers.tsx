@@ -1,8 +1,9 @@
 import axios from "axios";
+import { nu_api_base_url } from "../Contants";
 
 const getAllCodiacs = async () => {
     try {
-    const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/registerers`, {
+    const response = await axios.get(`${nu_api_base_url}/codiac/registerers`, {
         // Headers
     });
     } catch (error) {

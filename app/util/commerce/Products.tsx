@@ -6,6 +6,7 @@ import IfNoProducts from "./IfNoProducts";
 import ProductsDetails from "./ProductsListing";
 import ProductController from "./ProductController";
 import { ProductContext } from "@/app/academy/AppContex";
+import { nu_api_base_url } from "@/app/Contants";
 
 interface Product {
     _id: string;
@@ -32,7 +33,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get<Product[]>('https://nu-com-0e51cf02b2c8.herokuapp.com/nu-commerce/');
+        const { data } = await axios.get<Product[]>(`${nu_api_base_url}/nu-commerce/`);
         setProducts(data);
       } catch (error) {
         console.error('Error fetching products:', error);
