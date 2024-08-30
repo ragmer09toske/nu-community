@@ -38,6 +38,7 @@ import Org from "./Org"
 import { SettingsParnel } from "./Settings"
 import Youthconnect from "./Youthconnect"
 import { Commerce } from "./commerce/Commerce"
+import { nu_api_base_url } from "../Contants"
 
 
 interface Codiac {
@@ -75,42 +76,40 @@ const Dashboard = () => {
     }   
   }, []);
 
-  useEffect(() => { 
-    let source: CancelTokenSource;
+  useEffect(() => {
     const getAllCodiacs = async () => {
-      setLoading(true);   
+      setLoading(true);
       try {
-        source = axios.CancelToken.source();
-        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/registerers`, {
-          cancelToken: source.token,
+        const response = await axios.get(`${nu_api_base_url}/codiac`, {
+          headers: {
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YTIzYzFkODYxYzI3OTkxOTZiMzFkNiIsIm5hbWUiOiJSZXRzZXBpbGUgU2hhbyIsImVtYWlsIjoicmV0c2VwaWxlLnJheW1vbmRzaGFvQGdtYWlsLmNvbSIsImlhdCI6MTcyNDE0NDM2Nn0.DriXjDGMLcOPeCzICCC-9G5r04ifsj3VXql0fe3hvUM`,
+          },
         });
+        console.log(response.data); // Check the data being returned
         setCodiacs(response.data);
-        setLoading(false);
       } catch (error) {
-        if (axios.isCancel(error)) {
-          console.log('Request canceled', error.message);
+        if (axios.isAxiosError(error)) {
+          // This will give more details if it's an axios-related error
+          console.error('Error message:', error.message);
+          console.error('Error response:', error.response);
         } else {
-          console.log(error);
+          console.error('Error:', error);
         }
+      } finally {
         setLoading(false);
       }
     };
     getAllCodiacs();
-
-    return () => {
-      if (source) {
-        source.cancel('Component unmounted');
-      }
-    };
-  }, [``]);
+  }, []);
+  
 
   useEffect(() => { 
     const getAllCodiacsUsers = async () => {
       setLoading(true);   
       try {
-        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/users`, {
+        const response = await axios.get(`${nu_api_base_url}/codiac`, {
           headers: {
-            Authorization: `Bearer ${loginToken}`,
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YTIzYzFkODYxYzI3OTkxOTZiMzFkNiIsIm5hbWUiOiJSZXRzZXBpbGUgU2hhbyIsImVtYWlsIjoicmV0c2VwaWxlLnJheW1vbmRzaGFvQGdtYWlsLmNvbSIsImlhdCI6MTcyNDE0NDM2Nn0.DriXjDGMLcOPeCzICCC-9G5r04ifsj3VXql0fe3hvUM`,
           },
         });
         setCodiacsUsers(response.data);
@@ -120,7 +119,7 @@ const Dashboard = () => {
       }
     };
     getAllCodiacsUsers();
-  }, [loginToken]);
+  });
   return (
     <MenuContext.Provider value={{
       view, setView,

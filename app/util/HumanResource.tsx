@@ -31,6 +31,7 @@ import useStore from "@/app/Store"
 import axios, { CancelTokenSource } from 'axios'
 import NewCodian from './NewCodian'
 import NewStore from './commerce/NewStore'
+import { nu_api_base_url } from '../Contants'
 
 interface Codiac {
   _id: string; // Represents the unique identifier of the object
@@ -63,7 +64,7 @@ useEffect(() => {
       setLoading(true);   
       try {
         source = axios.CancelToken.source();
-        const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/registerers`, {
+        const response = await axios.get(`${nu_api_base_url}/registerers`, {
           cancelToken: source.token,
         });
         setCodiacs(response.data);

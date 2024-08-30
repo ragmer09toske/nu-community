@@ -2,6 +2,8 @@ import { Card, ProgressCircle } from '@tremor/react'
 import React, { useEffect, useState } from 'react'
 import axios, { CancelTokenSource } from 'axios'
 import { Loader2 } from 'lucide-react';
+import { apiBaseUrl } from 'next-auth/client/_utils';
+import { nu_api_base_url } from '../Contants';
 
 interface Codiac {
     _id: string; // Represents the unique identifier of the object
@@ -24,7 +26,7 @@ const CodiacData = () => {
             setLoading(true);   
             try {
             source = axios.CancelToken.source();
-            const response = await axios.get(`https://nu-com-0e51cf02b2c8.herokuapp.com/codiac/registerers`, {
+            const response = await axios.get(`${nu_api_base_url}/registerers`, {
                 cancelToken: source.token
             });
             setCodiacs(response.data);

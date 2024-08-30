@@ -53,6 +53,7 @@ export default function  Navbar() {
                     alt="Float UI logo"
                 />
             </a>
+            {/* <div className="animate-spin" style={{zIndex}}></div> */}
         </div>
     )
 
