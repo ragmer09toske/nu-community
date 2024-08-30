@@ -27,7 +27,6 @@ const frameworks = [
 import { Label } from "../components/label";
 import { Input } from "../components/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Upload } from "lucide-react";
 import { StoreContext } from "@/app/academy/AppContex";
 import Image from "next/image";
 
@@ -105,32 +104,31 @@ export function AddStoreForm() {
         <div className="max-w-md mx-auto h-full flex flex-col gap-7">
             Store Assets
             {!fileResponsesAvatarArray && <>
-                    <UploadDropzone
-                        endpoint="mediaPost"
-                        onClientUploadComplete={(res: FileResponse[]) => {
-                        // Do something with the response array
-                        console.log("Files: ", res);
+              <UploadDropzone
+                endpoint="mediaPost"
+                onClientUploadComplete={(res: FileResponse[]) => {
+                // Do something with the response array
+                console.log("Files: ", res);
 
-                        // Update the fileResponses state variable
-                        setFileResponsesAvatar(res);
+                // Update the fileResponses state variable
+                
+                setFileResponsesAvatar(res);
+                // Accessing the name of each file
+                res.forEach(file => {
+                    const fileName = file.name;
+                    console.log("File Name: ", fileName);
+                    // Do something with the file name
+                });
 
-                        // Accessing the name of each file
-                        res.forEach(file => {
-                            const fileName = file.name;
-                            console.log("File Name: ", fileName);
-                            // Do something with the file name
-                        });
-
-                        }}
-                        onUploadError={(error: Error) => {
-                        // Do something with the error.
-                        
-                        }}
-                    />
-                </>}
+                }}
+                onUploadError={(error: Error) => {
+                // Do something with the error.
+                }}
+              />
+            </>}
             {fileResponsesAvatarArray && <Avatar>
-                <AvatarImage src={fileResponsesAvatarArray.url} alt="@shadcn" />
-                <AvatarFallback>CN</AvatarFallback>
+              <AvatarImage src={fileResponsesAvatarArray.url} alt="@shadcn" />
+              <AvatarFallback>CN</AvatarFallback>
             </Avatar>}
             <Label htmlFor="lastname">Logo</Label>
             {!fileResponsesArray && <UploadDropzone

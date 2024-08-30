@@ -113,11 +113,11 @@ const ProductController = () => {
   const handleAddVariant = () => {
     setSavedVariant(Variant)
     toast({
-        title: "Variant",
-        description: "Selected variant will apply on the Stock table",
-        action: (
-          <ToastAction altText="Goto schedule to undo" onClick={()=>{setSavedVariant("")}}>Undo</ToastAction>
-        ),
+      title: "Variant",
+      description: "Selected variant will apply on the Stock table",
+      action: (
+        <ToastAction altText="Goto schedule to undo" onClick={()=>{setSavedVariant("")}}>Undo</ToastAction>
+      ),
     })
   }
 
