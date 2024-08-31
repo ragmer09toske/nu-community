@@ -149,6 +149,7 @@ const ProductController = () => {
         image_one,
         image_two,
         image_three,
+        store_id:UserDetails?._id
       };
   
       // Log the data being sent to check correctness
