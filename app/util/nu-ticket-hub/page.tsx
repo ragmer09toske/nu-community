@@ -28,6 +28,7 @@ import {
 } from "@/components/ui/select"
 import useMobile from '@/app/Mobile';
 import { Navigation } from '@/components/Navigation';
+import { nu_api_base_url } from '@/app/Contants';
 const Youthconnect = () => {
   const [issuedTo, setIssuedTo] = useState<string>("");
   const [orderNumber, setOrderNumber] = useState<string>("");
@@ -102,7 +103,7 @@ const Youthconnect = () => {
     };
 
     try {
-      const response = await axios.post('https://nu-com-0e51cf02b2c8.herokuapp.com/ticket/create-ticket', ticketData);
+      const response = await axios.post(`${nu_api_base_url}/ticket/create-ticket`, ticketData);
       const { _id } = response.data.savedTicket;
       
       // Generate QR code with the real ticket ID

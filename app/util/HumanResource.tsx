@@ -29,8 +29,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@tremor/react'
 import useStore from "@/app/Store"
 import axios, { CancelTokenSource } from 'axios'
-import NewCodian from './NewCodian'
-import NewStore from './commerce/NewStore'
 import { nu_api_base_url } from '../Contants'
 
 interface Codiac {

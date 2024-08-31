@@ -11,7 +11,8 @@ const nextConfig = {
         'lh3.googleusercontent.com',
         'assets.aceternity.com',
         'images.unsplash.com',
-        'tailwindui.com'
+        'tailwindui.com',
+        'example.com'
       ], 
     },
   }

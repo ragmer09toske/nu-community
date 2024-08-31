@@ -65,6 +65,7 @@ export function AddStoreForm() {
     setAvatar(fileResponsesArray?.url);
     setLogo(fileResponsesAvatarArray?.url);
   },[avatar,logo])
+  
   return (
     <div className="flex  gap-5  items-center">
         <div className="max-w-md mx-auto w-full rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
@@ -111,7 +112,7 @@ export function AddStoreForm() {
                 console.log("Files: ", res);
 
                 // Update the fileResponses state variable
-                
+
                 setFileResponsesAvatar(res);
                 // Accessing the name of each file
                 res.forEach(file => {

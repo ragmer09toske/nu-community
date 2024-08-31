@@ -26,13 +26,10 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Box, GripHorizontal, Heart, HeartOff, MessageCircle, Send, Share2, YoutubeIcon } from 'lucide-react'
 import { Textarea } from '@/components/ui/textarea'
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
-import { InfiniteMovingCourses } from '@/components/InfiniteMovingCards'
 import { Badge } from '@tremor/react'
 import axios, { CancelTokenSource } from 'axios'
 import { RiHeartFill } from '@remixicon/react'
-import YouTubePlayer from 'react-player/youtube'
 import Link from 'next/link'
-import { comment } from 'postcss'
 import { useToast } from '@/components/ui/use-toast'
 import useCurrentUserStore from '@/app/Store'
 import { nu_api_base_url } from '@/app/Contants'
@@ -100,11 +97,9 @@ const Retsepile = () => {
   async function updateRetsepilePostComment(postId: string): Promise<void> {
     try {
       const body = { comment: commentVar };
-      const response = await axios.put(`https://nu-com-0e51cf02b2c8.herokuapp.com/retsepile/${postId}`, body);
+      const response = await axios.put(`${nu_api_base_url}/retsepile/${postId}`, body);
       console.log(`Post ${postId} updated successfully.`);
       // Assuming response.data.comment contains the updated comment value
-      // Update the state or perform any necessary actions with the updated comment value
-      // For example:
       setComment(response.data.comment);
     } catch (error) {
       console.error('Error updating post:', error);

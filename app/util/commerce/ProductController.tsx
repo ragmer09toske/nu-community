@@ -52,6 +52,8 @@ import { useToast } from "@/components/ui/use-toast"
 import { UploadDropzone } from '@/app/utils/uploadthing';
 import { ProductContext } from '@/app/academy/AppContex'
 import axios from 'axios'
+import useStore from "@/app/Store"
+
 import { nu_api_base_url } from '@/app/Contants'
 interface FileResponse {
     key: string;
@@ -109,6 +111,7 @@ const ProductController = () => {
   const [Variant,setVariant]  = useState<string>("")
   const [savedVariant,setSavedVariant]  = useState<string>("")
   const { toast } = useToast()
+  const UserDetails = useStore((state) => state.user);
 
   const handleAddVariant = () => {
     setSavedVariant(Variant)
@@ -179,7 +182,6 @@ const ProductController = () => {
       });
     }
   };
-  
 
   return (
     <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
@@ -643,7 +645,7 @@ const ProductController = () => {
           </Card>
           <Card x-chunk="dashboard-07-chunk-5">
             <CardHeader>
-              <CardTitle>Archive Product</CardTitle>
+              <CardTitle>Your Store</CardTitle>
               <CardDescription>
                 Manage discontinued items for future reference and analytics.
               </CardDescription>
@@ -651,7 +653,7 @@ const ProductController = () => {
             <CardContent>
               <div></div>
               <Button size="sm" variant="secondary">
-                Archive Product
+                {UserDetails?.acount}
               </Button>
             </CardContent>
           </Card>

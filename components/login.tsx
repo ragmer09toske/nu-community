@@ -35,7 +35,7 @@ export function SignupForm({setLoading}:{setLoading:any}) {
     async function makeUserObject() {
       try {
         setLoading(true)
-        const response = await axios.get(`${nu_api_base_url}/codiac/users/${userIDloggedIn}`, {
+        const response = await axios.get(`${nu_api_base_url}/codiac/${userIDloggedIn}`, {
           headers: {
             Authorization: `Bearer ${loginToken}`,
           },

@@ -28,28 +28,27 @@ export function AddStoreAnimatedModel() {
     const [loading, setLoading] = useState<boolean>(false); // Loading state
     async function register() {
         try {
-            setLoading(true);
-    
-            // Send a POST request to create a new store
-            const response = await axios.post(`${nu_api_base_url}/nu-commerce/store`, {
-                name: name,                  // Store name
-                description: description,    // Store description
-                office_number: officeNumber, // Store office number
-                whatsapp_link: whatsappLink,// Store WhatsApp link
-                facebook_link: facebookLink,// Store Facebook link
-                logo: logo,                  // Store logo URL
-                avatar: avatar               // Store avatar URL
-            });
-    
-            setLoading(false);
-            toast({
-                title: "Success",
-                description: "Store has been cr successfully!",
-            });
-            // Handle successful response
-            const { data } = response; // Adjust this based on your API response
-            console.log('Store created successfully:', data);
-            // You may want to handle further actions such as redirecting or displaying a success message
+          setLoading(true);
+          // Send a POST request to create a new store
+          const response = await axios.post(`${nu_api_base_url}/nu-commerce/store`, {
+            name: name,                  // Store name
+            description: description,    // Store description
+            office_number: officeNumber, // Store office number
+            whatsapp_link: whatsappLink,// Store WhatsApp link
+            facebook_link: facebookLink,// Store Facebook link
+            logo: logo,                  // Store logo URL
+            avatar: avatar               // Store avatar URL
+          });
+  
+          setLoading(false);
+          toast({
+            title: "Success",
+            description: "Store has been cr successfully!",
+          });
+          // Handle successful response
+          const { data } = response; // Adjust this based on your API response
+          console.log('Store created successfully:', data);
+          // You may want to handle further actions such as redirecting or displaying a success message
     
         } catch (error) {
             setLoading(false);
@@ -57,22 +56,22 @@ export function AddStoreAnimatedModel() {
             if (axios.isAxiosError(error)) {
                 // If the error is from Axios, you can handle it specifically
                 toast({
-                    title: "Error",
-                    description: "An error occurred!",
+                  title: "Error",
+                  description: "An error occurred!",
                 });
                 // Optionally set an error state or show an error message to the user
             } else if (error instanceof Error) {
                 // General error handling
                 toast({
-                    title: "Error",
-                    description: "An unexpected error occurred!",
+                  title: "Error",
+                  description: "An unexpected error occurred!",
                 });
                 // Optionally set an error state or show an error message to the user
             } else {
                 // Handle unexpected error types
                 toast({
-                    title: "Error",
-                    description: "An unknown error occurred!",
+                  title: "Error",
+                  description: "An unknown error occurred!",
                 });
             }
         }
