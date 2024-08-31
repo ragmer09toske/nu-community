@@ -50,7 +50,7 @@ export function SignupForm({setLoading}:{setLoading:any}) {
     async function login(email:any, password:any) {
       try {
         setLoading(true)
-        const response = await axios.post(`${nu_api_base_url}/codiac/auth/login`, {
+        const response = await axios.post(`${nu_api_base_url}/auth/login`, {
           email: email,
           password: password,
         });
