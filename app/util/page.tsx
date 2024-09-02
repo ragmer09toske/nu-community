@@ -39,6 +39,7 @@ import { SettingsParnel } from "./Settings"
 import Youthconnect from "./Youthconnect"
 import { Commerce } from "./commerce/Commerce"
 import { nu_api_base_url } from "../Contants"
+import UserSettings from "./UserSettings"
 
 
 interface Codiac {
@@ -206,11 +207,11 @@ const Dashboard = () => {
               <Tooltip>
                 <TooltipTrigger asChild>
                     <Link
-                        href="#"
-                        className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                      href="#"
+                      className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                     >
-                        <LineChart onClick={()=>{setView("Analytics")}} className="h-5 w-5" />
-                        <span className="sr-only">Analytics</span>
+                      <LineChart onClick={()=>{setView("Analytics")}} className="h-5 w-5" />
+                      <span className="sr-only">Analytics</span>
                     </Link>
                   </TooltipTrigger>
                 <TooltipContent side="right">Analytics</TooltipContent>
@@ -318,7 +319,7 @@ const Dashboard = () => {
               <DropdownMenuContent align="end">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Settings</DropdownMenuItem>
+                <DropdownMenuItem onClick={()=>setView("UserSettings")}>Settings</DropdownMenuItem>
                 <DropdownMenuItem>Support</DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>Logout</DropdownMenuItem>
@@ -333,6 +334,7 @@ const Dashboard = () => {
           {view == "Settings" && <div><SettingsParnel /></div>}
           {view == "Youthconnect" && <div><Youthconnect /></div>}
           {view == "Commerce" && <div><Commerce /></div>}
+          {view == "UserSettings" && <div><UserSettings /></div>}
         </div>
       </div>
     </MenuContext.Provider>

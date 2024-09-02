@@ -34,6 +34,7 @@ import Link from 'next/link'
 
 import { useToast } from '@/components/ui/use-toast'
 import { nu_api_base_url } from '../Contants'
+import { ScrollArea } from '@/components/ui/scroll-area'
 interface Post {
  like: number,
  comment?: string
@@ -62,6 +63,7 @@ const Retsepile = () => {
           cancelToken: source.token
         });
         setPost(response.data);
+        console.log(response.data)
       } catch (error) {
         if (axios.isCancel(error)) {
           console.log('Request canceled', error.message);
@@ -70,7 +72,6 @@ const Retsepile = () => {
         }
       }
     };
-
     getAllPosts();
 
     return () => {
@@ -102,8 +103,6 @@ const Retsepile = () => {
       const response = await axios.put(`${nu_api_base_url}/retsepile/${postId}`, body);
       console.log(`Post ${postId} updated successfully.`);
       // Assuming response.data.comment contains the updated comment value
-      // Update the state or perform any necessary actions with the updated comment value
-      // For example:
       setComment(response.data.comment);
     } catch (error) {
       console.error('Error updating post:', error);
@@ -147,7 +146,7 @@ const Retsepile = () => {
   }
 
   return (
-    <main>
+    <main className='z-[9999]'>
       <div className='flex justify-center' style={{
       }}>
         <Navigation />
@@ -164,7 +163,6 @@ const Retsepile = () => {
         borderTopWidth: "0px",
         borderBottomWidth: "0px", 
     }}>       
-
           <Command className="rounded-lg border shadow-md p-2" style={{ background: "rgba(255, 255, 255, 0)", borderWidth: "0px"}}>
             <h4 className="scroll-m-20 p-2 pl-5 text-xl font-extrabold tracking-tight lg:text-xl">
                 {/* Community Of Creatives */}
@@ -187,18 +185,18 @@ const Retsepile = () => {
             <div className=''>
               {/* <InfiniteMovingCourses /> */}
               <Image
-                  src="/banner.png"
-                  alt="Nucleus Logo"
-                  className="relative"
-                  width={920}
-                  height={24}
-                  priority
-                  style={{
-                    borderRadius:"8px 8px 8px 8px"
-                  }}
+                src="/banner.png"
+                alt="Nucleus Logo"
+                className="relative"
+                width={920}
+                height={24}
+                priority
+                style={{
+                  borderRadius:"8px 8px 8px 8px"
+                }}
               />
             </div>
-              <div className='flex flex-col gap-5'>
+              <ScrollArea className='flex flex-col gap-5'>
                 <Card className="w-[100%]" id='blogging'>
                   <CardHeader>
                     <CardTitle>Introduction to programming</CardTitle>
@@ -230,7 +228,7 @@ const Retsepile = () => {
                     </CardDescription>
                   </CardHeader>
                 </Card>
-              <div className='pb-5 flex justify-around'>
+                <div className='pb-5 flex justify-around'>
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger asChild>
@@ -331,7 +329,7 @@ const Retsepile = () => {
                     </Tooltip>
                   </TooltipProvider>
                 </div>
-              <Card className="w-[100%] p-0.5 pl-3 ">
+                <Card className="w-[100%] p-0.5 pl-3 ">
                 <div>
                     <CardHeader>
                         <CardTitle>Pandas</CardTitle>
@@ -350,12 +348,12 @@ const Retsepile = () => {
                     </CardHeader>
                     <div className="w-[100%] p-0.5 pl-3 flex justify-center">
                     <Image
-                        src="/pandas.png"
-                        alt="Nucleus Logo"
-                        className="relative"
-                        width={520}
-                        height={24}
-                        priority
+                      src="/pandas.png"
+                      alt="Nucleus Logo"
+                      className="relative"
+                      width={520}
+                      height={24}
+                      priority
                     />
                     </div>
                 </div>
@@ -369,7 +367,7 @@ const Retsepile = () => {
                       <YoutubeIcon />
                     </Link>
                   </div>
-              </Card>
+                </Card>
 
               <Card className="w-[100%]">
                 <CardHeader>
@@ -394,14 +392,14 @@ const Retsepile = () => {
                     <CardDescription>Today, I&apos;ll be featured at Bokamoso FM radio, one of the topics ama touch on is how the next Solar storm is going affect our internet activities, what&apos;s crazy is, Nasa had predicted that this will happen in 2025, but it could actually happen this year. Imagine the whole wide world without the internet for weeks 😳. This not a science phenomenon or myth, it&apos;s highly possible</CardDescription>
                 </CardHeader>
                 <Image
-                    src="/solarFlares.jpg"
-                    alt="Nucleus Logo"
-                    style={{
-                      borderRadius:"0 0 8px 8px"
-                    }}
-                    width={855}
-                    height={24}
-                    priority
+                  src="/solarFlares.jpg"
+                  alt="Nucleus Logo"
+                  style={{
+                    borderRadius:"0 0 8px 8px"
+                  }}
+                  width={855}
+                  height={24}
+                  priority
                 />
               </Card>
               <div className='pb-5 flex justify-around'>
@@ -446,7 +444,7 @@ const Retsepile = () => {
                     </Tooltip>
                   </TooltipProvider>
                 </div>
-              </div>
+              </ScrollArea>
           </Command>
       </div>
       </Card>

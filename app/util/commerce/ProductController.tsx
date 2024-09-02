@@ -55,14 +55,8 @@ import axios from 'axios'
 import useStore from "@/app/Store"
 
 import { nu_api_base_url } from '@/app/Contants'
-interface FileResponse {
-    key: string;
-    name: string;
-    serverData: any; // Adjust the type if serverData has a specific structure
-    size: number;
-    url: string;
-    // Add other attributes if present in the response
-}
+import { FileResponse } from '../Types'
+
 
 interface Product {
     _id: string;
@@ -88,6 +82,7 @@ const ProductController = () => {
   const [price, setPrice] = useState<any>();
   const [size, setSize] = useState<any>();
   const [category, setCategory] = useState<string>('');
+  const [store_id, setStore_id] = useState<string | any>('');
   const [subcategory, setSubcategory] = useState<string | undefined>(undefined);
   const [status, setStatus] = useState<string | undefined>(undefined);
   const [color, setColor] = useState<any>();
@@ -131,7 +126,9 @@ const ProductController = () => {
     setImageThree(fileResponses_Array3?.url);
   }, [fileResponsesArray, fileResponses_Array1, fileResponses_Array2, fileResponses_Array3]);
   
-
+ useEffect(()=>{
+  setStore_id(UserDetails?.acount)
+ },[])
   const postProduct = async () => {
     try {
       // Ensure that the state variables are correctly updated
@@ -149,7 +146,7 @@ const ProductController = () => {
         image_one,
         image_two,
         image_three,
-        store_id:UserDetails?._id
+        store_id
       };
   
       // Log the data being sent to check correctness
