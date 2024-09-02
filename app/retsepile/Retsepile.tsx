@@ -196,7 +196,8 @@ const Retsepile = () => {
                 }}
               />
             </div>
-              <ScrollArea className='flex flex-col gap-5'>
+              <ScrollArea className='flex flex-col gap-5 pt-5'>
+                <div className='flex flex-col gap-5'>
                 <Card className="w-[100%]" id='blogging'>
                   <CardHeader>
                     <CardTitle>Introduction to programming</CardTitle>
@@ -443,6 +444,7 @@ const Retsepile = () => {
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
+                </div>
                 </div>
               </ScrollArea>
           </Command>
