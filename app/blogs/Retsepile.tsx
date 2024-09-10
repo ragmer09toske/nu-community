@@ -141,7 +141,7 @@ const Retsepile = () => {
   }
   
   const handleCopy = ()=> {
-    const linkToCopy = 'https://www.nucleusdevs.com/retsepile';
+    const linkToCopy = 'https://www.nucleusdevs.com/blogs';
     copyToClipboard(linkToCopy);
   }
 
@@ -218,7 +218,7 @@ const Retsepile = () => {
                     <br/><br/>
                     <div className='flex gap-3'>
                       <Badge className='pb-1'>
-                        <a href='/retsepile/programming'>
+                        <a href='/blogs/programming'>
                             read more
                         </a>
                       </Badge>
@@ -305,8 +305,7 @@ const Retsepile = () => {
                                     </div>
                                   </div>
                                   <div className="pl-2">
-                                  {/* <p style={{fontSize:12, color:"rgba(255, 255, 255, 0.716)"}}>Temp-On: 3423erwwx3243</p> */}
-                                  <Textarea onChange={(e)=>{setComment(e.target.value)}} cols={1} rows={2} className="resize-none w-full p-2" />
+                                    <Textarea onChange={(e)=>{setComment(e.target.value)}} cols={1} rows={2} className="resize-none w-full p-2" />
                                   </div>
                                 </div>
                                 </DrawerFooter>
@@ -360,7 +359,7 @@ const Retsepile = () => {
                 </div>
                 <div className='flex gap-3 p-5'>
                     <Badge className='pb-1'>
-                      <a href='/retsepile/pandas'>
+                      <a href='/blogs/pandas'>
                           read more
                       </a>
                     </Badge>

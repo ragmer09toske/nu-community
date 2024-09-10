@@ -138,7 +138,7 @@ const Retsepile = () => {
   }
   
   const handleCopy = ()=> {
-    const linkToCopy = 'https://www.nucleusdevs.com/retsepile';
+    const linkToCopy = 'https://www.nucleusdevs.com/blogs';
     copyToClipboard(linkToCopy);
   }
 
