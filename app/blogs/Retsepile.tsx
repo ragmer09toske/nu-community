@@ -404,7 +404,7 @@ const Retsepile = () => {
                 />
               </Card>
               <div className='pb-5 flex justify-around'>
-                  <TooltipProvider>
+                  <TooltipProvider> 
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <Heart color='gray'/>
