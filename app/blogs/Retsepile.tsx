@@ -444,6 +444,24 @@ const Retsepile = () => {
                     </Tooltip>
                   </TooltipProvider>
                 </div>
+
+                <Card className="w-[100%]">
+                <CardHeader>
+                    <CardTitle>An Inroduction to Nucleus Academy</CardTitle>
+                    <CardDescription>The worst mistake you can make is to think Lesotho has no skills. If you think so, it&apos;s probably because you&apos;ve been spending too much time in your bedroom rather than networking. Go outside, and I swear you will be amazed.</CardDescription>
+                </CardHeader>
+                  <Image
+                    src="/Intro.jpeg"
+                    alt="Nucleus Logo"
+                    width={855}
+                    style={{
+                      borderRadius:"0 0 8px 8px"
+                    }}
+                    height={24}
+                    priority
+                />
+              </Card>
+
                 </div>
               </ScrollArea>
           </Command>
