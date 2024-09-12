@@ -556,7 +556,7 @@ const Retsepile = () => {
                 </Card>
               </div>
 
-              <Card className="w-[100%] p-0.5 pl-3 ">
+              {/*<Card className="w-[100%] p-0.5 pl-3 ">*/}
                 <div>
                     <CardHeader>
                         <CardTitle>Introduction to Nucleusdevs Academy</CardTitle>
@@ -609,48 +609,65 @@ const Retsepile = () => {
                       src="/blog/intro.jpeg"
                       alt="Nucleus Logo"
                       className="relative"
-                      width={520}
+                      width={300}
                       height={24}
                       priority
                     />
                     </div>
                 </div>
-              </Card> 
-               <Card className="w-[100%] p-0.5 pl-3">
+              {/*</Card>/*} 
+
+               {/*<Card className="w-[100%] p-0.5 pl-3">*/}
                 <div>
                   <CardHeader>
-                    <CardTitle>View some of our languages we offer</CardTitle>
-                    <CardDescription>
-                     
-<p>
-  In the ever-evolving tech landscape, certain programming languages consistently stand out as the most in-demand due to their widespread use, versatility, and relevance in solving modern computing problems. 
-These languages are ranked highly because they meet critical industry needs, support diverse applications, and drive innovation across various sectors. By understanding why these languages top the list, you can better align your learning and career strategies with current market demands and technological trends.
-Now, at the very top of our list we have: 
-1.	PYTHON
-Python is a favoured programming language due to its ease of use and versatility, capable of handling everything from simple scripts to complex web applications and AI. 
-Its Django framework simplifies back-end development, while libraries like NumPy, SciPy, TensorFlow, and PyTorch enhance capabilities in scientific computing, data science, and machine learning. 
-2.	JAVA
-Java remains a top choice for learning this year due to its high-level, object-oriented design and platform independence. It’s essential for DevOps, virtual reality, big data, and mobile apps. Java’s versatility and strong security make it a favourite among over 97% of enterprises. 
-3.	C & C++
-At number three are C and C++. C, often called the 'mother of all programming languages,' remains crucial for operating systems, compilers, and databases. It’s a versatile, high-performance language ideal for games, graphics, and enterprise applications.
-C++, an extension of C with object-oriented capabilities, excels in performance-intensive areas like game development, web applications, and software requiring fast rendering. While its demand is growing more slowly, C++ skills are essential for maintaining and developing high-performance applications.
-Both C and C++ are fundamental for performance-critical apps and serve as a base for learning more advanced languages.
-4.	JAVASCRIPT
-Next up is JavaScript, renowned for its versatility. It enhances productivity and readability with a well-organized codebase, platform independence, and extensive browser control. 
-Essential for front-end development alongside HTML and CSS, JavaScript also powers server-side applications through Node.js, supporting various operating systems like Linux and Windows. JavaScript enables the creation of dynamic content, interactive features, and animated graphics on websites. 
-Its importance is underscored by its dominance in Stack Overflow’s 2022 Developer Survey as the most popular language for the tenth consecutive year.
-5.	TYPESCRIPT
-Released by Microsoft in 2012, TypeScript is a 'typed' superset of JavaScript that adds robust features to the popular language. Described as "all of JavaScript, plus a bit more," TypeScript has surged in popularity, ranking 4th in GitHub’s 2022 language rankings with a staggering 392% growth in demand.
-This open-source, object-oriented language enhances JavaScript with advanced features like type-checks, scalability, and code maintainability, making it a powerful tool for large projects.
-fast-paced world of technology, proficiency in top programming languages—can greatly boost your career. These languages are renowned for their broad applicability, performance, and critical roles in various tech fields, from web development to system-level programming. 
-By understanding their unique features and uses, you can better align your skills with current industry demands and emerging trends. Mastering these languages will not only enhance your marketability but also position you at the forefront of technological advancements.
-</p>
-
+                    <CardTitle>View someof the  most in demand languages</CardTitle>
+                    <CardDescription>                
+                      <p>
+                        In the ever-evolving tech landscape, certain programming languages consistently stand out as the most in-demand due to their widespread use, versatility, and relevance in solving modern computing problems. 
+                        These languages are ranked highly because they meet critical industry needs, support diverse applications, and drive innovation across various sectors. By understanding why these languages top the list, you can better align your learning and career strategies with current market demands and technological trends.
+                        <br/><br/>
+                        <div className="w-[100%] p-0.5 pl-3 flex justify-center">                       
+                        <Image
+                        src="/blog/coding.jpg"
+                        alt="Nucleus Logo"
+                        className="relative"
+                        width={300}
+                        height={24}
+                        priority
+                        />
+                        </div>
+                        <h1><b>
+                          Now, at the very top of our list we have: 
+                        </b></h1><br/><br/>
+                        
+                        <h3><i>1.	PYTHON</i></h3>
+                        Python is a favoured programming language due to its ease of use and versatility, capable of handling everything from simple scripts to complex web applications and AI. 
+                        Its Django framework simplifies back-end development, while libraries like NumPy, SciPy, TensorFlow, and PyTorch enhance capabilities in scientific computing, data science, and machine learning. 
+                        <br/><br/>
+                        <h3><i>2.	JAVA</i></h3>
+                        Java remains a top choice for learning this year due to its high-level, object-oriented design and platform independence. It&apos;s essential for DevOps, virtual reality, big data, and mobile apps. Java&apos;s versatility and strong security make it a favourite among over 97% of enterprises. 
+                        <br/><br/>
+                        <h3><i>3.	C & C++</i></h3>
+                        At number three are C and C++. C, often called the 'mother of all programming languages,' remains crucial for operating systems, compilers, and databases. It&apos;s a versatile, high-performance language ideal for games, graphics, and enterprise applications.
+                        C++, an extension of C with object-oriented capabilities, excels in performance-intensive areas like game development, web applications, and software requiring fast rendering. While its demand is growing more slowly, C++ skills are essential for maintaining and developing high-performance applications.
+                        Both C and C++ are fundamental for performance-critical apps and serve as a base for learning more advanced languages.
+                        <br/><br/>
+                        <h3><i>4.	JAVASCRIPT</i></h3>
+                        Next up is JavaScript, renowned for its versatility. It enhances productivity and readability with a well-organized codebase, platform independence, and extensive browser control. 
+                        Essential for front-end development alongside HTML and CSS, JavaScript also powers server-side applications through Node.js, supporting various operating systems like Linux and Windows. JavaScript enables the creation of dynamic content, interactive features, and animated graphics on websites. 
+                        Its importance is underscored by its dominance in Stack Overflow&apos;s 2022 Developer Survey as the most popular language for the tenth consecutive year.
+                        <br/><br/>
+                        <h3><i>5.	TYPESCRIPT</i></h3>
+                        Released by Microsoft in 2012, TypeScript is a 'typed' superset of JavaScript that adds robust features to the popular language. Described as "all of JavaScript, plus a bit more," TypeScript has surged in popularity, ranking 4th in GitHub&apos;s 2022 language rankings with a staggering 392% growth in demand.
+                        This open-source, object-oriented language enhances JavaScript with advanced features like type-checks, scalability, and code maintainability, making it a powerful tool for large projects.
+                        fast-paced world of technology, proficiency in top programming languages—can greatly boost your career. These languages are renowned for their broad applicability, performance, and critical roles in various tech fields, from web development to system-level programming. 
+                        By understanding their unique features and uses, you can better align your skills with current industry demands and emerging trends. Mastering these languages will not only enhance your marketability but also position you at the forefront of technological advancements.
+                      </p>
                     </CardDescription>
                   </CardHeader>
-
                 </div>
-               </Card>
+               {/*</Card>*/}
+
             </ScrollArea>
           </Command>
       </div>
