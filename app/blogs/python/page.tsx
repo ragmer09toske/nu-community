@@ -410,12 +410,12 @@ const Retsepile = () => {
                     <br/>
                     <br/>
                     <Image
-                        src="/3.png"
-                        alt="Nucleus Logo"
-                        className="relative"
-                        width={920}
-                        height={24}
-                        priority
+                      src="/3.png"
+                      alt="Nucleus Logo"
+                      className="relative"
+                      width={920}
+                      height={24}
+                      priority
                     />
                     <br/>
                     <br/>
@@ -440,12 +440,12 @@ const Retsepile = () => {
                     <p>Then you will get a visual representation of your DataFrame.</p>
                     <br/>
                     <Image
-                        src="/4.png"
-                        alt="Nucleus Logo"
-                        className="relative"
-                        width={920}
-                        height={24}
-                        priority
+                      src="/4.png"
+                      alt="Nucleus Logo"
+                      className="relative"
+                      width={920}
+                      height={24}
+                      priority
                     />
                     <br/><br/>
                     I need you to take note that not all rows and columns are shown
@@ -467,12 +467,12 @@ const Retsepile = () => {
                     </div>
                     <br/>
                     <Image
-                        src="/5.png"
-                        alt="Nucleus Logo"
-                        className="relative"
-                        width={920}
-                        height={24}
-                        priority
+                      src="/5.png"
+                      alt="Nucleus Logo"
+                      className="relative"
+                      width={920}
+                      height={24}
+                      priority
                     />
                     <br/>
                     <p>89184 records(rows)</p>
@@ -501,12 +501,12 @@ const Retsepile = () => {
                     </div>
                     <br/>
                     <Image
-                        src="/6.png"
-                        alt="Nucleus Logo"
-                        className="relative"
-                        width={920}
-                        height={24}
-                        priority
+                      src="/6.png"
+                      alt="Nucleus Logo"
+                      className="relative"
+                      width={920}
+                      height={24}
+                      priority
                     />
                     <br/>
                     <div className="">
@@ -527,12 +527,12 @@ const Retsepile = () => {
                     </div>
                     <br/>
                     <Image
-                        src="/7.png"
-                        alt="Nucleus Logo"
-                        className="relative"
-                        width={920}
-                        height={24}
-                        priority
+                      src="/7.png"
+                      alt="Nucleus Logo"
+                      className="relative"
+                      width={920}
+                      height={24}
+                      priority
                     />
                     <br/>
                     <div className="">

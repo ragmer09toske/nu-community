@@ -242,9 +242,11 @@ export function Navigation() {
                     onClick={() => setContent("Landing")}
                   />
                 </Link>
-                <GripHorizontal />
               </div>
             </SheetTrigger>
+            <div className="p-3 absolute -top-3 left-12">
+              <GripHorizontal /> 
+            </div>
             <SheetContent className="" style={{ zIndex: 9999 }}>
               <SheetHeader>
                 <SheetTitle></SheetTitle>

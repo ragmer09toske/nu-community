@@ -29,6 +29,8 @@ import {
 import useMobile from '@/app/Mobile';
 import { Navigation } from '@/components/Navigation';
 import { nu_api_base_url } from '@/app/Contants';
+import NuLoad from '../NuLoad';
+
 const Youthconnect = () => {
   const [issuedTo, setIssuedTo] = useState<string>("");
   const [orderNumber, setOrderNumber] = useState<string>("");
@@ -44,10 +46,14 @@ const Youthconnect = () => {
   const [ticketReady,setTicketReady] = useState<boolean>(false)
   const [typeRegister,setTypeRegister] = useState<boolean>(true)
   const { theme, setTheme } = useTheme()
-
+  const [designition, setDesignition] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [organization, setOrganization] = useState<string>("");
+  const [phone, setPhone] = useState<string>();
+  
   const generateQR = async (id: string) => {
     try {
-      const qrCodeDataURL = await QRCode.toDataURL(`https://nucleusdevs.com/util/tickets?q=${id}`);
+      const qrCodeDataURL = await QRCode.toDataURL(`https://nucleusdevs.com/util/ticketing?q=${id}`);
       setSrc(qrCodeDataURL);
       setTicketId(id);
       setGeneratePdf(true); // Trigger PDF generation
@@ -98,12 +104,16 @@ const Youthconnect = () => {
     const ticketData = {
       issued_to: issuedTo,
       order_number: Math.floor(Math.random() * 1000000000),
-      date: new Date().toLocaleDateString('en-ZA', { timeZone: 'Africa/Johannesburg', year: 'numeric', month: '2-digit', day: '2-digit' }).split('/').reverse().join('-'),// Current date in YYYY-MM-DD format
-      ticket_type: ticketType
+      date1: new Date().toLocaleDateString('en-ZA', { timeZone: 'Africa/Johannesburg', year: 'numeric', month: '2-digit', day: '2-digit' }).split('/').reverse().join('-'),// Current date in YYYY-MM-DD format
+      ticket_type: ticketType,
+      email: email,
+      organization: organization ,
+      phone: phone,
+      designition: designition
     };
 
     try {
-      const response = await axios.post(`${nu_api_base_url}/ticket/create-ticket`, ticketData);
+      const response = await axios.post(`${nu_api_base_url}/ticket_auth`, ticketData);
       const { _id } = response.data.savedTicket;
       
       // Generate QR code with the real ticket ID
@@ -141,17 +151,15 @@ const Youthconnect = () => {
     <Navigation />
     {isMobile && <div className="p-5 justify-center mt-10 lg:mt-0 ml-2">
         <div className='pb-10'>
-            <div className='z-50 fixed w-[90.5%] border p-5 flex gap-2 -mt-6 -ml-2 justify-center rounded' style={{ backgroundImage: "url('/inter.png')", backgroundSize: "cover" }}>
-              <div className='flex min-h-[100px]'>
-              </div>
+          <div className='pb-10'>
+            <div className='z-50 fixed w-[90.5%] border p-20 flex gap-2 -mt-6 -ml-2 justify-center rounded' style={{ backgroundImage: "url('/sebabatso/YOUTH CONNEKT LESOTHO LOGO.jpg')", backgroundSize: "cover" }}>
             </div>
+          </div>
         </div>
     </div>}
     {formStage === 'two' && <div className='pt-5 mt-14 lg:mt-0 flex flex-col justify-center items-center gap-5'>
       {typeRegister &&
         <Card className='p-5 flex flex-col gap-3 w-[350px]'>
-        {/* <Input placeholder="Issued To" onChange={(e) => setIssuedTo(e.target.value)} /> */}
-        {/* <Input placeholder="" onChange={(e) => setTicketType(e.target.value)} /> */}
         <Label htmlFor="framework">Ticket Type</Label>
             <Select onValueChange={(v) => setTicketType(v)}>
                 <SelectTrigger id="framework">
@@ -172,7 +180,7 @@ const Youthconnect = () => {
             </Select>
             {/* onClick={registerTicket} */}
         <Button onClick={handleTicketReady} disabled={!ticket}>
-          {loading ? <Loader2 className='animate-spin' size="sm" /> : 'Prepare Ticket'}
+          {loading ? <NuLoad /> : 'Prepare Ticket'}
         </Button>
       </Card>}
       {ticketReady && <div className=''>
@@ -185,12 +193,12 @@ const Youthconnect = () => {
           <div className='p-10 flex justify-between bg-gray-100 text-black lg:w-[950px] w-[80%]'>
             <div className='flex'>
               <div>
-                <p className='text-sm text-gray-500'><b>International Youth day</b></p>
-                <h4><b>International Youth day</b></h4>
+                <p className='text-sm text-gray-500'><b>Youth Connekt Lesotho</b></p>
+                <h4><b>Youth Connekt Lesotho</b></h4>
                 <div className='pt-10'>
                   <p className='text-gray-500 text-sm'><b>&apos;Manthabiseng Convention Center, Maseru</b></p>
                 </div>
-                <h4 className='text-sm'><b>August 14, 2024 8:00am (SAT)</b></h4>
+                <h4 className='text-sm'><b>October, 2024 8-11 (Mon-Fri)</b></h4>
                 <div className='flex gap-5 pt-5'>
                   <div>
                     <h4 className='text-sm font-bold'>ISSUED TO</h4>
@@ -205,7 +213,7 @@ const Youthconnect = () => {
                   <div>
                     <h4 className='text-sm font-bold'>Ticket</h4>
                     <h4 className='text-sm'>{ticketType || 'N/A'}</h4>
-                    <p className='text-sm text-gray-700'>International Youth day</p>
+                    <p className='text-sm text-gray-700'>Youth Connekt Lesotho</p>
                     <p className='text-sm text-gray-700'><b>Free</b></p>
                   </div>
                 </div>
@@ -217,7 +225,7 @@ const Youthconnect = () => {
           </div>
         </div>
         <div className='flex ml-72'>
-          <h4 className='text-gray-500 text-sm pt-2'><b>© 2024 International Youth - All Rights Reserved</b></h4>
+          <h4 className='text-gray-500 text-sm pt-2'><b>© 2024 Youth Connekt - All Rights Reserved</b></h4>
         </div>
       </div>}
       {isMobile&&
@@ -230,13 +238,13 @@ const Youthconnect = () => {
             <div> 
                 <CardHeader>
                 <CardDescription style={{fontSize:10}}>Lesotho, Maseru</CardDescription>
-                <CardTitle className='font-[10px]' style={{fontSize:8}}>International Youth day</CardTitle>
+                <CardTitle className='font-[10px]' style={{fontSize:8}}>Youth Connekt Lesotho</CardTitle>
                 </CardHeader>
                 <div className='-mt-5'>
-                    <CardHeader>
-                        <CardDescription style={{fontSize:7}}>&apos;Manthabiseng Convention Center, Maseru</CardDescription>
-                        <CardTitle style={{fontSize:7}}>August 14, 2024 800am (SAT)</CardTitle>
-                    </CardHeader>
+                  <CardHeader>
+                    <CardDescription style={{fontSize:7}}>&apos;Manthabiseng Convention Center, Maseru</CardDescription>
+                    <CardTitle style={{fontSize:7}}>October, 2024 08-11 (Mon-Fri)</CardTitle>
+                  </CardHeader>
                 </div>
             </div>
             <div className='p-5 pl-0'>
@@ -259,20 +267,20 @@ const Youthconnect = () => {
             <div>
             <h4 className='text-sm font-bold' style={{fontSize:8}}>Ticket</h4>
             <h4 className='text-sm' style={{fontSize:8}}>{ticketType || 'N/A'}</h4>
-            <p className='' style={{fontSize:8}}>International Youth</p>
+            <p className='' style={{fontSize:8}}>Youth Connekt</p>
             <p className='' style={{fontSize:8}}><b>Free</b></p>
             </div>
         </div>
       </Card>
 
       <div className='flex justify-center' >
-          <p className='text-gray-500 text-sm pt-2' style={{fontSize:8}}><b>© 2024 International Youth - All Rights Reserved</b></p>
+          <p className='text-gray-500 text-sm pt-2' style={{fontSize:8}}><b>© 2024 Youth Connekt Lesotho - All Rights Reserved</b></p>
       </div>
       
       </div>}
       <div className='w-full flex justify-center p-2'>
         <Button onClick={registerTicket}>
-            {loading ? <Loader2 className='animate-spin' size="sm" /> : 'Download Ticket'}
+            {loading ?  <Loader2 className='animate-spin' size="sm" /> : 'Download Ticket'}
         </Button>
       </div>
       </div>}
@@ -280,13 +288,37 @@ const Youthconnect = () => {
     {formStage === "one" && 
     
     <div className='pt-5 flex flex-col mt-14 lg:mt-0 justify-center items-center gap-5'>
-        <Card className='p-5 flex flex-col gap-3 w-[350px]'>
+      <Card className='p-5 flex flex-col gap-3 w-[350px]'>
+        <Label htmlFor="framework" >Name</Label>
         <Input placeholder="Full names" onChange={(e) => setIssuedTo(e.target.value)} />
-        <Input placeholder="email" type='email' />
-        <Label htmlFor="framework">Phone</Label>
-        <Input placeholder="country code + phone number" type='tel' />
+        <Label htmlFor="framework" >Email</Label>
+        <Input placeholder="email" onChange={(e) => setEmail(e.target.value)}  type='email' />
+        <Label htmlFor="framework" >Phone</Label>
+        <Input placeholder="country code + phone number" onChange={(e)=>setPhone(e.target.value)}  type='tel' />
+        <Label htmlFor="framework" >Organization</Label>
+        <Input placeholder="Organization" onChange={(e)=> setOrganization(e.target.value)}  type='text' />
+        <Label htmlFor="framework">Designition</Label>
+          <Select onValueChange={(v) => setDesignition(v)}>
+            <SelectTrigger id="framework">
+            <SelectValue placeholder="Select" />
+            </SelectTrigger>
+            <SelectContent position="popper">
+              <div>
+                <SelectItem value="Youth Participant">Youth Participant</SelectItem>
+                <SelectItem value="Youth Exhibitor">Youth Exhibitor</SelectItem>
+                <SelectItem value="Youth Presenter">Youth Presenter</SelectItem>
+                <SelectItem value="Panelist">Panelist</SelectItem>
+                <SelectItem value="Disability">Disability</SelectItem>
+                <SelectItem value="Government Official">Government Official</SelectItem>
+                <SelectItem value="NGO">NGO</SelectItem>
+                <SelectItem value="Development Partner">Development Partner</SelectItem>
+                <SelectItem value="Private Sector">Private Sector</SelectItem>
+                <SelectItem value="Media">Media</SelectItem>
+              </div>
+            </SelectContent>
+          </Select>
         <Button onClick={()=>setFormStage("two")} disabled={loading}>
-          {loading ? <Loader2 className='animate-spin' size="sm" /> : 'Continue'}
+          {loading ? <NuLoad /> : 'Continue'}
         </Button>
       </Card>
     </div>}

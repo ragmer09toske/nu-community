@@ -4,7 +4,7 @@ import Filter from './FIlters'
 const Service = () => {
   return (
     <div>
-        <Filter />
+      <Filter />
     </div>
   )
 }

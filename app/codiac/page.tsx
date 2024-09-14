@@ -60,9 +60,7 @@ function TracingBeamDemo() {
               <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
               <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
               <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
-  
               <EvervaultCard text="POrtFOliOs" />
-        
             </div>
           </div>
           <TheBox />

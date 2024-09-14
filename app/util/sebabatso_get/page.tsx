@@ -19,6 +19,7 @@ import {
   } from "@/components/ui/command"
 import { RiOrganizationChart } from '@remixicon/react';
 import { nu_api_base_url } from '@/app/Contants';
+import NuLoad from '../NuLoad';
 
 // Define the TypeScript interfaces for the ticket and response
 interface Ticket {
@@ -53,7 +54,7 @@ const TicketDetails: React.FC = () => {
   async function fetchTicketDetails(id: string) {
     try {
       setLoading(true)
-      const response = await axios.get(`${nu_api_base_url}/ticket/qr/${id}`, {
+      const response = await axios.get(`${nu_api_base_url}/ticketing/${id}`, {
         headers: {
           Authorization: `Bearer ${loginToken}`,
         },
@@ -74,36 +75,19 @@ const TicketDetails: React.FC = () => {
   return (
     <div className='flex flex-col gap-10'>
     <div className="p-5 justify-center mt-10 lg:mt-0">
-        <div className='pb-10'>
-            <div className='z-50 fixed w-[90.5%] border p-5 flex gap-2 -mt-6 -ml-2 justify-center rounded' style={{ backgroundImage: "url('/code.jpg')", backgroundSize: "cover" }}>
-              <div className='flex'>
-                <Image
-                  src="/nu.png"
-                  alt="Nucleus Logo"
-                  className="relative lg:dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
-                  width={30}
-                  height={14}
-                  priority
-                /> 
-                <Image
-                    src="/one.png"
-                    width={120}
-                    height={40}
-                    alt="Float UI logo"
-                />
-              </div>
-                  <b>devs</b>
-              </div>
+          <div className='pb-10'>
+            <div className='z-50 fixed w-[90.5%] border p-20 flex gap-2 -mt-6 -ml-2 justify-center rounded' style={{ backgroundImage: "url('/sebabatso/YOUTH CONNEKT LESOTHO LOGO.jpg')", backgroundSize: "cover" }}>
             </div>
+          </div>
         </div>
         <div className='p-10'>
             <div className='w-full flex justify-center'>
-                {loading && <Loader2 className='animate-spin'/>}
+                {loading && <NuLoad />}
             </div>
-            {ticketDetails && <Command className="rounded-lg border shadow-md">
+            {ticketDetails && <Command className="rounded-lg border shadow-md mt-5">
                 <div className='flex gap-2 justify-center items-center p-3'>
                    <RiOrganizationChart className='text-sm' />
-                   <p>International Youth day</p>
+                   <p>Youth Connekt Lesotho</p>
                 </div>
                 <CommandSeparator />
                 <CommandList>
@@ -132,7 +116,6 @@ const TicketDetails: React.FC = () => {
                 </CommandList>
             </Command>}
         </div>
-        <WebinarFooter />
     </div>
   );
 };
