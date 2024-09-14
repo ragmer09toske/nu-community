@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import useStore from "@/app/Store";
-import { ListOrderedIcon, Loader2, Trophy, User2 } from 'lucide-react';
+import { AlignVerticalDistributeStart, AudioWaveform, Dessert, Fingerprint, ListOrderedIcon, Loader2, MoreHorizontal, Trophy, User2 } from 'lucide-react';
 import { WebinarFooter } from '@/app/academy/Footer';
 import Image from 'next/image';
 import {
@@ -20,13 +20,18 @@ import {
 import { RiOrganizationChart } from '@remixicon/react';
 import { nu_api_base_url } from '@/app/Contants';
 import NuLoad from '../NuLoad';
+import { IconDetails } from '@tabler/icons-react';
 
 // Define the TypeScript interfaces for the ticket and response
 interface Ticket {
   issued_to: string;
   order_number: number;
-  date: string;
+  date1: string;
   ticket_type: string;
+  email: string;
+  organization: string;
+  designition: string;
+  phone: string;
   _id: string;
   __v: number;
 }
@@ -98,18 +103,22 @@ const TicketDetails: React.FC = () => {
                         <span>{ticketDetails.issued_to}</span>
                     </CommandItem>
                     <CommandItem>
-                        <ListOrderedIcon className="mr-2 h-4 w-4" />
-                        <span>{ticketDetails.order_number}</span>
+                        <AudioWaveform className="mr-2 h-4 w-4" />
+                        <span>{ticketDetails.organization}</span>
+                    </CommandItem>
+                    <CommandItem>
+                        <AlignVerticalDistributeStart className="mr-2 h-4 w-4" />
+                        <span>{ticketDetails.designition}</span>
                     </CommandItem>
                     <CommandItem>
                         <Calendar className="mr-2 h-4 w-4" />
-                        <span>{ticketDetails.date}</span>
+                        <span>{ticketDetails.date1}</span>
                     </CommandItem>
                     </CommandGroup>
                     <CommandSeparator />
                     <CommandGroup heading="Ticket Type">
                     <CommandItem>
-                        <Trophy className="mr-2 h-4 w-4" />
+                        <Fingerprint className="mr-2 h-4 w-4" />
                         <span>{ticketDetails.ticket_type}</span>
                     </CommandItem>
                     </CommandGroup>

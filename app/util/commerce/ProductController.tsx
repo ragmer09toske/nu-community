@@ -58,23 +58,6 @@ import { nu_api_base_url } from '@/app/Contants'
 import { FileResponse } from '../Types'
 
 
-interface Product {
-    _id: string;
-    name: string;
-    description: string;
-    quantity: any;
-    price: any;
-    size: any;
-    category: string;
-    subcategory?: string;
-    status?: string;
-    color?: any;
-    thumbnail: string;
-    image_one?: string;
-    image_two?: string;
-    image_three?: string;
-}
-
 const ProductController = () => {
   const [name, setName] = useState<string>('');
   const [description, setDescription] = useState<string>('');

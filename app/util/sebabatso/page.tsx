@@ -6,11 +6,16 @@ import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
-import { Loader2 } from 'lucide-react';
+import { Loader2, Upload } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { useTheme } from "next-themes"
-
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar"
+import { UploadDropzone } from '@/app/utils/uploadthing';
 import {
   CardContent,
   CardDescription,
@@ -30,6 +35,8 @@ import useMobile from '@/app/Mobile';
 import { Navigation } from '@/components/Navigation';
 import { nu_api_base_url } from '@/app/Contants';
 import NuLoad from '../NuLoad';
+import { FileResponse } from '../Types';
+import { Dialog,  DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
 const Youthconnect = () => {
   const [issuedTo, setIssuedTo] = useState<string>("");
@@ -46,11 +53,14 @@ const Youthconnect = () => {
   const [ticketReady,setTicketReady] = useState<boolean>(false)
   const [typeRegister,setTypeRegister] = useState<boolean>(true)
   const { theme, setTheme } = useTheme()
+  const [thumbnail, setThumbnail] = useState<string>('');
   const [designition, setDesignition] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [organization, setOrganization] = useState<string>("");
   const [phone, setPhone] = useState<string>();
-  
+  const [fileResponses, setFileResponses] = useState<FileResponse[]>([]);
+  const fileResponsesArray = fileResponses[0];
+  const fileResponses_len = fileResponses.length;
   const generateQR = async (id: string) => {
     try {
       const qrCodeDataURL = await QRCode.toDataURL(`https://nucleusdevs.com/util/ticketing?q=${id}`);
@@ -109,7 +119,8 @@ const Youthconnect = () => {
       email: email,
       organization: organization ,
       phone: phone,
-      designition: designition
+      designition: designition,
+      avatar:thumbnail
     };
 
     try {
@@ -145,21 +156,79 @@ const Youthconnect = () => {
       setGeneratePdf(false); // Reset to avoid multiple triggers
     }
   }, [generatePdf, src]);
-
+  useEffect(() => {
+    setThumbnail(fileResponsesArray?.url);
+  }, [fileResponsesArray]);
   return (
     <>
     <Navigation />
-    {isMobile && <div className="p-5 justify-center mt-10 lg:mt-0 ml-2">
+    {isMobile && 
+    <div className="p-5 justify-center mt-10 lg:mt-0 ml-2">
+      <div className='pb-10'>
         <div className='pb-10'>
-          <div className='pb-10'>
-            <div className='z-50 fixed w-[90.5%] border p-20 flex gap-2 -mt-6 -ml-2 justify-center rounded' style={{ backgroundImage: "url('/sebabatso/YOUTH CONNEKT LESOTHO LOGO.jpg')", backgroundSize: "cover" }}>
-            </div>
+          <div className='z-50 fixed w-[90.5%] border p-20 flex gap-2 -mt-6 -ml-2 justify-center rounded' style={{ backgroundImage: "url('/sebabatso/YOUTH CONNEKT LESOTHO LOGO.jpg')", backgroundSize: "cover" }}>
           </div>
         </div>
+      </div>
     </div>}
     {formStage === 'two' && <div className='pt-5 mt-14 lg:mt-0 flex flex-col justify-center items-center gap-5'>
       {typeRegister &&
         <Card className='p-5 flex flex-col gap-3 w-[350px]'>
+          <div className='flex gap-2 items-center'>
+            <Avatar>
+            {fileResponses_len === 0 && (<button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <Upload className="h-4 w-4 text-muted-foreground" />
+                        </DialogTrigger>
+                        <DialogContent className="p-10">
+                            <DialogHeader>
+                                <DialogTitle>Thumbnail</DialogTitle>
+                                <DialogDescription>
+                                  Select a presentable picture, preferably with a white background.
+                                </DialogDescription>
+                            </DialogHeader>
+                            <UploadDropzone
+                              endpoint="mediaPost"
+                              onClientUploadComplete={(res: FileResponse[]) => {
+                              // Do something with the response array
+                              console.log("Files: ", res);
+
+                              // Update the fileResponses state variable
+                              setFileResponses(res);
+
+                              // Accessing the name of each file
+                              res.forEach(file => {
+                                const fileName = file.name;
+                                console.log("File Name: ", fileName);
+                                // Do something with the file name
+                              });
+                              }}
+                              onUploadError={(error: Error) => {
+                              // Do something with the error.
+                              
+                              }}
+                            />
+                        </DialogContent>
+                    </Dialog>
+                </button>)}
+                {fileResponses_len >= 0 &&  <>
+                  {fileResponses.map((file, index) => (
+                     <AvatarImage
+                      key={index}
+                      alt="Product image"
+                      height="84"
+                      src={file.url}
+                      width="84"
+                    />
+                  ))}</>
+                }
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+            <div>
+              {fileResponses_len === 0 && <p style={{fontSize: 12}}>Upload an Image of Yourself</p>}
+            </div>
+          </div>
         <Label htmlFor="framework">Ticket Type</Label>
             <Select onValueChange={(v) => setTicketType(v)}>
                 <SelectTrigger id="framework">
@@ -167,14 +236,14 @@ const Youthconnect = () => {
                 </SelectTrigger>
                 <SelectContent position="popper">
                 {!disabled ? (
-                    <div>
-                        <SelectItem value="GENERAL">General</SelectItem>
-                    </div>
+                  <div>
+                      <SelectItem value="GENERAL">General</SelectItem>
+                  </div>
                 ):
-                    <div>
-                        <SelectItem value="GENERAL" disabled>General</SelectItem>
-                        <SelectItem value="VIP">VIP</SelectItem>
-                    </div>
+                  <div>
+                      <SelectItem value="GENERAL" disabled>General</SelectItem>
+                      <SelectItem value="VIP">VIP</SelectItem>
+                  </div>
                 }
                 </SelectContent>
             </Select>

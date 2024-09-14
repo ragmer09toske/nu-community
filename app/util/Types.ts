@@ -4,5 +4,4 @@ export interface FileResponse {
     serverData: any;
     size: number;
     url: string;
-
 }
