@@ -555,6 +555,119 @@ const Retsepile = () => {
                   </CardHeader>
                 </Card>
               </div>
+
+              {/*<Card className="w-[100%] p-0.5 pl-3 ">*/}
+                <div>
+                    <CardHeader>
+                        <CardTitle>Introduction to Nucleusdevs Academy</CardTitle>
+                        <CardDescription>
+                          <br/>
+                          <h1><b>What is Nucleus Academy  </b></h1>
+                          <br/>
+                           Nucleus Academy is a dynamic platform dedicated to providing top-tier education and training in software 
+                           development and related fields. Focused on continuous learning and technical growth, the Academy empowers 
+                           users with essential skills to thrive in the ever-evolving tech landscape. With an emphasis on staying updated 
+                           with industry trends, Nucleus Academy ensures that its learners are well-prepared to meet the demands of the modern
+                           tech world.
+                          <br/><br/>
+                          <h2>What are our <b>goals?</b></h2>
+                          <br/>
+                          <b><h3>Goals:</h3> </b>  <br/>
+                          <b>•	Skill Enhancement</b>
+                            Nucleus Academy offers a wide range of carefully curated courses that cover various aspects of software development. These courses are designed to help learners at different stages of their careers, from beginners to advanced developers, sharpen their technical skills. 
+                            Whether it&apos;s mastering programming languages, understanding software architecture, or delving into specialized areas like data science or AI, the Academy equips users with the knowledge needed to excel in today&apos;s competitive job market.
+                            <br/><br/>
+                          <b>•	Fostering Innovation & Creativity</b>
+                            At Nucleus Academy, innovation is a core principle. By encouraging students to think outside the box, the Academy nurtures creativity and innovative problem-solving. 
+                            Learners are given the tools to experiment with new ideas, build unique solutions, and challenge conventional approaches, fostering a mindset that is crucial for innovation in the tech industry.
+                            <br/><br/>
+                          <b>•	Lifelong Learning</b> 
+                            The Academy provides continuous learning opportunities. Through a variety of workshops, seminars, and certification programs, Nucleus Academy supports the ongoing professional development of its users. 
+                            These programs ensure that learners are always up to date with the latest advancements in technology and can continually expand their skill sets as they progress in their careers.
+                            <br/><br/>
+                          <b>• Hands-on Expertise</b>
+                            Nucleus Academy doesn&apos;t just focus on theoretical knowledge; it emphasizes practical experience. Through hands-on workshops and projects, learners can apply the skills they&apos;ve acquired in real-world scenarios. 
+                            The Academy provides access to industry-relevant tools and technologies, allowing students to gain valuable experience that directly translates to technical proficiency in the workplace.
+                          <br/><br/>
+                          <h4><b>Enrolment Advantages:</b></h4> 
+                          <b>•	Comprehensive Learning Experience</b>
+                            When you enrol in Nucleus Academy, you gain access to a broad range of learning materials, including detailed course content, interactive tutorials, and engaging workshops. These resources are developed by industry experts and are aligned with current trends and demands in the tech industry. 
+                            This ensures that learners receive a well-rounded education that prepares them to meet the challenges of today&apos;s technological landscape.
+                          <br/><br/>
+                          <b>•	Career Progression</b>
+                            Nucleus Academy offers valuable certifications upon the completion of courses. These certifications serve as a testament to the learners' technical competence and are highly regarded by employers in the tech industry. 
+                            Earning these credentials not only enhances a learner&apos;s résumé but also opens doors to new career opportunities, promotions, and salary increases in their chosen field.
+                          <br/><br/>
+                          <b>•	Innovative Platform </b>
+                            The Academy operates on a state-of-the-art learning platform that is designed to adapt and improve continuously. By incorporating user feedback, the academy, through its website evolves to meet the needs of its students, providing an optimized learning experience. 
+                            This responsiveness ensures that course content and teaching strategies are always relevant, engaging, and effective, making the learning journey smoother and more impactful.
+                          <br/><br/>
+                        </CardDescription>
+                    </CardHeader>
+                    <div className="w-[100%] p-0.5 pl-3 flex justify-center">
+                    <Image
+                      src="/blog/intro.jpeg"
+                      alt="Nucleus Logo"
+                      className="relative"
+                      width={300}
+                      height={24}
+                      priority
+                    />
+                    </div>
+                </div>
+              {/*</Card>/*} 
+
+               {/*<Card className="w-[100%] p-0.5 pl-3">*/}
+                <div>
+                  <CardHeader>
+                    <CardTitle>View someof the  most in demand languages</CardTitle>
+                    <CardDescription>                
+                      <p>
+                        In the ever-evolving tech landscape, certain programming languages consistently stand out as the most in-demand due to their widespread use, versatility, and relevance in solving modern computing problems. 
+                        These languages are ranked highly because they meet critical industry needs, support diverse applications, and drive innovation across various sectors. By understanding why these languages top the list, you can better align your learning and career strategies with current market demands and technological trends.
+                        <br/><br/>
+                        <div className="w-[100%] p-0.5 pl-3 flex justify-center">                       
+                        <Image
+                        src="/blog/coding.jpg"
+                        alt="Nucleus Logo"
+                        className="relative"
+                        width={300}
+                        height={24}
+                        priority
+                        />
+                        </div>
+                        <h1><b>
+                          Now, at the very top of our list we have: 
+                        </b></h1><br/><br/>
+                        
+                        <h3><i>1.	PYTHON</i></h3>
+                        Python is a favoured programming language due to its ease of use and versatility, capable of handling everything from simple scripts to complex web applications and AI. 
+                        Its Django framework simplifies back-end development, while libraries like NumPy, SciPy, TensorFlow, and PyTorch enhance capabilities in scientific computing, data science, and machine learning. 
+                        <br/><br/>
+                        <h3><i>2.	JAVA</i></h3>
+                        Java remains a top choice for learning this year due to its high-level, object-oriented design and platform independence. It&apos;s essential for DevOps, virtual reality, big data, and mobile apps. Java&apos;s versatility and strong security make it a favourite among over 97% of enterprises. 
+                        <br/><br/>
+                        <h3><i>3.	C & C++</i></h3>
+                        At number three are C and C++. C, often called the 'mother of all programming languages,' remains crucial for operating systems, compilers, and databases. It&apos;s a versatile, high-performance language ideal for games, graphics, and enterprise applications.
+                        C++, an extension of C with object-oriented capabilities, excels in performance-intensive areas like game development, web applications, and software requiring fast rendering. While its demand is growing more slowly, C++ skills are essential for maintaining and developing high-performance applications.
+                        Both C and C++ are fundamental for performance-critical apps and serve as a base for learning more advanced languages.
+                        <br/><br/>
+                        <h3><i>4.	JAVASCRIPT</i></h3>
+                        Next up is JavaScript, renowned for its versatility. It enhances productivity and readability with a well-organized codebase, platform independence, and extensive browser control. 
+                        Essential for front-end development alongside HTML and CSS, JavaScript also powers server-side applications through Node.js, supporting various operating systems like Linux and Windows. JavaScript enables the creation of dynamic content, interactive features, and animated graphics on websites. 
+                        Its importance is underscored by its dominance in Stack Overflow&apos;s 2022 Developer Survey as the most popular language for the tenth consecutive year.
+                        <br/><br/>
+                        <h3><i>5.	TYPESCRIPT</i></h3>
+                        Released by Microsoft in 2012, TypeScript is a 'typed' superset of JavaScript that adds robust features to the popular language. Described as "all of JavaScript, plus a bit more," TypeScript has surged in popularity, ranking 4th in GitHub&apos;s 2022 language rankings with a staggering 392% growth in demand.
+                        This open-source, object-oriented language enhances JavaScript with advanced features like type-checks, scalability, and code maintainability, making it a powerful tool for large projects.
+                        fast-paced world of technology, proficiency in top programming languages—can greatly boost your career. These languages are renowned for their broad applicability, performance, and critical roles in various tech fields, from web development to system-level programming. 
+                        By understanding their unique features and uses, you can better align your skills with current industry demands and emerging trends. Mastering these languages will not only enhance your marketability but also position you at the forefront of technological advancements.
+                      </p>
+                    </CardDescription>
+                  </CardHeader>
+                </div>
+               {/*</Card>*/}
+
             </ScrollArea>
           </Command>
       </div>

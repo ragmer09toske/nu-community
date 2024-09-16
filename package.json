@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.29.9",
+    "@clerk/nextjs": "^4.6.18",
     "@clerk/themes": "^1.7.10",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
@@ -71,7 +71,7 @@
     "jspdf": "^2.5.1",
     "lucide-react": "^0.330.0",
     "mongoose": "^8.2.3",
-    "next": "13.5.6",
+    "next": "^14.2.9",
     "next-auth": "^4.24.7",
     "next-themes": "^0.2.1",
     "nodemailer": "^6.9.13",
