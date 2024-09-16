@@ -595,7 +595,7 @@ const Retsepile = () => {
                             This ensures that learners receive a well-rounded education that prepares them to meet the challenges of today&apos;s technological landscape.
                           <br/><br/>
                           <b>•	Career Progression</b>
-                            Nucleus Academy offers valuable certifications upon the completion of courses. These certifications serve as a testament to the learners' technical competence and are highly regarded by employers in the tech industry. 
+                            Nucleus Academy offers valuable certifications upon the completion of courses. These certifications serve as a testament to the learners&apos; technical competence and are highly regarded by employers in the tech industry. 
                             Earning these credentials not only enhances a learner&apos;s résumé but also opens doors to new career opportunities, promotions, and salary increases in their chosen field.
                           <br/><br/>
                           <b>•	Innovative Platform </b>
@@ -648,7 +648,7 @@ const Retsepile = () => {
                         Java remains a top choice for learning this year due to its high-level, object-oriented design and platform independence. It&apos;s essential for DevOps, virtual reality, big data, and mobile apps. Java&apos;s versatility and strong security make it a favourite among over 97% of enterprises. 
                         <br/><br/>
                         <h3><i>3.	C & C++</i></h3>
-                        At number three are C and C++. C, often called the 'mother of all programming languages,' remains crucial for operating systems, compilers, and databases. It&apos;s a versatile, high-performance language ideal for games, graphics, and enterprise applications.
+                        At number three are C and C++. C, often called the &apos;mother of all programming languages,&apos; remains crucial for operating systems, compilers, and databases. It&apos;s a versatile, high-performance language ideal for games, graphics, and enterprise applications.
                         C++, an extension of C with object-oriented capabilities, excels in performance-intensive areas like game development, web applications, and software requiring fast rendering. While its demand is growing more slowly, C++ skills are essential for maintaining and developing high-performance applications.
                         Both C and C++ are fundamental for performance-critical apps and serve as a base for learning more advanced languages.
                         <br/><br/>
@@ -658,7 +658,7 @@ const Retsepile = () => {
                         Its importance is underscored by its dominance in Stack Overflow&apos;s 2022 Developer Survey as the most popular language for the tenth consecutive year.
                         <br/><br/>
                         <h3><i>5.	TYPESCRIPT</i></h3>
-                        Released by Microsoft in 2012, TypeScript is a 'typed' superset of JavaScript that adds robust features to the popular language. Described as "all of JavaScript, plus a bit more," TypeScript has surged in popularity, ranking 4th in GitHub&apos;s 2022 language rankings with a staggering 392% growth in demand.
+                        Released by Microsoft in 2012, TypeScript is a &apos;typed&apos; superset of JavaScript that adds robust features to the popular language. Described as &apos;all of JavaScript, plus a bit more,&apos; TypeScript has surged in popularity, ranking 4th in GitHub&apos;s 2022 language rankings with a staggering 392% growth in demand.
                         This open-source, object-oriented language enhances JavaScript with advanced features like type-checks, scalability, and code maintainability, making it a powerful tool for large projects.
                         fast-paced world of technology, proficiency in top programming languages—can greatly boost your career. These languages are renowned for their broad applicability, performance, and critical roles in various tech fields, from web development to system-level programming. 
                         By understanding their unique features and uses, you can better align your skills with current industry demands and emerging trends. Mastering these languages will not only enhance your marketability but also position you at the forefront of technological advancements.
