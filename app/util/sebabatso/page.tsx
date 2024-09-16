@@ -166,7 +166,7 @@ const Youthconnect = () => {
     <div className="p-5 justify-center mt-10 lg:mt-0 ml-2">
       <div className='pb-10'>
         <div className='pb-10'>
-          <div className='z-50 fixed w-[90.5%] border p-20 flex gap-2 -mt-6 -ml-2 justify-center rounded' style={{ backgroundImage: "url('/sebabatso/YOUTH CONNEKT LESOTHO LOGO.jpg')", backgroundSize: "cover" }}>
+          <div className='z-50 fixed w-[90.5%] border p-20 flex gap-2 -mt-6 -ml-2 justify-center rounded' style={{ backgroundImage: "url('/sebabatso.png')", backgroundSize: "cover" }}>
           </div>
         </div>
       </div>
