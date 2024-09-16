@@ -6,15 +6,21 @@ import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
-import { Loader2, Upload } from 'lucide-react';
+import { CalendarDays, InfoIcon, Loader2, MoreVertical, Upload } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { useTheme } from "next-themes"
+import { useTheme } from "next-themes";
+import { toast } from "sonner"
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar"
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
 import { UploadDropzone } from '@/app/utils/uploadthing';
 import {
   CardContent,
@@ -37,8 +43,7 @@ import { nu_api_base_url } from '@/app/Contants';
 import NuLoad from '../NuLoad';
 import { FileResponse } from '../Types';
 import { Dialog,  DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-
-const Youthconnect = () => {
+  const Youthconnect = () => {
   const [issuedTo, setIssuedTo] = useState<string>("");
   const [orderNumber, setOrderNumber] = useState<string>("");
   const [ticketType, setTicketType] = useState<string>("");
@@ -61,6 +66,7 @@ const Youthconnect = () => {
   const [fileResponses, setFileResponses] = useState<FileResponse[]>([]);
   const fileResponsesArray = fileResponses[0];
   const fileResponses_len = fileResponses.length;
+
   const generateQR = async (id: string) => {
     try {
       const qrCodeDataURL = await QRCode.toDataURL(`https://nucleusdevs.com/util/ticketing?q=${id}`);
@@ -81,6 +87,7 @@ const Youthconnect = () => {
         setDisabled(true);
     }   
   }, []);
+
   const generatePDF = async () => {
     const input = document.getElementById('ticket');
     if (input) {
@@ -109,8 +116,7 @@ const Youthconnect = () => {
   };
 
   const registerTicket = async () => {
-    setLoading(true); // Show loading indicator
-
+    setLoading(true);
     const ticketData = {
       issued_to: issuedTo,
       order_number: Math.floor(Math.random() * 1000000000),
@@ -153,12 +159,14 @@ const Youthconnect = () => {
   useEffect(() => {
     if (generatePdf && src) {
       generatePDF();
-      setGeneratePdf(false); // Reset to avoid multiple triggers
+      setGeneratePdf(false);
     }
   }, [generatePdf, src]);
   useEffect(() => {
     setThumbnail(fileResponsesArray?.url);
   }, [fileResponsesArray]);
+
+
   return (
     <>
     <Navigation />
@@ -177,40 +185,40 @@ const Youthconnect = () => {
           <div className='flex gap-2 items-center'>
             <Avatar>
             {fileResponses_len === 0 && (<button className="flex items-center justify-center  border border-dashed aspect-square w-full rounded-md object-cover">
-                    <Dialog>
-                        <DialogTrigger asChild>
-                            <Upload className="h-4 w-4 text-muted-foreground" />
-                        </DialogTrigger>
-                        <DialogContent className="p-10">
-                            <DialogHeader>
-                                <DialogTitle>Thumbnail</DialogTitle>
-                                <DialogDescription>
-                                  Select a presentable picture, preferably with a white background.
-                                </DialogDescription>
-                            </DialogHeader>
-                            <UploadDropzone
-                              endpoint="mediaPost"
-                              onClientUploadComplete={(res: FileResponse[]) => {
-                              // Do something with the response array
-                              console.log("Files: ", res);
+                <Dialog>
+                  <DialogTrigger asChild>
+                      <Upload className="h-4 w-4 text-muted-foreground" />
+                  </DialogTrigger>
+                  <DialogContent className="p-10">
+                      <DialogHeader>
+                          <DialogTitle>Thumbnail</DialogTitle>
+                          <DialogDescription>
+                            Select a presentable picture, preferably with a white background.
+                          </DialogDescription>
+                      </DialogHeader>
+                      <UploadDropzone
+                        endpoint="mediaPost"
+                        onClientUploadComplete={(res: FileResponse[]) => {
+                        // Do something with the response array
+                        console.log("Files: ", res);
 
-                              // Update the fileResponses state variable
-                              setFileResponses(res);
+                        // Update the fileResponses state variable
+                        setFileResponses(res);
 
-                              // Accessing the name of each file
-                              res.forEach(file => {
-                                const fileName = file.name;
-                                console.log("File Name: ", fileName);
-                                // Do something with the file name
-                              });
-                              }}
-                              onUploadError={(error: Error) => {
-                              // Do something with the error.
-                              
-                              }}
-                            />
-                        </DialogContent>
-                    </Dialog>
+                        // Accessing the name of each file
+                        res.forEach(file => {
+                          const fileName = file.name;
+                          console.log("File Name: ", fileName);
+                          // Do something with the file name
+                        });
+                        }}
+                        onUploadError={(error: Error) => {
+                        // Do something with the error.
+                        
+                        }}
+                      />
+                  </DialogContent>
+                </Dialog>
                 </button>)}
                 {fileResponses_len >= 0 &&  <>
                   {fileResponses.map((file, index) => (
@@ -227,6 +235,40 @@ const Youthconnect = () => {
             </Avatar>
             <div>
               {fileResponses_len === 0 && <p style={{fontSize: 12}}>Upload an Image of Yourself</p>}
+            </div>
+            <div>
+              <HoverCard>
+                <HoverCardTrigger asChild>
+                  <InfoIcon className='text-gray-500 ml-10' onClick={() =>
+                    toast("Event has been created", {
+                      description: "Sunday, December 03, 2023 at 9:00 AM",
+                      action: {
+                        label: "Undo",
+                        onClick: () => console.log("Undo"),
+                      },
+                    })
+                  }/>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-80">
+                  <div className="flex justify-between space-x-4">
+                    <Avatar>
+                      <AvatarImage src="https://github.com/vercel.png" />
+                    </Avatar>
+                    <div className="space-y-1">
+                      <h4 className="text-sm font-semibold">@nextjs</h4>
+                      <p className="text-sm">
+                        The React Framework – created and maintained by @vercel.
+                      </p>
+                      <div className="flex items-center pt-2">
+                        <CalendarDays className="mr-2 h-4 w-4 opacity-70" />{" "}
+                        <span className="text-xs text-muted-foreground">
+                          Joined December 2021
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </HoverCardContent>
+              </HoverCard>
             </div>
           </div>
         <Label htmlFor="framework">Ticket Type</Label>
@@ -305,16 +347,16 @@ const Youthconnect = () => {
       <Card className="w-[350px]"> 
         <div className='flex gap-2'>
             <div> 
+              <CardHeader>
+              <CardDescription style={{fontSize:10}}>Lesotho, Maseru</CardDescription>
+              <CardTitle className='font-[10px]' style={{fontSize:8}}>Youth Connekt Lesotho</CardTitle>
+              </CardHeader>
+              <div className='-mt-5'>
                 <CardHeader>
-                <CardDescription style={{fontSize:10}}>Lesotho, Maseru</CardDescription>
-                <CardTitle className='font-[10px]' style={{fontSize:8}}>Youth Connekt Lesotho</CardTitle>
+                  <CardDescription style={{fontSize:7}}>&apos;Manthabiseng Convention Center, Maseru</CardDescription>
+                  <CardTitle style={{fontSize:7}}>October, 2024 08-11 (Mon-Fri)</CardTitle>
                 </CardHeader>
-                <div className='-mt-5'>
-                  <CardHeader>
-                    <CardDescription style={{fontSize:7}}>&apos;Manthabiseng Convention Center, Maseru</CardDescription>
-                    <CardTitle style={{fontSize:7}}>October, 2024 08-11 (Mon-Fri)</CardTitle>
-                  </CardHeader>
-                </div>
+              </div>
             </div>
             <div className='p-5 pl-0'>
                 {src && <Image src={src} width={200} height={200} alt='QR Code' />}
@@ -349,7 +391,7 @@ const Youthconnect = () => {
       </div>}
       <div className='w-full flex justify-center p-2'>
         <Button onClick={registerTicket}>
-            {loading ?  <Loader2 className='animate-spin' size="sm" /> : 'Download Ticket'}
+          {loading ?  <Loader2 className='animate-spin' size="sm" /> : 'Download Ticket'}
         </Button>
       </div>
       </div>}
