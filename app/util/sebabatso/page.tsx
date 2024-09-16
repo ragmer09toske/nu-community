@@ -373,9 +373,9 @@ const Youthconnect = () => {
             </SelectTrigger>
             <SelectContent position="popper">
               <div>
-                <SelectItem value="Youth Participant">Youth Participant</SelectItem>
+                {!disabled && <div><SelectItem value="Youth Participant">Youth Participant</SelectItem>
                 <SelectItem value="Youth Exhibitor">Youth Exhibitor</SelectItem>
-                <SelectItem value="Youth Presenter">Youth Presenter</SelectItem>
+                <SelectItem value="Youth Presenter">Youth Presenter</SelectItem></div>}
                 <SelectItem value="Panelist">Panelist</SelectItem>
                 <SelectItem value="Disability">Disability</SelectItem>
                 <SelectItem value="Government Official">Government Official</SelectItem>
