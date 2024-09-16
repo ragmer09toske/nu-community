@@ -231,7 +231,6 @@ import { Dialog,  DialogContent, DialogDescription, DialogHeader, DialogTitle, D
                     />
                   ))}</>
                 }
-              <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             <div>
               {fileResponses_len === 0 && <p style={{fontSize: 12}}>Upload an Image of Yourself</p>}
