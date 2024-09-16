@@ -308,7 +308,7 @@ import { Dialog,  DialogContent, DialogDescription, DialogHeader, DialogTitle, D
                 <div className='pt-10'>
                   <p className='text-gray-500 text-sm'><b>&apos;Manthabiseng Convention Center, Maseru</b></p>
                 </div>
-                <h4 className='text-sm'><b>October, 2024 8-11 (Mon-Fri)</b></h4>
+                <h4 className='text-sm'><b>October, 2024 7-11 (Mon-Fri)</b></h4>
                 <div className='flex gap-5 pt-5'>
                   <div>
                     <h4 className='text-sm font-bold'>ISSUED TO</h4>
@@ -353,7 +353,7 @@ import { Dialog,  DialogContent, DialogDescription, DialogHeader, DialogTitle, D
               <div className='-mt-5'>
                 <CardHeader>
                   <CardDescription style={{fontSize:7}}>&apos;Manthabiseng Convention Center, Maseru</CardDescription>
-                  <CardTitle style={{fontSize:7}}>October, 2024 08-11 (Mon-Fri)</CardTitle>
+                  <CardTitle style={{fontSize:7}}>October, 2024 7-11 (Mon-Fri)</CardTitle>
                 </CardHeader>
               </div>
             </div>
