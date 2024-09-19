@@ -602,9 +602,7 @@ const Retsepile = () => {
                             The Academy operates on a state-of-the-art learning platform that is designed to adapt and improve continuously. By incorporating user feedback, the academy, through its website evolves to meet the needs of its students, providing an optimized learning experience. 
                             This responsiveness ensures that course content and teaching strategies are always relevant, engaging, and effective, making the learning journey smoother and more impactful.
                           <br/><br/>
-                        </CardDescription>
-                    </CardHeader>
-                    <div className="w-[100%] p-0.5 pl-3 flex justify-center">
+                          <div className="w-[100%] p-0.5 pl-3 flex justify-center">
                     <Image
                       src="/blog/intro.jpeg"
                       alt="Nucleus Logo"
@@ -614,15 +612,17 @@ const Retsepile = () => {
                       priority
                     />
                     </div>
+                        </CardDescription>
+                    </CardHeader>
+                    
                 </div>
               {/*</Card>/*} 
 
                {/*<Card className="w-[100%] p-0.5 pl-3">*/}
                 <div>
                   <CardHeader>
-                    <CardTitle>View someof the  most in demand languages</CardTitle>
+                    <CardTitle>View some of the most in demand languages</CardTitle>
                     <CardDescription>                
-                      <p>
                         In the ever-evolving tech landscape, certain programming languages consistently stand out as the most in-demand due to their widespread use, versatility, and relevance in solving modern computing problems. 
                         These languages are ranked highly because they meet critical industry needs, support diverse applications, and drive innovation across various sectors. By understanding why these languages top the list, you can better align your learning and career strategies with current market demands and technological trends.
                         <br/><br/>
@@ -662,11 +662,48 @@ const Retsepile = () => {
                         This open-source, object-oriented language enhances JavaScript with advanced features like type-checks, scalability, and code maintainability, making it a powerful tool for large projects.
                         fast-paced world of technology, proficiency in top programming languages—can greatly boost your career. These languages are renowned for their broad applicability, performance, and critical roles in various tech fields, from web development to system-level programming. 
                         By understanding their unique features and uses, you can better align your skills with current industry demands and emerging trends. Mastering these languages will not only enhance your marketability but also position you at the forefront of technological advancements.
-                      </p>
                     </CardDescription>
                   </CardHeader>
                 </div>
                {/*</Card>*/}
+               <div>
+                <CardHeader>
+                  <CardTitle> Beginners guide to coding </CardTitle>
+                  <CardDescription>
+                    Have you ever found yourself endlessly googling <b>"how to learn coding"</b>? If so, you&apos;re likely aiming to boost your career or unlock new tech skills, and trust me, diving into this digital world is within everyone&apos;s reach. But where to start?
+                    <br/><br/>
+                    As cliché as it may sound, coding is genuinely fun. What begins as a learning journey often evolves into a rewarding hobby. Here&apos;s how you can kick off your coding adventure:
+                    <br/><br/>
+                      <h3><b>1.Choose a Programming Language:</b></h3> Start with user-friendly languages like Python or JavaScript. They&apos;re widely used and easy to grasp for beginners.
+                      <br/><br/>
+                      <h3><b>2.Learn the Basics:</b></h3> Master fundamental concepts such as variables, data types, loops, functions, and conditionals. These are the core building blocks of programming.
+                      <br/><br/>
+                      <h3><b>3.Practice with Simple Projects:</b></h3> Apply your knowledge by working on small projects like a calculator, a to-do list, or a basic website. This hands-on approach solidifies your learning.
+                      <br/><br/>
+                      <h3><b>4.Use Online Resources:</b></h3> Platforms like Codecademy, freeCodeCamp, and YouTube tutorials are great for learning at your own pace. And don't forget to check out Nucleus Academy for a structured path.
+                      <br/><br/>
+                      <h3><b>5.Read and Write Code:</b></h3> Explore other people&apos;s code to understand different techniques and write your own to refine your skills.
+                      <br/><br/>
+                      <h3><b>6.Join a community:</b></h3> Engage in coding forums or groups where you can ask questions, share progress, and learn from others.
+                      <br/><br/>
+                      <h3><b>7.Build a Portfolio:</b></h3> As you advance, create a portfolio showcasing your projects to demonstrate your skills.
+                      <br/><br/>
+                      <h3><b>8.Stay Persistent:</b></h3> Coding can be tough, so keep motivated, practice regularly, and embrace mistakes as learning opportunities.
+                      <br/><br/>
+                    Remember, coding is more than just typing lines of code. It's a process of thinking, problem-solving, and creativity. You'll master impressive coding and build amazing projects, but first, you&apos;ll develop the mindset and skills needed to thrive. So, gear up and start your journey—amazing things await!
+                    <div className="w-[100%] p-0.5 pl-3 flex justify-center">                       
+                        <Image
+                        src="/blog/guideToCoding.jpg"
+                        alt="Nucleus Logo"
+                        className="relative"
+                        width={300}
+                        height={24}
+                        priority
+                        />
+                        </div>
+                  </CardDescription>
+                </CardHeader>
+               </div>
 
             </ScrollArea>
           </Command>
