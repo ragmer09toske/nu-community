@@ -10,6 +10,8 @@ import { useTheme } from "next-themes"
 import { Team } from "./Footer"
 import { Resizable } from "./home/Grid"
 import { HyperTextDemo } from "./home/HyperText"
+import { NuBrainic } from "@/app/learn/Shop/block"
+import { ResizableChat } from "./home/ResizeChat"
 
 interface User {
     _id: string;
@@ -46,6 +48,7 @@ export default function Home_Data_One_Repo() {
                         <Resizable />
                       </div>
                   </div>
+                  {/* <ResizableChat /> */}
                   <Team />
               </section>
           </div>
