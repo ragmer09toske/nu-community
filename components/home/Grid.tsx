@@ -4,6 +4,7 @@ import {
     ResizablePanelGroup,
   } from "@/components/ui/resizable"
 import { GlobeWhite } from "./Globe"
+import { IconCloudDemo } from "./Interactive"
   
   export function Resizable() {
     return (
@@ -12,8 +13,10 @@ import { GlobeWhite } from "./Globe"
         className="max-w-md rounded-lg border md:min-w-[1200px]"
       >
         <ResizablePanel defaultSize={50}>
-          <div className="flex h-[200px] items-center justify-center p-6">
-            <span className="font-semibold">One</span>
+          <div className="flex h-[500px] items-center justify-center p-6">
+            <span className="font-semibold">
+                <IconCloudDemo />
+            </span>
           </div>
         </ResizablePanel>
         <ResizableHandle />

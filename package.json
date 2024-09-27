@@ -88,6 +88,7 @@
     "react-dom": "^18",
     "react-dropzone": "^14.2.3",
     "react-element-to-jsx-string": "^15.0.0",
+    "react-icon-cloud": "^4.1.4",
     "react-markdown": "^9.0.1",
     "react-player": "^2.14.1",
     "react-resizable-panels": "^2.0.9",
