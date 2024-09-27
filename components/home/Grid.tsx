@@ -3,8 +3,8 @@ import {
     ResizablePanel,
     ResizablePanelGroup,
   } from "@/components/ui/resizable"
-import { GlobeWhite } from "./Globe"
 import { IconCloudDemo } from "./Interactive"
+import Gobe from "../Gobe"
   
   export function Resizable() {
     return (
@@ -26,7 +26,7 @@ import { IconCloudDemo } from "./Interactive"
             <ResizablePanel defaultSize={75}>
               <div className="flex items-center justify-center mt-20" >
                 <span className="font-semibold">
-                    <GlobeWhite />
+                    <Gobe />
                 </span>
               </div>
             </ResizablePanel>

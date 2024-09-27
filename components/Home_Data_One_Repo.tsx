@@ -1,6 +1,5 @@
 "use client"
 
-import { GlobeDemo } from "./Gobe"
 import { Spotlight } from "./Spotlight"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
@@ -11,7 +10,6 @@ import { useTheme } from "next-themes"
 import { Team } from "./Footer"
 import { Resizable } from "./home/Grid"
 import { HyperTextDemo } from "./home/HyperText"
-import { AnimatedGridPattern } from "./home/GridSquare"
 
 interface User {
     _id: string;

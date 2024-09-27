@@ -1,5 +1,5 @@
 "use client"
-import { GlobeDemo } from "@/components/Gobe"
+import Gobe from "@/components/Gobe"
 import RegisterForm from "../RegisterForm"
 
 export default function WebinarDesktop() {
@@ -15,7 +15,7 @@ export default function WebinarDesktop() {
                             <RegisterForm />
                         </div>
                         <div className='flex-1 hidden md:block'>
-                            <GlobeDemo />
+                            <Gobe />
                         </div>
                     </div>
                 </div>
