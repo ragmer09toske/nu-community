@@ -9,6 +9,7 @@ import Music from "./Music"
 import { HomeText } from "./HomeText"
 import { useTheme } from "next-themes"
 import { Team } from "./Footer"
+import { Resizable } from "./home/Grid"
 
 interface User {
     _id: string;
@@ -33,21 +34,16 @@ export default function Home_Data_One_Repo() {
             fill="white"
           />
           <div className="fixed bottom-32 z-[9999]">
-            <Music />
+            {/* <Music /> */}
           </div>
           <div className='relative'>
               <section>
                   <div className="max-w-screen-xl mx-auto px-4 gap-5 text-gray-600 overflow-hidden md:px-8 md:flex">
                       <div className='flex-none max-w-xl'>
-                          <HomeText/>
-                      </div>
-                      <div className='flex-1 hidden md:block'>
-                          {/* Replace with your image */}
-                          <GlobeDemo />
+                        <Resizable />
                       </div>
                   </div>
                   <Team />
-                  {/* <FloatingDockMobile/> */}
               </section>
           </div>
       </div>
