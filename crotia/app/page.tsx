@@ -9,7 +9,6 @@ const Home = () => {
   return (
       <div>
         <Navbar />
-        {/* <Navbar_Codiac /> */}
         <Home_Data_One_Repo />
         <div className="h-24 p-10"></div>
       </div>
