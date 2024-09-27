@@ -1,9 +1,6 @@
 "use client"
 
-import { ArrowBigRight, Rocket } from "lucide-react"
 import { GlobeDemo } from "./Gobe"
-import Link from "next/link"
-import { Button } from "./moving-border"
 import { Spotlight } from "./Spotlight"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
@@ -11,7 +8,6 @@ import { HoveredLink, Menu, MenuItem, ProductItem } from "./navbar-menu"
 import Music from "./Music"
 import { HomeText } from "./HomeText"
 import { useTheme } from "next-themes"
-import People from "./people"
 import { Team } from "./Footer"
 
 interface User {
