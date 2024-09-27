@@ -12,6 +12,7 @@ import { Resizable } from "./home/Grid"
 import { HyperTextDemo } from "./home/HyperText"
 import { NuBrainic } from "@/app/learn/Shop/block"
 import { ResizableChat } from "./home/ResizeChat"
+import { MarqueeDemo } from "./home/Marqueer"
 
 interface User {
     _id: string;
@@ -48,7 +49,9 @@ export default function Home_Data_One_Repo() {
                         <Resizable />
                       </div>
                   </div>
-                  {/* <ResizableChat /> */}
+                  <div className="p-5 pl-52">
+                    <MarqueeDemo />
+                  </div>
                   <Team />
               </section>
           </div>
