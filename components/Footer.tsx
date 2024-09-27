@@ -67,7 +67,7 @@ export function Team() {
       ))}
       <div className="absolute top-36 w-full h-full flex justify-center items-center pl-10">
         <div className="text-4xl mx-auto font-normal text-neutral-600 dark:text-neutral-400">
-          Meet our Leadership
+          Meet the team
         </div>
       </div>
     </div>

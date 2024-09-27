@@ -10,6 +10,8 @@ import { HomeText } from "./HomeText"
 import { useTheme } from "next-themes"
 import { Team } from "./Footer"
 import { Resizable } from "./home/Grid"
+import { HyperTextDemo } from "./home/HyperText"
+import { AnimatedGridPattern } from "./home/GridSquare"
 
 interface User {
     _id: string;
@@ -34,10 +36,13 @@ export default function Home_Data_One_Repo() {
             fill="white"
           />
           <div className="fixed bottom-32 z-[9999]">
-            {/* <Music /> */}
+            {/* <AnimatedGridPattern /> */}
           </div>
           <div className='relative'>
               <section>
+                  <div className="flex justify-center p-5">
+                    <HyperTextDemo />
+                  </div>
                   <div className="max-w-screen-xl mx-auto px-4 gap-5 text-gray-600 overflow-hidden md:px-8 md:flex">
                       <div className='flex-none max-w-xl'>
                         <Resizable />

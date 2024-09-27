@@ -13,7 +13,7 @@ import { IconCloudDemo } from "./Interactive"
         className="max-w-md rounded-lg border md:min-w-[1200px]"
       >
         <ResizablePanel defaultSize={50}>
-          <div className="flex h-[500px] items-center justify-center p-6">
+          <div className="flex h-[350px] items-center justify-center p-6">
             <span className="font-semibold">
                 <IconCloudDemo />
             </span>
@@ -24,7 +24,7 @@ import { IconCloudDemo } from "./Interactive"
           <ResizablePanelGroup direction="vertical">
             <ResizableHandle />
             <ResizablePanel defaultSize={75}>
-              <div className="flex h-full items-center justify-center p-6">
+              <div className="flex items-center justify-center mt-20" >
                 <span className="font-semibold">
                     <GlobeWhite />
                 </span>
