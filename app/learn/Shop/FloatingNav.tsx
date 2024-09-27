@@ -1,7 +1,6 @@
 "use client"
 import React, { useContext } from "react";
 import { IconHome } from "@tabler/icons-react";
-import { FloatingDock } from "@/components/floating-dock";
 import { LogIn, } from "lucide-react";
 import { CartContext } from "../StoreContext";
 import { MagnifyingGlassIcon, ShoppingBagIcon } from "@heroicons/react/24/outline";
@@ -44,10 +43,10 @@ export function FloatingDockMobile() {
   ];
   return (
     <div className="flex items-center justify-center h-[35rem] w-full">
-      <FloatingDock
+      {/* <FloatingDock
         mobileClassName="translate-y-20" // only for demo, remove for production
         items={links}
-      />
+      /> */}
     </div>
   );
 }
