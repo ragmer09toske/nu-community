@@ -13,6 +13,8 @@ import { HyperTextDemo } from "./home/HyperText"
 import { NuBrainic } from "@/app/learn/Shop/block"
 import { ResizableChat } from "./home/ResizeChat"
 import { MarqueeDemo } from "./home/Marqueer"
+import { AnimatedBeamDemo } from "./home/NuBrainic"
+import { LinkPreviewDemo } from "./home/LinkPre"
 
 interface User {
     _id: string;
@@ -49,9 +51,11 @@ export default function Home_Data_One_Repo() {
                         <Resizable />
                       </div>
                   </div>
-                  <div className="p-5 pl-52">
-                    <MarqueeDemo />
+                  <div className="p-5 pl-52 flex gap-5">
+                    {/* <MarqueeDemo /> */}
+                    {/* <AnimatedBeamDemo /> */}
                   </div>
+                  <LinkPreviewDemo />
                   <Team />
               </section>
           </div>

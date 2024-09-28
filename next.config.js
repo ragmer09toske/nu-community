@@ -12,7 +12,8 @@ const nextConfig = {
         'assets.aceternity.com',
         'images.unsplash.com',
         'tailwindui.com',
-        'example.com'
+        'example.com',
+        'api.microlink.io'
       ], 
     },
   }
