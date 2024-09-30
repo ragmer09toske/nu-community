@@ -1,4 +1,5 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
 import {
     Avatar,
     AvatarFallback,
@@ -7,8 +8,8 @@ import {
   import {
     Cloud,
     CreditCard,
-    Github,
     LifeBuoy,
+    Loader2,
     LogOut,
     Mail,
     MessageSquare,
@@ -36,9 +37,37 @@ import {
   } from "@/components/ui/dropdown-menu"
 import useStore from "@/app/Store"
 import { IconBooks } from '@tabler/icons-react'
+import Link from 'next/link'
+import { SebebatsoApplicant } from '@/app/Types'
+import axios from 'axios'
+import { nu_api_base_url } from '@/app/Contants'
 
 const DefaultUserAvater = () => {
   const UserDetails = useStore((state) => state.user);
+  const [ticketData, setTicketData] = useState<SebebatsoApplicant | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Fetch the data from the API when the component mounts or id changes
+    const fetchTicketData = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get<SebebatsoApplicant>(`${nu_api_base_url}/ticketing/66e5712f4742d400cc910448`);
+        setTicketData(response.data);
+        console.log("Ticket Details:",response.data)
+        setLoading(false);
+      } catch (err) {
+        setError('Failed to fetch ticket data');
+        setLoading(false);
+      }
+    };
+
+    if (UserDetails) {
+      fetchTicketData();
+    }
+  }, [UserDetails]); 
+
   const logout =()=>{
     localStorage.removeItem("user")
     window.location.reload();
@@ -48,12 +77,18 @@ const DefaultUserAvater = () => {
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Avatar>
-                    <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-                    <AvatarFallback>CN</AvatarFallback>
+                    <AvatarImage src={ticketData?.avatar} alt="@shadcn" />
+                    <AvatarFallback>
+                        <Loader2 className='animate-spin'></Loader2>
+                    </AvatarFallback>
                 </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
-                <DropdownMenuLabel>{UserDetails?.name}</DropdownMenuLabel>
+                <DropdownMenuLabel>
+                    {UserDetails?.name}
+                    <p className='text-gray-400' style={{fontSize: 10}}>{UserDetails?.acount}</p>
+                </DropdownMenuLabel>
+            
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                 <DropdownMenuItem>
@@ -116,18 +151,19 @@ const DefaultUserAvater = () => {
                 </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
+
+                <Link href="/util">
+                {UserDetails?.acount ==="sebabatso" && 
                 <DropdownMenuItem>
-                <Github className="mr-2 h-4 w-4" />
-                <span>GitHub</span>
-                </DropdownMenuItem>
+                    <Cloud className="mr-2 h-4 w-4" />
+                    <span>Dashboard</span>
+                </DropdownMenuItem>}
+                </Link>
                 <DropdownMenuItem>
-                <LifeBuoy className="mr-2 h-4 w-4" />
-                <span>Support</span>
+                    <LifeBuoy className="mr-2 h-4 w-4" />
+                    <span>Support</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem disabled>
-                <Cloud className="mr-2 h-4 w-4" />
-                <span>API</span>
-                </DropdownMenuItem>
+
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={logout}>
                 <LogOut className="mr-2 h-4 w-4" />

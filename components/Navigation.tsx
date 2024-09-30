@@ -5,20 +5,10 @@ import { Book, Calculator, Calendar, CalendarDays, Check, ChevronsUpDown, Credit
 import { cn } from "@/lib/utils"
 import axios from 'axios';
 import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar"
-import {
   NavigationMenu,
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu"
 import Image from "next/image"
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card"
  
 
 import useStore from "@/app/Store"
@@ -83,16 +73,13 @@ export function Navigation() {
   console.log("current theme is:", theme)
   const setContent = useStore((state) => state.setContent);
   const isDesktop: boolean = useDeviceType();
-  const [loginRegister, setLoginRegister] = React.useState<boolean>(false)
   const [email, setEmail] = React.useState<string>('')
   const [password, setPassword] = React.useState<string>('')
   const [loading, setLoading] = React.useState<boolean>(false)
-  const [qoutaionON, setQoutaionON] = React.useState<boolean>(false)
   // Auth variables, From Zustand Store
   const setLoginToken = useStore((state) => state.setLoginToken)
   const loginToken = useStore((state) => state.loginToken)
   // const setUserDetails = useStore((state) => state.setUser)
-  const userDetails = useStore((state) => state.user)
   const userID = useStore((state) => state.userID)
   const setUserID = useStore((state) => state.setUserID)
 
@@ -101,10 +88,6 @@ export function Navigation() {
   const [Register_email, setRegister_email] = React.useState<string>('')
   const [Register_number, setRegister_number] = React.useState<string>('')
   const [Register_password, setRegister_password] = React.useState<string>('')
-
-  // Create a workspaces
-  const [open, setOpen] = React.useState(false)
-  const [value, setValue] = React.useState("")
 
   const placeholders = [
     "Jump to ...",

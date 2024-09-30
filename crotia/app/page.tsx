@@ -9,7 +9,7 @@ import PricingComponent from "@/components/Pricing";
 const Home = () => {
   return (
       <div>
-        {/* <Navbar /> */}
+        <Navbar />
         <FloatingNavbar />
         <Home_Data_One_Repo />
         <div className="h-24 p-10"></div>

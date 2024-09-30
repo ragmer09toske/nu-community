@@ -16,10 +16,6 @@ import {
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
@@ -40,6 +36,8 @@ import Youthconnect from "./Youthconnect"
 import { Commerce } from "./commerce/Commerce"
 import { nu_api_base_url } from "../Contants"
 import UserSettings from "./UserSettings"
+import DefaultUserAvater from "@/User/Avater"
+import DashboardSbabi from "../sebabatso/page"
 
 
 interface Codiac {
@@ -65,7 +63,7 @@ const Dashboard = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [codiacs, setCodiacs] = useState<Codiac[]>([]);
   const [codiacsUsers, setCodiacsUsers] = useState<CodiacUsers[]>([]);
-  const loginToken = useStore((state) => state.loginToken)
+  const UserDetails = useStore((state) => state.user);
 
   useEffect(() => {
     const url = new URL(window.location.href);
@@ -303,30 +301,12 @@ const Dashboard = () => {
             </div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="overflow-hidden rounded-full"
-                >
-                  <Image 
-                    src="/me2.png"
-                    width={40}
-                    height={10}
-                    alt="Float UI logo"
-                  />
-                </Button>
+                <DefaultUserAvater />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={()=>setView("UserSettings")}>Settings</DropdownMenuItem>
-                <DropdownMenuItem>Support</DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>Logout</DropdownMenuItem>
-              </DropdownMenuContent>
             </DropdownMenu>
           </header>
-          {view === "dash" && <Main />}
+          {view === "dash" && UserDetails?.acount === "sebabatso" && <DashboardSbabi />}
+          {view == "Workspace" && <Workspace />}
           {view == "Workspace" && <Workspace />}
           {view == "HumanResource" && <HumanResource />}
           {view == "Programs" && <Programs />}

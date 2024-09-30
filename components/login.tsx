@@ -1,7 +1,6 @@
 import { Dialog, DialogPanel } from '@tremor/react';
 import React, { useState } from 'react';
 import {
-  IconBooks,
   IconBrandGithub,
   IconBrandGoogle,
 } from "@tabler/icons-react";
@@ -12,7 +11,6 @@ import axios from 'axios';
 import useStore from "@/app/Store"
 import { Card } from './ui/card';
 import LinearBuffer from './MUI_LoadBuffer';
-import Avater from '@/User/Avater';
 import DefaultUserAvater from '@/User/Avater';
 import { nu_api_base_url } from '@/app/Contants';
 
@@ -20,7 +18,6 @@ import { nu_api_base_url } from '@/app/Contants';
 export function SignupForm({setLoading}:{setLoading:any}) {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      /* */
     };
     const [email,setEmail] = useState<string>("");
     const [password,setPassword] = useState<string>("");
@@ -74,7 +71,7 @@ export function SignupForm({setLoading}:{setLoading:any}) {
         try{
           await login(email,password);
           setTimeout(() => {
-            window.location.reload();
+            // window.location.reload();
           }, 1000);
         }
         catch(e){
@@ -167,11 +164,10 @@ export function LoginDialog() {
         <div>
           <div className='p-5'>
               <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
-                Welcome to Nucleus talend cloud
+                Sign in to your Nucleus dashboard
               </h2>
               <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
-                Login to Nucleus if you can because we don&apos;t have a login flow
-                yet
+                
               </p>
           </div>
         </div>
