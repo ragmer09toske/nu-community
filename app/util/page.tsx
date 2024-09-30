@@ -118,7 +118,7 @@ const Dashboard = () => {
       }
     };
     getAllCodiacsUsers();
-  });
+  },[]);
   return (
     <MenuContext.Provider value={{
       view, setView,
