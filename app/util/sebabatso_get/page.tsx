@@ -20,7 +20,6 @@ import {
 import { RiOrganizationChart } from '@remixicon/react';
 import { nu_api_base_url } from '@/app/Contants';
 import NuLoad from '../NuLoad';
-import { IconDetails } from '@tabler/icons-react';
 
 // Define the TypeScript interfaces for the ticket and response
 interface Ticket {

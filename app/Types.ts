@@ -11,4 +11,13 @@ export interface SebebatsoApplicant {
     avatar: string;
     __v: number;
   }
-  
+  export interface Volunteer {
+    _id: string;
+    names: string;
+    email: string;
+    department: string;
+    phone: string;
+    designition: string;
+    avatar: string;
+    __v: number;
+  }
