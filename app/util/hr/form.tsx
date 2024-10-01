@@ -214,7 +214,6 @@ const VolunteerRegistrationForm = () => {
 };
 
 // Components for bottom gradient and input containers
-
 const BottomGradient = () => {
   return (
     <>

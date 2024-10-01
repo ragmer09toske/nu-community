@@ -17,6 +17,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { SebebatsoApplicant } from "../Types";
 import { nu_api_base_url } from "../Contants";
+import HrViews from "../util/hr/Views";
 
 const DashboardSbabi = () => {
   const [ticketData, setTicketData] = useState<SebebatsoApplicant[] | null>(null);
@@ -145,6 +146,7 @@ const DashboardSbabi = () => {
           </Card>
         </div>
       </main>
+      <HrViews />
     </div>
   );
 };
