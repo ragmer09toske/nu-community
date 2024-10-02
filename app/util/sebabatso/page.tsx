@@ -415,6 +415,8 @@ import { Dialog,  DialogContent, DialogDescription, DialogHeader, DialogTitle, D
             <SelectContent position="popper">
               <div>
                 {!disabled && <div><SelectItem value="Youth Participant">Youth Participant</SelectItem>
+                <SelectItem value="Youth Exhibitor">Attendee</SelectItem>
+                <SelectItem value="Youth Exhibitor">Performer</SelectItem>
                 <SelectItem value="Youth Exhibitor">Youth Exhibitor</SelectItem>
                 <SelectItem value="Youth Presenter">Youth Presenter</SelectItem></div>}
                 <SelectItem value="Panelist">Panelist</SelectItem>
