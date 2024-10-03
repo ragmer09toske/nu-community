@@ -3,8 +3,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import useStore from "@/app/Store";
 import { AlignVerticalDistributeStart, AudioWaveform, Dessert, Fingerprint, ListOrderedIcon, Loader2, MoreHorizontal, Trophy, User2 } from 'lucide-react';
-import { WebinarFooter } from '@/app/academy/Footer';
-import Image from 'next/image';
+import {
+    Avatar,
+    AvatarFallback,
+    AvatarImage,
+} from "@/components/ui/avatar"
 import {
     Calendar,
   } from "lucide-react"
@@ -31,6 +34,7 @@ interface Ticket {
   organization: string;
   designition: string;
   phone: string;
+  avatar: string,
   _id: string;
   __v: number;
 }
@@ -98,7 +102,10 @@ const TicketDetails: React.FC = () => {
                     <CommandEmpty>No results found.</CommandEmpty>
                     <CommandGroup heading="Details">
                     <CommandItem>
-                        <User2 className="mr-2 h-4 w-4" />
+                        <Avatar>
+                            <AvatarImage src={ticketDetails?.avatar} alt="@shadcn" />
+                            <AvatarFallback>CN</AvatarFallback>
+                        </Avatar>
                         <span>{ticketDetails.issued_to}</span>
                     </CommandItem>
                     <CommandItem>
