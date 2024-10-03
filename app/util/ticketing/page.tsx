@@ -104,7 +104,9 @@ const TicketDetails: React.FC = () => {
                     <CommandItem>
                         <Avatar>
                             <AvatarImage src={ticketDetails?.avatar} alt="@shadcn" />
-                            <AvatarFallback>CN</AvatarFallback>
+                            <AvatarFallback>
+                                <Loader2 className='animate-spin' />
+                            </AvatarFallback>
                         </Avatar>
                         <span>{" " + ticketDetails.issued_to}</span>
                     </CommandItem>
