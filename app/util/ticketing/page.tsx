@@ -106,7 +106,7 @@ const TicketDetails: React.FC = () => {
                             <AvatarImage src={ticketDetails?.avatar} alt="@shadcn" />
                             <AvatarFallback>CN</AvatarFallback>
                         </Avatar>
-                        <span>{ticketDetails.issued_to}</span>
+                        <span>{" " + ticketDetails.issued_to}</span>
                     </CommandItem>
                     <CommandItem>
                         <AudioWaveform className="mr-2 h-4 w-4" />
