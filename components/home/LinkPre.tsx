@@ -17,12 +17,12 @@ export function LinkPreviewDemo() {
         are a great way to build modern websites.
       </p>
       <p className="text-neutral-500 dark:text-neutral-400 text-xl md:text-3xl max-w-3xl mx-auto">
-        Visit{" "}
+        {/* We{" "} */}
         <LinkPreview
-          url="https://ui.aceternity.com"
+          url="#"
           className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500"
         >
-          Aceternity UI
+          Nuclius UI
         </LinkPreview>{" "}
         for amazing Tailwind and Framer Motion components.
       </p>
