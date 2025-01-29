@@ -1,6 +1,6 @@
 import HeroVideoDialog from "@/components/ui/hero-video-dialog";
 
-export function HeroVideoDialogDemo() {
+export function HeroVideoDialogBanner() {
   return (
     <div className="relative">
       <HeroVideoDialog
