@@ -83,7 +83,7 @@
     height: auto;
     max-width: 100%;
   }
-  
+
   @media (max-width: 768px) {
     .ticket-container {
       width: 100%;

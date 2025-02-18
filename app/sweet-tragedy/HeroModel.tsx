@@ -1,6 +1,6 @@
 import HeroVideoDialog from "@/components/ui/hero-video-dialog";
 
-export function HeroVideoDialogDemo() {
+export function HeroVideoBanner() {
   return (
     <div className="relative">
       <HeroVideoDialog
@@ -14,7 +14,7 @@ export function HeroVideoDialogDemo() {
         className="hidden dark:block"
         animationStyle="from-center"
         videoSrc="#"
-        thumbnailSrc="/sweet-tragedy-banner.PNG"
+        thumbnailSrc="/blog/sweet-tragedy-banner.PNG"
         thumbnailAlt="Hero Video"
       />
     </div>
