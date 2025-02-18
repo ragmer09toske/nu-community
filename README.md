@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+d68ff9b9-8bce-4716-b673-72a2f7021ca0
 Nucleusdevs.com
 Welcome to the official repository for the Nucleus website, a platform dedicated to software developers and aspiring programmers. This website serves as the digital hub for Nucleus, providing access to a wide range of resources, including the Nucleus Academy for programming lessons and a dedicated section for developers.
 
