@@ -1,5 +1,4 @@
 "use client";
-
 import { Spotlight } from "./Spotlight";
 import { useEffect } from "react";
 import { useTheme } from "next-themes";
