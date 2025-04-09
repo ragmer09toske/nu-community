@@ -14,18 +14,18 @@ export function Resizable() {
     >
       <ResizablePanel defaultSize={50}>
         <div className="flex h-[350px] items-center justify-center p-6">
-          <span className="font-semibold border-none">
+          <span className="font-semibold">
             <IconCloudDemo />
           </span>
         </div>
       </ResizablePanel>
-      <ResizableHandle className="border-none" />
-      <ResizablePanel defaultSize={50} className="border-none">
-        <ResizablePanelGroup direction="vertical" className="border-none">
-          <ResizableHandle className="border-none" />
-          <ResizablePanel defaultSize={75} className="border-none">
-            <div className="flex items-center justify-center mt-20 border-none">
-              <span className="font-semibold border-none">
+      <ResizableHandle />
+      <ResizablePanel defaultSize={50}>
+        <ResizablePanelGroup direction="vertical">
+          {/* <ResizableHandle /> */}
+          <ResizablePanel defaultSize={75}>
+            <div className="flex items-center justify-center mt-20">
+              <span className="font-semibold">
                 <Gobe />
               </span>
             </div>
