@@ -1,20 +1,10 @@
 "use client";
 
 import { Spotlight } from "./Spotlight";
-import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./navbar-menu";
-import Music from "./Music";
-import { HomeText } from "./HomeText";
+import { useEffect } from "react";
 import { useTheme } from "next-themes";
-import { Team } from "./Footer";
 import { Resizable } from "./home/Grid";
 import { HyperTextDemo } from "./home/HyperText";
-import { NuBrainic } from "@/app/learn/Shop/block";
-import { ResizableChat } from "./home/ResizeChat";
-import { MarqueeDemo } from "./home/Marqueer";
-import { AnimatedBeamDemo } from "./home/NuBrainic";
-import { LinkPreviewDemo } from "./home/LinkPre";
 
 interface User {
   _id: string;
@@ -47,9 +37,6 @@ export default function Home_Data_One_Repo() {
         className="-top-40 left-0 md:left-60 md:-top-20"
         fill="white"
       />
-      <div className="fixed bottom-32 z-[9999]">
-        {/* <AnimatedGridPattern /> */}
-      </div>
       <div className="relative">
         <section>
           <div className="flex justify-center p-5">
@@ -60,11 +47,6 @@ export default function Home_Data_One_Repo() {
               <Resizable />
             </div>
           </div>
-          <div className="p-5 pl-52 flex gap-5">
-            {/* <MarqueeDemo /> */}
-            {/* <AnimatedBeamDemo /> */}
-          </div>
-          <LinkPreviewDemo />
         </section>
       </div>
     </div>
