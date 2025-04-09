@@ -1,5 +1,4 @@
 import React from "react";
-import { HeroVideoBanner } from "./HeroModel";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";

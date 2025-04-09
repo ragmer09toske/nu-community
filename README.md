@@ -1,4 +1,9 @@
 d68ff9b9-8bce-4716-b673-72a2f7021ca0
+c9af3b2b-24b1-4580-92be-4ba61471a71f
+
+976500b7-58e2-4f99-ba65-5deca5333344
+45247321-2589-4599-bf26-5411bb0a30ad
+
 Nucleusdevs.com
 Welcome to the official repository for the Nucleus website, a platform dedicated to software developers and aspiring programmers. This website serves as the digital hub for Nucleus, providing access to a wide range of resources, including the Nucleus Academy for programming lessons and a dedicated section for developers.
 
@@ -48,6 +53,7 @@ Nucleus is a tech company specializing in software engineering, offering tailore
 This is a Next.js project bootstrapped with create-next-app.
 
 **Features**
+
 - **Developers' Section:** A dedicated space for developers to access resources, tools, and community discussions.
 - **Nucleus Academy:** Access to a variety of programming lessons, including membership-based courses.
 - **Blog:** Stay updated with the latest in software development, company news, and announcements.
@@ -58,27 +64,30 @@ This is a Next.js project bootstrapped with create-next-app.
 First, run the development server:
 
 Copy code
+
 ```bash
 >>>>>>> 43ec3f5de8c086d7a0166e996e938f1f4bc3883e
 npm run dev
 ```
 
 **or**
+
 ```bash
 yarn dev
 ```
 
 **or**
-```bash 
+
+```bash
 pnpm dev
 ```
 
 **or**
-```bash
+
+````bash
 bun dev
 Open http://localhost:3000 with your browser to see the result.
 
-<<<<<<< HEAD
 You can start editing the page by modifying app/page.tsx. The page auto-updates as you edit the file.
 
 This project uses next/font to automatically optimize and load Inter, a custom Google Font.
@@ -126,7 +135,7 @@ For any inquiries, please contact us at:
 
 Email: support@nucleus.com
 Website: https://nucleusdevs.com
-=======
+
 Open http://localhost:3000 with your browser to see the result.
 
 You can start editing the page by modifying app/page.tsx. The page auto-updates as you edit the file.
@@ -139,20 +148,22 @@ To run the website locally, follow these steps:
 **Clone the repository:**
 
 Copy code
-```bash 
+```bash
 git clone https://github.com/yourusername/nucleus-website.git
-```
+````
 
 Navigate to the project directory:
 
 Copy code
-```bash 
+
+```bash
 cd nucleus-website
 ```
 
 **Install dependencies:**
 
 Copy code
+
 ```bash
 npm install
 ```
@@ -160,12 +171,14 @@ npm install
 **Start the development server:**
 
 Copy code
-```bash 
+
+```bash
 npm run dev
 ```
 
-Open your browser and go to 
-```bash 
+Open your browser and go to
+
+```bash
 http://localhost:3000.
 ```
 
@@ -184,5 +197,4 @@ For any inquiries, please contact us at:
 
 Email: help@nucleusdevs.com
 
-Website: https://nucleusdevs.com 
->>>>>>> 43ec3f5de8c086d7a0166e996e938f1f4bc3883e
+Website: https://nucleusdevs.com
