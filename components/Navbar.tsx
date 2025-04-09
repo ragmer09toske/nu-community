@@ -45,20 +45,20 @@ export default function Navbar() {
   const Brand = () => (
     <div className="flex items-center justify-between py-5 md:block z-[9999]">
       <a href="/">
-        <Image src="/nu.png" width={40} height={10} alt="Float UI logo" />
+        <Image src="/nu.png" width={30} height={10} alt="Float UI logo" />
       </a>
     </div>
   );
 
   return (
     <nav
-      className={`pb-5 z-[9999] pt-5 md:text-sm ${
+      className={`pb-5 z-[9999] md:text-sm ${
         state
-          ? "absolute top-0 inset-x-0 bg-white shadow-lg rounded-xl border mx-2 mt-2 md:shadow-none md:border-none md:mx-0 md:mt-0 md:relative md:bg-transparent"
+          ? "absolute top-0 inset-x-0 bg-white shadow-lg rounded-xl mx-2 mt-2 md:shadow-none md:border-none md:mx-0 md:mt-0 md:relative md:bg-transparent"
           : ""
       }`}
     >
-      <div className="gap-x-14 items-center max-w-screen-xl mx-auto px-4 md:flex md:px-8">
+      <div className="gap-x-14 items-center max-w-screen-xl  mx-auto px-4 md:flex md:px-8">
         <div
           className={`flex-1 items-center text-white md:flex md:items-center md:gap-6 ${
             state ? "block mt-4 md:mt-0" : "hidden md:flex"
@@ -73,7 +73,7 @@ export default function Navbar() {
                 </div>
               </MenuItem>
               <MenuItem setActive={setActive} active={active} item="Services">
-                <div className="  text-sm grid grid-cols-2 gap-10 p-4">
+                <div className="text-sm grid grid-cols-2 gap-10 p-4">
                   <ProductItem
                     title="Pricing"
                     href="/pricing"
@@ -114,7 +114,7 @@ export default function Navbar() {
             </Menu>
           </div>
         </div>
-        <div className="z-50 items-center justify-end mt-6 space-y-6 md:flex md:mt-0">
+        {/* <div className="z-50 items-center justify-end mt-6 space-y-6 md:flex md:mt-0">
           {!UserDetails ? (
             <div
               className="flex items-center justify-center gap-x-1 py-2 px-4 text-white font-medium bg-gray-800 hover:bg-gray-700 active:bg-gray-900 rounded-full md:inline-flex"
@@ -125,7 +125,8 @@ export default function Navbar() {
           ) : (
             <LoginDialog />
           )}
-        </div>
+        </div> */}
+        <div className="absolute left-0  border-b border-dashed w-[100%] mt-16 "></div>
       </div>
     </nav>
   );
