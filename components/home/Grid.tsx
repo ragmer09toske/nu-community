@@ -20,10 +20,10 @@ export function Resizable() {
         </div>
       </ResizablePanel>
       <ResizableHandle />
-      <ResizablePanel defaultSize={50}>
+      <ResizablePanel defaultSize={45}>
         <ResizablePanelGroup direction="vertical">
           {/* <ResizableHandle /> */}
-          <ResizablePanel defaultSize={75}>
+          <ResizablePanel defaultSize={80}>
             <div className="flex items-center justify-center mt-20">
               <span className="font-semibold">
                 <Gobe />
