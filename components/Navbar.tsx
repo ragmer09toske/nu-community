@@ -114,10 +114,10 @@ export default function Navbar() {
             </Menu>
           </div>
         </div>
-        {/* <div className="z-50 items-center justify-end mt-6 space-y-6 md:flex md:mt-0">
+        <div className="z-50 items-center justify-end mt-6 space-y-6 md:flex md:mt-0">
           {!UserDetails ? (
             <div
-              className="flex items-center justify-center gap-x-1 py-2 px-4 text-white font-medium bg-gray-800 hover:bg-gray-700 active:bg-gray-900 rounded-full md:inline-flex"
+              className="flex items-center justify-center gap-x-1 py-2 px-4 md:inline-flex"
               onClick={() => setIsOpen(false)}
             >
               <LoginDialog />
@@ -125,7 +125,7 @@ export default function Navbar() {
           ) : (
             <LoginDialog />
           )}
-        </div> */}
+        </div>
         <div className="absolute left-0  border-b border-dashed w-[100%] mt-16 "></div>
       </div>
     </nav>
