@@ -127,6 +127,8 @@ export default function Navbar() {
           )}
         </div>
         <div className="absolute left-0  border-b border-dashed w-[100%] mt-16 "></div>
+        <div className="absolute left-[15%]  border-l border-dashed h-[200%]"></div>
+        <div className="absolute right-[15%]  border-l border-dashed h-[200%]"></div>
       </div>
     </nav>
   );

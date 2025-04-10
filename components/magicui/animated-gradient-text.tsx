@@ -12,8 +12,8 @@ export function AnimatedGradientText({
   children,
   className,
   speed = 1,
-  colorFrom = "#ffaa40",
-  colorTo = "#9c40ff",
+  colorFrom = "#bc13fe",
+  colorTo = "#00ff00",
   ...props
 }: AnimatedGradientTextProps) {
   return (
@@ -27,7 +27,7 @@ export function AnimatedGradientText({
       }
       className={cn(
         `inline animate-gradient bg-gradient-to-r from-[var(--color-from)] via-[var(--color-to)] to-[var(--color-from)] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`,
-        className,
+        className
       )}
       {...props}
     >

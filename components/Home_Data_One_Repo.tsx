@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Resizable } from "./home/Grid";
 import { HyperTextDemo } from "./home/HyperText";
+import { CloudProducts } from "@/app/Cloud";
 
 interface User {
   _id: string;
@@ -19,7 +20,7 @@ export default function Home_Data_One_Repo() {
     setTheme("dark");
   }, []);
   return (
-    <div className="relative isolate px-6 pt-14 lg:px-8 h-full">
+    <div className="relative isolate px-6 lg:px-8 h-full">
       <div
         className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
         aria-hidden="true"
@@ -45,6 +46,15 @@ export default function Home_Data_One_Repo() {
             <div className="flex-none max-w-xl">
               <Resizable />
             </div>
+            {/* <CloudProducts /> */}
+          </div>
+        </section>
+      </div>
+
+      <div className="relative">
+        <section>
+          <div className="max-w-screen-xl mx-auto px-4 pt-5 gap-5 text-gray-600 overflow-hidden md:px-8 md:flex">
+            <CloudProducts />
           </div>
         </section>
       </div>
