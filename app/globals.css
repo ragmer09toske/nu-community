@@ -115,11 +115,32 @@
     }
   }
   @keyframes rainbow {
-  0% {
-    background-position: 0%;
+    0% {
+      background-position: 0%;
     }
-  100% {
-    background-position: 200%;
+    100% {
+      background-position: 200%;
     }
   }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #00000000; /* Dark background for the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #55555500; /* Dark gray scroll thumb */
+  border-radius: 10px;
+  padding-left: 5px;
+  border: 2px solid #1e1e1e00; /* Optional border to match track */
+}
+
+/* Optional for Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #55555541 #00000000;
 }

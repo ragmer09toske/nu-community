@@ -58,7 +58,7 @@ export default function Navbar() {
           : ""
       }`}
     >
-      <div className="gap-x-14 items-center max-w-screen-xl  mx-auto px-4 md:flex md:px-8">
+      <div className="gap-x-14 items-center max-w-screen-xl  mx-auto px-4 md:flex md:px-8 overflow-hidden">
         <div
           className={`flex-1 items-center text-white md:flex md:items-center md:gap-6 ${
             state ? "block mt-4 md:mt-0" : "hidden md:flex"
@@ -127,8 +127,8 @@ export default function Navbar() {
           )}
         </div>
         <div className="absolute left-0  border-b border-dashed w-[100%] mt-16 "></div>
-        <div className="absolute left-[15%]  border-l border-dashed h-[200%]"></div>
-        <div className="absolute right-[15%]  border-l border-dashed h-[200%]"></div>
+        <div className="absolute left-[15%]  border-l border-dashed h-[210%]"></div>
+        <div className="absolute right-[15%]  border-l border-dashed h-[210%]"></div>
       </div>
     </nav>
   );
