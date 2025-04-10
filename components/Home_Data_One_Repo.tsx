@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 import { Resizable } from "./home/Grid";
 import { HyperTextDemo } from "./home/HyperText";
 import { CloudProducts } from "@/app/Cloud";
+import SideMenu from "@/app/Cloud/sideMenu";
 
 interface User {
   _id: string;
@@ -55,6 +56,7 @@ export default function Home_Data_One_Repo() {
         <section>
           <div className="max-w-screen-xl mx-auto px-4 pt-5 gap-5 text-gray-600 overflow-hidden md:px-8 md:flex">
             <CloudProducts />
+            <SideMenu />
           </div>
         </section>
       </div>

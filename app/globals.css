@@ -129,14 +129,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #00000000; /* Dark background for the track */
+  background: #00000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #55555500; /* Dark gray scroll thumb */
+  background-color: #55555500;
   border-radius: 10px;
   padding-left: 5px;
-  border: 2px solid #1e1e1e00; /* Optional border to match track */
+  border: 2px solid #1e1e1e00;
 }
 
 /* Optional for Firefox */

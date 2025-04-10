@@ -82,7 +82,7 @@ export function SignupForm({ setLoading }: { setLoading: any }) {
   };
 
   return (
-    <Card className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input">
+    <div className="max-w-md w-full mx-auto md:rounded-2xl p-4 md:p-8 shadow-input">
       <form className="my-8" onSubmit={handleSubmit}>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
@@ -154,7 +154,7 @@ export function SignupForm({ setLoading }: { setLoading: any }) {
           </button>
         </div>
       </form>
-    </Card>
+    </div>
   );
 }
 export function LoginDialog() {

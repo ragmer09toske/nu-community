@@ -1,17 +1,6 @@
 "use client";
 
-import {
-  Box,
-  Cog,
-  Database,
-  DatabaseZap,
-  Globe,
-  Lock,
-  Search,
-  Settings,
-  Sparkles,
-  User,
-} from "lucide-react";
+import { Cog, DatabaseZap, Globe, Lock, User } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 export function CloudProducts() {
