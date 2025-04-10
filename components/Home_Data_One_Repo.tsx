@@ -1,6 +1,6 @@
 "use client";
 import { Spotlight } from "./Spotlight";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Resizable } from "./home/Grid";
 import { HyperTextDemo } from "./home/HyperText";
@@ -16,6 +16,7 @@ interface User {
   __v: number;
 }
 export default function Home_Data_One_Repo() {
+  const [sideMenu, setSideMenu] = useState<boolean>(false);
   const { theme, setTheme } = useTheme();
   useEffect(() => {
     setTheme("dark");
@@ -55,8 +56,12 @@ export default function Home_Data_One_Repo() {
       <div className="relative">
         <section>
           <div className="max-w-screen-xl mx-auto px-4 pt-5 gap-5 text-gray-600 overflow-hidden md:px-8 md:flex">
-            <CloudProducts />
-            <SideMenu />
+            <CloudProducts setSideMenu={setSideMenu} />
+            {sideMenu && (
+              <div>
+                <SideMenu />
+              </div>
+            )}
           </div>
         </section>
       </div>
