@@ -6,9 +6,7 @@ import { Input } from "./ui/input";
 import { cn } from "@/app/utils/cn";
 import axios from "axios";
 import useStore from "@/app/Store";
-import { Card } from "./ui/card";
 import LinearBuffer from "./MUI_LoadBuffer";
-import DefaultUserAvater from "@/User/Avater";
 import { nu_api_base_url } from "@/app/Contants";
 import { AnimatedGradientButtom } from "./AnimatedGradient";
 
@@ -16,6 +14,7 @@ export function SignupForm({ setLoading }: { setLoading: any }) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
+
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const setLoginToken = useStore((state) => state.setLoginToken);
@@ -24,61 +23,34 @@ export function SignupForm({ setLoading }: { setLoading: any }) {
   const [error, setError] = useState<string>();
   error;
 
-  const userIDloggedIn = useStore((state) => state.userID);
-  const loginToken = useStore((state) => state.loginToken);
-
-  async function makeUserObject() {
-    try {
-      setLoading(true);
-      const response = await axios.get(
-        `${nu_api_base_url}/codiac/${userIDloggedIn}`,
-        {
-          headers: {
-            Authorization: `Bearer ${loginToken}`,
-          },
-        }
-      );
-      setLoading(false);
-      setUser(response.data);
-    } catch (error) {
-      console.error("We ran into a prorblem");
-    }
-  }
-
   async function login(email: any, password: any) {
     try {
-      setLoading(true);
-      const response = await axios.post(`${nu_api_base_url}/auth/login`, {
-        email: email,
-        password: password,
+      const res = await fetch(`${nu_api_base_url}/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+        credentials: "include",
       });
-      setLoading(false);
-      const { token, userID } = response.data;
-      setUserID(userID);
-      setLoginToken(token);
-      makeUserObject();
-    } catch (error) {
-      setLoading(false);
-      if (error instanceof Error) {
-        setError("Wrong credentials");
-      } else {
-        setError(String(error));
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Login failed");
       }
+
+      // 🎉 Success: You can store the token, redirect, etc.
+      console.log("Logged in:", data);
+    } catch (err: any) {
+      setError(err.message || "Something went wrong");
+    } finally {
+      setLoading(false);
     }
   }
 
   const handleLogin = () => {
-    const waitlogin = async () => {
-      try {
-        await login(email, password);
-        setTimeout(() => {
-          // window.location.reload();
-        }, 1000);
-      } catch (e) {
-        console.log("We run into some trouble");
-      }
-    };
-    waitlogin();
+    if (email && password) login(email, password);
   };
 
   return (
@@ -160,26 +132,19 @@ export function SignupForm({ setLoading }: { setLoading: any }) {
 export function LoginDialog() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isLoading, setLoading] = React.useState(false);
-  const UserDetails = useStore((state) => state.user);
+
   const logout = () => {
     localStorage.removeItem("user");
     window.location.reload();
   };
   return (
     <div className="w-full">
-      {!UserDetails ? (
-        <div
-          className="mx-auto block cursor-pointer"
-          onClick={() => setIsOpen(true)}
-        >
-          <AnimatedGradientButtom />
-        </div>
-      ) : (
-        // this is Where the The User will go
-        <div className="w-full">
-          <DefaultUserAvater />
-        </div>
-      )}
+      <div
+        className="mx-auto block cursor-pointer"
+        onClick={() => setIsOpen(true)}
+      >
+        <AnimatedGradientButtom />
+      </div>
       <Dialog open={isOpen} onClose={(val) => setIsOpen(val)} static={true}>
         <DialogPanel className="flex flex-col gap-5 w-[80]">
           {isLoading && <LinearBuffer />}
@@ -192,7 +157,7 @@ export function LoginDialog() {
             </div>
           </div>
           <div className="gap-5">
-            <SignupForm setLoading={setLoading} />
+            {/* <SignupForm setLoading={setLoading} /> */}
           </div>
         </DialogPanel>
       </Dialog>
