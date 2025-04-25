@@ -1,10 +1,11 @@
-'use client';
+import { LoginForm } from "./login-form.tsx";
 
-import { signIn } from "next-auth/react";
-
-export default function Login() {
+export default function Page() {
   return (
-    // <button onClick={() => signIn('google')}>Login</button>
-    <button onClick={() => signIn('github')}>Login</button>
-  )
+    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
+      <div className="w-full max-w-sm">
+        <LoginForm />
+      </div>
+    </div>
+  );
 }

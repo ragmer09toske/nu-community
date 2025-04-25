@@ -1,17 +1,24 @@
-// import { NextApiRequest, NextApiResponse } from "next";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
-// // Define custom middleware type
-// type CustomMiddleware = (
-//   req: NextApiRequest,
-//   res: NextApiResponse,
-// ) => Promise<void> | void;
+export function middleware(request: NextRequest) {
+  const token = request.cookies.get("authToken")?.value;
 
-// // Define your custom middleware function
-// const customMiddleware: CustomMiddleware = async (req, res) => {
-//   // Execute any logic here if needed
-// };
+  const protectedRoutes = ["/projects"];
 
-// export default customMiddleware;
+  const isProtected = protectedRoutes.some((route) =>
+    request.nextUrl.pathname.startsWith(route)
+  );
 
-export {default} from "next-auth/middleware"
-export const config = { matcher: ["/codiac/nodes"]}
+  if (isProtected && !token) {
+    const loginUrl = new URL("/login", request.url);
+    return NextResponse.redirect(loginUrl);
+  }
+
+  return NextResponse.next();
+}
+
+// Tell Next.js where to apply this middleware
+export const config = {
+  matcher: ["/projects/:path*"],
+};
