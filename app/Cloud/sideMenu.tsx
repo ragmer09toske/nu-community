@@ -1,6 +1,7 @@
 import React from "react";
 import RegisterDialog from "../pricing/RegisterDialog";
 import { LoginDialog, SignupForm } from "@/components/login";
+import Register from "../register/page";
 
 const SideMenu = () => {
   const [isLoading, setLoading] = React.useState(false);
@@ -12,7 +13,7 @@ const SideMenu = () => {
         </div>
       </div>
       <div className="gap-5">
-        <SignupForm setLoading={setLoading} />
+        <Register />
       </div>
     </div>
   );
