@@ -196,3 +196,11 @@ Email: help@nucleusdevs.com
 Website: https://nucleusdevs.com
 
 > > > > > > > 43ec3f5de8c086d7a0166e996e938f1f4bc3883e
+
+apiKey: "AIzaSyD1GVlAO6c9aCaN8vsDbKj1an-VLBhvPs0",
+  authDomain: "next-raymond09.firebaseapp.com",
+  projectId: "next-raymond09",
+  storageBucket: "next-raymond09.firebasestorage.app",
+  messagingSenderId: "630282301670",
+  appId: "1:630282301670:web:87aba01958284ef6840b27",
+  measurementId: "G-C6EBB14Y6S"
